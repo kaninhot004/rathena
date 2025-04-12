@@ -6,6 +6,7 @@ prontera,163,178,1	script	ตั้งค่า	10372,{
 	"เปิด THE BOX ทีเดียวหมดเลย [" + (#IS_ONE_TAP_OPEN ? "^1c9311ON^000000" : "^d32323OFF^000000") + "]",L_OneTapTheBox,
 	"บอกว่าได้ Zeny เท่าไหร่ [" + (#IS_ZENY_INFO ? "^1c9311ON^000000" : "^d32323OFF^000000") + "]",L_ZenyInfo,
 	"บอกว่าได้ Combo เท่าไหร่ [" + (#IS_COMBO_INFO ? "^1c9311ON^000000" : "^d32323OFF^000000") + "]",L_ComboInfo,
+	"แจ้ง % THE BOX ตก [" + (#IS_SKIP_THE_BOX_RATE ? "^d32323OFF^000000" : "^1c9311ON^000000") + "]",L_TheBoxRateInfo,
 	"แจ้ง % Skill Orb ตก [" + (#IS_SKIP_SKILL_ORB_RATE ? "^d32323OFF^000000" : "^1c9311ON^000000") + "]",L_SkillOrbRateInfo,
 	"ทำลาย Item ที่สุ่มได้แล้วไม่ตรงกับที่จะได้ ด้วยระบบสุ่มจนกว่าจะเจอ [" + (#IS_LOCK_TRADE_DESTROY ? "^1c9311ON^000000" : "^d32323OFF^000000") + "]",L_LockTradeDestroy,
 	"รวม Item ที่แยกกันอยู่",L_ItemMerge,
@@ -48,6 +49,11 @@ prontera,163,178,1	script	ตั้งค่า	10372,{
 	L_ComboInfo:
 	#IS_COMBO_INFO = !#IS_COMBO_INFO;
 	message strcharinfo(0),"บอกว่าได้ Combo เท่าไหร่ [" + (#IS_COMBO_INFO ? "ON" : "OFF") + "]";
+	goto L_Menu;
+	
+	L_TheBoxRateInfo:
+	#IS_SKIP_THE_BOX_RATE = !#IS_SKIP_THE_BOX_RATE;
+	message strcharinfo(0),"แจ้ง % THE BOX ตก [" + (#IS_SKIP_THE_BOX_RATE ? "^d32323OFF^000000" : "^1c9311ON^000000") + "]";
 	goto L_Menu;
 	
 	L_SkillOrbRateInfo:

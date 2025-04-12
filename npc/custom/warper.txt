@@ -300,7 +300,7 @@ OnGetReward:
 			@tbDropDelay = .@timeTick + 1;
 			getitem THE_BOX_ITEM_ID,.@isBoss ? rand(1,max(2,getd("$tbrBossRate" + lastPlayMap))) : 1;
 		}
-		else
+		else if(!#IS_SKIP_SKILL_ORB_RATE)
 		dispbottom "ต้องสุ่มได้ < " + .@tbDropChance + " เพื่อรับ " + getitemname(THE_BOX_ITEM_ID) + " คุณสุ่มได้ " + .@tbRand;
 	}
 	
