@@ -55,10 +55,10 @@ Body:
     Items:
       - Index: 0
         Item: Phracon   
-        Zeny: 200
+        Zeny: 20
       - Index: 1
         Item: Emveretarcon   
-        Zeny: 1000
+        Zeny: 40
       - Index: 2
         Item: Oridecon   
         RequiredItems:
