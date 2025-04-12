@@ -1,7 +1,7 @@
 -	script	Buff	-1,{
 	.@fullBuffCostItemId = THE_BOX_ITEM_ID;
 	.@fullBuffCost = (1 * max(1,fullBuffCostMultiplier));
-	.@repairAllPrice = (100000 * max(1,repairAllPriceMultiplier));
+	.@repairAllPrice = (100 * max(1,repairAllPriceMultiplier));
 	menu
 	"ฟื้นฟู HP & SP เต็ม",-
 	,"ฟื้นฟู HP & SP & AP เต็ม & รับ Buff & Reset Cooldown [^af1ada" + getitemname(.@fullBuffCostItemId) + " " + F_InsertComma(.@fullBuffCost) + " ชิ้น^000000] (สุ่มราคาใหม่หลังซื้อ)",L_FullBuff
