@@ -505,7 +505,7 @@ function	script	Storage	{
 		if(getd("#STORAGE" + .@storageId))
 		openstorage2 .@storageId,STOR_MODE_GET|STOR_MODE_PUT;
 		else{
-			.@price = (10000000 * .@storageId);
+			.@price = (10000 * .@storageId);
 			menu
 			"ยกเลิก",-
 			,"ซื้อคลังเก็บของพิเศษ " + .@storageId + " (ใช้ได้ทั้ง ID) [^af1ada" + F_InsertComma(.@price) + "z^000000]",L_Buy;
