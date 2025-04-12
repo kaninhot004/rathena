@@ -330,7 +330,13 @@ uint64 ItemDatabase::parseBodyNode(const ryml::NodeRef& node) {
 			item->slots = 0;
 	}
 
-	if (this->nodeExists(node, "Jobs")) {
+	if (battle_config.config_all_equipment_skip_job) {
+		// [Start's]
+		item->class_base[0] = item->class_base[1] = item->class_base[2] = 0;
+
+		itemdb_jobid2mapid(item->class_base, MAPID_ALL, true);
+	}
+	else if (this->nodeExists(node, "Jobs")) {
 		const ryml::NodeRef& jobNode = node["Jobs"];
 
 		item->class_base[0] = item->class_base[1] = item->class_base[2] = 0;
@@ -376,7 +382,11 @@ uint64 ItemDatabase::parseBodyNode(const ryml::NodeRef& node) {
 		}
 	}
 
-	if (this->nodeExists(node, "Classes")) {
+	if (battle_config.config_all_equipment_skip_class) {
+		// [Start's]
+		item->class_upper = ITEMJ_ALL;
+	}
+	else if (this->nodeExists(node, "Classes")) {
 		const auto& classNode = node["Classes"];
 
 		if (this->nodeExists(classNode, "All")) {
@@ -423,7 +433,11 @@ uint64 ItemDatabase::parseBodyNode(const ryml::NodeRef& node) {
 			item->class_upper = ITEMJ_ALL;
 	}
 
-	if (this->nodeExists(node, "Gender")) {
+	if (battle_config.config_all_equipment_skip_gender) {
+		// [Start's]
+		item->sex = SEX_BOTH;
+	}
+	else if (this->nodeExists(node, "Gender")) {
 		std::string gender;
 
 		if (!this->asString(node, "Gender", gender))

@@ -45,6 +45,15 @@ config_all_equipment_refinable: 1
 // Equipment ทุกชิ้น Grade ได้ไหม (1 ได้)
 config_all_equipment_gradable: 1
 
+// Equipment ทุกชิ้น ไม่สนใจเพศ (1 ไม่สน)
+config_all_equipment_skip_gender: 0
+
+// Equipment ทุกชิ้น ไม่สนใจคลาส (1 ไม่สน)
+config_all_equipment_skip_class: 0
+
+// Equipment ทุกชิ้น ไม่สนใจอาชีพ (1 ไม่สน)
+config_all_equipment_skip_job: 0
+
 // Item ทุกชิ้นตั้งร้านค้ารับซื้อได้ไหม (1ได้)
 config_all_item_buying_store: 1
 

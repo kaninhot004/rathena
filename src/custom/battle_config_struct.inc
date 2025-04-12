@@ -28,6 +28,9 @@
  int config_enchantment_maximum;
  int config_all_equipment_refinable;
  int config_all_equipment_gradable;
+ int config_all_equipment_skip_gender;
+ int config_all_equipment_skip_class;
+ int config_all_equipment_skip_job;
  int config_all_item_buying_store;
  int config_all_item_no_bind;
  int config_all_item_trade;
