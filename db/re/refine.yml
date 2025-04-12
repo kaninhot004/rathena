@@ -55,258 +55,240 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 10000
-                Price: 20000
+                Price: 20
                 Material: Elunium
+                DowngradeAmount: 1
               - Type: HD
                 Rate: 10000
-                Price: 40000
+                Price: 40
                 Material: Refine_Hack_Powder
           - Level: 2
             Bonus: 600
             Chances:
               - Type: Normal
                 Rate: 9500
-                Price: 40000
+                Price: 40
                 Material: Elunium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 10000
-                Price: 80000
+                Price: 80
                 Material: Refine_Hack_Powder
           - Level: 3
             Bonus: 900
             Chances:
               - Type: Normal
                 Rate: 9000
-                Price: 60000
+                Price: 60
                 Material: Elunium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 9500
-                Price: 120000
+                Price: 120
                 Material: Refine_Hack_Powder
           - Level: 4
             Bonus: 1200
             Chances:
               - Type: Normal
                 Rate: 8500
-                Price: 80000
+                Price: 80
                 Material: Elunium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 9000
-                Price: 160000
+                Price: 160
                 Material: Refine_Hack_Powder
           - Level: 5
             Bonus: 1500
             Chances:
               - Type: Normal
                 Rate: 8000
-                Price: 100000
+                Price: 100
                 Material: Elunium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 8500
-                Price: 200000
+                Price: 200
                 Material: Refine_Hack_Powder
           - Level: 6
             Bonus: 1800
             Chances:
               - Type: Normal
                 Rate: 7500
-                Price: 120000
+                Price: 120
                 Material: Elunium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 8000
-                Price: 240000
+                Price: 240
                 Material: Refine_Hack_Powder
           - Level: 7
             Bonus: 2100
             Chances:
               - Type: Normal
                 Rate: 7000
-                Price: 140000
+                Price: 140
                 Material: Elunium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 7500
-                Price: 280000
+                Price: 280
                 Material: Refine_Hack_Powder
           - Level: 8
             Bonus: 2400
             Chances:
               - Type: Normal
                 Rate: 6500
-                Price: 160000
+                Price: 160
                 Material: Elunium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 7000
-                Price: 320000
+                Price: 320
                 Material: Refine_Hack_Powder
           - Level: 9
             Bonus: 2700
             Chances:
               - Type: Normal
                 Rate: 6000
-                Price: 180000
+                Price: 180
                 Material: Elunium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 6500
-                Price: 360000
+                Price: 360
                 Material: Refine_Hack_Powder
           - Level: 10
             Bonus: 3000
             Chances:
               - Type: Normal
                 Rate: 5500
-                Price: 200000
+                Price: 200
                 Material: Elunium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 6000
-                Price: 400000
+                Price: 400
                 Material: Refine_Hack_Powder
           - Level: 11
             Bonus: 3300
             Chances:
               - Type: Normal
                 Rate: 5000
-                Price: 220000
+                Price: 220
                 Material: Elunium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 5500
-                Price: 440000
+                Price: 440
                 Material: Refine_Hack_Powder
           - Level: 12
             Bonus: 3600
             Chances:
               - Type: Normal
                 Rate: 4500
-                Price: 240000
+                Price: 240
                 Material: Elunium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 5000
-                Price: 480000
+                Price: 480
                 Material: Refine_Hack_Powder
           - Level: 13
             Bonus: 3900
             Chances:
               - Type: Normal
                 Rate: 4000
-                Price: 260000
+                Price: 260
                 Material: Elunium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 4500
-                Price: 520000
+                Price: 520
                 Material: Refine_Hack_Powder
           - Level: 14
             Bonus: 4200
             Chances:
               - Type: Normal
                 Rate: 3500
-                Price: 280000
+                Price: 280
                 Material: Elunium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 4000
-                Price: 560000
+                Price: 560
                 Material: Refine_Hack_Powder
           - Level: 15
             Bonus: 4500
             Chances:
               - Type: Normal
                 Rate: 3000
-                Price: 300000
+                Price: 300
                 Material: Elunium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 3500
-                Price: 600000
+                Price: 600
                 Material: Refine_Hack_Powder
           - Level: 16
             Bonus: 4800
             Chances:
               - Type: Normal
                 Rate: 2500
-                Price: 320000
+                Price: 320
                 Material: Elunium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 3000
-                Price: 640000
+                Price: 640
                 Material: Refine_Hack_Powder
           - Level: 17
             Bonus: 5100
             Chances:
               - Type: Normal
                 Rate: 2000
-                Price: 340000
+                Price: 340
                 Material: Elunium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 2500
-                Price: 680000
+                Price: 680
                 Material: Refine_Hack_Powder
           - Level: 18
             Bonus: 5400
             Chances:
               - Type: Normal
                 Rate: 1500
-                Price: 360000
+                Price: 360
                 Material: Elunium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 2000
-                Price: 720000
+                Price: 720
                 Material: Refine_Hack_Powder
           - Level: 19
             Bonus: 5700
             Chances:
               - Type: Normal
                 Rate: 1000
-                Price: 380000
+                Price: 380
                 Material: Elunium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 1500
-                Price: 760000
+                Price: 760
                 Material: Refine_Hack_Powder
           - Level: 20
             Bonus: 6000
             Chances:
               - Type: Normal
                 Rate: 500
-                Price: 400000
+                Price: 400
                 Material: Elunium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 1000
-                Price: 800000
+                Price: 800
                 Material: Refine_Hack_Powder
       - Level: 2
         RefineLevels:
@@ -315,258 +297,240 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 10000
-                Price: 40000
+                Price: 200
                 Material: Carnium
+                DowngradeAmount: 1
               - Type: HD
                 Rate: 10000
-                Price: 80000
+                Price: 400
                 Material: Refine_Hack_Powder
           - Level: 2
             Bonus: 720
             Chances:
               - Type: Normal
                 Rate: 9500
-                Price: 80000
+                Price: 400
                 Material: Carnium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 10000
-                Price: 160000
+                Price: 800
                 Material: Refine_Hack_Powder
           - Level: 3
             Bonus: 1080
             Chances:
               - Type: Normal
                 Rate: 9000
-                Price: 120000
+                Price: 600
                 Material: Carnium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 9500
-                Price: 240000
+                Price: 1200
                 Material: Refine_Hack_Powder
           - Level: 4
             Bonus: 1440
             Chances:
               - Type: Normal
                 Rate: 8500
-                Price: 160000
+                Price: 800
                 Material: Carnium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 9000
-                Price: 320000
+                Price: 1600
                 Material: Refine_Hack_Powder
           - Level: 5
             Bonus: 1800
             Chances:
               - Type: Normal
                 Rate: 8000
-                Price: 200000
+                Price: 1000
                 Material: Carnium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 8500
-                Price: 400000
+                Price: 2000
                 Material: Refine_Hack_Powder
           - Level: 6
             Bonus: 2160
             Chances:
               - Type: Normal
                 Rate: 7500
-                Price: 240000
+                Price: 1200
                 Material: Carnium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 8000
-                Price: 480000
+                Price: 2400
                 Material: Refine_Hack_Powder
           - Level: 7
             Bonus: 2520
             Chances:
               - Type: Normal
                 Rate: 7000
-                Price: 280000
+                Price: 1400
                 Material: Carnium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 7500
-                Price: 560000
+                Price: 2800
                 Material: Refine_Hack_Powder
           - Level: 8
             Bonus: 2880
             Chances:
               - Type: Normal
                 Rate: 6500
-                Price: 320000
+                Price: 1600
                 Material: Carnium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 7000
-                Price: 640000
+                Price: 3200
                 Material: Refine_Hack_Powder
           - Level: 9
             Bonus: 3240
             Chances:
               - Type: Normal
                 Rate: 6000
-                Price: 360000
+                Price: 1800
                 Material: Carnium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 6500
-                Price: 720000
+                Price: 3600
                 Material: Refine_Hack_Powder
           - Level: 10
             Bonus: 3600
             Chances:
               - Type: Normal
                 Rate: 5500
-                Price: 400000
+                Price: 2000
                 Material: Carnium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 6000
-                Price: 800000
+                Price: 4000
                 Material: Refine_Hack_Powder
           - Level: 11
             Bonus: 3960
             Chances:
               - Type: Normal
                 Rate: 5000
-                Price: 440000
+                Price: 2200
                 Material: Carnium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 5500
-                Price: 880000
+                Price: 4400
                 Material: Refine_Hack_Powder
           - Level: 12
             Bonus: 4320
             Chances:
               - Type: Normal
                 Rate: 4500
-                Price: 480000
+                Price: 2400
                 Material: Carnium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 5000
-                Price: 960000
+                Price: 4800
                 Material: Refine_Hack_Powder
           - Level: 13
             Bonus: 4680
             Chances:
               - Type: Normal
                 Rate: 4000
-                Price: 520000
+                Price: 2600
                 Material: Carnium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 4500
-                Price: 1040000
+                Price: 5200
                 Material: Refine_Hack_Powder
           - Level: 14
             Bonus: 5040
             Chances:
               - Type: Normal
                 Rate: 3500
-                Price: 560000
+                Price: 2800
                 Material: Carnium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 4000
-                Price: 1120000
+                Price: 5600
                 Material: Refine_Hack_Powder
           - Level: 15
             Bonus: 5400
             Chances:
               - Type: Normal
                 Rate: 3000
-                Price: 600000
+                Price: 3000
                 Material: Carnium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 3500
-                Price: 1200000
+                Price: 6000
                 Material: Refine_Hack_Powder
           - Level: 16
             Bonus: 5760
             Chances:
               - Type: Normal
                 Rate: 2500
-                Price: 640000
+                Price: 3200
                 Material: Carnium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 3000
-                Price: 1280000
+                Price: 6400
                 Material: Refine_Hack_Powder
           - Level: 17
             Bonus: 6120
             Chances:
               - Type: Normal
                 Rate: 2000
-                Price: 680000
+                Price: 3400
                 Material: Carnium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 2500
-                Price: 1360000
+                Price: 6800
                 Material: Refine_Hack_Powder
           - Level: 18
             Bonus: 6480
             Chances:
               - Type: Normal
                 Rate: 1500
-                Price: 720000
+                Price: 3600
                 Material: Carnium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 2000
-                Price: 1440000
+                Price: 7200
                 Material: Refine_Hack_Powder
           - Level: 19
             Bonus: 6840
             Chances:
               - Type: Normal
                 Rate: 1000
-                Price: 760000
+                Price: 3800
                 Material: Carnium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 1500
-                Price: 1520000
+                Price: 7600
                 Material: Refine_Hack_Powder
           - Level: 20
             Bonus: 7200
             Chances:
               - Type: Normal
                 Rate: 500
-                Price: 800000
+                Price: 4000
                 Material: Carnium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 1000
-                Price: 1600000
+                Price: 8000
                 Material: Refine_Hack_Powder
   - Group: Weapon
     Levels:
@@ -577,11 +541,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 10000
-                Price: 1000
+                Price: 10
                 Material: Phracon
+                DowngradeAmount: 1
               - Type: HD
                 Rate: 10000
-                Price: 2000
+                Price: 20
                 Material: Refine_Hack_Powder
           - Level: 2
             Bonus: 600
@@ -589,13 +554,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 9550
-                Price: 2000
+                Price: 20
                 Material: Phracon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 10000
-                Price: 4000
+                Price: 40
                 Material: Refine_Hack_Powder
           - Level: 3
             Bonus: 900
@@ -603,13 +567,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 9100
-                Price: 3000
+                Price: 30
                 Material: Phracon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 9600
-                Price: 6000
+                Price: 60
                 Material: Refine_Hack_Powder
           - Level: 4
             Bonus: 1200
@@ -617,13 +580,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 8650
-                Price: 4000
+                Price: 40
                 Material: Phracon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 9150
-                Price: 8000
+                Price: 80
                 Material: Refine_Hack_Powder
           - Level: 5
             Bonus: 1500
@@ -631,13 +593,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 8200
-                Price: 5000
+                Price: 50
                 Material: Phracon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 8700
-                Price: 10000
+                Price: 100
                 Material: Refine_Hack_Powder
           - Level: 6
             Bonus: 1800
@@ -645,13 +606,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 7750
-                Price: 6000
+                Price: 60
                 Material: Phracon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 8250
-                Price: 12000
+                Price: 120
                 Material: Refine_Hack_Powder
           - Level: 7
             Bonus: 2100
@@ -659,13 +619,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 7300
-                Price: 7000
+                Price: 70
                 Material: Phracon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 7800
-                Price: 14000
+                Price: 140
                 Material: Refine_Hack_Powder
           - Level: 8
             Bonus: 2400
@@ -673,13 +632,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 6850
-                Price: 8000
+                Price: 80
                 Material: Phracon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 7350
-                Price: 16000
+                Price: 160
                 Material: Refine_Hack_Powder
           - Level: 9
             Bonus: 2700
@@ -687,13 +645,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 6400
-                Price: 9000
+                Price: 90
                 Material: Phracon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 6900
-                Price: 18000
+                Price: 180
                 Material: Refine_Hack_Powder
           - Level: 10
             Bonus: 3000
@@ -701,13 +658,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 5950
-                Price: 10000
+                Price: 100
                 Material: Phracon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 6450
-                Price: 20000
+                Price: 200
                 Material: Refine_Hack_Powder
           - Level: 11
             Bonus: 3300
@@ -715,13 +671,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 5500
-                Price: 11000
+                Price: 110
                 Material: Phracon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 6000
-                Price: 22000
+                Price: 220
                 Material: Refine_Hack_Powder
           - Level: 12
             Bonus: 3600
@@ -729,13 +684,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 5050
-                Price: 12000
+                Price: 120
                 Material: Phracon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 5550
-                Price: 24000
+                Price: 240
                 Material: Refine_Hack_Powder
           - Level: 13
             Bonus: 3900
@@ -743,13 +697,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 4600
-                Price: 13000
+                Price: 130
                 Material: Phracon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 5100
-                Price: 26000
+                Price: 260
                 Material: Refine_Hack_Powder
           - Level: 14
             Bonus: 4200
@@ -757,13 +710,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 4150
-                Price: 14000
+                Price: 140
                 Material: Phracon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 4650
-                Price: 28000
+                Price: 280
                 Material: Refine_Hack_Powder
           - Level: 15
             Bonus: 4500
@@ -771,13 +723,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 3700
-                Price: 15000
+                Price: 150
                 Material: Phracon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 4200
-                Price: 30000
+                Price: 300
                 Material: Refine_Hack_Powder
           - Level: 16
             Bonus: 4800
@@ -785,13 +736,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 3250
-                Price: 16000
+                Price: 160
                 Material: Phracon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 3750
-                Price: 32000
+                Price: 320
                 Material: Refine_Hack_Powder
           - Level: 17
             Bonus: 5100
@@ -799,13 +749,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 2800
-                Price: 17000
+                Price: 170
                 Material: Phracon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 3300
-                Price: 34000
+                Price: 340
                 Material: Refine_Hack_Powder
           - Level: 18
             Bonus: 5400
@@ -813,13 +762,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 2350
-                Price: 18000
+                Price: 180
                 Material: Phracon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 2850
-                Price: 36000
+                Price: 360
                 Material: Refine_Hack_Powder
           - Level: 19
             Bonus: 5700
@@ -827,13 +775,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 1900
-                Price: 19000
+                Price: 190
                 Material: Phracon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 2400
-                Price: 38000
+                Price: 380
                 Material: Refine_Hack_Powder
           - Level: 20
             Bonus: 6000
@@ -841,13 +788,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 1450
-                Price: 20000
+                Price: 200
                 Material: Phracon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 1950
-                Price: 40000
+                Price: 400
                 Material: Refine_Hack_Powder
       - Level: 2
         RefineLevels:
@@ -856,11 +802,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 10000
-                Price: 5000
+                Price: 20
                 Material: Emveretarcon
+                DowngradeAmount: 1
               - Type: HD
                 Rate: 10000
-                Price: 10000
+                Price: 40
                 Material: Refine_Hack_Powder
           - Level: 2
             Bonus: 1000
@@ -868,13 +815,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 9550
-                Price: 10000
+                Price: 40
                 Material: Emveretarcon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 10000
-                Price: 20000
+                Price: 80
                 Material: Refine_Hack_Powder
           - Level: 3
             Bonus: 1500
@@ -882,13 +828,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 9100
-                Price: 15000
+                Price: 60
                 Material: Emveretarcon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 9600
-                Price: 30000
+                Price: 120
                 Material: Refine_Hack_Powder
           - Level: 4
             Bonus: 2000
@@ -896,13 +841,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 8650
-                Price: 20000
+                Price: 80
                 Material: Emveretarcon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 9150
-                Price: 40000
+                Price: 160
                 Material: Refine_Hack_Powder
           - Level: 5
             Bonus: 2500
@@ -910,13 +854,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 8200
-                Price: 25000
+                Price: 100
                 Material: Emveretarcon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 8700
-                Price: 50000
+                Price: 200
                 Material: Refine_Hack_Powder
           - Level: 6
             Bonus: 3000
@@ -924,13 +867,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 7750
-                Price: 30000
+                Price: 120
                 Material: Emveretarcon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 8250
-                Price: 60000
+                Price: 240
                 Material: Refine_Hack_Powder
           - Level: 7
             Bonus: 3500
@@ -938,13 +880,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 7300
-                Price: 35000
+                Price: 140
                 Material: Emveretarcon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 7800
-                Price: 70000
+                Price: 280
                 Material: Refine_Hack_Powder
           - Level: 8
             Bonus: 4000
@@ -952,13 +893,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 6850
-                Price: 40000
+                Price: 160
                 Material: Emveretarcon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 7350
-                Price: 80000
+                Price: 320
                 Material: Refine_Hack_Powder
           - Level: 9
             Bonus: 4500
@@ -966,13 +906,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 6400
-                Price: 45000
+                Price: 180
                 Material: Emveretarcon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 6900
-                Price: 90000
+                Price: 360
                 Material: Refine_Hack_Powder
           - Level: 10
             Bonus: 5000
@@ -980,13 +919,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 5950
-                Price: 50000
+                Price: 200
                 Material: Emveretarcon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 6450
-                Price: 100000
+                Price: 400
                 Material: Refine_Hack_Powder
           - Level: 11
             Bonus: 5500
@@ -994,13 +932,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 5500
-                Price: 55000
+                Price: 220
                 Material: Emveretarcon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 6000
-                Price: 110000
+                Price: 440
                 Material: Refine_Hack_Powder
           - Level: 12
             Bonus: 6000
@@ -1008,13 +945,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 5050
-                Price: 60000
+                Price: 240
                 Material: Emveretarcon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 5550
-                Price: 120000
+                Price: 480
                 Material: Refine_Hack_Powder
           - Level: 13
             Bonus: 6500
@@ -1022,13 +958,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 4600
-                Price: 65000
+                Price: 260
                 Material: Emveretarcon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 5100
-                Price: 130000
+                Price: 520
                 Material: Refine_Hack_Powder
           - Level: 14
             Bonus: 7000
@@ -1036,13 +971,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 4150
-                Price: 70000
+                Price: 280
                 Material: Emveretarcon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 4650
-                Price: 140000
+                Price: 560
                 Material: Refine_Hack_Powder
           - Level: 15
             Bonus: 7500
@@ -1050,13 +984,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 3700
-                Price: 75000
+                Price: 300
                 Material: Emveretarcon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 4200
-                Price: 150000
+                Price: 600
                 Material: Refine_Hack_Powder
           - Level: 16
             Bonus: 8000
@@ -1064,13 +997,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 3250
-                Price: 80000
+                Price: 320
                 Material: Emveretarcon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 3750
-                Price: 160000
+                Price: 640
                 Material: Refine_Hack_Powder
           - Level: 17
             Bonus: 8500
@@ -1078,13 +1010,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 2800
-                Price: 85000
+                Price: 340
                 Material: Emveretarcon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 3300
-                Price: 170000
+                Price: 680
                 Material: Refine_Hack_Powder
           - Level: 18
             Bonus: 9000
@@ -1092,13 +1023,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 2350
-                Price: 90000
+                Price: 360
                 Material: Emveretarcon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 2850
-                Price: 180000
+                Price: 720
                 Material: Refine_Hack_Powder
           - Level: 19
             Bonus: 9500
@@ -1106,13 +1036,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 1900
-                Price: 95000
+                Price: 380
                 Material: Emveretarcon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 2400
-                Price: 190000
+                Price: 760
                 Material: Refine_Hack_Powder
           - Level: 20
             Bonus: 10000
@@ -1120,13 +1049,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 1450
-                Price: 100000
+                Price: 400
                 Material: Emveretarcon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 1950
-                Price: 200000
+                Price: 800
                 Material: Refine_Hack_Powder
       - Level: 3
         RefineLevels:
@@ -1135,11 +1063,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 10000
-                Price: 20000
+                Price: 50
                 Material: Oridecon
+                DowngradeAmount: 1
               - Type: HD
                 Rate: 10000
-                Price: 40000
+                Price: 100
                 Material: Refine_Hack_Powder
           - Level: 2
             Bonus: 1400
@@ -1147,13 +1076,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 9550
-                Price: 40000
+                Price: 100
                 Material: Oridecon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 10000
-                Price: 80000
+                Price: 200
                 Material: Refine_Hack_Powder
           - Level: 3
             Bonus: 2100
@@ -1161,13 +1089,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 9100
-                Price: 60000
+                Price: 150
                 Material: Oridecon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 9600
-                Price: 120000
+                Price: 300
                 Material: Refine_Hack_Powder
           - Level: 4
             Bonus: 2800
@@ -1175,13 +1102,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 8650
-                Price: 80000
+                Price: 200
                 Material: Oridecon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 9150
-                Price: 160000
+                Price: 400
                 Material: Refine_Hack_Powder
           - Level: 5
             Bonus: 3500
@@ -1189,13 +1115,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 8200
-                Price: 100000
+                Price: 250
                 Material: Oridecon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 8700
-                Price: 200000
+                Price: 500
                 Material: Refine_Hack_Powder
           - Level: 6
             Bonus: 4200
@@ -1203,13 +1128,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 7750
-                Price: 120000
+                Price: 300
                 Material: Oridecon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 8250
-                Price: 240000
+                Price: 600
                 Material: Refine_Hack_Powder
           - Level: 7
             Bonus: 4900
@@ -1217,13 +1141,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 7300
-                Price: 140000
+                Price: 350
                 Material: Oridecon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 7800
-                Price: 280000
+                Price: 700
                 Material: Refine_Hack_Powder
           - Level: 8
             Bonus: 5600
@@ -1231,13 +1154,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 6850
-                Price: 160000
+                Price: 400
                 Material: Oridecon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 7350
-                Price: 320000
+                Price: 800
                 Material: Refine_Hack_Powder
           - Level: 9
             Bonus: 6300
@@ -1245,13 +1167,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 6400
-                Price: 180000
+                Price: 450
                 Material: Oridecon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 6900
-                Price: 360000
+                Price: 900
                 Material: Refine_Hack_Powder
           - Level: 10
             Bonus: 7000
@@ -1259,13 +1180,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 5950
-                Price: 200000
+                Price: 500
                 Material: Oridecon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 6450
-                Price: 400000
+                Price: 1000
                 Material: Refine_Hack_Powder
           - Level: 11
             Bonus: 7700
@@ -1273,13 +1193,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 5500
-                Price: 220000
+                Price: 550
                 Material: Oridecon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 6000
-                Price: 440000
+                Price: 1100
                 Material: Refine_Hack_Powder
           - Level: 12
             Bonus: 8400
@@ -1287,13 +1206,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 5050
-                Price: 240000
+                Price: 600
                 Material: Oridecon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 5550
-                Price: 480000
+                Price: 1200
                 Material: Refine_Hack_Powder
           - Level: 13
             Bonus: 9100
@@ -1301,13 +1219,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 4600
-                Price: 260000
+                Price: 650
                 Material: Oridecon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 5100
-                Price: 520000
+                Price: 1300
                 Material: Refine_Hack_Powder
           - Level: 14
             Bonus: 9800
@@ -1315,13 +1232,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 4150
-                Price: 280000
+                Price: 700
                 Material: Oridecon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 4650
-                Price: 560000
+                Price: 1400
                 Material: Refine_Hack_Powder
           - Level: 15
             Bonus: 10500
@@ -1329,13 +1245,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 3700
-                Price: 300000
+                Price: 750
                 Material: Oridecon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 4200
-                Price: 600000
+                Price: 1500
                 Material: Refine_Hack_Powder
           - Level: 16
             Bonus: 11200
@@ -1343,13 +1258,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 3250
-                Price: 320000
+                Price: 800
                 Material: Oridecon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 3750
-                Price: 640000
+                Price: 1600
                 Material: Refine_Hack_Powder
           - Level: 17
             Bonus: 11900
@@ -1357,13 +1271,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 2800
-                Price: 340000
+                Price: 850
                 Material: Oridecon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 3300
-                Price: 680000
+                Price: 1700
                 Material: Refine_Hack_Powder
           - Level: 18
             Bonus: 12600
@@ -1371,13 +1284,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 2350
-                Price: 360000
+                Price: 900
                 Material: Oridecon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 2850
-                Price: 720000
+                Price: 1800
                 Material: Refine_Hack_Powder
           - Level: 19
             Bonus: 13300
@@ -1385,13 +1297,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 1900
-                Price: 380000
+                Price: 950
                 Material: Oridecon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 2400
-                Price: 760000
+                Price: 1900
                 Material: Refine_Hack_Powder
           - Level: 20
             Bonus: 14000
@@ -1399,13 +1310,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 1450
-                Price: 400000
+                Price: 1000
                 Material: Oridecon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 1950
-                Price: 800000
+                Price: 2000
                 Material: Refine_Hack_Powder
       - Level: 4
         RefineLevels:
@@ -1414,11 +1324,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 10000
-                Price: 30000
+                Price: 100
                 Material: Oridecon
+                DowngradeAmount: 1
               - Type: HD
                 Rate: 10000
-                Price: 60000
+                Price: 200
                 Material: Refine_Hack_Powder
           - Level: 2
             Bonus: 2000
@@ -1426,13 +1337,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 9500
-                Price: 60000
+                Price: 200
                 Material: Oridecon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 10000
-                Price: 120000
+                Price: 400
                 Material: Refine_Hack_Powder
           - Level: 3
             Bonus: 3000
@@ -1440,13 +1350,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 9000
-                Price: 90000
+                Price: 300
                 Material: Oridecon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 9500
-                Price: 180000
+                Price: 600
                 Material: Refine_Hack_Powder
           - Level: 4
             Bonus: 4000
@@ -1454,13 +1363,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 8500
-                Price: 120000
+                Price: 400
                 Material: Oridecon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 9000
-                Price: 240000
+                Price: 800
                 Material: Refine_Hack_Powder
           - Level: 5
             Bonus: 5000
@@ -1468,13 +1376,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 8000
-                Price: 150000
+                Price: 500
                 Material: Oridecon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 8500
-                Price: 300000
+                Price: 1000
                 Material: Refine_Hack_Powder
           - Level: 6
             Bonus: 6000
@@ -1482,13 +1389,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 7500
-                Price: 180000
+                Price: 600
                 Material: Oridecon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 8000
-                Price: 360000
+                Price: 1200
                 Material: Refine_Hack_Powder
           - Level: 7
             Bonus: 7000
@@ -1496,13 +1402,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 7000
-                Price: 210000
+                Price: 700
                 Material: Oridecon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 7500
-                Price: 420000
+                Price: 1400
                 Material: Refine_Hack_Powder
           - Level: 8
             Bonus: 8000
@@ -1510,13 +1415,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 6500
-                Price: 240000
+                Price: 800
                 Material: Oridecon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 7000
-                Price: 480000
+                Price: 1600
                 Material: Refine_Hack_Powder
           - Level: 9
             Bonus: 9000
@@ -1524,13 +1428,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 6000
-                Price: 270000
+                Price: 900
                 Material: Oridecon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 6500
-                Price: 540000
+                Price: 1800
                 Material: Refine_Hack_Powder
           - Level: 10
             Bonus: 10000
@@ -1538,13 +1441,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 5500
-                Price: 300000
+                Price: 1000
                 Material: Oridecon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 6000
-                Price: 600000
+                Price: 2000
                 Material: Refine_Hack_Powder
           - Level: 11
             Bonus: 11000
@@ -1552,13 +1454,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 5000
-                Price: 330000
+                Price: 1100
                 Material: Oridecon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 5500
-                Price: 660000
+                Price: 2200
                 Material: Refine_Hack_Powder
           - Level: 12
             Bonus: 12000
@@ -1566,13 +1467,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 4500
-                Price: 360000
+                Price: 1200
                 Material: Oridecon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 5000
-                Price: 720000
+                Price: 2400
                 Material: Refine_Hack_Powder
           - Level: 13
             Bonus: 13000
@@ -1580,13 +1480,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 4000
-                Price: 390000
+                Price: 1300
                 Material: Oridecon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 4500
-                Price: 780000
+                Price: 2600
                 Material: Refine_Hack_Powder
           - Level: 14
             Bonus: 14000
@@ -1594,13 +1493,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 3500
-                Price: 420000
+                Price: 1400
                 Material: Oridecon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 4000
-                Price: 840000
+                Price: 2800
                 Material: Refine_Hack_Powder
           - Level: 15
             Bonus: 15000
@@ -1608,13 +1506,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 3000
-                Price: 450000
+                Price: 1500
                 Material: Oridecon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 3500
-                Price: 900000
+                Price: 3000
                 Material: Refine_Hack_Powder
           - Level: 16
             Bonus: 16000
@@ -1622,13 +1519,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 2500
-                Price: 480000
+                Price: 1600
                 Material: Oridecon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 3000
-                Price: 960000
+                Price: 3200
                 Material: Refine_Hack_Powder
           - Level: 17
             Bonus: 17000
@@ -1636,13 +1532,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 2000
-                Price: 510000
+                Price: 1700
                 Material: Oridecon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 2500
-                Price: 1020000
+                Price: 3400
                 Material: Refine_Hack_Powder
           - Level: 18
             Bonus: 18000
@@ -1650,13 +1545,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 1500
-                Price: 540000
+                Price: 1800
                 Material: Oridecon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 2000
-                Price: 1080000
+                Price: 3600
                 Material: Refine_Hack_Powder
           - Level: 19
             Bonus: 19000
@@ -1664,13 +1558,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 1000
-                Price: 570000
+                Price: 1900
                 Material: Oridecon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 1500
-                Price: 1140000
+                Price: 3800
                 Material: Refine_Hack_Powder
           - Level: 20
             Bonus: 20000
@@ -1678,13 +1571,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 500
-                Price: 600000
+                Price: 2000
                 Material: Oridecon
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 1000
-                Price: 1200000
+                Price: 4000
                 Material: Refine_Hack_Powder
       - Level: 5
         RefineLevels:
@@ -1693,11 +1585,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 10000
-                Price: 40000
+                Price: 200
                 Material: Bradium
+                DowngradeAmount: 1
               - Type: HD
                 Rate: 10000
-                Price: 80000
+                Price: 400
                 Material: Refine_Hack_Powder
           - Level: 2
             Bonus: 1600
@@ -1705,13 +1598,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 9500
-                Price: 80000
+                Price: 400
                 Material: Bradium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 10000
-                Price: 160000
+                Price: 800
                 Material: Refine_Hack_Powder
           - Level: 3
             Bonus: 2400
@@ -1719,13 +1611,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 9000
-                Price: 120000
+                Price: 600
                 Material: Bradium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 9500
-                Price: 240000
+                Price: 1200
                 Material: Refine_Hack_Powder
           - Level: 4
             Bonus: 3200
@@ -1733,13 +1624,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 8500
-                Price: 160000
+                Price: 800
                 Material: Bradium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 9000
-                Price: 320000
+                Price: 1600
                 Material: Refine_Hack_Powder
           - Level: 5
             Bonus: 4000
@@ -1747,13 +1637,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 8000
-                Price: 200000
+                Price: 1000
                 Material: Bradium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 8500
-                Price: 400000
+                Price: 2000
                 Material: Refine_Hack_Powder
           - Level: 6
             Bonus: 4800
@@ -1761,13 +1650,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 7500
-                Price: 240000
+                Price: 1200
                 Material: Bradium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 8000
-                Price: 480000
+                Price: 2400
                 Material: Refine_Hack_Powder
           - Level: 7
             Bonus: 5600
@@ -1775,13 +1663,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 7000
-                Price: 280000
+                Price: 1400
                 Material: Bradium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 7500
-                Price: 560000
+                Price: 2800
                 Material: Refine_Hack_Powder
           - Level: 8
             Bonus: 6400
@@ -1789,13 +1676,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 6500
-                Price: 320000
+                Price: 1600
                 Material: Bradium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 7000
-                Price: 640000
+                Price: 3200
                 Material: Refine_Hack_Powder
           - Level: 9
             Bonus: 7200
@@ -1803,13 +1689,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 6000
-                Price: 360000
+                Price: 1800
                 Material: Bradium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 6500
-                Price: 720000
+                Price: 3600
                 Material: Refine_Hack_Powder
           - Level: 10
             Bonus: 8000
@@ -1817,13 +1702,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 5500
-                Price: 400000
+                Price: 2000
                 Material: Bradium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 6000
-                Price: 800000
+                Price: 4000
                 Material: Refine_Hack_Powder
           - Level: 11
             Bonus: 8800
@@ -1831,13 +1715,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 5000
-                Price: 440000
+                Price: 2200
                 Material: Bradium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 5500
-                Price: 880000
+                Price: 4400
                 Material: Refine_Hack_Powder
           - Level: 12
             Bonus: 9600
@@ -1845,13 +1728,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 4500
-                Price: 480000
+                Price: 2400
                 Material: Bradium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 5000
-                Price: 960000
+                Price: 4800
                 Material: Refine_Hack_Powder
           - Level: 13
             Bonus: 10400
@@ -1859,13 +1741,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 4000
-                Price: 520000
+                Price: 2600
                 Material: Bradium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 4500
-                Price: 1040000
+                Price: 5200
                 Material: Refine_Hack_Powder
           - Level: 14
             Bonus: 11200
@@ -1873,13 +1754,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 3500
-                Price: 560000
+                Price: 2800
                 Material: Bradium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 4000
-                Price: 1120000
+                Price: 5600
                 Material: Refine_Hack_Powder
           - Level: 15
             Bonus: 12000
@@ -1887,13 +1767,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 3000
-                Price: 600000
+                Price: 3000
                 Material: Bradium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 3500
-                Price: 1200000
+                Price: 6000
                 Material: Refine_Hack_Powder
           - Level: 16
             Bonus: 12800
@@ -1901,13 +1780,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 2500
-                Price: 640000
+                Price: 3200
                 Material: Bradium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 3000
-                Price: 1280000
+                Price: 6400
                 Material: Refine_Hack_Powder
           - Level: 17
             Bonus: 13600
@@ -1915,13 +1793,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 2000
-                Price: 680000
+                Price: 3400
                 Material: Bradium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 2500
-                Price: 1360000
+                Price: 6800
                 Material: Refine_Hack_Powder
           - Level: 18
             Bonus: 14400
@@ -1929,13 +1806,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 1500
-                Price: 720000
+                Price: 3600
                 Material: Bradium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 2000
-                Price: 1440000
+                Price: 7200
                 Material: Refine_Hack_Powder
           - Level: 19
             Bonus: 15200
@@ -1943,13 +1819,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 1000
-                Price: 760000
+                Price: 3800
                 Material: Bradium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 1500
-                Price: 1520000
+                Price: 7600
                 Material: Refine_Hack_Powder
           - Level: 20
             Bonus: 16000
@@ -1957,13 +1832,12 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 500
-                Price: 800000
+                Price: 4000
                 Material: Bradium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 1000
-                Price: 1600000
+                Price: 8000
                 Material: Refine_Hack_Powder
   - Group: Shadow_Armor
     Levels:
@@ -1973,239 +1847,221 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 10000
-                Price: 40000
+                Price: 50
                 Material: Carnium
+                DowngradeAmount: 1
               - Type: HD
                 Rate: 10000
-                Price: 80000
+                Price: 100
                 Material: Refine_Hack_Powder
           - Level: 2
             Chances:
               - Type: Normal
                 Rate: 9500
-                Price: 80000
+                Price: 100
                 Material: Carnium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 10000
-                Price: 160000
+                Price: 200
                 Material: Refine_Hack_Powder
           - Level: 3
             Chances:
               - Type: Normal
                 Rate: 9000
-                Price: 120000
+                Price: 150
                 Material: Carnium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 9500
-                Price: 240000
+                Price: 300
                 Material: Refine_Hack_Powder
           - Level: 4
             Chances:
               - Type: Normal
                 Rate: 8500
-                Price: 160000
+                Price: 200
                 Material: Carnium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 9000
-                Price: 320000
+                Price: 400
                 Material: Refine_Hack_Powder
           - Level: 5
             Chances:
               - Type: Normal
                 Rate: 8000
-                Price: 200000
+                Price: 250
                 Material: Carnium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 8500
-                Price: 400000
+                Price: 500
                 Material: Refine_Hack_Powder
           - Level: 6
             Chances:
               - Type: Normal
                 Rate: 7500
-                Price: 240000
+                Price: 300
                 Material: Carnium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 8000
-                Price: 480000
+                Price: 600
                 Material: Refine_Hack_Powder
           - Level: 7
             Chances:
               - Type: Normal
                 Rate: 7000
-                Price: 280000
+                Price: 350
                 Material: Carnium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 7500
-                Price: 560000
+                Price: 700
                 Material: Refine_Hack_Powder
           - Level: 8
             Chances:
               - Type: Normal
                 Rate: 6500
-                Price: 320000
+                Price: 400
                 Material: Carnium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 7000
-                Price: 640000
+                Price: 800
                 Material: Refine_Hack_Powder
           - Level: 9
             Chances:
               - Type: Normal
                 Rate: 6000
-                Price: 360000
+                Price: 450
                 Material: Carnium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 6500
-                Price: 720000
+                Price: 900
                 Material: Refine_Hack_Powder
           - Level: 10
             Chances:
               - Type: Normal
                 Rate: 5500
-                Price: 400000
+                Price: 500
                 Material: Carnium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 6000
-                Price: 800000
+                Price: 1000
                 Material: Refine_Hack_Powder
           - Level: 11
             Chances:
               - Type: Normal
                 Rate: 5000
-                Price: 440000
+                Price: 550
                 Material: Carnium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 5500
-                Price: 880000
+                Price: 1100
                 Material: Refine_Hack_Powder
           - Level: 12
             Chances:
               - Type: Normal
                 Rate: 4500
-                Price: 480000
+                Price: 600
                 Material: Carnium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 5000
-                Price: 960000
+                Price: 1200
                 Material: Refine_Hack_Powder
           - Level: 13
             Chances:
               - Type: Normal
                 Rate: 4000
-                Price: 520000
+                Price: 650
                 Material: Carnium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 4500
-                Price: 1040000
+                Price: 1300
                 Material: Refine_Hack_Powder
           - Level: 14
             Chances:
               - Type: Normal
                 Rate: 3500
-                Price: 560000
+                Price: 700
                 Material: Carnium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 4000
-                Price: 1120000
+                Price: 1400
                 Material: Refine_Hack_Powder
           - Level: 15
             Chances:
               - Type: Normal
                 Rate: 3000
-                Price: 600000
+                Price: 750
                 Material: Carnium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 3500
-                Price: 1200000
+                Price: 1500
                 Material: Refine_Hack_Powder
           - Level: 16
             Chances:
               - Type: Normal
                 Rate: 2500
-                Price: 640000
+                Price: 800
                 Material: Carnium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 3000
-                Price: 1280000
+                Price: 1600
                 Material: Refine_Hack_Powder
           - Level: 17
             Chances:
               - Type: Normal
                 Rate: 2000
-                Price: 680000
+                Price: 850
                 Material: Carnium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 2500
-                Price: 1360000
+                Price: 1700
                 Material: Refine_Hack_Powder
           - Level: 18
             Chances:
               - Type: Normal
                 Rate: 1500
-                Price: 720000
+                Price: 900
                 Material: Carnium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 2000
-                Price: 1440000
+                Price: 1800
                 Material: Refine_Hack_Powder
           - Level: 19
             Chances:
               - Type: Normal
                 Rate: 1000
-                Price: 760000
+                Price: 950
                 Material: Carnium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 1500
-                Price: 1520000
+                Price: 1900
                 Material: Refine_Hack_Powder
           - Level: 20
             Chances:
               - Type: Normal
                 Rate: 500
-                Price: 800000
+                Price: 1000
                 Material: Carnium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 1000
-                Price: 1600000
+                Price: 2000
                 Material: Refine_Hack_Powder
   - Group: Shadow_Weapon
     Levels:
@@ -2215,237 +2071,219 @@ Body:
             Chances:
               - Type: Normal
                 Rate: 10000
-                Price: 40000
+                Price: 50
                 Material: Bradium
+                DowngradeAmount: 1
               - Type: HD
                 Rate: 10000
-                Price: 80000
+                Price: 100
                 Material: Refine_Hack_Powder
           - Level: 2
             Chances:
               - Type: Normal
                 Rate: 9500
-                Price: 80000
+                Price: 100
                 Material: Bradium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 10000
-                Price: 160000
+                Price: 200
                 Material: Refine_Hack_Powder
           - Level: 3
             Chances:
               - Type: Normal
                 Rate: 9000
-                Price: 120000
+                Price: 150
                 Material: Bradium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 9500
-                Price: 240000
+                Price: 300
                 Material: Refine_Hack_Powder
           - Level: 4
             Chances:
               - Type: Normal
                 Rate: 8500
-                Price: 160000
+                Price: 200
                 Material: Bradium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 9000
-                Price: 320000
+                Price: 400
                 Material: Refine_Hack_Powder
           - Level: 5
             Chances:
               - Type: Normal
                 Rate: 8000
-                Price: 200000
+                Price: 250
                 Material: Bradium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 8500
-                Price: 400000
+                Price: 500
                 Material: Refine_Hack_Powder
           - Level: 6
             Chances:
               - Type: Normal
                 Rate: 7500
-                Price: 240000
+                Price: 300
                 Material: Bradium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 8000
-                Price: 480000
+                Price: 600
                 Material: Refine_Hack_Powder
           - Level: 7
             Chances:
               - Type: Normal
                 Rate: 7000
-                Price: 280000
+                Price: 350
                 Material: Bradium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 7500
-                Price: 560000
+                Price: 700
                 Material: Refine_Hack_Powder
           - Level: 8
             Chances:
               - Type: Normal
                 Rate: 6500
-                Price: 320000
+                Price: 400
                 Material: Bradium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 7000
-                Price: 640000
+                Price: 800
                 Material: Refine_Hack_Powder
           - Level: 9
             Chances:
               - Type: Normal
                 Rate: 6000
-                Price: 360000
+                Price: 450
                 Material: Bradium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 6500
-                Price: 720000
+                Price: 900
                 Material: Refine_Hack_Powder
           - Level: 10
             Chances:
               - Type: Normal
                 Rate: 5500
-                Price: 400000
+                Price: 500
                 Material: Bradium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 6000
-                Price: 800000
+                Price: 1000
                 Material: Refine_Hack_Powder
           - Level: 11
             Chances:
               - Type: Normal
                 Rate: 5000
-                Price: 440000
+                Price: 550
                 Material: Bradium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 5500
-                Price: 880000
+                Price: 1100
                 Material: Refine_Hack_Powder
           - Level: 12
             Chances:
               - Type: Normal
                 Rate: 4500
-                Price: 480000
+                Price: 600
                 Material: Bradium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 5000
-                Price: 960000
+                Price: 1200
                 Material: Refine_Hack_Powder
           - Level: 13
             Chances:
               - Type: Normal
                 Rate: 4000
-                Price: 520000
+                Price: 650
                 Material: Bradium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 4500
-                Price: 1040000
+                Price: 1300
                 Material: Refine_Hack_Powder
           - Level: 14
             Chances:
               - Type: Normal
                 Rate: 3500
-                Price: 560000
+                Price: 700
                 Material: Bradium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 4000
-                Price: 1120000
+                Price: 1400
                 Material: Refine_Hack_Powder
           - Level: 15
             Chances:
               - Type: Normal
                 Rate: 3000
-                Price: 600000
+                Price: 750
                 Material: Bradium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 3500
-                Price: 1200000
+                Price: 1500
                 Material: Refine_Hack_Powder
           - Level: 16
             Chances:
               - Type: Normal
                 Rate: 2500
-                Price: 640000
+                Price: 800
                 Material: Bradium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 3000
-                Price: 1280000
+                Price: 1600
                 Material: Refine_Hack_Powder
           - Level: 17
             Chances:
               - Type: Normal
                 Rate: 2000
-                Price: 680000
+                Price: 850
                 Material: Bradium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 2500
-                Price: 1360000
+                Price: 1700
                 Material: Refine_Hack_Powder
           - Level: 18
             Chances:
               - Type: Normal
                 Rate: 1500
-                Price: 720000
+                Price: 900
                 Material: Bradium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 2000
-                Price: 1440000
+                Price: 1800
                 Material: Refine_Hack_Powder
           - Level: 19
             Chances:
               - Type: Normal
                 Rate: 1000
-                Price: 760000
+                Price: 950
                 Material: Bradium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 1500
-                Price: 1520000
+                Price: 1900
                 Material: Refine_Hack_Powder
           - Level: 20
             Chances:
               - Type: Normal
                 Rate: 500
-                Price: 800000
+                Price: 1000
                 Material: Bradium
                 DowngradeAmount: 1
-                BreakingRate: 1000
               - Type: HD
                 Rate: 1000
-                Price: 1600000
+                Price: 2000
                 Material: Refine_Hack_Powder

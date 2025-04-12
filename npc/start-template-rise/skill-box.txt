@@ -1,0 +1,71 @@
+prontera,141,171,4	script	SKILL BOX	10033,{
+	for(.@i = 0; .@i < getarraysize(.boughtCount); .@i++)
+	mes ((.@i == getarraysize(.boughtCount) - 1) ? "นอกนั้น" : ("สุ่ม Class X ไป < " + F_InsertComma(.boughtCount[.@i])+ " ครั้ง")) + " ใช้ " + F_InsertComma(.prices[.@i]) + " Orb";
+	next;
+OnMenu:
+	menu
+	"สุ่มทีเดียวหมดเลย [" + (#IS_SKIP_SKILL_BOX_ONE_TAP ? "^d32323OFF^000000" : "^1c9311ON^000000") + "]",OnOneTapSetting,
+	"สุ่ม Skill Class 1 [^af1ada" + getitemname(C1_SKILL_ORB_ITEM_ID) + "^000000] สุ่มไปแล้ว " + skb[0] + " ครั้ง",OnClass1,
+	"สุ่ม Skill Class 2 [^af1ada" + getitemname(C2_SKILL_ORB_ITEM_ID) + "^000000] สุ่มไปแล้ว " + skb[1] + " ครั้ง",OnClass2,
+	"สุ่ม Skill Class 3 [^af1ada" + getitemname(C3_SKILL_ORB_ITEM_ID) + "^000000] สุ่มไปแล้ว " + skb[2] + " ครั้ง",OnClass3,
+	"สุ่ม Skill Class 4 [^af1ada" + getitemname(C4_SKILL_ORB_ITEM_ID) + "^000000] สุ่มไปแล้ว " + skb[3] + " ครั้ง",OnClass4;
+	end;
+	
+OnOneTapSetting:
+	#IS_SKIP_SKILL_BOX_ONE_TAP = !#IS_SKIP_SKILL_BOX_ONE_TAP;
+	message strcharinfo(0),"สุ่มทีเดียวหมดเลย [" + (#IS_SKIP_SKILL_BOX_ONE_TAP ? "OFF" : "ON") + "]";
+	goto OnMenu;
+	
+OnClass1: .@tradeItemId = C1_SKILL_ORB_ITEM_ID; .@classIndex = 0; goto OnTrade;
+OnClass2: .@tradeItemId = C2_SKILL_ORB_ITEM_ID; .@classIndex = 1;  goto OnTrade;
+OnClass3: .@tradeItemId = C3_SKILL_ORB_ITEM_ID; .@classIndex = 2;  goto OnTrade;
+OnClass4: .@tradeItemId = C4_SKILL_ORB_ITEM_ID; .@classIndex = 3;  goto OnTrade;
+OnTrade:
+	freeloop(1);
+	
+	for(.@i = 0; .@i < getarraysize(.boughtCount); .@i++){
+		if(skb[.@classIndex] < .boughtCount[.@i]){
+			.@currentPrice = .prices[.@i];
+			break;
+		}
+	}
+	
+	.@loopCount = #IS_SKIP_SKILL_BOX_ONE_TAP ? 1 : max(1,(countitem(.@tradeItemId) / .@currentPrice));
+	
+	while((.@loopCount > 0) && (.@error < 300)){
+		if(countitem(.@tradeItemId) < .@currentPrice)
+		break;
+
+		.@randIndex = rand(getarraysize(getd("$c" + (.@classIndex + 1) + "SkillIds")));
+		.@rewardSkillId = getd("$c" + (.@classIndex + 1) + "SkillIds[" + .@randIndex + "]");
+		.@rewardSkillMaxLv = getd("$c" + (.@classIndex + 1) + "SkillMaxLvs[" + .@randIndex + "]");
+		if(getskilllv(.@rewardSkillId) < .@rewardSkillMaxLv){
+			delitem .@tradeItemId,.@currentPrice;
+			.@loopCount--;
+			.@success++;
+			skb[.@classIndex]++;
+			skill .@rewardSkillId,getskilllv(.@rewardSkillId) + 1,3;
+			for(.@i = 0; .@i < getarraysize(.boughtCount); .@i++){
+				if(skb[.@classIndex] < .boughtCount[.@i]){
+					.@currentPrice = .prices[.@i];
+					break;
+				}
+			}
+		}
+		else
+		.@error++;
+	}
+	
+	mes "ได้รับ " + F_InsertComma(.@success) + " Skill";
+	if(.@error >= 300)
+	mes "หากการสุ่มไม่ทำงาน ให้ลองสุ่มใหม่เนื่องจากสุ่มไป 300 รอบแล้วไม่พบ Skill ที่สามารถเรียนเพิ่มเติมได้";
+	
+	freeloop(0);
+	close;
+	
+OnInit:
+	setarray .prices[0],1,3,5,15,50;
+	setarray .boughtCount[0],30,90,150,250,INT_MAX;
+	waitingroom "สุ่มรับ Skill",0;
+	end;
+}

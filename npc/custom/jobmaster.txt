@@ -17,6 +17,8 @@
 //============================================================
 
 prontera,138,184,8	script	à¿Ãà«ÕÂ	10468,{
+	SkillPoint = 0;
+	
 	function Get_Job_Equip;
 	
 	function	Require_Level	{

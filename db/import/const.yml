@@ -61,3 +61,11 @@ Body:
     Value: 10000011
   - Name: ENCHANTMENT_KEY_ITEM_ID
     Value: 10000012
+  - Name: C1_SKILL_ORB_ITEM_ID
+    Value: 10000013
+  - Name: C2_SKILL_ORB_ITEM_ID
+    Value: 10000014
+  - Name: C3_SKILL_ORB_ITEM_ID
+    Value: 10000015
+  - Name: C4_SKILL_ORB_ITEM_ID
+    Value: 10000016
