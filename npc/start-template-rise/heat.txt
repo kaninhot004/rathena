@@ -1,5 +1,5 @@
 prontera,152,214,1	script	เดือด	10548,{
-	.@price = 700000;
+	.@price = 70000;
 	.@baseMonsterRank = 99;
 	
 	monsterRank = .@baseMonsterRank;
@@ -32,9 +32,9 @@ prontera,152,214,1	script	เดือด	10548,{
 	mes "• ^d32323คุณจะติด Debuff 90%^000000";
 	next;
 	menu
-	"เล่น 'เดือด (Party)' [^af1ada" + F_InsertComma(.@price) + "z^000000] [^d32323Item คุณจะเสื่อมลง 20%^000000 รางวัล 2 ชิ้น]",L_Easy
-	,"เล่น 'เดือด (Party)' [^af1ada" + F_InsertComma(.@price) + "z^000000] [^d32323Item คุณจะเสื่อมลง 40%^000000 รางวัล 5 ชิ้น]",L_Medium
-	,"เล่น 'เดือด (Party)' [^af1ada" + F_InsertComma(.@price) + "z^000000] [^d32323Item คุณจะเสื่อมลง 70%^000000 รางวัล 10 ชิ้น]",L_Hard
+	//"เล่น 'เดือด (Party)' [^af1ada" + F_InsertComma(.@price) + "z^000000] [^d32323Item คุณจะเสื่อมลง 20%^000000 รางวัล 2 ชิ้น]",L_Easy
+	//,"เล่น 'เดือด (Party)' [^af1ada" + F_InsertComma(.@price) + "z^000000] [^d32323Item คุณจะเสื่อมลง 40%^000000 รางวัล 5 ชิ้น]",L_Medium
+	"เล่น 'เดือด (Party)' [^af1ada" + F_InsertComma(.@price) + "z^000000] [^d32323Item คุณจะเสื่อมลง 70%^000000 รางวัล 10 ชิ้น]",L_Hard
 	;
 	L_Easy: bonusDebuff = 20; onlyGodRewardAmount = 2; goto L_Trade;
 	L_Medium: bonusDebuff = 40; onlyGodRewardAmount = 5; goto L_Trade;
@@ -134,6 +134,7 @@ OnComplete:
 OnInstanceInit:
 	'progression = 0;
 	'mapName$ = instance_mapname("8@thts");
+	'bonusDebuff = 70;
 	end;
 
 OnInit:

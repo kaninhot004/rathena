@@ -1,4 +1,11 @@
-prontera,159,214,8	script	ซัดเทพ	10371,{
+prontera,159,214,8	script	ซัดเทพ	10550,{
+	bonusDebuff = 50;
+	.@debuff = 90;
+	.@price = 70000;
+	.@baseMonsterRank = 66;
+	
+	monsterRank = .@baseMonsterRank;
+	
 	if(!is_party_leader()){
 		.@ipid = instance_id(IM_PARTY);
 		if(.@ipid){
@@ -16,11 +23,6 @@ prontera,159,214,8	script	ซัดเทพ	10371,{
 		mes "โปรดทำลาย Instance Dungeon (Party) เก่าเสียก่อน";
 		close;
 	}
-	.@debuff = 90;
-	.@price = 700000;
-	.@baseMonsterRank = 66;
-	
-	monsterRank = .@baseMonsterRank;
 	
 	mes "[วิธีเล่น]";
 	mes "• ^d32323โปรดระวังหากใครคนหนึ่งใน Party เข้าสู่เมือง Prontera ระหว่างกำลังเล่นห้องพิเศษนี้ ห้องพิเศษนี้จะถูกทำลาย^000000";
@@ -28,12 +30,14 @@ prontera,159,214,8	script	ซัดเทพ	10371,{
 	mes "• เมื่อกำจัด Boss จนหมดห้อง จะได้รับ " + mesitemlink(GOD_TICKET_ITEM_ID,true);
 	mes "• Boss จะมี Rank " + F_InsertComma(monsterRank);
 	mes "• Boss จะเคลื่อนที่เร็ว (สุ่ม)";
+	mes "• Boss จะรับ Damage 1% (เสมือน Aura เขียว)";
 	mes "• คุณจะติด Debuff " + F_InsertComma(.@debuff) + "%";
+	mes "• Item คุณจะเสื่อมลง " + F_InsertComma(bonusDebuff) + "%";
 	next;
 	menu
 	"เล่น 'ซัดเทพ (Party)' [^af1ada" + F_InsertComma(.@price) + "z^000000] [Boss 7 ตัว รางวัล 1 ชิ้น]",L_Easy
-	,"เล่น 'ซัดเทพ (Party)' [^af1ada" + F_InsertComma(.@price) + "z^000000] [Boss 11 ตัว รางวัล 2 ชิ้น]",L_Medium
-	,"เล่น 'ซัดเทพ (Party)' [^af1ada" + F_InsertComma(.@price) + "z^000000] [Boss 17 ตัว รางวัล 5 ชิ้น]",L_Hard
+	//,"เล่น 'ซัดเทพ (Party)' [^af1ada" + F_InsertComma(.@price) + "z^000000] [Boss 11 ตัว รางวัล 2 ชิ้น]",L_Medium
+	//,"เล่น 'ซัดเทพ (Party)' [^af1ada" + F_InsertComma(.@price) + "z^000000] [Boss 17 ตัว รางวัล 5 ชิ้น]",L_Hard
 	;
 	L_Easy: onlyGodSpawnAmount = 7; onlyGodRewardAmount = 1; goto L_Trade;
 	L_Medium: onlyGodSpawnAmount = 11; onlyGodRewardAmount = 2; goto L_Trade;
@@ -70,23 +74,26 @@ x_prt	mapflag	nobranch
 x_prt	mapflag	notomb
 x_prt	mapflag	nopetcapture
 
-x_prt,70,70,4	script	Ruwach#ซัดเทพ	10371,500,500,{
+x_prt,70,70,4	script	Ruwach#ซัดเทพ	10550,500,500,{
 	npcskill "AL_RUWACH",1,0,1;
 	end;
 	
 OnTouch:
 	tired = cap_value(90,0,100);
+	if('bonusDebuff)
+	bonusDebuff = cap_value('bonusDebuff,0,100);
 	ApplyTired();
 	@isOnlyGodEnter = 1;
 	end;
 }
 
-x_prt,70,65,4	script	เริ่ม#ซัดเทพ	10371,{
+x_prt,70,65,4	script	เริ่ม#ซัดเทพ	10550,{
 	if(!is_party_leader())
 	end;
 	hideonnpc instance_npcname(strnpcinfo(0));
 	'spawnAmount = onlyGodSpawnAmount;
 	'rewardAmount = onlyGodRewardAmount;
+	'bonusDebuff = bonusDebuff;
 	callsub L_Spawn;
 	announce "Boss เหลือ " + F_InsertComma('spawnAmount - 'progression) + " ตัว",bc_map;
 	end;
@@ -96,11 +103,12 @@ x_prt,70,65,4	script	เริ่ม#ซัดเทพ	10371,{
 		areamonster 'mapName$,50,50,80,80,"--ja--",$mvpIds[rand(getarraysize($mvpIds))],1,instance_npcname(strnpcinfo(0)) + "::OnBossDead";
 		setunitdata $@mobid[0],UMOB_RANK,monsterRank;
 		setunitdata $@mobid[0],UMOB_SPEED,rand(77,177);
+		setunitdata $@mobid[0],UMOB_DAMAGETAKEN,1;
 	}
 	return;
 	
 OnBossDead:
-'progression++;
+		'progression++;
 		if('progression >= 'spawnAmount){
 			announce "'ซัดเทพ' ผ่านแล้ว!",bc_map;
 			getitem GOD_TICKET_ITEM_ID,'rewardAmount;
@@ -116,7 +124,8 @@ OnComplete:
 		
 OnInstanceInit:
 		'progression = 0;
-			'mapName$ = instance_mapname("x_prt");
+		'mapName$ = instance_mapname("x_prt");
+		'bonusDebuff = 50;
 		end;
 		
 OnInit:
