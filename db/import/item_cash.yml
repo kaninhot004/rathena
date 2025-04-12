@@ -59,3 +59,11 @@ Body:
        Price: 10000
      - Item: Enchantment_Key
        Price: 10000
+     - Item: C1_Skill_Orb
+       Price: 10000
+     - Item: C2_Skill_Orb
+       Price: 10000
+     - Item: C3_Skill_Orb
+       Price: 10000
+     - Item: C4_Skill_Orb
+       Price: 10000
