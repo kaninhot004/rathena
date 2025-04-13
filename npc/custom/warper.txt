@@ -67,7 +67,7 @@ prontera,161,199,4	duplicate(Warp)	Warp#1	10558
 	
 	.@tbItemName$ = getitemname(THE_BOX_ITEM_ID);
 	.@rhpItemName$ = getitemname(REFINE_HACK_POWDER_ITEM_ID);
-	.@skOrbItemName$ = getitemname((.@difficulty <= 4) ? C1_SKILL_ORB_ITEM_ID : (tier <= 8) ? C2_SKILL_ORB_ITEM_ID : (tier <= 14) ? C3_SKILL_ORB_ITEM_ID : C4_SKILL_ORB_ITEM_ID);
+	.@skOrbItemName$ = getitemname((.@difficulty <= 4) ? C1_SKILL_ORB_ITEM_ID : (.@difficulty <= 8) ? C2_SKILL_ORB_ITEM_ID : (.@difficulty <= 14) ? C3_SKILL_ORB_ITEM_ID : C4_SKILL_ORB_ITEM_ID);
 	
 	for(.@i = .@index; .@i < (.@index + 5); .@i++){
 		// Information - Monster ID
