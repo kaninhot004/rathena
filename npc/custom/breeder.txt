@@ -11,30 +11,16 @@
 //============================================================
 
 prontera,134,188,8	script	แมกนัส	10573,{
-	if (ismounting()) {
-		message strcharinfo(0),"เกิดข้อผิดพลาด: ถอดอุปกรณ์เก่าทุกอย่างออกก่อน";
-		end;
-	} else if (((eaclass()&EAJ_THIRDMASK)==EAJ_RANGER) && !countitem(6124)) {
-		if (!checkfalcon() && getskilllv("HT_FALCON") && !checkwug()) {
-			if(select(" ~ Falcon: ~ Warg")==1) setfalcon;
-			else getitem 6124,1; //Wolf's_Flute
-		} else getitem 6124,1; //Wolf's_Flute
-	} else if (((eaclass()&EAJ_THIRDMASK)==EAJ_MECHANIC) && !checkcart() && getskilllv("MC_PUSHCART")) {
-		if (!checkmadogear() && getskilllv("NC_MADOLICENCE")) {
-			if(select(" ~ Cart: ~ Mado")==1) setcart;
-			else setmadogear;
-		} else setcart;
-	} else if (!checkcart() && getskilllv("MC_PUSHCART")) setcart;
-	else if (!checkfalcon() && getskilllv("HT_FALCON") && !checkwug()) setfalcon;
-	else if (!checkriding() && !checkdragon() && getskilllv("KN_RIDING")) {
-		if ((eaclass()&EAJ_THIRDMASK)==EAJ_RUNE_KNIGHT) setdragon;
-		else setriding;
-	} else if (!checkmadogear() && getskilllv("NC_MADOLICENCE")) setmadogear;
-	else {
-		message strcharinfo(0),"เกิดข้อผิดพลาด: ไม่มีอะไรต้องรับ";
+	.@selected = select("Falcon:Cart:Mado:Dragon:พาหนะ");
+	switch(.@selected){
+		case 1: setfalcon; end;
+		case 2: setcart; end;
+		case 3: setmadogear; end;
+		case 4: setdragon; end;
+		case 5: setriding; end;
+		default:
 		end;
 	}
-	specialeffect2 EF_TEIHIT3;
 	end;
 	
 OnInit:
