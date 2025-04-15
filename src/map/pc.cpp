@@ -11241,9 +11241,6 @@ void pc_setriding(map_session_data* sd, int32 flag)
  */
 void pc_setmadogear(map_session_data *sd, bool flag, e_mado_type type)
 {
-	if ((sd->class_ & MAPID_THIRDMASK) != MAPID_MECHANIC)
-		return;
-
 	if (flag) {
 		if (pc_checkskill(sd, NC_MADOLICENCE) > 0)
 			pc_setoption(sd, sd->sc.option | OPTION_MADOGEAR, type);
