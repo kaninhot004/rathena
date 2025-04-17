@@ -8,7 +8,8 @@ OnMenu:
 	"สุ่ม Skill Class 1 [^af1ada" + getitemname(C1_SKILL_ORB_ITEM_ID) + "^000000] สุ่มไปแล้ว " + skb[0] + " ครั้ง",OnClass1,
 	"สุ่ม Skill Class 2 [^af1ada" + getitemname(C2_SKILL_ORB_ITEM_ID) + "^000000] สุ่มไปแล้ว " + skb[1] + " ครั้ง",OnClass2,
 	"สุ่ม Skill Class 3 [^af1ada" + getitemname(C3_SKILL_ORB_ITEM_ID) + "^000000] สุ่มไปแล้ว " + skb[2] + " ครั้ง",OnClass3,
-	"สุ่ม Skill Class 4 [^af1ada" + getitemname(C4_SKILL_ORB_ITEM_ID) + "^000000] สุ่มไปแล้ว " + skb[3] + " ครั้ง",OnClass4;
+	"สุ่ม Skill Class 4 [^af1ada" + getitemname(C4_SKILL_ORB_ITEM_ID) + "^000000] สุ่มไปแล้ว " + skb[3] + " ครั้ง",OnClass4,
+	"แก้บัค Skill หาย",OnFixSkillMissing;
 	end;
 	
 OnOneTapSetting:
@@ -30,25 +31,35 @@ OnTrade:
 		}
 	}
 	
+	if(fskb[.@classIndex] > 0){
+		.@loopCount = #IS_SKIP_SKILL_BOX_ONE_TAP ? 1 : fskb[.@classIndex];
+		.@freeMode = 1;
+	}
+	else
 	.@loopCount = #IS_SKIP_SKILL_BOX_ONE_TAP ? 1 : max(1,(countitem(.@tradeItemId) / .@currentPrice));
-	
+
 	while((.@loopCount > 0) && (.@error < 300)){
-		if(countitem(.@tradeItemId) < .@currentPrice)
+		if(!.@freeMode && (countitem(.@tradeItemId) < .@currentPrice))
 		break;
 
 		.@randIndex = rand(getarraysize(getd("$c" + (.@classIndex + 1) + "SkillIds")));
 		.@rewardSkillId = getd("$c" + (.@classIndex + 1) + "SkillIds[" + .@randIndex + "]");
 		.@rewardSkillMaxLv = getd("$c" + (.@classIndex + 1) + "SkillMaxLvs[" + .@randIndex + "]");
 		if(getskilllv(.@rewardSkillId) < .@rewardSkillMaxLv){
+			if(!.@freeMode)
 			delitem .@tradeItemId,.@currentPrice;
+			else
+			fskb[.@classIndex]--;
 			.@loopCount--;
 			.@success++;
 			skb[.@classIndex]++;
 			skill .@rewardSkillId,getskilllv(.@rewardSkillId) + 1,3;
-			for(.@i = 0; .@i < getarraysize(.boughtCount); .@i++){
-				if(skb[.@classIndex] < .boughtCount[.@i]){
-					.@currentPrice = .prices[.@i];
-					break;
+			if(!.@freeMode){
+				for(.@i = 0; .@i < getarraysize(.boughtCount); .@i++){
+					if(skb[.@classIndex] < .boughtCount[.@i]){
+						.@currentPrice = .prices[.@i];
+						break;
+					}
 				}
 			}
 		}
@@ -62,6 +73,51 @@ OnTrade:
 	
 	freeloop(0);
 	close;
+	
+OnFixSkillMissing:
+	if(isFixSkillMissing)
+	{
+		mes "ขออภัย แก้ได้ครั้งเดียว ถ้าบัคอีกเลิกเล่นได้เลย";
+		mes "ตอนนี้ สุ่ม C4 ฟรีได้: " + fskb[3] + " ครั้ง";
+		mes "ตอนนี้ สุ่ม C3 ฟรีได้: " + fskb[2] + " ครั้ง";
+		mes "ตอนนี้ สุ่ม C2 ฟรีได้: " + fskb[1] + " ครั้ง";
+		mes "ตอนนี้ สุ่ม C1 ฟรีได้: " + fskb[0] + " ครั้ง";
+		close;
+	}
+	query_sql("SELECT skill.lv FROM skill WHERE skill.char_id = '" + getcharid(0) + "' AND skill.flag = '3'",.@lvs);
+	.@arraySize = getarraysize(.@lvs);
+	.@learnCount = 0;
+	freeloop(1);
+	for(.@i = 0; .@i < .@arraySize; .@i++)
+	.@learnCount += .@lvs[.@i];
+	.@missingSkillCount = (skb[0] + skb[1] + skb[2] + skb[3]) - (.@learnCount + fskb[0] + fskb[1] + fskb[2] + fskb[3]);
+	if(.@missingSkillCount > 0){
+		fskb[3] = skb[3];
+		skb[3] = 0;
+		.@missingSkillCount -= skb[3];
+	}
+	if(.@missingSkillCount > 0){
+		fskb[2] = skb[2];
+		skb[2] = 0;
+		.@missingSkillCount -= skb[2];
+	}
+	if(.@missingSkillCount > 0){
+		fskb[1] = skb[1];
+		skb[1] = 0;
+		.@missingSkillCount -= skb[1];
+	}
+	if(.@missingSkillCount > 0){
+		fskb[0] = skb[0];
+		skb[0] = 0;
+		.@missingSkillCount -= skb[0];
+	}
+	dispbottom "สุ่ม C4 ฟรีได้: " + fskb[3] + " ครั้ง";
+	dispbottom "สุ่ม C3 ฟรีได้: " + fskb[2] + " ครั้ง";
+	dispbottom "สุ่ม C2 ฟรีได้: " + fskb[1] + " ครั้ง";
+	dispbottom "สุ่ม C1 ฟรีได้: " + fskb[0] + " ครั้ง";
+	freeloop(0);
+	isFixSkillMissing=1;
+	end;
 	
 OnInit:
 	setarray .prices[0],1,3,5,15,50;
