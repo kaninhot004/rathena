@@ -231,6 +231,10 @@ OnTryToSpawnBoss:
 	return;
 
 OnGetReward:
+	// Heal AP
+	if((comboPower > 0) && (rand(100000) < comboPower))
+	healap 10;
+
 	.@timeTick = gettimetick(2);
 
 	// Cursed Room (Delay 1s too)
@@ -309,7 +313,7 @@ OnGetReward:
 	.@tbDropChance = ($skOrbDropRateTiers[tier - 1]) * (.@cursedMultiplier + getd("$tbrDropMultiplier" + lastPlayMap + "[" + .@monsterIndex + "]"));
 	.@tbRand = rand(10000);
 	if((.@tbRand < .@tbDropChance) || .@isBoss)
-		getitem .@skillOrbItemId,.@isBoss ? rand(1,max(2,getd("$tbrBossRate" + lastPlayMap))) : 1;
+	getitem .@skillOrbItemId,.@isBoss ? rand(1,max(2,getd("$tbrBossRate" + lastPlayMap))) : 1;
 	else if(!#IS_SKIP_SKILL_ORB_RATE)
 	dispbottom "µéÍ§ÊØèÁä´é < " + .@tbDropChance + " à¾×èÍÃÑº " + getitemname(.@skillOrbItemId) + " ¤Ø³ÊØèÁä´é " + .@tbRand;
 	
