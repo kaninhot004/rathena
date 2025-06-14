@@ -32,51 +32,51 @@ enum damage_lv : uint8 {
 
 /// Flag for base damage calculation
 enum e_base_damage_flag : uint16 {
-	BDMG_NONE	= 0x0000, /// None
-	BDMG_CRIT	= 0x0001, /// Critical hit damage
-	BDMG_ARROW  = 0x0002, /// Add arrow attack and use ranged damage formula
-	BDMG_MAGIC  = 0x0004, /// Use MATK for base damage (e.g. Magic Crasher)
+	BDMG_NONE = 0x0000, /// None
+	BDMG_CRIT = 0x0001, /// Critical hit damage
+	BDMG_ARROW = 0x0002, /// Add arrow attack and use ranged damage formula
+	BDMG_MAGIC = 0x0004, /// Use MATK for base damage (e.g. Magic Crasher)
 	BDMG_NOSIZE = 0x0008, /// Skip target size adjustment (e.g. Weapon Perfection)
 };
 
 /// Flag of the final calculation
 enum e_battle_flag : uint16 {
-	BF_NONE		= 0x0000, /// None
-	BF_WEAPON	= 0x0001, /// Weapon attack
-	BF_MAGIC	= 0x0002, /// Magic attack
-	BF_MISC		= 0x0004, /// Misc attack
+	BF_NONE = 0x0000, /// None
+	BF_WEAPON = 0x0001, /// Weapon attack
+	BF_MAGIC = 0x0002, /// Magic attack
+	BF_MISC = 0x0004, /// Misc attack
 
-	BF_SHORT	= 0x0010, /// Short attack
-	BF_LONG		= 0x0040, /// Long attack
+	BF_SHORT = 0x0010, /// Short attack
+	BF_LONG = 0x0040, /// Long attack
 
-	BF_SKILL	= 0x0100, /// Skill attack
-	BF_NORMAL	= 0x0200, /// Normal attack
+	BF_SKILL = 0x0100, /// Skill attack
+	BF_NORMAL = 0x0200, /// Normal attack
 
-	BF_WEAPONMASK	= BF_WEAPON|BF_MAGIC|BF_MISC, /// Weapon attack mask
-	BF_RANGEMASK	= BF_SHORT|BF_LONG, /// Range attack mask
-	BF_SKILLMASK	= BF_SKILL|BF_NORMAL, /// Skill attack mask
+	BF_WEAPONMASK = BF_WEAPON | BF_MAGIC | BF_MISC, /// Weapon attack mask
+	BF_RANGEMASK = BF_SHORT | BF_LONG, /// Range attack mask
+	BF_SKILLMASK = BF_SKILL | BF_NORMAL, /// Skill attack mask
 };
 
 /// Battle check target [Skotlex]
 enum e_battle_check_target : uint32 {
-	BCT_NOONE		= 0x000000, ///< No one
-	BCT_SELF		= 0x010000, ///< Self
-	BCT_ENEMY		= 0x020000, ///< Enemy
-	BCT_PARTY		= 0x040000, ///< Party members
-	BCT_GUILDALLY	= 0x080000, ///< Only allies, NOT guildmates
-	BCT_NEUTRAL		= 0x100000, ///< Neutral target
-	BCT_SAMEGUILD	= 0x200000, ///< Guildmates, No Guild Allies
+	BCT_NOONE = 0x000000, ///< No one
+	BCT_SELF = 0x010000, ///< Self
+	BCT_ENEMY = 0x020000, ///< Enemy
+	BCT_PARTY = 0x040000, ///< Party members
+	BCT_GUILDALLY = 0x080000, ///< Only allies, NOT guildmates
+	BCT_NEUTRAL = 0x100000, ///< Neutral target
+	BCT_SAMEGUILD = 0x200000, ///< Guildmates, No Guild Allies
 
-	BCT_ALL			= 0x3F0000, ///< All targets
+	BCT_ALL = 0x3F0000, ///< All targets
 
-	BCT_WOS			= 0x400000, ///< Except self and your master
-	BCT_SLAVE		= BCT_SELF|BCT_WOS,				///< Does not hit yourself/master, but hits your/master's slaves
-	BCT_GUILD		= BCT_SAMEGUILD|BCT_GUILDALLY,	///< Guild AND Allies (BCT_SAMEGUILD|BCT_GUILDALLY)
-	BCT_NOGUILD		= BCT_ALL&~BCT_GUILD,			///< Except guildmates
-	BCT_NOPARTY		= BCT_ALL&~BCT_PARTY,			///< Except party members
-	BCT_NOENEMY		= BCT_ALL&~BCT_ENEMY,			///< Except enemy
-	BCT_ALLY		= BCT_PARTY|BCT_GUILD,
-	BCT_FRIEND		= BCT_NOENEMY,
+	BCT_WOS = 0x400000, ///< Except self and your master
+	BCT_SLAVE = BCT_SELF | BCT_WOS,				///< Does not hit yourself/master, but hits your/master's slaves
+	BCT_GUILD = BCT_SAMEGUILD | BCT_GUILDALLY,	///< Guild AND Allies (BCT_SAMEGUILD|BCT_GUILDALLY)
+	BCT_NOGUILD = BCT_ALL & ~BCT_GUILD,			///< Except guildmates
+	BCT_NOPARTY = BCT_ALL & ~BCT_PARTY,			///< Except party members
+	BCT_NOENEMY = BCT_ALL & ~BCT_ENEMY,			///< Except enemy
+	BCT_ALLY = BCT_PARTY | BCT_GUILD,
+	BCT_FRIEND = BCT_NOENEMY,
 };
 
 /// Check flag for common damage bonuses such as: ATKpercent, Refine, Passive Mastery, Spirit Spheres and Star Crumbs
@@ -108,46 +108,46 @@ struct Damage {
 
 // Damage Calculation
 
-struct Damage battle_calc_attack(int32 attack_type,struct block_list *bl,struct block_list *target,uint16 skill_id,uint16 skill_lv,int32 flag);
+struct Damage battle_calc_attack(int32 attack_type, struct block_list* bl, struct block_list* target, uint16 skill_id, uint16 skill_lv, int32 flag);
 
-int64 battle_calc_return_damage(struct block_list *bl, struct block_list *src, int64 *, int32 flag, uint16 skill_id, bool status_reflect);
+int64 battle_calc_return_damage(struct block_list* bl, struct block_list* src, int64*, int32 flag, uint16 skill_id, bool status_reflect);
 
-void battle_drain(map_session_data *sd, struct block_list *tbl, int64 rdamage, int64 ldamage, int32 race, int32 class_);
+void battle_drain(map_session_data* sd, struct block_list* tbl, int64 rdamage, int64 ldamage, int32 race, int32 class_);
 
 int64 battle_attr_fix(struct block_list* src, struct block_list* target, int64 damage, int32 atk_elem, int32 def_type, int32 def_lv, int32 flag = 0);
-int32 battle_calc_cardfix(int32 attack_type, struct block_list *src, struct block_list *target, std::bitset<NK_MAX> nk, int32 s_ele, int32 s_ele_, int64 damage, int32 left, int32 flag);
+int32 battle_calc_cardfix(int32 attack_type, struct block_list* src, struct block_list* target, std::bitset<NK_MAX> nk, int32 s_ele, int32 s_ele_, int64 damage, int32 left, int32 flag);
 
 // Final calculation Damage
-int64 battle_calc_damage(struct block_list *src,struct block_list *bl,struct Damage *d,int64 damage,uint16 skill_id,uint16 skill_lv);
-int64 battle_calc_gvg_damage(struct block_list *src,struct block_list *bl,int64 damage,uint16 skill_id,int32 flag);
-int64 battle_calc_bg_damage(struct block_list *src,struct block_list *bl,int64 damage,uint16 skill_id,int32 flag);
-int64 battle_calc_pk_damage(block_list &src, block_list &bl, int64 damage, uint16 skill_id, int32 flag);
+int64 battle_calc_damage(struct block_list* src, struct block_list* bl, struct Damage* d, int64 damage, uint16 skill_id, uint16 skill_lv);
+int64 battle_calc_gvg_damage(struct block_list* src, struct block_list* bl, int64 damage, uint16 skill_id, int32 flag);
+int64 battle_calc_bg_damage(struct block_list* src, struct block_list* bl, int64 damage, uint16 skill_id, int32 flag);
+int64 battle_calc_pk_damage(block_list& src, block_list& bl, int64 damage, uint16 skill_id, int32 flag);
 int64 battle_calc_debuff_damage(struct block_list* src, struct block_list* bl, int64 damage);
 
-int32 battle_damage(struct block_list *src, struct block_list *target, int64 damage, int16 div_, uint16 skill_lv, uint16 skill_id, enum damage_lv dmg_lv, uint16 attack_type, bool additional_effects, t_tick tick, bool isspdamage, bool is_norm_attacked = false);
-int32 battle_delay_damage (t_tick tick, int32 amotion, struct block_list *src, struct block_list *target, int32 attack_type, uint16 skill_id, uint16 skill_lv, int64 damage, enum damage_lv dmg_lv, int16 div_, bool additional_effects, bool isspdamage, bool is_norm_attacked = false);
+int32 battle_damage(struct block_list* src, struct block_list* target, int64 damage, int16 div_, uint16 skill_lv, uint16 skill_id, enum damage_lv dmg_lv, uint16 attack_type, bool additional_effects, t_tick tick, bool isspdamage, bool is_norm_attacked = false);
+int32 battle_delay_damage(t_tick tick, int32 amotion, struct block_list* src, struct block_list* target, int32 attack_type, uint16 skill_id, uint16 skill_lv, int64 damage, enum damage_lv dmg_lv, int16 div_, bool additional_effects, bool isspdamage, bool is_norm_attacked = false);
 int32 battle_fix_damage(struct block_list* src, struct block_list* target, int64 damage, int16 div_, uint16 skill_id);
 
-int32 battle_calc_chorusbonus(map_session_data *sd);
+int32 battle_calc_chorusbonus(map_session_data* sd);
 
 // Summary normal attack treatment (basic attack)
-enum damage_lv battle_weapon_attack( struct block_list *bl,struct block_list *target,t_tick tick,int32 flag);
+enum damage_lv battle_weapon_attack(struct block_list* bl, struct block_list* target, t_tick tick, int32 flag);
 
 // Accessors
-struct block_list* battle_get_master(struct block_list *src);
-struct block_list* battle_gettargeted(struct block_list *target);
-struct block_list* battle_getenemy(struct block_list *target, int32 type, int32 range);
-int32 battle_gettarget(struct block_list *bl);
-uint16 battle_getcurrentskill(struct block_list *bl);
+struct block_list* battle_get_master(struct block_list* src);
+struct block_list* battle_gettargeted(struct block_list* target);
+struct block_list* battle_getenemy(struct block_list* target, int32 type, int32 range);
+int32 battle_gettarget(struct block_list* bl);
+uint16 battle_getcurrentskill(struct block_list* bl);
 
-int32 battle_check_undead(int32 race,int32 element);
-int32 battle_check_target(struct block_list *src, struct block_list *target,int32 flag);
-bool battle_check_range(struct block_list *src,struct block_list *bl,int32 range);
+int32 battle_check_undead(int32 race, int32 element);
+int32 battle_check_target(struct block_list* src, struct block_list* target, int32 flag);
+bool battle_check_range(struct block_list* src, struct block_list* bl, int32 range);
 bool battle_check_coma(map_session_data& sd, struct block_list& target, e_battle_flag attack_type);
 
 void battle_consume_ammo(map_session_data* sd, int32 skill, int32 lv);
 
-bool is_infinite_defense(struct block_list *target, int32 flag);
+bool is_infinite_defense(struct block_list* target, int32 flag);
 
 // Settings
 
@@ -188,16 +188,17 @@ struct Battle_Config
 	int32 attr_recover;
 	int32 item_auto_get;
 	int32 flooritem_lifetime;
+	int32 first_attack_loot_bonus;
 	int32 item_first_get_time;
 	int32 item_second_get_time;
 	int32 item_third_get_time;
 	int32 mvp_item_first_get_time;
 	int32 mvp_item_second_get_time;
 	int32 mvp_item_third_get_time;
-	int32 base_exp_rate,job_exp_rate;
+	int32 base_exp_rate, job_exp_rate;
 	int32 drop_rate0item;
 	int32 death_penalty_type;
-	int32 death_penalty_base,death_penalty_job;
+	int32 death_penalty_base, death_penalty_job;
 	int32 pvp_exp;  // [MouseJstr]
 	int32 gtb_sc_immunity;
 	int32 zeny_penalty;
@@ -356,16 +357,16 @@ struct Battle_Config
 	int32 item_rate_common_mvp, item_rate_heal_mvp, item_rate_use_mvp, item_rate_equip_mvp, item_rate_card_mvp;
 
 	int32 logarithmic_drops;
-	int32 item_drop_common_min,item_drop_common_max;	// Added by TyrNemesis^
-	int32 item_drop_card_min,item_drop_card_max;
-	int32 item_drop_equip_min,item_drop_equip_max;
-	int32 item_drop_mvp_min,item_drop_mvp_max;	// End Addition
+	int32 item_drop_common_min, item_drop_common_max;	// Added by TyrNemesis^
+	int32 item_drop_card_min, item_drop_card_max;
+	int32 item_drop_equip_min, item_drop_equip_max;
+	int32 item_drop_mvp_min, item_drop_mvp_max;	// End Addition
 	int32 item_drop_mvp_mode; //rAthena addition [Playtester]
-	int32 item_drop_heal_min,item_drop_heal_max;	// Added by Valatris
-	int32 item_drop_use_min,item_drop_use_max;	//End
-	int32 item_drop_treasure_min,item_drop_treasure_max; //by [Skotlex]
-	int32 item_drop_adddrop_min,item_drop_adddrop_max; //[Skotlex]
-	int32 item_group_drop_min,item_group_drop_max;
+	int32 item_drop_heal_min, item_drop_heal_max;	// Added by Valatris
+	int32 item_drop_use_min, item_drop_use_max;	//End
+	int32 item_drop_treasure_min, item_drop_treasure_max; //by [Skotlex]
+	int32 item_drop_adddrop_min, item_drop_adddrop_max; //[Skotlex]
+	int32 item_group_drop_min, item_group_drop_max;
 
 	int32 prevent_logout;	// Added by RoVeRT
 	int32 prevent_logout_trigger;
@@ -404,7 +405,7 @@ struct Battle_Config
 	int32 buyer_name;
 	int32 dancing_weaponswitch_fix;
 
-// eAthena additions
+	// eAthena additions
 	int32 night_at_start; // added by [Yor]
 	int32 day_duration; // added by [Yor]
 	int32 night_duration; // added by [Yor]
@@ -502,7 +503,7 @@ struct Battle_Config
 	int32 friend_auto_add; //When accepting friends, both get friended. [Skotlex]
 	int32 hvan_explosion_intimate;	// fix [albator]
 	int32 hom_rename;
-	int32 homunculus_show_growth ;	//[orn]
+	int32 homunculus_show_growth;	//[orn]
 	int32 homunculus_friendly_rate;
 	int32 quest_exp_rate;
 	int32 autotrade_mapflag;
@@ -788,16 +789,16 @@ extern struct Battle_Config battle_config;
 
 void do_init_battle(void);
 void do_final_battle(void);
-extern int32 battle_config_read(const char *cfgName);
+extern int32 battle_config_read(const char* cfgName);
 extern void battle_set_defaults(void);
 int32 battle_set_value(const char* w1, const char* w2);
 int32 battle_get_value(const char* w1);
 
 //
-struct block_list* battle_getenemyarea(struct block_list *src, int32 x, int32 y, int32 range, int32 type, int32 ignore_id);
+struct block_list* battle_getenemyarea(struct block_list* src, int32 x, int32 y, int32 range, int32 type, int32 ignore_id);
 /**
  * Royal Guard
  **/
-int32 battle_damage_area( struct block_list *bl, va_list ap);
+int32 battle_damage_area(struct block_list* bl, va_list ap);
 
 #endif /* BATTLE_HPP */
