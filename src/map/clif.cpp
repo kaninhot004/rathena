@@ -9975,7 +9975,6 @@ void clif_name( struct block_list* src, struct block_list *bl, send_target targe
 				char mobhp[50], *str_p = mobhp;
 
 				if( battle_config.show_mob_info&4 ){
-					//str_p += sprintf( str_p, "Lv. %d | ", md->level );
 					str_p += sprintf( str_p, "R. %d | ", md->rank ); // [Start's] Show rank on monster name
 				}
 
