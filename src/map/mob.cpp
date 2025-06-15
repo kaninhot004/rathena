@@ -4953,7 +4953,7 @@ bool MobDatabase::parseDropNode( std::string nodeName, const ryml::NodeRef& node
 		drop = std::make_shared<s_mob_drop>();
 		std::shared_ptr<item_data> item = item_db.find(battle_config.config_global_drop);
 		drop->nameid = item->nameid;
-		drop->rate = (battle_config.config_global_drop_base_rate * monsterLv);
+		drop->rate = (battle_config.config_global_drop_base_rate * (battle_config.config_global_drop_multiply_monster_level ? monsterLv : 1));
 		drop->steal_protected = true;
 		drops.push_back(drop);
 	}
@@ -4963,7 +4963,7 @@ bool MobDatabase::parseDropNode( std::string nodeName, const ryml::NodeRef& node
 		drop = std::make_shared<s_mob_drop>();
 		std::shared_ptr<item_data> item = item_db.find(battle_config.config_global_mvp_drop);
 		drop->nameid = item->nameid;
-		drop->rate = (battle_config.config_global_mvp_drop_rate);
+		drop->rate = (battle_config.config_global_mvp_drop_rate * (battle_config.config_global_mvp_drop_multiply_monster_level ? monsterLv : 1));
 		drop->steal_protected = true;
 		drops.push_back(drop);
 	}
@@ -5572,7 +5572,7 @@ uint64 MobDatabase::parseBodyNode(const ryml::NodeRef& node) {
 			drop = std::make_shared<s_mob_drop>();
 			std::shared_ptr<item_data> item = item_db.find(battle_config.config_global_mvp_drop);
 			drop->nameid = item->nameid;
-			drop->rate = (battle_config.config_global_mvp_drop_rate);
+			drop->rate = (battle_config.config_global_mvp_drop_rate * (battle_config.config_global_mvp_drop_multiply_monster_level ? mob->lv : 1));
 			drop->steal_protected = true;
 			mob->mvpitem.push_back(drop);
 		}
@@ -5589,7 +5589,7 @@ uint64 MobDatabase::parseBodyNode(const ryml::NodeRef& node) {
 			drop = std::make_shared<s_mob_drop>();
 			std::shared_ptr<item_data> item = item_db.find(battle_config.config_global_drop);
 			drop->nameid = item->nameid;
-			drop->rate = (battle_config.config_global_drop_base_rate * mob->lv);
+			drop->rate = (battle_config.config_global_drop_base_rate * (battle_config.config_global_drop_multiply_monster_level ? mob->lv : 1));
 			drop->steal_protected = true;
 			mob->dropitem.push_back(drop);
 		}

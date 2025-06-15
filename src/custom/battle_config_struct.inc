@@ -15,8 +15,10 @@
  int config_global_maximum_sell;
  int config_global_drop;
  int config_global_drop_base_rate;
+ int config_global_drop_multiply_monster_level;
  int config_global_mvp_drop;
  int config_global_mvp_drop_rate;
+ int config_global_mvp_drop_multiply_monster_level;
  int config_main_item_drop_id;
  int config_main_item_drop_delay;
  int config_invulnerable_break_rate;

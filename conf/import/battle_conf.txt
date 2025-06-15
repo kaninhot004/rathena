@@ -5,11 +5,15 @@ config_global_maximum_sell: 5000
 config_global_drop: 0
 // %
 config_global_drop_base_rate: 1
+// % ด้านบน คูณด้วย Monster Level (ใส่ 0 เพื่อปิดการใช้งาน)
+config_global_drop_multiply_monster_level: 1
 
 // Boss ทุกตัว Drop Item Id (ใส่ 0 เพื่อปิดการใช้งาน)
 config_global_mvp_drop: 10000000
 // %
 config_global_mvp_drop_rate: 1
+// % ด้านบน คูณด้วย Monster Level จาก  (ใส่ 0 เพื่อปิดการใช้งาน)
+config_global_mvp_drop_multiply_monster_level: 0
 
 // Item Id ที่จะ Delay การ Drop (ใส่ 0 เพื่อปิดการใช้งาน)
 config_main_item_drop_id: 10000001
