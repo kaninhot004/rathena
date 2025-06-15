@@ -4945,27 +4945,27 @@ bool MobDatabase::parseDropNode( std::string nodeName, const ryml::NodeRef& node
 		if( !exist ){
 			drops.push_back( drop );
 		}
+	}
 
-		// [Start's]
-		if (battle_config.config_global_drop && !isMvp) {
-			std::shared_ptr<s_mob_drop> drop;
-			drop = std::make_shared<s_mob_drop>();
-			std::shared_ptr<item_data> item = item_db.find(battle_config.config_global_drop);
-			drop->nameid = item->nameid;
-			drop->rate = (battle_config.config_global_drop_base_rate * monsterLv);
-			drop->steal_protected = true;
-			drops.push_back(drop);
-		}
+	// [Start's]
+	if (battle_config.config_global_drop && !isMvp) {
+		std::shared_ptr<s_mob_drop> drop;
+		drop = std::make_shared<s_mob_drop>();
+		std::shared_ptr<item_data> item = item_db.find(battle_config.config_global_drop);
+		drop->nameid = item->nameid;
+		drop->rate = (battle_config.config_global_drop_base_rate * monsterLv);
+		drop->steal_protected = true;
+		drops.push_back(drop);
+	}
 
-		if (battle_config.config_global_mvp_drop && isMvp) {
-			std::shared_ptr<s_mob_drop> drop;
-			drop = std::make_shared<s_mob_drop>();
-			std::shared_ptr<item_data> item = item_db.find(battle_config.config_global_mvp_drop);
-			drop->nameid = item->nameid;
-			drop->rate = (battle_config.config_global_mvp_drop_rate);
-			drop->steal_protected = true;
-			drops.push_back(drop);
-		}
+	if (battle_config.config_global_mvp_drop && isMvp) {
+		std::shared_ptr<s_mob_drop> drop;
+		drop = std::make_shared<s_mob_drop>();
+		std::shared_ptr<item_data> item = item_db.find(battle_config.config_global_mvp_drop);
+		drop->nameid = item->nameid;
+		drop->rate = (battle_config.config_global_mvp_drop_rate);
+		drop->steal_protected = true;
+		drops.push_back(drop);
 	}
 
 	return true;
@@ -5591,7 +5591,7 @@ uint64 MobDatabase::parseBodyNode(const ryml::NodeRef& node) {
 			drop->nameid = item->nameid;
 			drop->rate = (battle_config.config_global_drop_base_rate * mob->lv);
 			drop->steal_protected = true;
-			mob->mvpitem.push_back(drop);
+			mob->dropitem.push_back(drop);
 		}
 	}
 
