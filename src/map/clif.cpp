@@ -4037,12 +4037,11 @@ void clif_changelook(struct block_list *bl, int32 type, int32 val) {
 			case LOOK_BODY2:
 #if PACKETVER < 20150513
 				return;
-#else
-#if PACKETVER < 20231220
+#elseif PACKETVER < 20231220
 				if( val != 0 && sc != nullptr && sc->option&OPTION_COSTUME ){
  					val = 0;
 				}
-#endif
+#else
  				vd->look[LOOK_BODY2] = val;
 #endif
 				break;

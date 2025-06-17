@@ -10913,6 +10913,7 @@ bool pc_jobchange(map_session_data *sd,int32 job, char upper)
 	sd->status.body = job;
 #else
 	sd->status.body = 0;
+#endif
 	clif_changelook(sd,LOOK_BODY2,sd->status.body);
 
 	sd->status.class_ = job;
