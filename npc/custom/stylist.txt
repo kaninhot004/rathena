@@ -18,11 +18,6 @@ prontera,174,177,3	script	เกรส	10365,{
 	setarray .@maxStyles[1],getbattleflag("max_cloth_color"),getbattleflag("max_hair_style"),getbattleflag("max_hair_color");
 	setarray .@looks[1],LOOK_CLOTHES_COLOR,LOOK_HAIR,LOOK_HAIR_COLOR;
 	.@s = select(" ~ สีเสื้อ: ~ ทรงผม: ~ สีผม");
-	if(.@s == 4){
-		.@type = (select("แบบที่ 1:แบบที่ 2") - 1);
-		atcommand "@bodystyle " + .@type;
-		end;
-	}
 	if((.@s == 2) && .@isSummoner)
 	.@maxStyles[2] = 10;
 	.@revert = getlook(.@looks[.@s]);
