@@ -925,6 +925,10 @@ int32 battle_calc_cardfix(int32 attack_type, struct block_list *src, struct bloc
 
 				if( tsc->getSCE(SC_MDEF_RATE) )
 					cardfix = cardfix * (100 - tsc->getSCE(SC_MDEF_RATE)->val1) / 100;
+				
+				if((cardfix < battle_config.config_invulnerable_break_value) && ((rnd() % 100) < battle_config.config_invulnerable_break_rate)) // [Start's] 50% chance to capped rate at 90% if exceeded
+					cardfix = battle_config.config_invulnerable_break_value;
+					
 				APPLY_CARDFIX(damage, cardfix);
 			}
 			break;
@@ -1144,6 +1148,10 @@ int32 battle_calc_cardfix(int32 attack_type, struct block_list *src, struct bloc
 					cardfix = cardfix * (100 - tsd->bonus.long_attack_def_rate) / 100;
 				if( tsc->getSCE(SC_DEF_RATE) )
 					cardfix = cardfix * (100 - tsc->getSCE(SC_DEF_RATE)->val1) / 100;
+				
+				if ((cardfix < battle_config.config_invulnerable_break_value) && ((rnd() % 100) < battle_config.config_invulnerable_break_rate)) // [Start's] 50% chance to capped rate at 90% if exceeded
+					cardfix = battle_config.config_invulnerable_break_value;
+					
 				APPLY_CARDFIX(damage, cardfix);
 			}
 			// Custom on BF_WEAPON to follow SC_ debuff BF_MAGIC renewal behavior
@@ -1195,6 +1203,10 @@ int32 battle_calc_cardfix(int32 attack_type, struct block_list *src, struct bloc
 					cardfix = cardfix * (100 - tsd->bonus.near_attack_def_rate) / 100;
 				else if (!nk[NK_IGNORELONGCARD])	// BF_LONG (there's no other choice)
 					cardfix = cardfix * (100 - tsd->bonus.long_attack_def_rate) / 100;
+
+				if ((cardfix < battle_config.config_invulnerable_break_value) && ((rnd() % 100) < battle_config.config_invulnerable_break_rate)) // [Start's] 50% chance to capped rate at 90% if exceeded
+					cardfix = battle_config.config_invulnerable_break_value;
+
 				APPLY_CARDFIX(damage, cardfix);
 			}
 			// Custom on BF_MISC to follow SC_ debuff BF_MAGIC renewal behavior
@@ -1702,6 +1714,8 @@ int64 battle_calc_damage(struct block_list *src,struct block_list *bl,struct Dam
 			if (battle_config.pk_mode == 1 && map_getmapflag(bl->m, MF_PVP) > 0)
 				damage = battle_calc_pk_damage(*src, *bl, damage, skill_id, flag);
 
+			damage = battle_calc_debuff_damage(src, bl, damage); // [Start's]
+
 			return damage; //These skills bypass everything else.
 	}
 
@@ -1713,6 +1727,8 @@ int64 battle_calc_damage(struct block_list *src,struct block_list *bl,struct Dam
 		// Adjust this based on any possible PK damage rates.
 		if (battle_config.pk_mode == 1 && map_getmapflag(bl->m, MF_PVP) > 0)
 			damage = battle_calc_pk_damage(*src, *bl, damage, skill_id, flag);
+
+		damage = battle_calc_debuff_damage(src, bl, damage); // [Start's]
 
 		return damage;
 	}
@@ -2016,6 +2032,8 @@ int64 battle_calc_damage(struct block_list *src,struct block_list *bl,struct Dam
 	if (battle_config.pk_mode == 1 && map_getmapflag(bl->m, MF_PVP) > 0)
 		damage = battle_calc_pk_damage(*src, *bl, damage, skill_id, flag);
 
+	damage = battle_calc_debuff_damage(src, bl, damage); // [Start's]
+
 	if(battle_config.skill_min_damage && damage > 0 && damage < div_) {
 		if ((flag&BF_WEAPON && battle_config.skill_min_damage&1)
 			|| (flag&BF_MAGIC && battle_config.skill_min_damage&2)
@@ -2042,6 +2060,16 @@ int64 battle_calc_damage(struct block_list *src,struct block_list *bl,struct Dam
 
 		if (md && md->damagetaken != 100)
 			damage = i64max(damage * md->damagetaken / 100, 1);
+
+		if (md && (md->rank != 0))
+		{
+			// [Start's] Example: Rank 1 will reduces damage received by 1% (Maximum at 99% or Rank 99)
+			if (battle_config.config_monster_rank_defense_mode == 0)
+				damage = i64max((damage * (100 - (cap_value(md->rank, 0, 99)))) / 100, 1);
+			// [Start's] Example: Rank 1 will divide damage by 2
+			else
+				damage = i64max(damage / (md->rank + 1), 1);
+		}
 	}
 	
 	if (tsc != nullptr && !tsc->empty()) {
@@ -2226,6 +2254,34 @@ int64 battle_calc_pk_damage(block_list &src, block_list &bl, int64 damage, uint1
 			if (flag & BF_LONG)
 				damage = damage * battle_config.pk_long_damage_rate / 100;
 		}
+	}
+
+	return i64max(damage, 1);
+}
+
+/**
+ * [Start's]
+ * Calculates Debuff damage adjustments.
+ * @param src: Source object
+ * @param bl: Target object
+ * @param damage: Damage being done
+ * @return Modified damage
+ */
+int64 battle_calc_debuff_damage(struct block_list* src, struct block_list* bl, int64 damage) {
+	if (damage == 0) // No reductions to make.
+		return 0;
+
+	map_session_data* sd = sd = BL_CAST(BL_PC, src);
+
+	if (sd && sd->debuff)
+		damage = (damage * (100 - (cap_value(sd->debuff, 0, 100)))) / 100; // Example: Debuff 50 will decrease damage by 50%
+
+	mob_data* md = BL_CAST(BL_MOB, src);
+	if (md && (md->rank != 0)) {
+		if (battle_config.config_monster_rank_damage_mode == 0)
+			damage = i64max((damage * (100 + md->rank)) / 100, 1); // Example: Rank 100 will increase damage by 100% (x2)
+		else
+			damage = i64max(damage * (md->rank + 1), 1); // Example: Rank 1 will increase damage by x2 (100%)
 	}
 
 	return i64max(damage, 1);
@@ -2881,14 +2937,17 @@ bool is_infinite_defense(struct block_list *target, int32 flag)
 			return true;
 	}
 
-	if(status_has_mode(tstatus,MD_IGNOREMELEE) && (flag&(BF_WEAPON|BF_SHORT)) == (BF_WEAPON|BF_SHORT) )
-		return true;
-	if(status_has_mode(tstatus,MD_IGNOREMAGIC) && flag&(BF_MAGIC) )
-		return true;
-	if(status_has_mode(tstatus,MD_IGNORERANGED) && (flag&(BF_WEAPON|BF_LONG)) == (BF_WEAPON|BF_LONG) )
-		return true;
-	if(status_has_mode(tstatus,MD_IGNOREMISC) && flag&(BF_MISC) )
-		return true;
+	bool isSkip = (rnd() % 100 < battle_config.config_infinite_defense_break_rate); // [Start's] 10% chance to skip ignore
+	if (!isSkip) {
+		if (status_has_mode(tstatus, MD_IGNOREMELEE) && (flag & (BF_WEAPON | BF_SHORT)) == (BF_WEAPON | BF_SHORT))
+			return true;
+		if (status_has_mode(tstatus, MD_IGNOREMAGIC) && flag & (BF_MAGIC))
+			return true;
+		if (status_has_mode(tstatus, MD_IGNORERANGED) && (flag & (BF_WEAPON | BF_LONG)) == (BF_WEAPON | BF_LONG))
+			return true;
+		if (status_has_mode(tstatus, MD_IGNOREMISC) && flag & (BF_MISC))
+			return true;
+	}
 
 	status_change* tsc = status_get_sc(target);
 	if (tsc && tsc->getSCE(SC_INVINCIBLE))
@@ -3212,6 +3271,7 @@ static bool is_attack_hitting(struct Damage* wd, struct block_list *src, struct 
 	status_change *sc = status_get_sc(src);
 	status_change *tsc = status_get_sc(target);
 	map_session_data *sd = BL_CAST(BL_PC, src);
+	map_session_data *tsd = BL_CAST(BL_PC, target);
 	std::bitset<NK_MAX> nk = battle_skill_get_damage_properties(skill_id, wd->miscflag);
 	int16 flee, hitrate;
 
@@ -3244,6 +3304,9 @@ static bool is_attack_hitting(struct Damage* wd, struct block_list *src, struct 
 
 	if(battle_config.agi_penalty_type && battle_config.agi_penalty_target&target->type) {
 		unsigned char attacker_count = unit_counttargeted(target); //256 max targets should be a sane max
+
+		if (tsd && (tsd->debuff > 0))
+			flee = (flee * (100 - (cap_value(tsd->debuff, 0, 100)))) / 100; // [Start's] Example: Debuff 50 will decrease flee by 50%
 
 		if(attacker_count >= battle_config.agi_penalty_count) {
 			if (battle_config.agi_penalty_type == 1)
@@ -6975,6 +7038,12 @@ static void battle_calc_defense_reduction(struct Damage* wd, struct block_list *
 				def2 -= (target_count - (battle_config.vit_penalty_count - 1))*battle_config.vit_penalty_num;
 			}
 		}
+
+		if (tsd && (tsd->debuff > 0)) {
+			def1 = (def1 * (100 - (cap_value(tsd->debuff, 0, 100)))) / 100; // [Start's] Example: Debuff 50 will decrease def1 by 50%
+			def2 = (def2 * (100 - (cap_value(tsd->debuff, 0, 100)))) / 100; // [Start's] Example: Debuff 50 will decrease def2 by 50%
+		}
+
 		if(def2 < 1)
 			def2 = 1;
 	}
@@ -7733,8 +7802,11 @@ static struct Damage battle_calc_weapon_attack(struct block_list *src, struct bl
 	sd = BL_CAST(BL_PC, src);
 	tsd = BL_CAST(BL_PC, target);
 
-	//Check for Lucky Dodge
-	if ((!skill_id || skill_id == PA_SACRIFICE) && tstatus->flee2 && rnd()%1000 < tstatus->flee2) {
+	//Check for Lucky Dodge + [Start's] Reduces Perfect Dodge by debuff (Example: Debuff 50 will decrease Perfect Dodge by 50%) also 50% chance to capped rate at 90% if exceeded
+	short perfectDodge = (tstatus->flee2 ? (tstatus->flee2 - (tsd ? (tstatus->flee2 * tsd->debuff) / 100 : 0)) : 0);
+	if ((perfectDodge >= battle_config.config_perfect_dodge_break_value) && ((rnd() % 100) < battle_config.config_perfect_dodge_break_rate))
+		perfectDodge = battle_config.config_perfect_dodge_break_value;
+	if ((!skill_id || (skill_id == PA_SACRIFICE)) && perfectDodge && ((rnd() % 1000) < perfectDodge)) {
 		wd.type = DMG_LUCY_DODGE;
 		wd.dmg_lv = ATK_LUCKY;
 		if(wd.div_ < 0)
@@ -10202,6 +10274,8 @@ int64 battle_calc_return_damage(struct block_list* tbl, struct block_list *src, 
 	else if (mapdata->getMapFlag(MF_PVP))
 		rdamage = battle_calc_pk_damage(*src, *tbl, rdamage, skill_id, flag);
 
+	rdamage = battle_calc_debuff_damage(src, tbl, rdamage); // [Start's]
+
 	// Skill damage adjustment
 	int32 skill_damage = battle_skill_damage(src, tbl, skill_id);
 
@@ -12087,8 +12161,6 @@ static const struct _battle_data {
 	{ "feature.roulette",                   &battle_config.feature_roulette,                1,      0,      1,              },
 	{ "feature.roulette_bonus_reward",      &battle_config.feature_roulette_bonus_reward,   1,      0,      1,              },
 	{ "monster_hp_bars_info",               &battle_config.monster_hp_bars_info,            1,      0,      1,              },
-	{ "min_body_style",                     &battle_config.min_body_style,                  0,      0,      SHRT_MAX,       },
-	{ "max_body_style",                     &battle_config.max_body_style,                  1,      0,      SHRT_MAX,       },
 	{ "save_body_style",                    &battle_config.save_body_style,                 1,      0,      1,              },
 	{ "monster_eye_range_bonus",            &battle_config.mob_eye_range_bonus,             0,      0,      10,             },
 	{ "monster_stuck_warning",              &battle_config.mob_stuck_warning,               0,      0,      1,              },

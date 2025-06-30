@@ -286,7 +286,7 @@ struct s_mob_db {
 
 class MobDatabase : public TypesafeCachedYamlDatabase <uint32, s_mob_db> {
 private:
-	bool parseDropNode( std::string nodeName, const ryml::NodeRef& node, uint8 max, std::vector<std::shared_ptr<s_mob_drop>>& drops );
+	bool parseDropNode( std::string nodeName, const ryml::NodeRef& node, uint8 max, std::vector<std::shared_ptr<s_mob_drop>>& drops, int monsterLv, bool isMvp );
 
 public:
 	MobDatabase() : TypesafeCachedYamlDatabase("MOB_DB", 5, 1) {
@@ -397,6 +397,7 @@ struct mob_data : public block_list {
 	 **/
 	int32 tomb_nid;
 	uint16 damagetaken;
+	uint16 rank; // [Start's]
 
 	e_mob_bosstype get_bosstype();
 	map_session_data* get_mvp_player();

@@ -1,0 +1,40 @@
+-	script	TestDamage	-1,{
+	end;
+
+OnTimer60000:
+	.@testDamageSpawnAmount = 30;
+	for(.@i = 0; .@i < getarraysize($testDamageMapName$); .@i++){
+		killmonsterall $testDamageMapName$[.@i];
+		callsub L_Spawn,.@i,.@testDamageSpawnAmount;
+	}
+	initnpctimer;
+	end;
+	
+	L_Spawn:
+	.@index = getarg(0,0);
+	setarray .@baseMonsterRank[0],0,10,100,1000;
+	freeloop(1);
+	for(.@i = 0; .@i < getarraysize($testDamageMonsterId); .@i++){
+		monster $testDamageMapName$[.@index],0,0,"--ja--",$testDamageMonsterId[.@i],1;
+		setunitdata $@mobid[0],UMOB_RANK,.@baseMonsterRank[.@index];
+	}
+	freeloop(0);
+	return;
+
+OnInit:
+	if(!$isTestDamageMonsterInit){
+		deletearray $testDamageMonsterId[0],getarraysize($testDamageMonsterId);
+		for(.@i = 2408; .@i <= 2411; .@i++)
+		setarray $testDamageMonsterId[getarraysize($testDamageMonsterId)],.@i;
+		for(.@i = 21064; .@i <= 21086; .@i++)
+		setarray $testDamageMonsterId[getarraysize($testDamageMonsterId)],.@i;
+		$isTestDamageMonsterInit = 1;
+	}
+	.@testDamageSpawnAmount = 30;
+	deletearray $testDamageMapName$[0],getarraysize($testDamageMapName$);
+	setarray $testDamageMapName$[0],"06guild_01","06guild_02","06guild_03","06guild_04";
+	for(.@i = 0; .@i < getarraysize($testDamageMapName$); .@i++)
+	callsub L_Spawn,.@i,.@testDamageSpawnAmount;
+	initnpctimer;
+	end;
+}

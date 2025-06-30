@@ -228,6 +228,9 @@ uint64 ItemDatabase::parseBodyNode(const ryml::NodeRef& node) {
 			sell = MAX_ZENY;
 		}
 
+		if (sell > battle_config.config_global_maximum_sell)
+			sell = battle_config.config_global_maximum_sell;
+
 		has_sell = true;
 		item->value_sell = sell;
 	} else {
@@ -327,7 +330,13 @@ uint64 ItemDatabase::parseBodyNode(const ryml::NodeRef& node) {
 			item->slots = 0;
 	}
 
-	if (this->nodeExists(node, "Jobs")) {
+	if (battle_config.config_all_equipment_skip_job) {
+		// [Start's]
+		item->class_base[0] = item->class_base[1] = item->class_base[2] = 0;
+
+		itemdb_jobid2mapid(item->class_base, MAPID_ALL, true);
+	}
+	else if (this->nodeExists(node, "Jobs")) {
 		const ryml::NodeRef& jobNode = node["Jobs"];
 
 		item->class_base[0] = item->class_base[1] = item->class_base[2] = 0;
@@ -373,7 +382,11 @@ uint64 ItemDatabase::parseBodyNode(const ryml::NodeRef& node) {
 		}
 	}
 
-	if (this->nodeExists(node, "Classes")) {
+	if (battle_config.config_all_equipment_skip_class) {
+		// [Start's]
+		item->class_upper = ITEMJ_ALL;
+	}
+	else if (this->nodeExists(node, "Classes")) {
 		const auto& classNode = node["Classes"];
 
 		if (this->nodeExists(classNode, "All")) {
@@ -420,7 +433,11 @@ uint64 ItemDatabase::parseBodyNode(const ryml::NodeRef& node) {
 			item->class_upper = ITEMJ_ALL;
 	}
 
-	if (this->nodeExists(node, "Gender")) {
+	if (battle_config.config_all_equipment_skip_gender) {
+		// [Start's]
+		item->sex = SEX_BOTH;
+	}
+	else if (this->nodeExists(node, "Gender")) {
 		std::string gender;
 
 		if (!this->asString(node, "Gender", gender))
@@ -569,28 +586,42 @@ uint64 ItemDatabase::parseBodyNode(const ryml::NodeRef& node) {
 			item->elvmax = MAX_LEVEL;
 	}
 
-	if (this->nodeExists(node, "Refineable")) {
-		bool refine;
+	if (battle_config.config_all_equipment_refinable) {
+		// [Start's]
+		item->flag.no_refine = false;
+	}
+	else {
+		if (this->nodeExists(node, "Refineable")) {
+			bool refine;
 
-		if (!this->asBool(node, "Refineable", refine))
-			return 0;
+			if (!this->asBool(node, "Refineable", refine))
+				return 0;
 
-		item->flag.no_refine = !refine;
-	} else {
-		if (!exists)
-			item->flag.no_refine = true;
+			item->flag.no_refine = !refine;
+		}
+		else {
+			if (!exists)
+				item->flag.no_refine = true;
+		}
 	}
 
-	if (this->nodeExists(node, "Gradable")) {
-		bool gradable;
+	if (battle_config.config_all_equipment_gradable) {
+		// [Start's]
+		item->flag.gradable = true;
+	}
+	else {
+		if (this->nodeExists(node, "Gradable")) {
+			bool gradable;
 
-		if (!this->asBool(node, "Gradable", gradable))
-			return 0;
+			if (!this->asBool(node, "Gradable", gradable))
+				return 0;
 
-		item->flag.gradable = gradable;
-	} else {
-		if (!exists)
-			item->flag.gradable = false;
+			item->flag.gradable = gradable;
+		}
+		else {
+			if (!exists)
+				item->flag.gradable = false;
+		}
 	}
 
 	if (this->nodeExists(node, "View")) {
@@ -624,24 +655,33 @@ uint64 ItemDatabase::parseBodyNode(const ryml::NodeRef& node) {
 			item->view_id = 0;
 	}
 
+	// [Start's]
+	if (battle_config.config_all_item_buying_store)
+		item->flag.buyingstore = true;
+	if (battle_config.config_all_item_no_bind)
+		item->flag.bindOnEquip = false;
+
 	if (this->nodeExists(node, "Flags")) {
 		const auto& flagNode = node["Flags"];
 
-		if (this->nodeExists(flagNode, "BuyingStore")) {
-			bool active;
+		if (!battle_config.config_all_item_buying_store) {
+			if (this->nodeExists(flagNode, "BuyingStore")) {
+				bool active;
 
-			if (!this->asBool(flagNode, "BuyingStore", active))
-				return 0;
+				if (!this->asBool(flagNode, "BuyingStore", active))
+					return 0;
 
-			if (!itemdb_isstackable2(item.get()) && active) {
-				this->invalidWarning(flagNode["BuyingStore"], "Non-stackable item cannot be enabled for buying store.\n");
-				active = false;
+				if (!itemdb_isstackable2(item.get()) && active) {
+					this->invalidWarning(flagNode["BuyingStore"], "Non-stackable item cannot be enabled for buying store.\n");
+					active = false;
+				}
+
+				item->flag.buyingstore = active;
 			}
-
-			item->flag.buyingstore = active;
-		} else {
-			if (!exists)
-				item->flag.buyingstore = false;
+			else {
+				if (!exists)
+					item->flag.buyingstore = false;
+			}
 		}
 
 		if (this->nodeExists(flagNode, "DeadBranch")) {
@@ -685,16 +725,19 @@ uint64 ItemDatabase::parseBodyNode(const ryml::NodeRef& node) {
 				item->flag.guid = false;
 		}
 
-		if (this->nodeExists(flagNode, "BindOnEquip")) {
-			bool active;
+		if (!battle_config.config_all_item_no_bind) {
+			if (this->nodeExists(flagNode, "BindOnEquip")) {
+				bool active;
 
-			if (!this->asBool(flagNode, "BindOnEquip", active))
-				return 0;
+				if (!this->asBool(flagNode, "BindOnEquip", active))
+					return 0;
 
-			item->flag.bindOnEquip = active;
-		} else {
-			if (!exists)
-				item->flag.bindOnEquip = false;
+				item->flag.bindOnEquip = active;
+			}
+			else {
+				if (!exists)
+					item->flag.bindOnEquip = false;
+			}
 		}
 
 		if (this->nodeExists(flagNode, "DropAnnounce")) {
@@ -747,11 +790,13 @@ uint64 ItemDatabase::parseBodyNode(const ryml::NodeRef& node) {
 		}
 	} else {
 		if (!exists) {
-			item->flag.buyingstore = false;
+			if (!battle_config.config_all_item_buying_store) // [Start's]
+				item->flag.buyingstore = false;
 			item->flag.dead_branch = false;
 			item->flag.group = false;
 			item->flag.guid = false;
-			item->flag.bindOnEquip = false;
+			if (!battle_config.config_all_item_no_bind) // [Start's]
+				item->flag.bindOnEquip = false;
 			item->flag.broadcast = false;
 			if (!(item->flag.delay_consume & DELAYCONSUME_TEMP))
 				item->flag.delay_consume = DELAYCONSUME_NONE;
@@ -915,7 +960,7 @@ uint64 ItemDatabase::parseBodyNode(const ryml::NodeRef& node) {
 		}
 	}
 
-	if (this->nodeExists(node, "Trade")) {
+	if (this->nodeExists(node, battle_config.config_all_item_trade ? "TradeNoUse" : "Trade")) { // [Start's] All item should have no restriction
 		const auto& tradeNode = node["Trade"];
 
 		if (this->nodeExists(tradeNode, "Override")) {
@@ -1185,7 +1230,7 @@ void ItemDatabase::loadingFinished(){
 		if (!hasPriceValue[item->nameid].has_buy && hasPriceValue[item->nameid].has_sell)
 			item->value_buy = item->value_sell * 2;
 		else if (hasPriceValue[item->nameid].has_buy && !hasPriceValue[item->nameid].has_sell)
-			item->value_sell = item->value_buy / 2;
+			item->value_sell = cap_value(item->value_buy / 2,0,battle_config.config_global_maximum_sell);
 
 		if (item->value_buy / 124. < item->value_sell / 75.) {
 			ShowWarning("Buying/Selling [%d/%d] price of %s (%u) allows Zeny making exploit through buying/selling at discounted/overcharged prices! Defaulting Sell to 1 Zeny.\n", item->value_buy, item->value_sell, item->name.c_str(), item->nameid);
@@ -3314,7 +3359,7 @@ char itemdb_isidentified(t_itemid nameid) {
 		case IT_ARMOR:
 		case IT_PETARMOR:
 		case IT_SHADOWGEAR:
-			return 0;
+			return battle_config.config_equipment_drop_auto_identify ? 1 : 0; // [Start's]
 		default:
 			return 1;
 	}

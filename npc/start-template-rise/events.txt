@@ -1,0 +1,31 @@
+-	script	Events	-1,{
+	end;
+	
+OnPCLoginEvent:
+	donpcevent "เปลี่ยน Save Point::OnRefreshOnlineAmount";
+	end;
+	
+OnPCLogoutEvent:
+	donpcevent "เปลี่ยน Save Point::OnRefreshOnlineAmount";
+	end;
+	
+OnPCLoadMapEvent:
+	if(strcharinfo(3) == $town$){
+	}
+	end;
+	
+OnInit:
+	bindatcmd "load",strnpcinfo(3) + "::OnLoad";
+	end;
+
+OnLoad:
+	.@isSkip = (strcharinfo(3) == $town$);
+	if(!.@isSkip){
+		specialeffect2 35;
+		progressbar "",(strcharinfo(3) == "guild_vs1") ? 4 : 2;
+	}
+	warp "Save",0,0;
+	end;
+}
+
+moc_akhet	mapflag	loadevent

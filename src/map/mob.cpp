@@ -1195,6 +1195,7 @@ int32 mob_spawn (struct mob_data *md)
 	md->last_canmove = tick;
 	md->last_skillcheck = tick;
 	md->trickcasting = 0;
+	md->rank = rnd() % battle_config.config_random_monster_rank; // [Start's] Rank 0~90
 
 	for (i = 0; i < MAX_MOBSKILL; i++)
 		md->skilldelay[i] = 0;
@@ -3078,6 +3079,12 @@ int32 mob_dead(struct mob_data *md, struct block_list *src, int32 type)
 	) { //Experience calculation.
 		int32 bonus = 100; //Bonus on top of your share (common to all attackers).
 		int32 pnum = 0;
+		if (md->rank) {
+			if (battle_config.config_monster_rank_exp_bonus_mode == 0)
+				bonus = (bonus * (100 + md->rank)) / 100; // [Start's] Example: Rank 100 will increase exp rate by 100% (x2)
+			else
+				bonus = bonus * (md->rank + 1); // [Start's] Example: Rank 1 will increase exp rate by x2 (100%)
+		}
 #ifndef RENEWAL
 		if (md->sc.getSCE(SC_RICHMANKIM))
 			bonus += md->sc.getSCE(SC_RICHMANKIM)->val2;
@@ -3314,10 +3321,26 @@ int32 mob_dead(struct mob_data *md, struct block_list *src, int32 type)
 			}
 		}
 
+		time_t timer;
+		struct tm* t;
+		time(&timer);
+		t = localtime(&timer);
+		int timeTick = (((t->tm_hour) * 3600 + (t->tm_min) * 60 + t->tm_sec));
+
 		// Regular mob drops drop after script-granted drops
 		for( const std::shared_ptr<s_mob_drop>& entry : md->db->dropitem ){
 			if (entry->nameid == 0)
 				continue;
+
+			bool isMainItemDrop = (entry->nameid == battle_config.config_main_item_drop_id);
+			if (isMainItemDrop) // [Start's] Delay main item drop
+			{
+				if (sd) {
+					if (sd->main_item_drop_delay > timeTick) {
+						continue;
+					}
+				}
+			}
 
 			std::shared_ptr<item_data> it = item_db.find(entry->nameid);
 
@@ -3325,6 +3348,17 @@ int32 mob_dead(struct mob_data *md, struct block_list *src, int32 type)
 				continue;
 
 			drop_rate = mob_getdroprate(src, md->db, entry->rate, drop_modifier, md);
+
+			// Monster Rank
+			if (md->rank) {
+				if (battle_config.config_monster_rank_drop_bonus_mode == 0)
+					drop_rate = (drop_rate * (100 + md->rank)) / 100; // [Start's] Example: Rank 100 will increase drop rate by 100% (x2)
+				else
+					drop_rate = drop_rate * (md->rank + 1); // [Start's] Example: Rank 1 will increase drop rate by x2 (100%)
+			}
+
+			// Map drop rate
+			drop_rate = (drop_rate * (map_getmapflag(m, MF_DROPRATE))) / 100; // [Start's] Example: Rate 200 will increase drop rate by 100% (x2)
 
 			// attempt to drop the item
 			if (rnd() % 10000 >= drop_rate)
@@ -3347,6 +3381,12 @@ int32 mob_dead(struct mob_data *md, struct block_list *src, int32 type)
 			// Announce first, or else ditem will be freed. [Lance]
 			// By popular demand, use base drop rate for autoloot code. [Skotlex]
 			mob_item_drop(md, dlist, ditem, 0, battle_config.autoloot_adjust ? drop_rate : entry->rate, homkillonly || merckillonly);
+
+			if (isMainItemDrop) // [Start's] Delay main item drop
+			{
+				if (sd)
+					sd->main_item_drop_delay = timeTick + battle_config.config_main_item_drop_delay;
+			}
 		}
 
 		// Ore Discovery (triggers if owner has loot priority, does not require to be the killer)
@@ -4823,7 +4863,7 @@ const std::string MobDatabase::getDefaultLocation() {
 	return std::string(db_path) + "/mob_db.yml";
 }
 
-bool MobDatabase::parseDropNode( std::string nodeName, const ryml::NodeRef& node, uint8 max, std::vector<std::shared_ptr<s_mob_drop>>& drops ){
+bool MobDatabase::parseDropNode( std::string nodeName, const ryml::NodeRef& node, uint8 max, std::vector<std::shared_ptr<s_mob_drop>>& drops, int monsterLv, bool isMvp ){
 	for( const auto& dropit : node[c4::to_csubstr(nodeName)] ){
 		std::shared_ptr<s_mob_drop> drop;
 		bool exist;
@@ -4905,6 +4945,27 @@ bool MobDatabase::parseDropNode( std::string nodeName, const ryml::NodeRef& node
 		if( !exist ){
 			drops.push_back( drop );
 		}
+	}
+
+	// [Start's]
+	if (battle_config.config_global_drop && !isMvp) {
+		std::shared_ptr<s_mob_drop> drop;
+		drop = std::make_shared<s_mob_drop>();
+		std::shared_ptr<item_data> item = item_db.find(battle_config.config_global_drop);
+		drop->nameid = item->nameid;
+		drop->rate = (battle_config.config_global_drop_base_rate * (battle_config.config_global_drop_multiply_monster_level ? monsterLv : 1));
+		drop->steal_protected = true;
+		drops.push_back(drop);
+	}
+
+	if (battle_config.config_global_mvp_drop && isMvp) {
+		std::shared_ptr<s_mob_drop> drop;
+		drop = std::make_shared<s_mob_drop>();
+		std::shared_ptr<item_data> item = item_db.find(battle_config.config_global_mvp_drop);
+		drop->nameid = item->nameid;
+		drop->rate = (battle_config.config_global_mvp_drop_rate * (battle_config.config_global_mvp_drop_multiply_monster_level ? monsterLv : 1));
+		drop->steal_protected = true;
+		drops.push_back(drop);
 	}
 
 	return true;
@@ -5501,13 +5562,37 @@ uint64 MobDatabase::parseBodyNode(const ryml::NodeRef& node) {
 	}
 
 	if (this->nodeExists(node, "MvpDrops")) {
-		if (!this->parseDropNode("MvpDrops", node, MAX_MVP_DROP, mob->mvpitem))
+		if (!this->parseDropNode("MvpDrops", node, MAX_MVP_DROP, mob->mvpitem, mob->lv, true))
 			return 0;
+	}
+	else {
+		// [Start's]
+		if (battle_config.config_global_mvp_drop) {
+			std::shared_ptr<s_mob_drop> drop;
+			drop = std::make_shared<s_mob_drop>();
+			std::shared_ptr<item_data> item = item_db.find(battle_config.config_global_mvp_drop);
+			drop->nameid = item->nameid;
+			drop->rate = (battle_config.config_global_mvp_drop_rate * (battle_config.config_global_mvp_drop_multiply_monster_level ? mob->lv : 1));
+			drop->steal_protected = true;
+			mob->mvpitem.push_back(drop);
+		}
 	}
 
 	if (this->nodeExists(node, "Drops")) {
-		if (!this->parseDropNode("Drops", node, MAX_MOB_DROP, mob->dropitem))
+		if (!this->parseDropNode("Drops", node, MAX_MOB_DROP, mob->dropitem, mob->lv, false))
 			return 0;
+	}
+	else {
+		// [Start's]
+		if (battle_config.config_global_drop) {
+			std::shared_ptr<s_mob_drop> drop;
+			drop = std::make_shared<s_mob_drop>();
+			std::shared_ptr<item_data> item = item_db.find(battle_config.config_global_drop);
+			drop->nameid = item->nameid;
+			drop->rate = (battle_config.config_global_drop_base_rate * (battle_config.config_global_drop_multiply_monster_level ? mob->lv : 1));
+			drop->steal_protected = true;
+			mob->dropitem.push_back(drop);
+		}
 	}
 
 	if (!exists)

@@ -949,6 +949,10 @@ public:
 
 	std::vector<uint32> party_booking_requests;
 
+	uint16 debuff; // [Start's] Debuff for any purpose
+	uint16 bonusDebuff; // [Start's] A debuff for any bonus (Example: STR +10 -> STR +x)
+	int main_item_drop_delay; // [Start's] Delay main item drop from AoE skills spam (Ex. Wishing Ticket)
+
 	void update_look( _look look );
 };
 

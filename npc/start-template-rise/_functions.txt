@@ -1,0 +1,571 @@
+function	script	IsWeekend	{ .@day = gettime(DT_DAYOFWEEK); return (((.@day == FRIDAY) && gettime(DT_HOUR) >= 18) || (.@day == SATURDAY) || (.@day == SUNDAY)); }
+
+function	script	IsInventoryFull	{ return (!checkweight(1100,1)); }
+
+function	script	ApplyTired	{
+	atcommand "@fakename";
+	if(tired)
+	.@debuffHint$ = "ล้า " + tired + "%";
+	if(bonusDebuff)
+	.@debuffHint$ += ((.@debuffHint$ != "") ? " " : "") + "ของเสื่อม " + bonusDebuff + "%";
+	if(.@debuffHint$ != "")
+	atcommand "@fakename [" + .@debuffHint$ + "]" + strcharinfo(0);
+	atcommand "@debuff " + tired + " " + bonusDebuff;
+	return;
+}
+
+function	script	ResetTired	{
+	tired = 0;
+	tiredSpot = 0;
+	ptt = 0;
+	ApplyTired();
+	return;
+}
+
+function	script	IsSkipTickMap	{
+	if(@isOnlyGodEnter)
+	return 1;
+	.@value$ = getarg(0,strcharinfo(3));
+	return ((.@value$ == "prontera") || (.@value$ == "prt_in") || (.@value$ == "s_atelier") || (.@value$ == "prt_church") || (.@value$ == "bossnia_01") || (.@value$ == "bossnia_02") || (.@value$ == "bossnia_03") || (.@value$ == "bossnia_04") || (.@value$ == "pvp_n_1-3") || (.@value$ == "pvp_n_1-5") || (.@value$ == "pvp_n_1-1") || (.@value$ == "guild_vs5") || (.@value$ == "guild_vs4") || (.@value$ == "guild_vs1") || (.@value$ == "tra_fild") || (.@value$ == "06guild_01") || (.@value$ == "06guild_02") || (.@value$ == "06guild_03") || (.@value$ == "06guild_04"));
+}
+
+function	script	StringBase10000	{
+	.@value = getarg(0,0);
+	if(.@value < 10)
+	return ("0.0" + .@value);
+	else if(.@value < 100)
+	return ("0." + (.@value / 10));
+	else if(.@value < 1000)
+	return insertchar((.@value / 10),".",1);
+	else
+	return (.@value /= 100);
+}
+
+function	script	KM	{
+	.@value = getarg(0,0);
+	if(.@value < 1000)
+	return .@value;
+	else if(.@value < 1000000)
+	return (.@value /= 1000) + "k";
+	else if(.@value >= 1000000)
+	return (.@value /= 1000000) + "m";
+}
+
+function	script	Cap	{ return cap_value(getarg(0,0) + getarg(1,0),0,INT_MAX); }
+
+function	script	IsZenyExceed	{
+	.@isZenyExceed = (Cap(Zeny,getarg(0,0)) > 2000000000);
+	if(.@isZenyExceed)
+	message strcharinfo(0),"เกิดข้อผิดพลาด: Zeny เต็มแล้ว";
+	return .@isZenyExceed;
+}
+
+function	script	ChangeZeny	{
+	.@value = getarg(0,0);
+	.@isEffect = getarg(1,1);
+	.@isIncrease = (.@value >= 0);
+	Zeny = Cap(Zeny,.@value);
+	message strcharinfo(0),(.@isIncrease ? "+" : "-") + F_InsertComma(.@value) + "z เป็น " + F_InsertComma(Zeny) + "z";
+	if(.@isEffect)
+	specialeffect2 18;
+	return;
+}
+
+function	script	RandomOptionIdCorrectionForDesc	{
+	.@idCorrection = getarg(0,0);
+	if(.@idCorrection >= 204)
+	.@idCorrection -= 2;
+	if(.@idCorrection >= 173)
+	.@idCorrection -= 2;
+	if(.@idCorrection >= 86)
+	.@idCorrection--;
+	return (.@idCorrection - 1);
+}
+
+function	script	IsRandomOptionIdError	{
+	.@randomOptionId = getarg(0,0);
+	return ((.@randomOptionId == 86) || (.@randomOptionId == 173) || (.@randomOptionId == 174) || (.@randomOptionId == 204) || (.@randomOptionId == 205) || ((.@randomOptionId >= 76) && (.@randomOptionId <= 85)) || ((.@randomOptionId >= 175) && (.@randomOptionId <= 184)));
+}
+
+function	script	GetRandomOptionId	{
+	.@randomOptionId = rand(1,254);
+	while(IsRandomOptionIdError(.@randomOptionId))
+	.@randomOptionId = rand(1,254);
+	return .@randomOptionId;
+}
+
+function	script	RandomOption	{
+	disable_items;
+	.@normalPrice = 500000;
+	.@selectedIndexPrice = 2500000;
+	.@minValue = 1;
+	.@maxValue = 5;
+	setarray .@randomOptionLists$[0],"MaxHP","MaxSP","STR","AGI","VIT","INT","DEX","LUK","MaxHP (%)","MaxSP (%)","ฟื้นฟู HP ปกติ (%)","ฟื้นฟู SP ปกติ (%)","ATK (%)","MATK (%)","ASPD","ASPD (%)","ATK","HIT","MATK","DEF","MDEF","FLEE","Perfect Dodge","CRIT","กันธาตุ Neutral (%)","กันธาตุ Water (%)","กันธาตุ Earth (%)","กันธาตุ Fire (%)","กันธาตุ Wind (%)","กันธาตุ Poison (%)","กันธาตุ Holy (%)","กันธาตุ Shadow (%)","กันธาตุ Ghost (%)","กันธาตุ Undead (%)","กันทุกธาตุ (ยกเว้น Neutral) (%)","กันกายภาพ Monster ธาตุ Neutral (%)","ตีกายภาพ Monster ธาตุ Neutral (%)","กันกายภาพ Monster ธาตุ Water (%)","ตีกายภาพ Monster ธาตุ Water (%)","กันกายภาพ Monster ธาตุ Earth (%)","ตีกายภาพ Monster ธาตุ Earth (%)","กันกายภาพ Monster ธาตุ Fire (%)","ตีกายภาพ Monster ธาตุ Fire (%)","กันกายภาพ Monster ธาตุ Wind (%)","ตีกายภาพ Monster ธาตุ Wind (%)","กันกายภาพ Monster ธาตุ Poison (%)","ตีกายภาพ Monster ธาตุ Poison (%)","กันกายภาพ Monster ธาตุ Holy (%)","ตีกายภาพ Monster ธาตุ Holy (%)","กันกายภาพ Monster ธาตุ Shadow (%)","ตีกายภาพ Monster ธาตุ Shadow (%)","กันกายภาพ Monster ธาตุ Ghost (%)","ตีกายภาพ Monster ธาตุ Ghost (%)","กันกายภาพ Monster ธาตุ Undead (%)","ตีกายภาพ Monster ธาตุ Undead (%)","กันเวทย์ Monster ธาตุ Neutral (%)","ตีเวทย์ Monster ธาตุ Neutral (%)","กันเวทย์ Monster ธาตุ Water (%)","ตีเวทย์ Monster ธาตุ Water (%)","กันเวทย์ Monster ธาตุ Earth (%)","ตีเวทย์ Monster ธาตุ Earth (%)","กันเวทย์ Monster ธาตุ Fire (%)","ตีเวทย์ Monster ธาตุ Fire (%)","กันเวทย์ Monster ธาตุ Wind (%)","ตีเวทย์ Monster ธาตุ Wind (%)","กันเวทย์ Monster ธาตุ Poison (%)","ตีเวทย์ Monster ธาตุ Poison (%)","กันเวทย์ Monster ธาตุ Holy (%)","ตีเวทย์ Monster ธาตุ Holy (%)","กันเวทย์ Monster ธาตุ Shadow (%)","ตีเวทย์ Monster ธาตุ Shadow (%)","กันเวทย์ Monster ธาตุ Ghost (%)","ตีเวทย์ Monster ธาตุ Ghost (%)","กันเวทย์ Monster ธาตุ Undead (%)","ตีเวทย์ Monster ธาตุ Undead (%)","Armor ธาตุ: Neutral","Armor ธาตุ: Water","Armor ธาตุ: Earth","Armor ธาตุ: Fire","Armor ธาตุ: Wind","Armor ธาตุ: Poison","Armor ธาตุ: Holy","Armor ธาตุ: Shadow","Armor ธาตุ: Ghost","Armor ธาตุ: Undead","กัน Monster Formless (%)","กัน Monster Undead (%)","กัน Monster Brute (%)","กัน Monster Plant (%)","กัน Monster Insect (%)","กัน Monster Fish (%)","กัน Monster Demon (%)","กัน Monster Demihuman (%)","กัน Monster Angel (%)","กัน Monster Dragon (%)","ตีกายภาพ Monster Formless (%)","ตีกายภาพ Monster Undead (%)","ตีกายภาพ Monster Brute (%)","ตีกายภาพ Monster Plant (%)","ตีกายภาพ Monster Insect (%)","ตีกายภาพ Monster Fish (%)","ตีกายภาพ Monster Demon (%)","ตีกายภาพ Monster Demihuman (%)","ตีกายภาพ Monster Angel (%)","ตีกายภาพ Monster Dragon (%)","ตีเวทย์ Monster Formless (%)","ตีเวทย์ Monster Undead (%)","ตีเวทย์ Monster Brute (%)","ตีเวทย์ Monster Plant (%)","ตีเวทย์ Monster Insect (%)","ตีเวทย์ Monster Fish (%)","ตีเวทย์ Monster Devil (%)","ตีเวทย์ Monster Demihuman (%)","ตีเวทย์ Monster Angel (%)","ตีเวทย์ Monster Dragon (%)","CRIT กับ Monster Formless","CRIT กับ Monster Undead","CRIT กับ Monster Brute","CRIT กับ Monster Plant","CRIT กับ Monster Insect","CRIT กับ Monster Fish","CRIT กับ Monster Demon","CRIT กับ Monster Demihuman","CRIT กับ Monster Angel","CRIT กับ Monster Dragon","เจาะ DEF Monster Formless (%)","เจาะ DEF Monster Undead (%)","เจาะ DEF Monster Brute (%)","เจาะ DEF Monster Plant (%)","เจาะ DEF Monster Insect (%)","เจาะ DEF Monster Fish (%)","เจาะ DEF Monster Demon (%)","เจาะ DEF Monster Demihuman (%)","เจาะ DEF Monster Angel (%)","เจาะ DEF Monster Dragon (%)","เจาะ MDEF Monster Formless (%)","เจาะ MDEF Monster Undead (%)","เจาะ MDEF Monster Brute (%)","เจาะ MDEF Monster Plant (%)","เจาะ MDEF Monster Insect (%)","เจาะ MDEF Monster Fish (%)","เจาะ MDEF Monster Demon (%)","เจาะ MDEF Monster Demihuman (%)","เจาะ MDEF Monster Angel (%)","เจาะ MDEF Monster Dragon (%)","ตีกายภาพ Monster Normal (%)","ตีกายภาพ Monster Boss (%)","กันกายภาพ Monster Normal (%)","กันกายภาพ Monster Boss (%)","ตีเวทย์ Monster Normal (%)","ตีเวทย์ Monster Boss (%)","เจาะ DEF Monster Normal (%)","เจาะ DEF Monster Boss (%)","เจาะ MDEF Monster Normal (%)","เจาะ MDEF Monster Boss (%)","ตีกายภาพ Monster Small (%)","ตีกายภาพ Monster Medium (%)","ตีกายภาพ Monster Large (%)","กันกายภาพ Monster Small (%)","กันกายภาพ Monster Medium (%)","กันกายภาพ Monster Large (%)","ข้ามการคำนวณขนาด","Critical แรงขึ้น (%)","โดน Critical เบาลง (%)","ตีกายภาพไกล (%)","กันกายภาพไกล (%)","Skill Heal แรงขึ้น (%)","รับ Skill Heal แรงขึ้น (%)","ร่าย V. เร็วขึ้น (%)","ลด Delay หลังร่าย (%)","ใช้ SP น้อยลง (%)","Weapon ธาตุ: Neutral","Weapon ธาตุ: Water","Weapon ธาตุ: Earth","Weapon ธาตุ: Fire","Weapon ธาตุ: Wind","Weapon ธาตุ: Poison","Weapon ธาตุ: Holy","Weapon ธาตุ: Shadow","Weapon ธาตุ: Ghost","Weapon ธาตุ: Undead","ไม่พัง","ไม่พัง","ตีเวทย์ Monster Small (%)","ตีเวทย์ Monster Medium (%)","ตีเวทย์ Monster Large (%)","กันเวทย์ Monster Small (%)","กันเวทย์ Monster Medium (%)","กันเวทย์ Monster Large (%)","กันทุกธาตุ (%)","กัน Monster Formless (%)","กัน Monster Undead (%)","กัน Monster Brute (%)","กัน Monster Plant (%)","กัน Monster Insect (%)","กัน Monster Fish (%)","กัน Monster Demon (%)","กัน Monster Demihuman (%)","กัน Monster Angel (%)","กัน Monster Dragon (%)","กัน Player Demi-Human (%)","กัน Player Doram (%)","ตีกายภาพ Player Demi-Human (%)","ตีกายภาพ Player Doram (%)","ตีเวทย์ Player Demi-Human (%)","ตีเวทย์ Player Doram (%)","Critical กับ Player Demi-Human","Critical กับ Player Doram","เจาะ DEF กับ Player Demi-Human (%)","เจาะ DEF กับ Player Doram (%)","เจาะ MDEF กับ Player Demi-Human (%)","เจาะ MDEF กับ Player Doram (%)","กันสะท้อน Damage (%)","ตีกายภาพใกล้ (%)","กันกายภาพใกล้ (%)","Skill ธาตุ Neutral แรงขึ้น (%)","Skill ธาตุ Water แรงขึ้น (%)","Skill ธาตุ Earth แรงขึ้น (%)","Skill ธาตุ Fire แรงขึ้น (%)","Skill ธาตุ Wind แรงขึ้น (%)","Skill ธาตุ Poison แรงขึ้น (%)","Skill ธาตุ Holy แรงขึ้น (%)","Skill ธาตุ Shadow แรงขึ้น (%)","Skill ธาตุ Ghost แรงขึ้น (%)","Skill ธาตุ Undead แรงขึ้น (%)","Skill ทุกธาตุแรงขึ้น (%)","EXP จาก Monster Formless (%)","EXP จาก Monster Undead (%)","EXP จาก Monster Brute (%)","EXP จาก Monster Plant (%)","EXP จาก Monster Insect (%)","EXP จาก Monster Fish (%)","EXP จาก Monster Demon (%)","EXP จาก Monster Demi-Human (%)","EXP จาก Monster Angel (%)","EXP จาก Monster Dragon (%)","EXP จาก Monster (%)","POW","SPL","STA","WIS","CON","CRT","P.ATK","S.MATK","RES","MRES","H.PLUS","C.RATE";
+	if(findRandomOptionId)
+	.@findRandomOptionDesc$ = " จนกว่าจะเจอ " + .@randomOptionLists$[RandomOptionIdCorrectionForDesc(findRandomOptionId)] + " +" + .@minValue + "~" + .@maxValue;
+	menu
+	"สุ่ม 5 แถว แต่ละแถว +" + .@minValue + "~" + .@maxValue + " (ไม่สามารถใช้ระบบสุ่มจนกว่าจะเจอได้) [^af1ada" + F_InsertComma(.@normalPrice) + "z^000000]",L_Normal
+	,"สุ่มแถวที่ 1" + .@findRandomOptionDesc$ + " [^af1ada" + F_InsertComma(.@selectedIndexPrice) + "z^000000]",L_Index0
+	,"สุ่มแถวที่ 2" + .@findRandomOptionDesc$ + " [^af1ada" + F_InsertComma(.@selectedIndexPrice) + "z^000000]",L_Index1
+	,"สุ่มแถวที่ 3" + .@findRandomOptionDesc$ + " [^af1ada" + F_InsertComma(.@selectedIndexPrice) + "z^000000]",L_Index2
+	,"สุ่มแถวที่ 4" + .@findRandomOptionDesc$ + " [^af1ada" + F_InsertComma(.@selectedIndexPrice) + "z^000000]",L_Index3
+	,"สุ่มแถวที่ 5" + .@findRandomOptionDesc$ + " [^af1ada" + F_InsertComma(.@selectedIndexPrice) + "z^000000]",L_Index4
+	,"ตั้งค่าสุ่มจนกว่าจะเจอ",L_FindRandomOptionId
+	;
+	
+	L_FindRandomOptionId:
+	freeloop(1);
+	.@idHelper = 0;
+	for(.@i = 0; .@i < getarraysize(.@randomOptionLists$); .@i++){
+		.@idHelper++;
+		// Empty Random Option Id 86 / 173 / 174 / 204 / 205
+		if(.@idHelper == 86)
+		.@idHelper++;
+		else if(.@idHelper == 173)
+		.@idHelper += 2;
+		else if(.@idHelper == 204)
+		.@idHelper += 2;
+		mes (.@idHelper) + " | " + .@randomOptionLists$[.@i];
+	}
+	freeloop(0);
+	next;
+	input .@i;
+	if(IsRandomOptionIdError(.@i))
+	mes "Option ดังกล่าวไม่เปิดให้ใช้งาน";
+	else if((.@i <= 0) || (.@i >= 255)){
+		findRandomOptionId = 0;
+		mes "ยกเลิกระบบสุ่มจนกว่าจะเจอเรียบร้อยแล้ว";
+	}
+	else{
+		findRandomOptionId = .@i;
+		mes "ตั้งค่าสุ่มจนกว่าจะเจอ " + .@randomOptionLists$[RandomOptionIdCorrectionForDesc(findRandomOptionId)] + " เรียบร้อยแล้ว";
+	}
+	close;
+	
+	L_Normal:
+	.@isNormal = 1;
+	goto L_StartProcess;
+	
+	L_Index0:
+	.@targetRandomOptionIndex = 0;
+	goto L_StartProcess;
+	
+	L_Index1:
+	.@targetRandomOptionIndex = 1;
+	goto L_StartProcess;
+	
+	L_Index2:
+	.@targetRandomOptionIndex = 2;
+	goto L_StartProcess;
+	
+	L_Index3:
+	.@targetRandomOptionIndex = 3;
+	goto L_StartProcess;
+	
+	L_Index4:
+	.@targetRandomOptionIndex = 4;
+	goto L_StartProcess;
+	
+	L_StartProcess:
+	for(.@i = 0; .@i < 21; .@i++){
+		if(.@i == 14) // Ammo
+		continue;
+		
+		if(getequipisequiped(.@i)){
+			.@menu$ = .@menu$ + F_getpositionname(.@i) + " - [" + getequipname(.@i) + "]";
+			.@isEquiped = 1;
+		}
+		.@menu$ = .@menu$ + ":";
+	}
+	
+	if(!.@isEquiped){
+		mes "คุณไม่ได้สวมใส่อุปกรณ์ใด ๆ อยู่เลย";
+		close;
+	}
+	
+	.@location = (select(.@menu$) - 1);
+	if(.@location >= 14)
+	.@location++;
+
+	if(!getequipisequiped(.@location)){
+		mes "คุณไม่ได้สวมใส่อุปกรณ์ใด ๆ อยู่";
+		close;
+	}
+
+	.@selectedItemId = getequipid(.@location);
+	.@refineCount = getequiprefinerycnt(.@location);
+	setarray .@cards[0],getequipcardid(.@location,0),getequipcardid(.@location,1),getequipcardid(.@location,2),getequipcardid(.@location,3);
+	
+	if(callfunc("F_IsEquipIDHack",.@location,.@selectedItemId) || callfunc("F_IsEquipCardHack",.@location,.@cards[0],.@cards[1],.@cards[2],.@cards[3]) || callfunc("F_IsEquipRefineHack",.@location,.@refineCount)){
+		mes "อุปกรณ์มีการเปลี่ยนแปลง โปรดทำรายการใหม่อีกครั้ง";
+		close;
+	}
+
+	if(.@isNormal){
+		if(Zeny < .@normalPrice){
+			mes "Zeny ไม่เพียงพอ";
+			close;
+		}
+		
+		for(.@i = 0; .@i < 5; .@i++){
+			.@randomOptionId = GetRandomOptionId();
+			.@value = rand(.@minValue,.@maxValue);
+			setrandomoption(.@location,.@i,.@randomOptionId,.@value,0);
+			mes "• " + .@randomOptionLists$[RandomOptionIdCorrectionForDesc(.@randomOptionId)] + " +" + .@value;
+		}
+		
+		ChangeZeny(-.@normalPrice);
+	}
+	else{
+		if(Zeny < .@selectedIndexPrice){
+			mes "Zeny ไม่เพียงพอ";
+			close;
+		}
+		
+		if(.@targetRandomOptionIndex > 0){
+			if(getequiprandomoption(.@location,.@targetRandomOptionIndex - 1,ROA_ID) <= 0){
+				mes "โปรดเลือกแถวก่อนหน้านี้";
+				close;
+			}
+		}
+		.@randomOptionId = GetRandomOptionId();
+		if(findRandomOptionId){
+			.@loopCount = (Zeny / .@selectedIndexPrice);
+			.@saveLoopCount = .@loopCount;
+			.@loopCount--;
+			freeloop(1);
+			while((.@loopCount > 0) && (.@randomOptionId != findRandomOptionId)){
+				.@loopCount--;
+				.@randomOptionId = GetRandomOptionId();
+			}
+			freeloop(0);
+		}
+		.@value = rand(.@minValue,.@maxValue);
+		setrandomoption(.@location,.@targetRandomOptionIndex,.@randomOptionId,.@value,0);
+		mes "แถว " + (.@targetRandomOptionIndex + 1) + ": " + .@randomOptionLists$[RandomOptionIdCorrectionForDesc(.@randomOptionId)] + " +" + .@value;
+		
+		if(findRandomOptionId)
+		ChangeZeny(-.@selectedIndexPrice * (.@saveLoopCount - .@loopCount));
+		else
+		ChangeZeny(-.@selectedIndexPrice);
+	}
+	close;
+}
+
+function	script	GetGradeWording	{
+	.@grade = getarg(0,0);
+	if(.@grade == 1)
+	return "^f34f4fD^000000";
+	else if(.@grade == 2)
+	return "^a77a00C^000000";
+	else if(.@grade == 3)
+	return "^82c764B^000000";
+	else if(.@grade == 4)
+	return "^7b7b7bA^000000";
+	else
+	return "-";
+}
+
+function	script	GetEquipmentLocationConstant	{
+	.@location = getarg(0,0);
+	if(.@location == EQI_ACC_L)
+	return 128;
+	else if(.@location == EQI_ACC_R)
+	return 8;
+	else if(.@location == EQI_SHOES)
+	return 64;
+	else if(.@location == EQI_GARMENT)
+	return 4;
+	else if(.@location == EQI_HEAD_LOW)
+	return 1;
+	else if(.@location == EQI_HEAD_MID)
+	return 512;
+	else if(.@location == EQI_HEAD_TOP)
+	return 256;
+	else if(.@location == EQI_ARMOR)
+	return 16;
+	else if(.@location == EQI_HAND_L)
+	return 32;
+	else if(.@location == EQI_HAND_R)
+	return 2;
+	else if(.@location == EQI_COSTUME_HEAD_TOP)
+	return 1024;
+	else if(.@location == EQI_COSTUME_HEAD_MID)
+	return 2048;
+	else if(.@location == EQI_COSTUME_HEAD_LOW)
+	return 4096;
+	else if(.@location == EQI_COSTUME_GARMENT)
+	return 8192;
+	else if(.@location == EQI_SHADOW_ARMOR)
+	return 65536;
+	else if(.@location == EQI_SHADOW_WEAPON)
+	return 131072;
+	else if(.@location == EQI_SHADOW_SHIELD)
+	return 262144;
+	else if(.@location == EQI_SHADOW_SHOES)
+	return 524288;
+	else if(.@location == EQI_SHADOW_ACC_R)
+	return 1048576;
+	else if(.@location == EQI_SHADOW_ACC_L)
+	return 2097152;
+	else
+	return 0;
+}
+
+function	script	EnchantGrade	{
+	disable_items;
+	setarray .@prices[0],10000,100000,1000000,10000000;
+	.@selectedGrade = select(GetGradeWording(1) + " [^af1ada" + F_InsertComma(.@prices[0]) + "z^000000]:" + GetGradeWording(2) + " [^af1ada" + F_InsertComma(.@prices[1]) + "z^000000]:" + GetGradeWording(3) + " [^af1ada" + F_InsertComma(.@prices[2]) + "z^000000]:" + GetGradeWording(4) + " [^af1ada" + F_InsertComma(.@prices[3]) + "z^000000]");
+	for(.@i = 0; .@i < 21; .@i++){
+		if(.@i == 14) // Ammo
+		continue;
+		
+		if(getequipisequiped(.@i)){
+			.@menu$ = .@menu$ + F_getpositionname(.@i) + " - [" + getequipname(.@i) + "] Grade " + GetGradeWording(getenchantgrade(.@i));
+			.@isEquiped = 1;
+		}
+		.@menu$ = .@menu$ + ":";
+	}
+	
+	if(!.@isEquiped){
+		mes "คุณไม่ได้สวมใส่อุปกรณ์ใด ๆ อยู่เลย";
+		close;
+	}
+	
+	.@location = (select(.@menu$) - 1);
+	if(.@location >= 14)
+	.@location++;
+
+	if(!getequipisequiped(.@location)){
+		mes "คุณไม่ได้สวมใส่อุปกรณ์ใด ๆ อยู่";
+		close;
+	}
+
+	.@selectedItemId = getequipid(.@location);
+	.@refineCount = getequiprefinerycnt(.@location);
+	setarray .@cards[0],getequipcardid(.@location,0),getequipcardid(.@location,1),getequipcardid(.@location,2),getequipcardid(.@location,3);
+	
+	if(callfunc("F_IsEquipIDHack",.@location,.@selectedItemId) || callfunc("F_IsEquipCardHack",.@location,.@cards[0],.@cards[1],.@cards[2],.@cards[3]) || callfunc("F_IsEquipRefineHack",.@location,.@refineCount)){
+		mes "อุปกรณ์มีการเปลี่ยนแปลง โปรดทำรายการใหม่อีกครั้ง";
+		close;
+	}
+
+	.@oldGrade = getenchantgrade(.@location);
+	
+	if(.@oldGrade >= .@selectedGrade){
+		mes "Grade อุปกรณ์ดังกล่าว สูงเกินกว่าที่เลือก";
+		close;
+	}
+	
+	.@price = .@prices[(.@selectedGrade - 1)];
+	
+	if(Zeny < .@price){
+		mes "Zeny ไม่เพียงพอ";
+		close;
+	}
+	
+	.@locationConstant = GetEquipmentLocationConstant(.@location);
+	.@plusGrade = (.@selectedGrade - .@oldGrade);
+	
+	atcommand "@grade " + .@locationConstant + " +" + .@plusGrade;
+	
+	ChangeZeny(-.@price);
+	
+	end;
+}
+
+function	script	SlotRemover	{
+	disable_items;
+	.@price = 5000000;
+	menu "(โอกาสได้คืน 50% แต่ละช่อง) (โอกาส 50% ที่อุปกรณ์สวมใส่จะหาย) [^af1ada" + F_InsertComma(.@price) + "z^000000]",-;
+	for(.@i = 0; .@i < 21; .@i++){
+		if(.@i == 14) // Ammo
+		continue;
+		
+		if(getequipisequiped(.@i)){
+			.@menu$ = .@menu$ + F_getpositionname(.@i) + " - [" + getequipname(.@i) + "]";
+			.@isEquiped = 1;
+		}
+		.@menu$ = .@menu$ + ":";
+	}
+	
+	if(!.@isEquiped){
+		mes "คุณไม่ได้สวมใส่อุปกรณ์ใด ๆ อยู่เลย";
+		close;
+	}
+	
+	.@location = (select(.@menu$) - 1);
+	if(.@location >= 14)
+	.@location++;
+
+	if(!getequipisequiped(.@location)){
+		mes "คุณไม่ได้สวมใส่อุปกรณ์ใด ๆ อยู่";
+		close;
+	}
+
+	.@selectedItemId = getequipid(.@location);
+	.@refineCount = getequiprefinerycnt(.@location);
+	setarray .@cards[0],getequipcardid(.@location,0),getequipcardid(.@location,1),getequipcardid(.@location,2),getequipcardid(.@location,3);
+	setarray .@isSuccess[0],(.@cards[0] > 0) ? (rand(100) < 50) : 0,(.@cards[1] > 0) ? (rand(100) < 50) : 0,(.@cards[2] > 0) ? (rand(100) < 50) : 0,(.@cards[3] > 0) ? (rand(100) < 50) : 0,(rand(100) < 50);
+	setarray .@oldRandomOptionIds[0],getequiprandomoption(.@location,0,ROA_ID),getequiprandomoption(.@location,1,ROA_ID),getequiprandomoption(.@location,2,ROA_ID),getequiprandomoption(.@location,3,ROA_ID),getequiprandomoption(.@location,4,ROA_ID);
+	setarray .@oldRandomOptionValues[0],getequiprandomoption(.@location,0,ROA_VALUE),getequiprandomoption(.@location,1,ROA_VALUE),getequiprandomoption(.@location,2,ROA_VALUE),getequiprandomoption(.@location,3,ROA_VALUE),getequiprandomoption(.@location,4,ROA_VALUE);
+	setarray .@oldRandomOptionParams[0],0,0,0,0,0;
+	.@oldGrade = getenchantgrade(.@location);
+	
+	if(callfunc("F_IsEquipIDHack",.@location,.@selectedItemId) || callfunc("F_IsEquipCardHack",.@location,.@cards[0],.@cards[1],.@cards[2],.@cards[3]) || callfunc("F_IsEquipRefineHack",.@location,.@refineCount)){
+		mes "อุปกรณ์มีการเปลี่ยนแปลง โปรดทำรายการใหม่อีกครั้ง";
+		close;
+	}
+	
+	for(.@c = 0; .@c < getarraysize(.@cards); .@c++){
+		if(.@cards[.@c] > 0){
+			.@isFound = 1;
+			break;
+		}
+	}
+	
+	if(!.@isFound){
+		mes "อุปกรณ์ดังกล่าว ไม่ได้ฝังอะไรอยู่เลย";
+		close;
+	}
+	
+	if(Zeny < .@price){
+		mes "Zeny ไม่เพียงพอ";
+		close;
+	}
+	
+	delequip .@location;
+	
+	for(.@c = 0; .@c < getarraysize(.@cards); .@c++){
+		if(.@isSuccess[.@c] > 0)
+		getitem .@cards[.@c],1;
+	}
+	
+	if(.@isSuccess[4])
+	getitem4 .@selectedItemId,1,1,.@refineCount,0,0,0,0,0,.@oldGrade,.@oldRandomOptionIds,.@oldRandomOptionValues,.@oldRandomOptionParams;
+	
+	ChangeZeny(-.@price);
+	
+	for(.@s = 0; .@s < 5; .@s++){
+		if(.@s == 4)
+		mes "อุปกรณ์สวมใส่: " + (.@isSuccess[.@s] ? "ได้คืน" : "ไม่ได้คืน");
+		else
+		mes "ช่องที่ " + .@s + ": " + (.@isSuccess[.@s] ? "ได้คืน" : "ไม่ได้คืน");
+	}
+	
+	close;
+}
+
+function	script	Storage	{
+	.@menu$ = "คลังเก็บของปกติ:คลังเก็บของ Guild:";
+	for(.@s = 0; .@s < 9; .@s++)
+	.@menu$ += "คลังเก็บของพิเศษ " + (.@s + 1) + ":";
+	.@selectedStorage = select(.@menu$);
+	if(.@selectedStorage == 1)
+	openstorage;
+	else if(.@selectedStorage == 2)
+	guildopenstorage();
+	else{
+		.@storageId = (.@selectedStorage - 2);
+		if(getd("#STORAGE" + .@storageId))
+		openstorage2 .@storageId,STOR_MODE_GET|STOR_MODE_PUT;
+		else{
+			.@price = (10000000 * .@storageId);
+			menu
+			"ยกเลิก",-
+			,"ซื้อคลังเก็บของพิเศษ " + .@storageId + " (ใช้ได้ทั้ง ID) [^af1ada" + F_InsertComma(.@price) + "z^000000]",L_Buy;
+			end;
+			
+			L_Buy:
+			if(Zeny < .@price){
+				mes "Zeny ไม่เพียงพอ";
+				close;
+			}
+			ChangeZeny(-.@price);
+			set getd("#STORAGE" + .@storageId),1;
+			openstorage2 .@storageId,STOR_MODE_GET|STOR_MODE_PUT;
+			end;
+		}
+	}
+	return;
+}
+
+function	script	MysteryBuffBox	{
+	if(IsInventoryFull()){
+		message strcharinfo(0),"เกิดข้อผิดพลาด: ไม่สามารถแบกของเพิ่มได้อีกแล้ว";
+		return;
+	}
+	getitem $buffIds[rand(getarraysize($buffIds))],1;
+	delitem $mysteryBuffBoxItemId,1;
+	return;
+}
+
+function	script	MysteryPackageBox	{
+	if(IsInventoryFull()){
+		message strcharinfo(0),"เกิดข้อผิดพลาด: ไม่สามารถแบกของเพิ่มได้อีกแล้ว";
+		return;
+	}
+	getitem $itemGroupIds[rand(getarraysize($itemGroupIds))],1;
+	delitem $mysteryPackageBoxItemId,1;
+	return;
+}
+
+function	script	MasteryTicket	{
+	.@amount = countitem($masteryTicketItemId);
+	.@statusPointItemCost = 1;
+	.@skillPointItemCost = 5;
+	.@traitPointItemCost = 10;
+	.@statusPoint = 10;
+	.@skillPoint = 1;
+	.@traitPoint = 1;
+	menu
+	"ใช้ " + F_InsertComma(.@statusPointItemCost) + " " + getitemname($masteryTicketItemId) + " เพิ่ม " + F_InsertComma(.@statusPoint) + " Status Point",L_StatusPoint,
+	"ใช้ " + F_InsertComma(.@skillPointItemCost) + " " + getitemname($masteryTicketItemId) + " เพิ่ม " + F_InsertComma(.@skillPoint) + " Skill Point",L_SkillPoint,
+	"ใช้ " + F_InsertComma(.@traitPointItemCost) + " " + getitemname($masteryTicketItemId) + " เพิ่ม " + F_InsertComma(.@traitPoint) + " Trait Point",L_TraitPoint
+	;
+	
+	L_StatusPoint:
+	.@amount = .@amount / .@statusPointItemCost;
+	.@tradeAmount = callsub(L_Setup,.@amount);
+	delitem $masteryTicketItemId,(.@tradeAmount * .@statusPointItemCost);
+	.@rewardAmount = (.@tradeAmount * .@statusPoint);
+	StatusPoint += .@rewardAmount;
+	mes "ได้รับ " + F_InsertComma(.@rewardAmount) + " Status Point";
+	close;
+	
+	L_SkillPoint:
+	.@amount = .@amount / .@skillPointItemCost;
+	.@tradeAmount = callsub(L_Setup,.@amount);
+	delitem $masteryTicketItemId,(.@tradeAmount * .@skillPointItemCost);
+	.@rewardAmount = (.@tradeAmount * .@skillPoint);
+	SkillPoint += .@rewardAmount;
+	mes "ได้รับ " + F_InsertComma(.@rewardAmount) + " Skill Point";
+	close;
+	
+	L_TraitPoint:
+	.@amount = .@amount / .@traitPointItemCost;
+	.@tradeAmount = callsub(L_Setup,.@amount);
+	delitem $masteryTicketItemId,(.@tradeAmount * .@traitPointItemCost);
+	.@rewardAmount = (.@tradeAmount * .@traitPoint);
+	TraitPoint += .@rewardAmount;
+	mes "ได้รับ " + F_InsertComma(.@rewardAmount) + " Trait Point";
+	close;
+	
+	L_Setup:
+	.@amount = getarg(0,0);
+	mes "คุณมี " + getitemname($masteryTicketItemId) + " " + F_InsertComma(countitem($masteryTicketItemId)) + " ชิ้น";
+	if(.@amount <= 0){
+		mes getitemname($masteryTicketItemId) + " ไม่เพียงพอ";
+		close;
+	}
+	mes "โปรดระบุ 1~" + F_InsertComma(.@amount);
+	next;
+	input .@tradeAmount;
+	if((.@tradeAmount <= 0) || (.@tradeAmount > .@amount)){
+		mes "ยกเลิกเรียบร้อยแล้ว";
+		close;
+	}
+	return .@tradeAmount;
+	
+	return;
+}

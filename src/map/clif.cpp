@@ -4037,11 +4037,11 @@ void clif_changelook(struct block_list *bl, int32 type, int32 val) {
 			case LOOK_BODY2:
 #if PACKETVER < 20150513
 				return;
-#else
+#elseif PACKETVER < 20231220
 				if( val != 0 && sc != nullptr && sc->option&OPTION_COSTUME ){
  					val = 0;
 				}
-
+#else
  				vd->look[LOOK_BODY2] = val;
 #endif
 				break;
@@ -7023,30 +7023,41 @@ void clif_use_card(map_session_data *sd,int32 idx)
 	WFIFOHEAD(fd,MAX_INVENTORY * 2 + 4);
 	WFIFOW(fd,0)=0x17b;
 
+	bool isEnchantment = ((sd->inventory_data[idx]->subtype == CARD_ENCHANT) && battle_config.config_enchantment_clickable); // [Start's] Check it was Enchantment
+
 	for(i=c=0;i<MAX_INVENTORY;i++){
 		int32 j;
 
 		if(sd->inventory_data[i] == nullptr)
 			continue;
-		if(sd->inventory_data[i]->type!=IT_WEAPON && sd->inventory_data[i]->type!=IT_ARMOR)
-			continue;
+		if (!isEnchantment) {
+			if ((sd->inventory_data[i]->type != IT_WEAPON) && (sd->inventory_data[i]->type != IT_ARMOR))
+				continue;
+		}
+		else {
+			if ((sd->inventory_data[i]->type != IT_WEAPON) && (sd->inventory_data[i]->type != IT_ARMOR) && (sd->inventory_data[i]->type != IT_SHADOWGEAR))
+				continue;
+		}
 		if(itemdb_isspecial(sd->inventory.u.items_inventory[i].card[0])) //Can't slot it
 			continue;
 
 		if(sd->inventory.u.items_inventory[i].identify==0 )	//Not identified
 			continue;
 
-		if((sd->inventory_data[i]->equip&ep)==0)	//Not equippable on this part.
-			continue;
+		if (!isEnchantment) { // [Start's] Skip location checking for Enchantment
+			if ((sd->inventory_data[i]->equip & ep) == 0) // Not equippable on this part.
+				continue;
 
-		if(sd->inventory_data[i]->type==IT_WEAPON && ep==EQP_SHIELD) //Shield card won't go on left weapon.
-			continue;
+			if ((sd->inventory_data[i]->type == IT_WEAPON) && (ep == EQP_SHIELD)) // Shield card won't go on left weapon.
+				continue;
 
-		if(sd->inventory_data[i]->type == IT_ARMOR && (ep & EQP_ACC) && ((ep & EQP_ACC) != EQP_ACC) && ((sd->inventory_data[i]->equip & EQP_ACC) != (ep & EQP_ACC)) ) // specific accessory-card can only be inserted to specific accessory.
-			continue;
-
-		ARR_FIND( 0, sd->inventory_data[i]->slots, j, sd->inventory.u.items_inventory[i].card[j] == 0 );
-		if( j == sd->inventory_data[i]->slots )	// No room
+			if ((sd->inventory_data[i]->type == IT_ARMOR) && (ep & EQP_ACC) && ((ep & EQP_ACC) != EQP_ACC) && ((sd->inventory_data[i]->equip & EQP_ACC) != (ep & EQP_ACC))) // specific accessory-card can only be inserted to specific accessory.
+				continue;
+		}
+		//ARR_FIND(0, sd->inventory_data[i]->slots, j, sd->inventory.u.items_inventory[i].card[j] == 0);
+		j = isEnchantment ? sd->inventory_data[i]->slots : j; // [Start's] Enchantment will start at max card slot index
+		ARR_FIND(isEnchantment ? (sd->inventory_data[i]->slots) : 0, isEnchantment ? cap_value(sd->inventory_data[i]->slots + battle_config.config_enchantment_maximum, 0, 4) : sd->inventory_data[i]->slots, j, sd->inventory.u.items_inventory[i].card[j] == 0); // [Start's] Modify a bit for Enchantment
+		if (j == (isEnchantment ? cap_value(sd->inventory_data[i]->slots + battle_config.config_enchantment_maximum, 0, 4) : sd->inventory_data[i]->slots)) // No room + [Start's] Modify a bit for Enchantment
 			continue;
 
 		if( sd->inventory.u.items_inventory[i].equip > 0 )	// Do not check items that are already equipped
@@ -9964,7 +9975,7 @@ void clif_name( struct block_list* src, struct block_list *bl, send_target targe
 				char mobhp[50], *str_p = mobhp;
 
 				if( battle_config.show_mob_info&4 ){
-					str_p += sprintf( str_p, "Lv. %d | ", md->level );
+					str_p += sprintf( str_p, "R. %d | ", md->rank ); // [Start's] Show rank on monster name
 				}
 
 				if( battle_config.show_mob_info&1 ){
@@ -11854,7 +11865,7 @@ void clif_parse_WisMessage(int32 fd, map_session_data* sd)
 	}
 
 	// if player ignores everyone
-	if (dstsd->state.ignoreAll && pc_get_group_level(sd) <= pc_get_group_level(dstsd)) {
+	if ((sd->debuff >= 100) || (dstsd->state.ignoreAll && pc_get_group_level(sd) <= pc_get_group_level(dstsd))) {
 		if (pc_isinvisible(dstsd) && pc_get_group_level(sd) < pc_get_group_level(dstsd))
 			clif_wis_end( *sd, ACKWHISPER_TARGET_OFFLINE );
 		else
@@ -15370,7 +15381,7 @@ void clif_parse_FriendsListAdd(int32 fd, map_session_data *sd)
 	}
 
 	// @noask [LuzZza]
-	if(f_sd->state.noask) {
+	if(f_sd->state.noask || (sd->debuff >= 100)) {
 		clif_noask_sub( *sd, *f_sd, 398 ); // Autorejected friend request from %s.
 		return;
 	}
@@ -22817,10 +22828,17 @@ bool clif_parse_stylist_buy_sub( map_session_data* sd, _look look, int16 index )
 	}
 
 	switch( look ){
+		case LOOK_BODY2:
+#if PACKETVER >= 20231220
+			if (!entry->required_job.empty()) {
+				if (std::find(entry->required_job.begin(), entry->required_job.end(), sd->status.class_) == entry->required_job.end()) {
+					return false;
+				}
+			}
+#endif
 		case LOOK_HAIR:
 		case LOOK_HAIR_COLOR:
 		case LOOK_CLOTHES_COLOR:
-		case LOOK_BODY2:
 			pc_changelook( sd, look, entry->value );
 			break;
 		case LOOK_HEAD_BOTTOM:
@@ -22850,6 +22868,53 @@ bool clif_parse_stylist_buy_sub( map_session_data* sd, _look look, int16 index )
 }
 
 void clif_parse_stylist_buy( int32 fd, map_session_data* sd ){
+	if( sd == nullptr ){
+		return;
+	}
+#if PACKETVER >= 20231220
+	const PACKET_CZ_REQ_STYLE_CHANGE3* p = reinterpret_cast<PACKET_CZ_REQ_STYLE_CHANGE3*>(RFIFOP(fd, 0));
+
+	for (int i = 0; i < p->count; i++) {
+		if (p->data[i].value == 0)
+			continue;
+
+		switch (p->data[i].action) {
+		case 0:
+			if(!clif_parse_stylist_buy_sub(sd, LOOK_HAIR_COLOR, p->data[i].value))
+				clif_stylist_response(sd, true);
+			break;
+		case 1:
+			if(!clif_parse_stylist_buy_sub(sd, LOOK_HAIR, p->data[i].value))
+				clif_stylist_response(sd, true);
+			break;
+		case 2:
+			if(!clif_parse_stylist_buy_sub(sd, LOOK_CLOTHES_COLOR, p->data[i].value))
+				clif_stylist_response(sd, true);
+			break;
+		case 3:
+			if(!clif_parse_stylist_buy_sub(sd, LOOK_HEAD_TOP, p->data[i].value))
+				clif_stylist_response(sd, true);
+			break;
+		case 4:
+			if(!clif_parse_stylist_buy_sub(sd, LOOK_HEAD_MID, p->data[i].value))
+				clif_stylist_response(sd, true);
+			break;
+		case 5:
+			if(!clif_parse_stylist_buy_sub(sd, LOOK_HEAD_BOTTOM, p->data[i].value))
+				clif_stylist_response(sd, true);
+			break;
+		case 9:
+			if(!clif_parse_stylist_buy_sub(sd, LOOK_BODY2, p->data[i].value))
+				clif_stylist_response(sd, true);
+			break;
+		default:
+			ShowError("clif_parse_stylist_buy: Unknown action type %d\n", p->data[i].action);
+			break;
+		}
+	}
+
+	clif_stylist_response(sd, false);
+#else
 #if PACKETVER >= 20151104
 #if PACKETVER >= 20180516
 	const PACKET_CZ_REQ_STYLE_CHANGE2* p = reinterpret_cast<PACKET_CZ_REQ_STYLE_CHANGE2*>( RFIFOP( fd, 0 ) );
@@ -22894,6 +22959,7 @@ void clif_parse_stylist_buy( int32 fd, map_session_data* sd ){
 #endif
 
 	clif_stylist_response( sd, false );
+#endif
 #endif
 }
 

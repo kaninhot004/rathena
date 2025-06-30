@@ -45,3 +45,61 @@
 Header:
   Type: BARTER_DB
   Version: 2
+
+Body:
+#  - Name: วัตถุดิบเสริมแกร่ง
+#    Map: prontera
+#    X: 139
+#    Y: 156
+#    Direction: SouthEast
+#    Sprite: 4_STEELBOX
+#    Items:
+#      - Index: 0
+#        Item: Phracon   
+#        Zeny: 200
+#      - Index: 1
+#        Item: Emveretarcon   
+#        Zeny: 1000
+#      - Index: 2
+#        Item: Oridecon   
+#        RequiredItems:
+#          - Index: 0
+#            Item: Oridecon_Stone
+#            Amount: 5
+#      - Index: 3
+#        Item: Elunium   
+#        RequiredItems:
+#          - Index: 0
+#            Item: Elunium_Stone
+#            Amount: 5
+#  - Name: แลก Rise Stone
+#    Map: prontera
+#    X: 153
+#    Y: 198
+#    Direction: SouthWest
+#    Sprite: 4_GACHA_MACHINE
+#    Items:
+#      - Index: 0
+#        Item: Token_Of_Siegfried   
+#        RequiredItems:
+#          - Index: 0
+#            Item: Rise_Stone
+#            Amount: 15
+#      - Index: 1
+#        Item: Mystery_Buff_Box   
+#        RequiredItems:
+#          - Index: 0
+#            Item: Rise_Stone
+#            Amount: 10
+#      - Index: 2
+#        Item: Mystery_Package_Box   
+#        RequiredItems:
+#          - Index: 0
+#            Item: Rise_Stone
+#            Amount: 30
+#      - Index: 3
+#        Item: Kafra_Card   
+#        RequiredItems:
+#          - Index: 0
+#            Item: Rise_Stone
+#            Amount: 3

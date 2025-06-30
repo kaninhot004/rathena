@@ -46,13 +46,28 @@ Body:
     Name: Player
     Level: 0
     Commands:
+      commands: true
+      charcommands: true
+      mobinfo: true
+      iteminfo: true
+      whodrops: true
+      time: true
+      showexp: true
+      autoloot: true
+      alootid: true
+      autoloottype: true
+      autotrade: true
+      who: true
+      whereis: true
       changedress: true
       resurrect: true
     Permissions:
       # without this basic permissions regular players could not trade or party
       can_trade: true
       can_party: true
-      attendance: true
+      attendance: false
+      view_equipment: true
+      trade_unconditional: true
   - Id: 1
     Name: Super Player
     # Can do everything Players can and more

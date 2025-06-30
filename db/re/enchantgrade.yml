@@ -57,6 +57,44 @@ Header:
 Body:
   - Type: Armor
     Levels:
+      - Level: 1
+        Grades:
+          - Grade: None
+            Chances:
+              - Refine: 20
+                Chance: 1
+            Bonus: 5
+            Options:
+              - Option: 0
+                Item: Refine_Hack_Powder
+                Amount: 9999
+          - Grade: D
+            Chances:
+              - Refine: 20
+                Chance: 1
+            Bonus: 15
+            Options:
+              - Option: 0
+                Item: Refine_Hack_Powder
+                Amount: 9999
+          - Grade: C
+            Chances:
+              - Refine: 20
+                Chance: 1
+            Bonus: 25
+            Options:
+              - Option: 0
+                Item: Refine_Hack_Powder
+                Amount: 9999
+          - Grade: B
+            Chances:
+              - Refine: 20
+                Chance: 1
+            Bonus: 50
+            Options:
+              - Option: 0
+                Item: Refine_Hack_Powder
+                Amount: 9999
       - Level: 2
         Grades:
           - Grade: None
@@ -221,6 +259,196 @@ Body:
                 Zeny: 875000
   - Type: Weapon
     Levels:
+      - Level: 1
+        Grades:
+          - Grade: None
+            Chances:
+              - Refine: 20
+                Chance: 1
+            Bonus: 1
+            Options:
+              - Option: 0
+                Item: Refine_Hack_Powder
+                Amount: 9999
+          - Grade: D
+            Chances:
+              - Refine: 20
+                Chance: 1
+            Bonus: 2
+            Options:
+              - Option: 0
+                Item: Refine_Hack_Powder
+                Amount: 9999
+          - Grade: C
+            Chances:
+              - Refine: 20
+                Chance: 1
+            Bonus: 3
+            Options:
+              - Option: 0
+                Item: Refine_Hack_Powder
+                Amount: 9999
+          - Grade: B
+            Chances:
+              - Refine: 20
+                Chance: 1
+            Bonus: 4
+            Options:
+              - Option: 0
+                Item: Refine_Hack_Powder
+                Amount: 9999
+      - Level: 2
+        Grades:
+          - Grade: None
+            Chances:
+              - Refine: 20
+                Chance: 1
+            Bonus: 2
+            Options:
+              - Option: 0
+                Item: Refine_Hack_Powder
+                Amount: 9999
+          - Grade: D
+            Chances:
+              - Refine: 20
+                Chance: 1
+            Bonus: 4
+            Options:
+              - Option: 0
+                Item: Refine_Hack_Powder
+                Amount: 9999
+          - Grade: C
+            Chances:
+              - Refine: 20
+                Chance: 1
+            Bonus: 6
+            Options:
+              - Option: 0
+                Item: Refine_Hack_Powder
+                Amount: 9999
+          - Grade: B
+            Chances:
+              - Refine: 20
+                Chance: 1
+            Bonus: 8
+            Options:
+              - Option: 0
+                Item: Refine_Hack_Powder
+                Amount: 9999
+      - Level: 3
+        Grades:
+          - Grade: None
+            Chances:
+              - Refine: 20
+                Chance: 1
+            Bonus: 3
+            Options:
+              - Option: 0
+                Item: Refine_Hack_Powder
+                Amount: 9999
+          - Grade: D
+            Chances:
+              - Refine: 20
+                Chance: 1
+            Bonus: 6
+            Options:
+              - Option: 0
+                Item: Refine_Hack_Powder
+                Amount: 9999
+          - Grade: C
+            Chances:
+              - Refine: 20
+                Chance: 1
+            Bonus: 9
+            Options:
+              - Option: 0
+                Item: Refine_Hack_Powder
+                Amount: 9999
+          - Grade: B
+            Chances:
+              - Refine: 20
+                Chance: 1
+            Bonus: 12
+            Options:
+              - Option: 0
+                Item: Refine_Hack_Powder
+                Amount: 9999
+      - Level: 3
+        Grades:
+          - Grade: None
+            Chances:
+              - Refine: 20
+                Chance: 1
+            Bonus: 4
+            Options:
+              - Option: 0
+                Item: Refine_Hack_Powder
+                Amount: 9999
+          - Grade: D
+            Chances:
+              - Refine: 20
+                Chance: 1
+            Bonus: 8
+            Options:
+              - Option: 0
+                Item: Refine_Hack_Powder
+                Amount: 9999
+          - Grade: C
+            Chances:
+              - Refine: 20
+                Chance: 1
+            Bonus: 12
+            Options:
+              - Option: 0
+                Item: Refine_Hack_Powder
+                Amount: 9999
+          - Grade: B
+            Chances:
+              - Refine: 20
+                Chance: 1
+            Bonus: 16
+            Options:
+              - Option: 0
+                Item: Refine_Hack_Powder
+                Amount: 9999
+      - Level: 4
+        Grades:
+          - Grade: None
+            Chances:
+              - Refine: 20
+                Chance: 1
+            Bonus: 5
+            Options:
+              - Option: 0
+                Item: Refine_Hack_Powder
+                Amount: 9999
+          - Grade: D
+            Chances:
+              - Refine: 20
+                Chance: 1
+            Bonus: 15
+            Options:
+              - Option: 0
+                Item: Refine_Hack_Powder
+                Amount: 9999
+          - Grade: C
+            Chances:
+              - Refine: 20
+                Chance: 1
+            Bonus: 25
+            Options:
+              - Option: 0
+                Item: Refine_Hack_Powder
+                Amount: 9999
+          - Grade: B
+            Chances:
+              - Refine: 20
+                Chance: 1
+            Bonus: 50
+            Options:
+              - Option: 0
+                Item: Refine_Hack_Powder
+                Amount: 9999
       - Level: 5
         Grades:
           - Grade: None

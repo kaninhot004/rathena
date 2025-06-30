@@ -792,7 +792,7 @@ ACMD_FUNC(who) {
 
 	iter = mapit_getallusers();
 	for (pl_sd = (TBL_PC*)mapit_first(iter); mapit_exists(iter); pl_sd = (TBL_PC*)mapit_next(iter))	{
-		if (!((pc_has_permission(pl_sd, PC_PERM_HIDE_SESSION) || pc_isinvisible(pl_sd)) && pc_get_group_level(pl_sd) > level)) { // you can look only lower or same level
+		if (!((pc_has_permission(pl_sd, PC_PERM_HIDE_SESSION) || pc_isinvisible(pl_sd)) && pc_get_group_level(pl_sd) > level || (!battle_config.config_auto_trade_player_count && pl_sd->state.autotrade))) { // you can look only lower or same level
 			if (stristr(pl_sd->status.name, player_name) == nullptr // search with no case sensitive
 				|| (map_id >= 0 && pl_sd->m != map_id))
 				continue;
@@ -1966,10 +1966,12 @@ ACMD_FUNC(bodystyle)
 
 	memset(atcmd_output, '\0', sizeof(atcmd_output));
 
+#if PACKETVER < 20231220
 	if ( (sd->class_ & JOBL_FOURTH) || !(sd->class_ & JOBL_THIRD) || (sd->class_ & MAPID_THIRDMASK) == MAPID_SUPER_NOVICE_E || (sd->class_ & MAPID_THIRDMASK) == MAPID_STAR_EMPEROR || (sd->class_ & MAPID_THIRDMASK) == MAPID_SOUL_REAPER) {
 		clif_displaymessage(fd, msg_txt(sd,740));	// This job has no alternate body styles.
 		return -1;
 	}
+#endif
 
 	if (!message || !*message || sscanf(message, "%d", &body_style) < 1) {
 		sprintf(atcmd_output, msg_txt(sd,739), MIN_BODY_STYLE, MAX_BODY_STYLE);		// Please enter a body style (usage: @bodystyle <body ID: %d-%d>).
@@ -8952,17 +8954,17 @@ ACMD_FUNC(fakename)
 			clif_name_area(sd);
 			if (sd->disguise)
 				clif_name_self(sd);
-			clif_displaymessage(sd->fd, msg_txt(sd,1307)); // Returned to real name.
+			//clif_displaymessage(sd->fd, msg_txt(sd,1307)); // Returned to real name. [Start's] Disable message because debuff already hint
 			return 0;
 		}
 
-		clif_displaymessage(sd->fd, msg_txt(sd,1308)); // You must enter a name.
+		//clif_displaymessage(sd->fd, msg_txt(sd,1308)); // You must enter a name. // [Start's] Disable message because debuff already hint
 		return -1;
 	}
 
 	if( strlen(message) < 2 )
 	{
-		clif_displaymessage(sd->fd, msg_txt(sd,1309)); // Fake name must be at least two characters.
+		//clif_displaymessage(sd->fd, msg_txt(sd,1309)); // Fake name must be at least two characters. // [Start's] Disable message because debuff already hint
 		return -1;
 	}
 
@@ -8970,7 +8972,7 @@ ACMD_FUNC(fakename)
 	clif_name_area(sd);
 	if (sd->disguise) // Another packet should be sent so the client updates the name for sd
 		clif_name_self(sd);
-	clif_displaymessage(sd->fd, msg_txt(sd,1310)); // Fake name enabled.
+	//clif_displaymessage(sd->fd, msg_txt(sd,1310)); // Fake name enabled.[Start's] Disable message because debuff already hint
 
 	return 0;
 }
@@ -9019,7 +9021,8 @@ ACMD_FUNC(mapflag) {
 												MF_JEXP,
 												MF_BATTLEGROUND,
 												MF_SKILL_DAMAGE,
-												MF_SKILL_DURATION };
+												MF_SKILL_DURATION,
+												MF_DROPRATE};
 
 			if (flag > 0 && util::vector_exists(disabled_mf, mapflag)) {
 				sprintf(atcmd_output,"[ @mapflag ] %s flag cannot be enabled as it requires unique values.", flag_name);

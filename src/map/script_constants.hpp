@@ -522,6 +522,7 @@
 	export_constant(MF_NOBANK);
 	export_constant(MF_SPECIALPOPUP);
 	export_constant(MF_NOMACROCHECKER);
+	export_constant(MF_DROPRATE);
 
 	/* setcell types */
 	export_constant(CELL_WALKABLE);
@@ -3826,6 +3827,7 @@
 	export_constant(MOB_CHASERANGE);
 	export_constant(MOB_SIZE);
 	export_constant(MOB_RACE);
+	export_constant(MOB_CLASS);
 	export_constant(MOB_ELEMENT);
 	export_constant(MOB_ELEMENTLV);
 	export_constant(MOB_MODE);
@@ -4029,6 +4031,7 @@
 	export_constant(UMOB_RES);
 	export_constant(UMOB_MRES);
 	export_constant(UMOB_DAMAGETAKEN);
+	export_constant(UMOB_RANK);
 
 	/* unit control - homunculus */
 	export_constant(UHOM_SIZE);
