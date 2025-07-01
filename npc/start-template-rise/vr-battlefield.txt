@@ -1,0 +1,122 @@
+prontera,166,207,8	script	สนามรบจำลอง	10547,{
+	.@oldInstanceId = instance_id(IM_CHAR);
+	if(.@oldInstanceId)
+	instance_destroy .@oldInstanceId;
+	if(instance_id(IM_CHAR)){
+		mes "โปรดทำลาย Instance Dungeon เก่าเสียก่อน";
+		close;
+	}
+	.@basePrice = 10000;
+	.@basePercentage = 1;
+	.@maxPercentage = 100;
+	.@baseMonsterRank = 2000;
+	.@maxMonsterRankMultiplier = 5;
+	
+	.@price = (BaseLevel * .@basePrice);
+	monsterRank = .@baseMonsterRank;
+	monsterRankMultiplier = .@maxMonsterRankMultiplier;
+	
+	mes "[วิธีเล่น]";
+	mes "• Monster จะเกิดเรื่อย ๆ ภายใน 3 นาที";
+	mes "• เมื่อกำจัด Monster จะได้รับ EXP " + StringBase10000(.@basePercentage) + "~" + StringBase10000(.@maxPercentage) + "%";
+	mes "• Monster จะมี Rank " + F_InsertComma(monsterRank) + "~" + F_InsertComma(monsterRank * monsterRankMultiplier);
+	mes "^1c9311Lv. ผู้เล่น^000000 | ^d32323Lv. Monster";
+	mes "^1c93111~15^000000 | ^d323211~15";
+	mes "^1c931116~30^000000 | ^d3232316~30";
+	mes "^1c931131~50^000000 | ^d3232331~50";
+	mes "^1c931151~75^000000 | ^d3232351~75";
+	mes "^1c931176~99^000000 | ^d3232376~99";
+	mes "^1c9311100~125^000000 | ^d32323100~125";
+	mes "^1c9311126~145^000000 | ^d32323126~145";
+	mes "^1c9311146~165^000000 | ^d32323146~165";
+	mes "^1c9311166~199^000000 | ^d32323166~185";
+	mes "^1c9311200+^000000 | ^d32323186+";
+	next;
+	menu "เล่น 'สนามรบจำลอง' [^af1ada" + F_InsertComma(.@price) + "z^000000]",-;
+	if(Zeny < .@price){
+		mes "Zeny ไม่เพียงพอ";
+		close;
+	}
+	ChangeZeny(-.@price);
+	.@id = instance_create("VR Battlefield",IM_CHAR);
+	instance_enter("VR Battlefield",50,50,getcharid(0),.@id);
+	close;
+	
+OnInit:
+	waitingroom "การันตี EXP",0;
+	end;
+}
+
+guild_vs4	mapflag	nowarp
+guild_vs4	mapflag	nowarpto
+guild_vs4	mapflag	nosave
+guild_vs4	mapflag	nomemo
+guild_vs4	mapflag	noloot
+guild_vs4	mapflag	noexp
+guild_vs4	mapflag	nobranch
+guild_vs4	mapflag	notomb
+guild_vs4	mapflag	nopetcapture
+
+guild_vs4,50,65,4	script	Ruwach#สนามรบจำลอง	10547,{
+	npcskill "AL_RUWACH",1,0,1;
+	end;
+}
+
+guild_vs4,50,60,4	script	เริ่ม#สนามรบจำลอง	10547,{
+	hideonnpc instance_npcname(strnpcinfo(0));
+	'spawnAmount = 30;
+	callsub L_Spawn;
+	announce "Monster เหลือ " + F_InsertComma('spawnAmount - 'progression) + " ตัว",bc_self;
+	end;
+	
+	L_Spawn:
+	.@tier1MaxLv = 15;
+	.@tier2MaxLv = 30;
+	.@tier3MaxLv = 50;
+	.@tier4MaxLv = 75;
+	.@tier5MaxLv = 99;
+	.@tier6MaxLv = 125;
+	.@tier7MaxLv = 145;
+	.@tier8MaxLv = 165;
+	.@tier9MaxLv = 200;
+	for(.@i = 0; .@i < 'spawnAmount; .@i++){
+		.@monsterId = (
+		(BaseLevel > .@tier9MaxLv) ? $attackableMonsterTier10Ids[rand(getarraysize($attackableMonsterTier10Ids))]
+		: (BaseLevel > .@tier8MaxLv) ? $attackableMonsterTier9Ids[rand(getarraysize($attackableMonsterTier9Ids))]
+		: (BaseLevel > .@tier7MaxLv) ? $attackableMonsterTier8Ids[rand(getarraysize($attackableMonsterTier8Ids))]
+		: (BaseLevel > .@tier6MaxLv) ? $attackableMonsterTier7Ids[rand(getarraysize($attackableMonsterTier7Ids))]
+		: (BaseLevel > .@tier5MaxLv) ? $attackableMonsterTier6Ids[rand(getarraysize($attackableMonsterTier6Ids))]
+		: (BaseLevel > .@tier4MaxLv) ? $attackableMonsterTier5Ids[rand(getarraysize($attackableMonsterTier5Ids))]
+		: (BaseLevel > .@tier3MaxLv) ? $attackableMonsterTier4Ids[rand(getarraysize($attackableMonsterTier4Ids))]
+		: (BaseLevel > .@tier2MaxLv) ? $attackableMonsterTier3Ids[rand(getarraysize($attackableMonsterTier3Ids))]
+		: (BaseLevel > .@tier1MaxLv) ? $attackableMonsterTier2Ids[rand(getarraysize($attackableMonsterTier2Ids))]
+		: $attackableMonsterTier1Ids[rand(getarraysize($attackableMonsterTier1Ids))]
+		);
+		monster 'mapName$,0,0,"--ja--",.@monsterId,1,instance_npcname(strnpcinfo(0)) + "::OnMonsterDead";
+		setunitdata $@mobid[0],UMOB_RANK,monsterRank * rand(1,monsterRankMultiplier);
+	}
+	return;
+	
+OnMonsterDead:
+.@percent = rand(100,10000);
+.@exp = ((NextBaseExp > 0) ? (NextBaseExp / .@percent) : 0);
+.@jobExp = ((NextJobExp > 0) ? (NextJobExp / .@percent) : 0);
+getexp2 .@exp,.@jobExp;
+'progression++;
+		if('progression >= 'spawnAmount){
+			'progression = 0;
+			callsub L_Spawn;
+		}
+		else
+		announce "Monster เหลือ " + F_InsertComma('spawnAmount - 'progression) + " ตัว",bc_self;
+		end;
+		
+OnInstanceInit:
+		'progression = 0;
+			'mapName$ = instance_mapname("guild_vs4");
+		end;
+		
+OnInit:
+		waitingroom "เริ่ม",0;
+		end;
+	}

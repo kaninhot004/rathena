@@ -1,0 +1,136 @@
+prontera,166,200,6	script	เร่งแหลก	10516,{
+	.@oldInstanceId = instance_id(IM_CHAR);
+	if(.@oldInstanceId)
+	instance_destroy .@oldInstanceId;
+	if(instance_id(IM_CHAR)){
+		mes "โปรดทำลาย Instance Dungeon เก่าเสียก่อน";
+		close;
+	}
+	.@basePrice = IsWeekend() ? 100 : 1000;
+	.@baseMultiplier = 100;
+	.@maxMultiplier = 100;
+	.@dropMultiplierDivider = 2;
+	.@baseMonsterRank = 1;
+	mes "[วิธีเล่น]";
+	mes "กำจัด Monster ให้หมด";
+	mes "^1c9311Lv. ผู้เล่น^000000 | ^d32323Lv. Monster";
+	mes "^1c93111~15^000000 | ^d323211~15";
+	mes "^1c931116~30^000000 | ^d3232316~30";
+	mes "^1c931131~50^000000 | ^d3232331~50";
+	mes "^1c931151~75^000000 | ^d3232351~75";
+	mes "^1c931176~99^000000 | ^d3232376~99";
+	mes "^1c9311100~125^000000 | ^d32323100~125";
+	mes "^1c9311126~145^000000 | ^d32323126~145";
+	mes "^1c9311146~165^000000 | ^d32323146~165";
+	mes "^1c9311166~199^000000 | ^d32323166~185";
+	mes "^1c9311200+^000000 | ^d32323186+";
+	next;
+	menu "เล่น 'เร่งแหลก'",-;
+	mes "เร่ง EXP +{ระบุ x " + F_InsertComma(.@baseMultiplier) + "}% (30 นาที)";
+	mes "เร่ง DROP +{ระบุ x " + F_InsertComma((.@baseMultiplier / .@dropMultiplierDivider)) + "}% (30 นาที)";
+	mes "Monster จะมี Rank {ระบุ x " + F_InsertComma(.@baseMonsterRank) + "}";
+	mes "โปรดระบุ 1~" + F_InsertComma(.@maxMultiplier);
+	next;
+	input .@i;
+	if((.@i <= 0) || (.@i > .@maxMultiplier)){
+		mes "ยกเลิกเรียบร้อยแล้ว";
+		close;
+	}
+	.@price = (.@i * .@i * .@basePrice);
+	expBoost = (.@baseMultiplier * .@i);
+	dropBoost = ((.@baseMultiplier * .@i) / .@dropMultiplierDivider);
+	monsterRank = (.@baseMonsterRank * .@i);
+	mes "เร่ง EXP +" + F_InsertComma(expBoost) + "% (30 นาที)";
+	mes "เร่ง DROP +" + F_InsertComma(dropBoost) + "% (30 นาที)";
+	mes "Monster จะมี Rank " + F_InsertComma(monsterRank);
+	next;
+	menu "เข้า [^af1ada" + F_InsertComma(.@price) + "z^000000]",-;
+	if(Zeny < .@price){
+		mes "Zeny ไม่เพียงพอ";
+		close;
+	}
+	ChangeZeny(-.@price);
+	.@id = instance_create("Booster",IM_CHAR);
+	instance_enter("Booster",50,50,getcharid(0),.@id);
+	close;
+	
+OnInit:
+	waitingroom "เร่ง EXP & DROP",0;
+	end;
+}
+
+guild_vs5	mapflag	noteleport
+guild_vs5	mapflag	nowarp
+guild_vs5	mapflag	nowarpto
+guild_vs5	mapflag	nosave
+guild_vs5	mapflag	nomemo
+guild_vs5	mapflag	noloot
+guild_vs5	mapflag	nobranch
+guild_vs5	mapflag	notomb
+guild_vs5	mapflag	nopetcapture
+
+guild_vs5,50,65,4	script	Ruwach#เร่งแหลก	10516,{
+	npcskill "AL_RUWACH",1,0,1;
+	end;
+}
+
+guild_vs5,50,60,4	script	เริ่ม#เร่งแหลก	10516,{
+	hideonnpc instance_npcname(strnpcinfo(0));
+	'spawnAmount = 5;
+	.@tier1MaxLv = 15;
+	.@tier2MaxLv = 30;
+	.@tier3MaxLv = 50;
+	.@tier4MaxLv = 75;
+	.@tier5MaxLv = 99;
+	.@tier6MaxLv = 125;
+	.@tier7MaxLv = 145;
+	.@tier8MaxLv = 165;
+	.@tier9MaxLv = 200;
+	freeloop(1);
+	for(.@i = 0; .@i < 'spawnAmount; .@i++){
+		while(!.@monsterId || getmonsterinfo(.@monsterId,MOB_MVPEXP) || (getmonsterinfo(.@monsterId,MOB_CLASS) != 0))
+		.@monsterId = (
+		(BaseLevel > .@tier9MaxLv) ? $attackableMonsterTier10Ids[rand(getarraysize($attackableMonsterTier10Ids))]
+		: (BaseLevel > .@tier8MaxLv) ? $attackableMonsterTier9Ids[rand(getarraysize($attackableMonsterTier9Ids))]
+		: (BaseLevel > .@tier7MaxLv) ? $attackableMonsterTier8Ids[rand(getarraysize($attackableMonsterTier8Ids))]
+		: (BaseLevel > .@tier6MaxLv) ? $attackableMonsterTier7Ids[rand(getarraysize($attackableMonsterTier7Ids))]
+		: (BaseLevel > .@tier5MaxLv) ? $attackableMonsterTier6Ids[rand(getarraysize($attackableMonsterTier6Ids))]
+		: (BaseLevel > .@tier4MaxLv) ? $attackableMonsterTier5Ids[rand(getarraysize($attackableMonsterTier5Ids))]
+		: (BaseLevel > .@tier3MaxLv) ? $attackableMonsterTier4Ids[rand(getarraysize($attackableMonsterTier4Ids))]
+		: (BaseLevel > .@tier2MaxLv) ? $attackableMonsterTier3Ids[rand(getarraysize($attackableMonsterTier3Ids))]
+		: (BaseLevel > .@tier1MaxLv) ? $attackableMonsterTier2Ids[rand(getarraysize($attackableMonsterTier2Ids))]
+		: $attackableMonsterTier1Ids[rand(getarraysize($attackableMonsterTier1Ids))]
+		);
+		monster 'mapName$,0,0,"--ja--",.@monsterId,1,instance_npcname(strnpcinfo(0)) + "::OnMonsterDead";
+		setunitdata $@mobid[0],UMOB_RANK,monsterRank;
+		.@monsterId = 0;
+	}
+	freeloop(0);
+	announce "Monster เหลือ " + F_InsertComma('spawnAmount - 'progression) + " ตัว",bc_map;
+	end;
+	
+OnMonsterDead:
+'progression++;
+		if('progression >= 'spawnAmount){
+			announce "'เร่งแหลก' ผ่านแล้ว!",bc_map;
+			sc_start SC_EXPBOOST,1800000,expBoost;
+			sc_start SC_ITEMBOOST,1800000,dropBoost;
+			addtimer 2000,instance_npcname(strnpcinfo(0)) + "::OnComplete";
+		}
+		else
+		announce "Monster เหลือ " + F_InsertComma('spawnAmount - 'progression) + " ตัว",bc_map;
+		end;
+		
+OnComplete:
+		warp "Save",0,0;
+		end;
+		
+OnInstanceInit:
+		'progression = 0;
+		'mapName$ = instance_mapname("guild_vs5");
+		end;
+		
+OnInit:
+		waitingroom "เริ่ม",0;
+		end;
+	}

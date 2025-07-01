@@ -1,0 +1,148 @@
+prontera,156,205,4	script	เร่ง Map	10559,{
+	// Debug mode
+	/*if(getgmlevel())
+	menu "ใช้งาน NPC ตามปกติ",-,"ลอง Reset เร่ง Map",OnResetUniteMap;*/
+	
+	L_Menu:
+	// Existed Boost Map information
+	.@uniteMapCount = getarraysize($uniteMaps$);
+	if(.@uniteMapCount){
+		mes "Map ที่ร่วมกันเร่งขณะนี้";
+		mes "^d8601bชื่อ Map^000000 - ^00aaffx EXP^000000 | ^00aaffx DROP^000000 | ^af1adaZeny^000000";
+		freeloop(1);
+		for(.@i = 0; .@i < .@uniteMapCount; .@i++)
+		mes "^d8601b" + $uniteMaps$[.@i] + "^000000 - ^00aaff" + callsub(L_GetBoostPower,$uniteMaps[.@i]) + "%^000000 | ^00aaff" + (callsub(L_GetBoostPower,$uniteMaps[.@i]) / 2) + "%^000000 | ^af1ada" + KM($uniteMaps[.@i]) + "^000000";
+		
+		// Map flag debug
+		/*for(.@i = 0; .@i < .@uniteMapCount; .@i++)
+		mes getmapflag($uniteMaps$[.@i],MF_BEXP) + " | " + getmapflag($uniteMaps$[.@i],MF_DROPRATE);*/
+		
+		freeloop(0);
+	}
+	// Not found exist map
+	else
+	mes "ไม่พบ Map ที่ร่วมกันเร่งในขณะนี้";
+	// Hint about reset time
+	mes "---";
+	mes "• ^d32323เร่ง Map จะ Reset ทุก ๆ 00.00น.^000000";
+	mes "• ^d32323ไม่สามารถใช้กับ Map พิเศษได้^000000";
+	mes "---";
+	mes "ระดับการเร่ง (Drop จะหาร 2)";
+	mes "• ^00aaff" + F_InsertComma(100) + "%^000000" + " | ^af1ada" + F_InsertComma(50000) + "z^000000";
+	mes "• ^00aaff" + F_InsertComma(200) + "%^000000" + " | ^af1ada" + F_InsertComma(500000) + "z^000000";
+	mes "• ^00aaff" + F_InsertComma(300) + "%^000000" + " | ^af1ada" + F_InsertComma(5000000) + "z^000000";
+	mes "• ^00aaff" + F_InsertComma(400) + "%^000000" + " | ^af1ada" + F_InsertComma(50000000) + "z^000000";
+	next;
+	// Choice
+	menu "ใช้ Zeny เพื่อร่วมกันเร่ง Map (ส่งผลต่อทุกคน)",-;
+	// Input map name
+	input .@map$;
+	next;
+	// Check if it was special map
+	if(IsSkipTickMap(.@map$)){
+		mes "ไม่สามารถใช้กับ Map ดังกล่าวได้";
+		close;
+	}
+	// Check map name was available
+	getfreecell(.@map$,.@x,.@y);
+	if((.@x <= 0) || (.@y <= 0)){
+		mes "ไม่พบ Map ดังกล่าว";
+		close;
+	}
+	// Current Boost Map information
+	mes "ใช้ Zeny กับ Map '" + .@map$ + "' เท่าใด?";
+	mes "Map ดังกล่าวร่วมกันเร่ง Map ไว้ " + KM(callsub(L_GetMapZeny,.@map$));
+	next;
+	// Input zeny
+	input .@price;
+	// Cancel
+	if(.@price <= 0){
+		mes "ยกเลิกเรียบร้อยแล้ว";
+		close;
+	}
+	// Check zeny was available
+	if(Zeny < .@price){
+		mes "Zeny ไม่เพียงพอ";
+		close;
+	}
+	// Trading
+	ChangeZeny(-.@price);
+	// Apply
+	callsub OnApplyUniteMap,.@map$,.@price;
+	close;
+	
+	// Get how much zeny this map has been boost together
+	L_GetMapZeny:
+	.@mapName$ = getarg(0,"");
+	freeloop(1);
+	for(.@i = 0; .@i < getarraysize($uniteMaps$); .@i++){
+		if(.@mapName$ == $uniteMaps$[.@i])
+		return $uniteMaps[.@i];
+	}
+	freeloop(0);
+	return 0;
+	
+	// Get boost power by zeny amount
+	L_GetBoostPower:
+	.@zeny = getarg(0,0);
+	if		(.@zeny >= 50000000) return 400;
+	else if	(.@zeny >= 5000000) return 300;
+	else if	(.@zeny >= 500000) return 200;
+	else if	(.@zeny >= 50000) return 100;
+	return 0;
+	
+	// Apply boost to map
+OnApplyUniteMap:
+	.@mapName$ = getarg(0,"");
+	.@zeny = getarg(1,0);
+	freeloop(1);
+	for(.@i = 0; .@i < getarraysize($uniteMaps$); .@i++){
+		if(.@mapName$ == $uniteMaps$[.@i])
+		{
+			.@isFound = 1;
+			$uniteMaps[.@i] = cap_value(($uniteMaps[.@i] + .@zeny),0,INT_MAX);
+			setmapflag .@mapName$,MF_BEXP,100 + callsub(L_GetBoostPower,$uniteMaps[.@i]);
+			setmapflag .@mapName$,MF_JEXP,100 + callsub(L_GetBoostPower,$uniteMaps[.@i]);
+			setmapflag .@mapName$,MF_DROPRATE,100 + (callsub(L_GetBoostPower,$uniteMaps[.@i]) / 2);
+		}
+	}
+	freeloop(0);
+	
+	if(!.@isFound){
+		setarray $uniteMaps$[getarraysize($uniteMaps$)],.@mapName$;
+		setarray $uniteMaps[getarraysize($uniteMaps)],.@zeny;
+		setmapflag .@mapName$,MF_BEXP,100 + callsub(L_GetBoostPower,$uniteMaps[getarraysize($uniteMaps) - 1]);
+		setmapflag .@mapName$,MF_JEXP,100 + callsub(L_GetBoostPower,$uniteMaps[getarraysize($uniteMaps) - 1]);
+		setmapflag .@mapName$,MF_DROPRATE,100 + (callsub(L_GetBoostPower,$uniteMaps[getarraysize($uniteMaps) - 1]) / 2);
+	}
+	
+	announce strcharinfo(0) + " ช่วยเร่ง Map [" + .@mapName$ + "] จำนวน " + F_InsertComma(.@zeny) + "z!",bc_all;
+	goto L_Menu;
+	
+	// Reset boost map
+OnClock0000:
+OnResetUniteMap:
+	freeloop(1);
+	for(.@i = 0; .@i < getarraysize($uniteMaps$); .@i++){
+		setmapflag $uniteMaps$[.@i],MF_BEXP,100;
+		setmapflag $uniteMaps$[.@i],MF_JEXP,100;
+		setmapflag $uniteMaps$[.@i],MF_DROPRATE,100;
+	}
+	freeloop(0);
+	deletearray $uniteMaps$[0],getarraysize($uniteMaps$);
+	deletearray $uniteMaps[0],getarraysize($uniteMaps);
+	end;
+	
+OnInit:
+	waitingroom "เร่ง EXP & DROP (Map)",0;
+	
+	freeloop(1);
+	for(.@i = 0; .@i < getarraysize($uniteMaps$); .@i++){
+		setmapflag $uniteMaps$[.@i],MF_BEXP,100 + callsub(L_GetBoostPower,$uniteMaps[.@i]);
+		setmapflag $uniteMaps$[.@i],MF_JEXP,100 + callsub(L_GetBoostPower,$uniteMaps[.@i]);
+		setmapflag $uniteMaps$[.@i],MF_DROPRATE,100 + (callsub(L_GetBoostPower,$uniteMaps[.@i]) / 2);
+	}
+	freeloop(0);
+	
+	end;
+}

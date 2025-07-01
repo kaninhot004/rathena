@@ -1,0 +1,30 @@
+pvp_n_1-3	mapflag	noteleport
+pvp_n_1-3	mapflag	nowarp
+pvp_n_1-3	mapflag	nowarpto
+pvp_n_1-3	mapflag	nosave
+pvp_n_1-3	mapflag	nomemo
+pvp_n_1-3	mapflag	notomb
+pvp_n_1-3	mapflag	nopetcapture
+pvp_n_1-3	mapflag	pvp
+pvp_n_1-3	mapflag	pvp_noparty
+pvp_n_1-3	mapflag	pvp_noguild
+
+pvp_n_1-5	mapflag	noteleport
+pvp_n_1-5	mapflag	nowarp
+pvp_n_1-5	mapflag	nowarpto
+pvp_n_1-5	mapflag	nosave
+pvp_n_1-5	mapflag	nomemo
+pvp_n_1-5	mapflag	notomb
+pvp_n_1-5	mapflag	nopetcapture
+pvp_n_1-5	mapflag	pvp
+pvp_n_1-5	mapflag	pvp_noguild
+
+pvp_n_1-1	mapflag	noteleport
+pvp_n_1-1	mapflag	nowarp
+pvp_n_1-1	mapflag	nowarpto
+pvp_n_1-1	mapflag	nosave
+pvp_n_1-1	mapflag	nomemo
+pvp_n_1-1	mapflag	notomb
+pvp_n_1-1	mapflag	nopetcapture
+pvp_n_1-1	mapflag	pvp
+pvp_n_1-1	mapflag	pvp_noparty

@@ -1,0 +1,87 @@
+prontera,173,184,1	script	บ่อน	563,{
+	setarray .@prices[0]
+	,100000 // Wishing Ticket
+	,100000 // Refine Hack Powder
+	,100000 // Rise Stone
+	,100000 // God Ticket
+	,100000 // Mastery Ticket
+	,1000000 // Refine All +1
+	,1000000 // Grade All +1
+	;
+	setarray .@rates[0]
+	,50 // Wishing Ticket
+	,10 // Refine Hack Powder
+	,75 // Rise Stone
+	,5 // God Ticket
+	,1 // Mastery Ticket
+	,3 // Refine All +1
+	,7 // Grade All +1
+	;
+	setarray .@itemId[0]
+	,$wishingTicketItemId // Wishing Ticket
+	,$refineHackPowderItemId // Refine Hack Powder
+	,$riseStoneItemId // Rise Stone
+	,$godTicketItemId // God Ticket
+	,$masteryTicketItemId // Mastery Ticket
+	,0 // Refine All +1
+	,0 // Grade All +1
+	;
+	for(.@i = 0; .@i < getarraysize(.@itemId); .@i++)
+	.@menu$ += "สุ่ม " + getitemname(.@itemId[.@i]) + " [^af1ada" + F_InsertComma(.@prices[.@i]) + "z^000000] ต่อรอบ ^1c9311โอกาสได้รับ " + .@rates[.@i] + "%^000000:";
+	.@menu$ += "สุ่ม เสริมแกร่ง ทุกชิ้นที่สวมใส่อยู่ +1 [^af1ada" + F_InsertComma(.@prices[5]) + "z^000000] ต่อรอบ ^1c9311โอกาสได้รับ " + .@rates[5] + "%^000000:";
+	.@menu$ += "สุ่ม Grade ทุกชิ้นที่สวมใส่อยู่ +1 [^af1ada" + F_InsertComma(.@prices[6]) + "z^000000] ต่อรอบ ^1c9311โอกาสได้รับ " + .@rates[6] + "%^000000:";
+	.@index = (select(.@menu$) - 1);
+	if(Zeny < .@prices[.@index]){
+		mes "Zeny ไม่เพียงพอ";
+		close;
+	}
+	.@price = .@prices[.@index];
+	.@rates = .@rates[.@index];
+	.@itemId = .@itemId[.@index];
+	.@maxInput = (Zeny / .@price);
+	.@isRefine = (.@index == 5);
+	.@isGrade = (.@index == 6);
+	if(.@isRefine)
+	mes "สุ่ม เสริมแกร่ง กี่รอบ? (ถ้าสุ่มได้ครบ 20 รอบระบบจะหยุดทันที)";
+	else if(.@isGrade)
+	mes "สุ่ม Grade กี่รอบ? (ถ้าสุ่มได้ครบ 4 รอบระบบจะหยุดทันที)";
+	else
+	mes "สุ่มรับ " + mesitemlink(.@itemId[.@index],true) + " กี่รอบ?";
+	mes "ระบุ 0~" + .@maxInput;
+	mes "โอกาสได้รับ " + .@rates + "%";
+	input .@i;
+	if((.@i <= 0) || (.@i > .@maxInput)){
+		mes "ยกเลิกเรียบร้อยแล้ว";
+		close;
+	}
+	freeloop(1);
+	while((Zeny >= .@price) && (.@i > 0)){
+		.@i--;
+		ChangeZeny(-.@price,0);
+		.@rand = rand(100);
+		if(.@rand < .@rates){
+			if(.@isRefine){
+				atcommand "@refine 0 1";
+				.@successCount++;
+				if(.@successCount >= 20)
+				break;
+			}
+			else if(.@isGrade){
+				atcommand "@grade 0 1";
+				.@successCount++;
+				if(.@successCount >= 4)
+				break;
+			}
+			else
+			getitem .@itemId,1;
+		}
+		else
+		dispbottom "ต้องสุ่มได้น้อยกว่า " + .@rates + " คุณสุ่มได้ " + .@rand;
+	}
+	freeloop(0);
+	close;
+	
+OnInit:
+	waitingroom "บ่อน",0;
+	end;
+}

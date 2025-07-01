@@ -1,0 +1,136 @@
+guild_vs1	mapflag	noteleport
+guild_vs1	mapflag	nowarp
+guild_vs1	mapflag	nowarpto
+guild_vs1	mapflag	nosave
+guild_vs1	mapflag	nomemo
+guild_vs1	mapflag	notomb
+guild_vs1	mapflag	nopetcapture
+guild_vs1	mapflag	gvg_castle
+guild_vs1	mapflag	hidemobhpbar
+guild_vs1	mapflag	nobranch
+guild_vs1	mapflag	nocostume
+guild_vs1	mapflag	noicewall
+guild_vs1	mapflag	noreturn
+
+prontera,151,199,3	script	Mini GvG#minigvg	10554,{
+	if(agitcheck()){
+		switch(select("ทิศเหนือ:ทิศตะวันตก:ทิศตะวันออก:ทิศใต้")){
+		case 1: warp "guild_vs1",53,95; break;
+		case 2: warp "guild_vs1",4,46; break;
+		case 3: warp "guild_vs1",95,46; break;
+		default: warp "guild_vs1",53,4; break;
+		}
+	}
+	else{
+		.@rewardItemId = $riseStoneItemId;
+		.@rewardAmount = 50;
+		.@rewardItemId2 = $wishingTicketItemId;
+		.@rewardAmount2 = 500;
+		mes "Mini GvG";
+		mes "เริ่ม: 21:00น.";
+		mes "สิ้นสุด: 21:15น.";
+		mes "รางวัล: " + mesitemlink(.@rewardItemId,true) + " " + .@rewardAmount + " ชิ้น";
+		mes "รางวัล: " + mesitemlink(.@rewardItemId2,true) + " " + .@rewardAmount2 + " ชิ้น";
+		.@castleGID = GetCastleData("guild_vs1",CD_GUILD_ID);
+		
+		if(!.@castleGID){
+			message strcharinfo(0),"เกิดข้อผิดพลาด: ยังไม่มี Guild ใดยึดครองปราสาท Mini GvG";
+			end;
+		}
+		
+		.@castleOwnerName$ = getguildmaster(.@castleGID);
+		
+		if(.@castleOwnerName$ == ""){
+			message strcharinfo(0),"เกิดข้อผิดพลาด: ไม่พบหัวหน้า Guild";
+			end;
+		}
+		
+		if(.@castleOwnerName$ != strcharinfo(0)){
+			message strcharinfo(0),"เกิดข้อผิดพลาด: ต้องเป็นหัวหน้า Guild";
+			end;
+		}
+		
+		
+		if($isMiniGvGRewarded){
+			message strcharinfo(0),"เกิดข้อผิดพลาด: รับรางวัลไปแล้ว";
+			end;
+		}
+		
+		if(IsInventoryFull()){
+			message strcharinfo(0),"เกิดข้อผิดพลาด: ไม่สามารถแบกของเพิ่มได้อีกแล้ว";
+			end;
+		}
+		
+		menu "รับรางวัล",-;
+		
+		getitem .@rewardItemId,.@rewardAmount;
+		getitem .@rewardItemId2,.@rewardAmount2;
+		$isMiniGvGRewarded = 1;
+	}
+	end;
+	
+OnClock2100:
+	$isMiniGvGRewarded = 0;
+	agitstart;
+	announce "Mini GvG เริ่มแล้ว!",bc_all|bc_woe;
+	end;
+	
+OnClock2115:
+	agitend;
+	announce "Mini GvG จบลงแล้ว!",bc_all|bc_woe;
+	end;
+	
+OnAgitStart:
+	MapRespawnGuildID "guild_vs1",GetCastleData("guild_vs1",CD_GUILD_ID),6;
+	donpcevent strnpcinfo(3) + "::OnStartArena";
+	end;
+	
+OnStartArena:
+	if(!mobcount("guild_vs1",strnpcinfo(3) + "::OnAgitBreak") && agitcheck())
+	monster "guild_vs1",50,50,"Emperium",1288,1,strnpcinfo(3) + "::OnAgitBreak";
+	end;
+	
+OnAgitBreak:
+	.@GID = getcharid(2);
+	if(!.@GID){
+		.@notice$ = strcharinfo(0) + " (" + getcharid(0) + ") ทำลายหิน Guild: Mini GvG โดยที่ไม่ได้สังกัด Guild ใด ๆ หิน Guild จะถูก Respawn ทันที";
+		donpcevent strnpcinfo(3) + "::OnStartArena";
+		end;
+	}
+	SetCastleData "guild_vs1",CD_GUILD_ID, .@GID;
+	mapannounce "guild_vs1","หิน Guild ถูกทำลายแล้ว",bc_map|bc_woe,"0x00CCFF",FW_NORMAL,12;
+	MapRespawnGuildID "guild_vs1",.@GID,6;
+	donpcevent strnpcinfo(3) + "::OnRecvCastle";
+	sleep 500;
+	if(agitcheck())
+	donpcevent strnpcinfo(3) + "::OnStartArena";
+	sleep 7000;
+	announce "ปราสาท [" + getcastlename("guild_vs1") + "] ถูกครองโดย Guild [" + getguildName(.@GID) + "]",bc_all|bc_woe;
+	end;
+	
+OnAgitEnd:
+	killmonster "guild_vs1",strnpcinfo(3) + "::OnAgitBreak";
+	end;
+	
+OnGuildBreak:
+	killmonster "guild_vs1",strnpcinfo(3) + "::OnAgitBreak";
+	SetCastleData "guild_vs1",CD_GUILD_ID,0;
+	sleep 7000;
+	Announce "Guild ที่ครองปราสาท [" + GetCastleName("guild_vs1") + "] ยุบ Guild แล้ว",0;
+	donpcevent strnpcinfo(3) + "::OnRecvCastle";
+	end;
+	
+OnRecvCastle:
+	donpcevent strnpcinfo(3) + "::OnStartArena";
+OnAgitInit:
+	donpcevent "Mini GvG#Flag::OnRecvCastle";
+	end;
+}
+
+prontera,151,202,3	script	Mini GvG#Flag	722,{
+	end;
+	
+OnRecvCastle:
+	FlagEmblem GetCastleData("guild_vs1",1);
+	end;
+}

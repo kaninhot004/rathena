@@ -1,0 +1,49 @@
+-	script	FollowPlayer	-1,{
+OnFetch:
+	if(@isFollow){
+		message strcharinfo(0),"เกิดข้อผิดพลาด: โปรดหยุดการติดตามก่อนหน้าเสียก่อน";
+		end;
+	}
+	if(.isOnlyGM && !getgmlevel()){
+		message strcharinfo(0),"เกิดข้อผิดพลาด: ขณะนี้เปิดให้ใช้งานเฉพาะ GM เท่านั้น";
+		end;
+	}
+	if(!getgmlevel() && ((Class != 0) || (BaseLevel > 1) || (JobLevel > 1) || getcharid(1) || getcharid(2))){
+		message strcharinfo(0),"เกิดข้อผิดพลาด: สามารถติดตามผู้เล่นอื่นได้ต่อเมื่อเป็น Novice, Lv. 1, Job Lv. 1, ไม่มี Party และไม่มี Guild เท่านั้น";
+		end;
+	}
+	query_sql("SELECT `char`.char_id FROM `char` WHERE `char`.`online` = 1",.@playerCIDs);
+	for(.@i = 0; .@i < getarraysize(.@playerCIDs); .@i++){
+		if(strcharinfo(3,.@playerCIDs[.@i]) != "prontera")
+		setarray .@tempPlayerCIDs[getarraysize(.@tempPlayerCIDs)],.@playerCIDs[.@i];
+	}
+	for(.@i = 0; .@i < getarraysize(.@tempPlayerCIDs); .@i++)
+	.@menu$ += replacestr(strcharinfo(0,.@tempPlayerCIDs[.@i]),":","",0) + " (^1c9311" + strcharinfo(3,.@tempPlayerCIDs[.@i]) + "^000000):";
+	.@index = (select(.@menu$) - 1);
+	followCID = .@tempPlayerCIDs[.@index];
+	if(followCID == getcharid(0)){
+		message strcharinfo(0),"เกิดข้อผิดพลาด: ไม่สามารถติดตามตัวเองได้";
+		end;
+	}
+	if(getgmlevel(followCID)){
+		message strcharinfo(0),"เกิดข้อผิดพลาด: ไม่สามารถติดตาม GM ได้";
+		end;
+	}
+	@isFollow = 1;
+	tired = 100;
+	ApplyTired();
+	atcommand "@speed 0";
+	atcommand "@follow " + strcharinfo(0,followCID);
+	dispbottom "เริ่มติดตาม " + strcharinfo(0,followCID);
+	setpcblock PCBLOCK_ALL,true;
+	setpcblock PCBLOCK_MOVE,false;
+	setpcblock PCBLOCK_CHAT,false;
+	setpcblock PCBLOCK_COMMANDS,false;
+	end;
+	
+OnInit:
+	.isOnlyGM = 0;
+	end;
+}
+
+prontera,145,207,2	duplicate(FollowPlayer)	เช็คบอทมาโคร	950

@@ -1,0 +1,161 @@
+prontera,145,200,3	script	บ่อตั๋ว & บ่อเงิน	10518,{
+	.@oldInstanceId = instance_id(IM_CHAR);
+	if(.@oldInstanceId)
+	instance_destroy .@oldInstanceId;
+	if(instance_id(IM_CHAR)){
+		mes "โปรดทำลาย Instance Dungeon เก่าเสียก่อน";
+		close;
+	}
+	.@price = (1000 * BaseLevel);
+	.@baseMonsterRank = 50;
+	monsterRank = .@baseMonsterRank;
+	mes "[วิธีเล่น]";
+	mes "• เมื่อกำจัด Monster จะมีโอกาสตามที่เลือกที่จะได้รับ " + mesitemlink($wishingTicketItemId,true) + " และ Zeny ตามที่เลือก";
+	mes "• Monster จะเกิดเรื่อย ๆ ไม่มีวันหมด";
+	mes "• Monster จะมี Rank " + F_InsertComma(monsterRank);
+	mes "• ^1c9311ภายในห้องนี้สามารถ Bot/Macro ได้เลย^000000";
+	mes "• ^1c9311x DROP ใช้ได้ ^d32323(สุดที่ 90%)^000000^000000";
+	mes "• ^d32323มี Delay Drop หลัง Drop 1 วินาที^000000";
+	mes "• ^1c9311Zeny ไม่มี Delay^000000";
+	next;
+	setarray .@minZenyReward[0],1,10,50,100,250,900,1500,3000,5000,9000;
+	setarray .@maxZenyReward[0],10,50,100,250,900,1500,3000,5000,9000,13500;
+	menu
+	"เล่น 'บ่อตั๋ว & บ่อเงิน' [^af1ada" + F_InsertComma(.@price) + "z^000000] [^d32323Monster Lv 1~15^000000 โอกาส Drop 0.05% | ได้ตัวละ " + F_InsertComma(.@minZenyReward[0] * (IsWeekend() ? 1 : 1)) + "~" + F_InsertComma(.@maxZenyReward[0] * (IsWeekend() ? 2 : 1)) + "z]",L_MonsterTier1
+	,"เล่น 'บ่อตั๋ว & บ่อเงิน' [^af1ada" + F_InsertComma(.@price) + "z^000000] [^d32323Monster Lv 16~30^000000 โอกาส Drop 0.1% | ได้ตัวละ " + F_InsertComma(.@minZenyReward[1] * (IsWeekend() ? 1 : 1)) + "~" + F_InsertComma(.@maxZenyReward[1] * (IsWeekend() ? 2 : 1)) + "z]",L_MonsterTier2
+	,"เล่น 'บ่อตั๋ว & บ่อเงิน' [^af1ada" + F_InsertComma(.@price) + "z^000000] [^d32323Monster Lv 31~50^000000 โอกาส Drop 0.5% | ได้ตัวละ " + F_InsertComma(.@minZenyReward[2] * (IsWeekend() ? 1 : 1)) + "~" + F_InsertComma(.@maxZenyReward[2] * (IsWeekend() ? 2 : 1)) + "z]",L_MonsterTier3
+	,"เล่น 'บ่อตั๋ว & บ่อเงิน' [^af1ada" + F_InsertComma(.@price) + "z^000000] [^d32323Monster Lv 51~75^000000 โอกาส Drop 1% | ได้ตัวละ " + F_InsertComma(.@minZenyReward[3] * (IsWeekend() ? 1 : 1)) + "~" + F_InsertComma(.@maxZenyReward[3] * (IsWeekend() ? 2 : 1)) + "z]",L_MonsterTier4
+	,"เล่น 'บ่อตั๋ว & บ่อเงิน' [^af1ada" + F_InsertComma(.@price) + "z^000000] [^d32323Monster Lv 76~99^000000 โอกาส Drop 1.5% | ได้ตัวละ " + F_InsertComma(.@minZenyReward[4] * (IsWeekend() ? 1 : 1)) + "~" + F_InsertComma(.@maxZenyReward[4] * (IsWeekend() ? 2 : 1)) + "z]",L_MonsterTier5
+	,"เล่น 'บ่อตั๋ว & บ่อเงิน' [^af1ada" + F_InsertComma(.@price) + "z^000000] [^d32323Monster Lv 100~125^000000 โอกาส Drop 2.5% | ได้ตัวละ " + F_InsertComma(.@minZenyReward[5] * (IsWeekend() ? 1 : 1)) + "~" + F_InsertComma(.@maxZenyReward[5] * (IsWeekend() ? 2 : 1)) + "z]",L_MonsterTier6
+	,"เล่น 'บ่อตั๋ว & บ่อเงิน' [^af1ada" + F_InsertComma(.@price) + "z^000000] [^d32323Monster Lv 126~145^000000 โอกาส Drop 5% | ได้ตัวละ " + F_InsertComma(.@minZenyReward[6] * (IsWeekend() ? 1 : 1)) + "~" + F_InsertComma(.@maxZenyReward[6] * (IsWeekend() ? 2 : 1)) + "z]",L_MonsterTier7
+	,"เล่น 'บ่อตั๋ว & บ่อเงิน' [^af1ada" + F_InsertComma(.@price) + "z^000000] [^d32323Monster Lv 146~165^000000 โอกาส Drop 10% | ได้ตัวละ " + F_InsertComma(.@minZenyReward[7] * (IsWeekend() ? 1 : 1)) + "~" + F_InsertComma(.@maxZenyReward[7] * (IsWeekend() ? 2 : 1)) + "z]",L_MonsterTier8
+	,"เล่น 'บ่อตั๋ว & บ่อเงิน' [^af1ada" + F_InsertComma(.@price) + "z^000000] [^d32323Monster Lv 166~185^000000 โอกาส Drop 15% | ได้ตัวละ " + F_InsertComma(.@minZenyReward[8] * (IsWeekend() ? 1 : 1)) + "~" + F_InsertComma(.@maxZenyReward[8] * (IsWeekend() ? 2 : 1)) + "z]",L_MonsterTier9
+	,"เล่น 'บ่อตั๋ว & บ่อเงิน' [^af1ada" + F_InsertComma(.@price) + "z^000000] [^d32323Monster Lv 186+^000000 โอกาส Drop 20% | ได้ตัวละ " + F_InsertComma(.@minZenyReward[9] * (IsWeekend() ? 1 : 1)) + "~" + F_InsertComma(.@maxZenyReward[9] * (IsWeekend() ? 2 : 1)) + "z]",L_MonsterTier10
+	;
+	
+	L_MonsterTier1: wishTier = 1; goto L_Trade;
+	L_MonsterTier2: wishTier = 2; goto L_Trade;
+	L_MonsterTier3: wishTier = 3; goto L_Trade;
+	L_MonsterTier4: wishTier = 4; goto L_Trade;
+	L_MonsterTier5: wishTier = 5; goto L_Trade;
+	L_MonsterTier6: wishTier = 6; goto L_Trade;
+	L_MonsterTier7: wishTier = 7; goto L_Trade;
+	L_MonsterTier8: wishTier = 8; goto L_Trade;
+	L_MonsterTier9: wishTier = 9; goto L_Trade;
+	L_MonsterTier10: wishTier = 10; goto L_Trade;
+	
+	L_Trade:
+	if(Zeny < .@price){
+		mes "Zeny ไม่เพียงพอ";
+		close;
+	}
+	minZenyReward = (.@minZenyReward[wishTier - 1] * (IsWeekend() ? 1 : 1));
+	maxZenyReward = (.@maxZenyReward[wishTier - 1] * (IsWeekend() ? 2 : 1));
+	ChangeZeny(-.@price);
+	.@id = instance_create("Wish",IM_CHAR);
+	instance_enter("Wish",100,100,getcharid(0),.@id);
+	close;
+	
+OnInit:
+	waitingroom "หา " + getitemname($wishingTicketItemId) + " & Zeny",0;
+	end;
+}
+
+force_3-3	mapflag	nowarp
+force_3-3	mapflag	nowarpto
+force_3-3	mapflag	nosave
+force_3-3	mapflag	nomemo
+force_3-3	mapflag	noloot
+force_3-3	mapflag	nobranch
+force_3-3	mapflag	notomb
+force_3-3	mapflag	nopetcapture
+
+force_3-3,100,108,4	script	Ruwach#บ่อตั๋ว & บ่อเงิน	10518,{
+	npcskill "AL_RUWACH",1,0,1;
+	end;
+}
+
+force_3-3,100,104,4	script	เริ่ม#บ่อตั๋ว & บ่อเงิน	10518,{
+	hideonnpc instance_npcname(strnpcinfo(0));
+	'spawnAmount = 100;
+	
+OnSpawnMore:
+	freeloop(1);
+	for(.@i = 0; .@i < 'spawnAmount; .@i++){
+		while(!.@monsterId)
+		.@monsterId = (
+		(wishTier >= 10) ? $attackableMonsterTier10Ids[rand(getarraysize($attackableMonsterTier10Ids))]
+		: (wishTier == 9) ? $attackableMonsterTier9Ids[rand(getarraysize($attackableMonsterTier9Ids))]
+		: (wishTier == 8) ? $attackableMonsterTier8Ids[rand(getarraysize($attackableMonsterTier8Ids))]
+		: (wishTier == 7) ? $attackableMonsterTier7Ids[rand(getarraysize($attackableMonsterTier7Ids))]
+		: (wishTier == 6) ? $attackableMonsterTier6Ids[rand(getarraysize($attackableMonsterTier6Ids))]
+		: (wishTier == 5) ? $attackableMonsterTier5Ids[rand(getarraysize($attackableMonsterTier5Ids))]
+		: (wishTier == 4) ? $attackableMonsterTier4Ids[rand(getarraysize($attackableMonsterTier4Ids))]
+		: (wishTier == 3) ? $attackableMonsterTier3Ids[rand(getarraysize($attackableMonsterTier3Ids))]
+		: (wishTier == 2) ? $attackableMonsterTier2Ids[rand(getarraysize($attackableMonsterTier2Ids))]
+		: $attackableMonsterTier1Ids[rand(getarraysize($attackableMonsterTier1Ids))]
+		);
+		monster 'mapName$,0,0,"--ja--",.@monsterId,1,instance_npcname(strnpcinfo(0)) + "::OnMonsterDead";
+		setunitdata $@mobid[0],UMOB_RANK,monsterRank;
+		.@monsterId = 0;
+	}
+	freeloop(0);
+	end;
+	
+OnMonsterDead:
+	if(!playerattached())
+	end;
+
+	ChangeZeny(rand(minZenyReward,maxZenyReward),0);
+
+	'isDelay = ('wishDelay > gettimetick(2));
+if(!'isDelay){
+	.@rand = rand(10000);
+	.@chance = (wishTier >= 10) ? 2000
+	: (wishTier == 9) ? 1500
+	: (wishTier == 8) ? 1000
+	: (wishTier == 7) ? 500
+	: (wishTier == 6) ? 250
+	: (wishTier == 5) ? 150
+	: (wishTier == 4) ? 100
+	: (wishTier == 3) ? 50
+	: (wishTier == 2) ? 10
+	: 5
+	;
+
+	.@dropBoost = max(1,getstatus(SC_ITEMBOOST,1));
+	.@finalDrop = cap_value((.@chance * .@dropBoost) / 100,0,9000);
+	if(.@rand < .@finalDrop){
+		'wishDelay = (gettimetick(2) + 1);
+		getitem $wishingTicketItemId,1;
+	}
+	else
+		dispbottom "ต้องสุ่มได้น้อยกว่า " + .@finalDrop + " คุณสุ่มได้ " + .@rand;
+}
+
+.@monsterId = (
+(wishTier >= 10) ? $attackableMonsterTier10Ids[rand(getarraysize($attackableMonsterTier10Ids))]
+: (wishTier == 9) ? $attackableMonsterTier9Ids[rand(getarraysize($attackableMonsterTier9Ids))]
+: (wishTier == 8) ? $attackableMonsterTier8Ids[rand(getarraysize($attackableMonsterTier8Ids))]
+: (wishTier == 7) ? $attackableMonsterTier7Ids[rand(getarraysize($attackableMonsterTier7Ids))]
+: (wishTier == 6) ? $attackableMonsterTier6Ids[rand(getarraysize($attackableMonsterTier6Ids))]
+: (wishTier == 5) ? $attackableMonsterTier5Ids[rand(getarraysize($attackableMonsterTier5Ids))]
+: (wishTier == 4) ? $attackableMonsterTier4Ids[rand(getarraysize($attackableMonsterTier4Ids))]
+: (wishTier == 3) ? $attackableMonsterTier3Ids[rand(getarraysize($attackableMonsterTier3Ids))]
+: (wishTier == 2) ? $attackableMonsterTier2Ids[rand(getarraysize($attackableMonsterTier2Ids))]
+: $attackableMonsterTier1Ids[rand(getarraysize($attackableMonsterTier1Ids))]
+);
+monster 'mapName$,0,0,"--ja--",.@monsterId,1,instance_npcname(strnpcinfo(0)) + "::OnMonsterDead";
+		setunitdata $@mobid[0],UMOB_RANK,monsterRank;
+		end;
+		
+OnInstanceInit:
+'isDelay = 0;
+'wishDelay = 0;
+		'mapName$ = instance_mapname("force_3-3");
+		end;
+		
+OnInit:
+		waitingroom "เริ่ม",0;
+		end;
+	}

@@ -1,0 +1,44 @@
+prontera,173,160,6	script	ไก	899,{
+	if(gymPassMemory)
+	skill "ALL_INCCARRY",gymPassMemory,SKILL_PERM_GRANT;
+	if(gymPassMemory >= 10){
+		message strcharinfo(0),"เกิดข้อผิดพลาด: Level เพิ่มแรงแบกของ สูงสุดแล้ว";
+		end;
+	}
+	.@price = (250 * (1 + gymPassMemory));
+	setarray .@questItemId[0],953,7004,7096,7189,7067,6693;
+	setarray .@questPoints[0],1,2,2,2,3,3;
+	mes "ระบบจะแลกของที่เพิ่มแต้มน้อยที่สุดก่อน";
+	for(.@i = 0; .@i < getarraysize(.@questItemId); .@i++){
+		mes "• " + mesitemlink(.@questItemId[.@i],true) + " +" + .@questPoints[.@i] + " แต้ม";
+	}
+	menu "เพิ่มแรงแบกของ [^af1ada" + F_InsertComma(.@price - gymPassQuest) + " แต้ม^000000]",-;
+	for(.@i = 0; .@i < getarraysize(.@questItemId); .@i++){
+		if(.@isLevelUp)
+		break;
+		.@itemAmount = countitem(.@questItemId[.@i]);
+		if(.@itemAmount){
+			.@expNeeded = (.@price - gymPassQuest);
+			if(.@questPoints[.@i] > .@expNeeded)
+			.@itemAmount = 1;
+			else if((.@questPoints[.@i] * .@itemAmount) > .@expNeeded)
+			.@itemAmount = (.@expNeeded / .@questPoints[.@i]);
+			delitem .@questItemId[.@i],.@itemAmount;
+			specialeffect2 509;
+			gymPassQuest += (.@questPoints[.@i] * .@itemAmount);
+			if(gymPassQuest >= .@price){
+				gymPassQuest = 0;
+				gymPassMemory++;
+				skill "ALL_INCCARRY",gymPassMemory,SKILL_PERM_GRANT;
+				message strcharinfo(0),"เพิ่มแรงแบกของ Level: " + gymPassMemory;
+				close;
+			}
+		}
+	}
+	message strcharinfo(0),"ต้องการอีก " + F_InsertComma(.@price - gymPassQuest) + " แต้ม";
+	close;
+	
+	OnInit:
+	waitingroom "เพิ่งแรงแบกของ",0;
+	end;
+}

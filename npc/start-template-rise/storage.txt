@@ -1,0 +1,8 @@
+prontera,144,174,3	script	คลังเก็บของ	10427,{
+	callfunc("Storage");
+	end;
+	
+OnInit:
+	waitingroom "คลังเก็บของ",0;
+	end;
+}

@@ -1,0 +1,61 @@
+prontera,147,159,6	script	ขายของเร็ว	10390,{
+	menu
+	"-",-,
+	"-",-,
+	"-",-,
+	"ขายของเร็ว (Item ที่ {Favourite อยู่ / สวมใส่อยู่ / เป็น Item พิเศษ} จะไม่ถูกขาย)",L_FastSell
+	;
+	end;
+	
+	L_FastSell:
+	getinventorylist;
+	.@ocLv = getskilllv(38);
+	.@ocRate = ((.@ocLv > 0) ? min(24,(4 + (3 * .@ocLv))) : 0);
+	freeloop(1);
+	for(.@i = 0; .@i < @inventorylist_count; .@i++){
+		if(@inventorylist_favorite[.@i] || @inventorylist_equip[.@i] || @inventorylist_expire[.@i])
+		continue;
+		
+		.@itemId = @inventorylist_id[.@i];
+		.@isRestrictItemId = 0;
+		for(.@j = 0; .@j < getarraysize($restrictedItemId); .@j++){
+			if(.@itemId == $restrictedItemId[.@j]){
+				.@isRestrictItemId = 1;
+				break;
+			}
+		}
+		
+		if(.@isRestrictItemId)
+		continue;
+		
+		.@itemAmount = @inventorylist_amount[.@i];
+		
+		.@itemSellPrice = getiteminfo(.@itemId,ITEMINFO_SELL);
+		
+		if(.@itemSellPrice)
+		.@ocPrice = (((.@itemSellPrice / 10) * .@ocRate) / 10);
+		else
+		.@ocPrice = 0;
+	
+		.@itemSellPrice = ((.@itemSellPrice + .@ocPrice) * .@itemAmount);
+		
+		if(IsZenyExceed(.@itemSellPrice))
+		goto L_Summary;
+		
+		delitemidx @inventorylist_idx[.@i];
+		
+		ChangeZeny(.@itemSellPrice,0);
+		
+		.@summaryZeny = Cap(.@summaryZeny,.@itemSellPrice);
+	}
+	L_Summary:
+	message strcharinfo(0),"ได้รับ " + F_InsertComma(.@summaryZeny) + "z";
+	freeloop(0);
+	if(.@summaryZeny)
+	specialeffect2 18;
+	end;
+	
+OnInit:
+	waitingroom "ขายของเร็ว",0;
+	end;
+}

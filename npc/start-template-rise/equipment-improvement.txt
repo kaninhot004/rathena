@@ -1,0 +1,29 @@
+prontera,139,159,6	script	บาฮาม	10416,{
+	menu
+	"เสริมแกร่ง",-
+	,"เสริมแกร่งด้วย Random Option",L_RandomOption
+	,"เสริมแกร่งด้วย Grade",L_Grade
+	,"นำ Card & Enchantment ออกจากช่องอุปกรณ์",L_SlotRemover
+	;
+	mes "หากการเสริมแกร่ง^d32323ไม่สำเร็จ^000000";
+	mes "• มีโอกาส 10% ที่ ^d32323Item จะหายไป^000000";
+	mes "• นอกนั้นจำนวนเสริมแกร่งจะลดลง 1";
+	refineui;
+	close;
+	
+	L_RandomOption:
+	RandomOption();
+	end;
+	
+	L_Grade:
+	EnchantGrade();
+	end;
+	
+	L_SlotRemover:
+	SlotRemover();
+	end;
+	
+	OnInit:
+	waitingroom "เสริมแกร่งอุปกรณ์สวมใส่",0;
+	end;
+}

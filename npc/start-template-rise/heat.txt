@@ -1,0 +1,144 @@
+prontera,152,214,1	script	เดือด	10548,{
+	.@price = 7000000;
+	.@baseMonsterRank = 7777;
+	
+	monsterRank = .@baseMonsterRank;
+	
+	if(!is_party_leader()){
+		.@ipid = instance_id(IM_PARTY);
+		if(.@ipid){
+			instance_enter("HEAT",135,140,getcharid(0),.@ipid);
+			end;
+		}
+		mes "เฉพาะหัวหน้า Party เท่านั้น";
+		close;
+	}
+	.@oldInstanceId = instance_id(IM_PARTY);
+	if(.@oldInstanceId)
+	instance_destroy .@oldInstanceId;
+	if(instance_id(IM_PARTY)){
+		mes "โปรดทำลาย Instance Dungeon (Party) เก่าเสียก่อน";
+		close;
+	}
+	
+	mes "[วิธีเล่น]";
+	if(IsWeekend())
+	mes "• ^d598f0พิเศษวันหยุด จำนวน Boss ที่ต้องกำจัดน้อยลง^000000";
+	mes "• ^d32323โปรดระวังหากใครคนหนึ่งใน Party เข้าสู่เมือง Prontera ระหว่างกำลังเล่นห้องพิเศษนี้ ห้องพิเศษนี้จะถูกทำลาย^000000";
+	mes "• เมื่อกำจัด Boss จนหมดห้อง จะได้รับ " + mesitemlink($masteryTicketItemId,true);
+	mes "• Boss จะมี Rank " + F_InsertComma(monsterRank);
+	mes "• Boss จะเคลื่อนที่เร็ว (สุ่ม)";
+	mes "• Boss จะรับ Damage 1% (เสมือน Aura เขียว)";
+	mes "• ^d32323คุณจะติด Debuff 90%^000000";
+	next;
+	menu
+	"เล่น 'เดือด (Party)' [^af1ada" + F_InsertComma(.@price) + "z^000000] [^d32323Item คุณจะเสื่อมลง 20%^000000 รางวัล 2 ชิ้น]",L_Easy
+	,"เล่น 'เดือด (Party)' [^af1ada" + F_InsertComma(.@price) + "z^000000] [^d32323Item คุณจะเสื่อมลง 40%^000000 รางวัล 5 ชิ้น]",L_Medium
+	,"เล่น 'เดือด (Party)' [^af1ada" + F_InsertComma(.@price) + "z^000000] [^d32323Item คุณจะเสื่อมลง 70%^000000 รางวัล 10 ชิ้น]",L_Hard
+	;
+	L_Easy: bonusDebuff = 20; onlyGodRewardAmount = 2; goto L_Trade;
+	L_Medium: bonusDebuff = 40; onlyGodRewardAmount = 5; goto L_Trade;
+	L_Hard: bonusDebuff = 70; onlyGodRewardAmount = 10; goto L_Trade;
+	L_Trade:
+	if(Zeny < .@price){
+		mes "Zeny ไม่เพียงพอ";
+		close;
+	}
+	ChangeZeny(-.@price);
+	.@id = instance_create("HEAT",IM_PARTY);
+	instance_enter("HEAT",135,140,getcharid(0),.@id);
+	close;
+	
+OnInit:
+	waitingroom "เดือด (Party)",0;
+	end;
+}
+
+8@thts	mapflag	nowarp
+8@thts	mapflag	nowarpto
+8@thts	mapflag	nosave
+8@thts	mapflag	nomemo
+8@thts	mapflag	noloot
+8@thts	mapflag	noexp
+8@thts	mapflag	nobranch
+8@thts	mapflag	notomb
+8@thts	mapflag	nopetcapture
+
+8@thts,135,155,4	script	Ruwach#เดือด	10548,500,500,{
+	npcskill "AL_RUWACH",1,0,1;
+	end;
+	
+	OnTouch:
+	ptt = 0;
+	tired = cap_value(90,0,100);
+	if('bonusDebuff)
+	bonusDebuff = cap_value('bonusDebuff,0,100);
+	tiredSpot = rand(1,16);
+	ApplyTired();
+	@isOnlyGodEnter = 1;
+	end;
+}
+
+8@thts,135,145,4	script	เริ่ม#เดือด	10548,{
+	if(!is_party_leader())
+		end;
+	hideonnpc instance_npcname(strnpcinfo(0));
+	'spawnAmount = (IsWeekend() ? 5 : 10);
+	'round = 3;
+	'rewardAmount = onlyGodRewardAmount;
+	'bonusDebuff = bonusDebuff;
+	callsub OnSpawn;
+	announce "Boss เหลือ " + F_InsertComma('spawnAmount - 'progression) + " ตัว",bc_map;
+	addrid(1);
+	callsub(OnApplyDebuff);
+	end;
+	
+OnApplyDebuff:
+	ptt = 0;
+	tired = cap_value(90,0,100);
+	bonusDebuff = cap_value('bonusDebuff,0,100);
+	tiredSpot = rand(1,16);
+	ApplyTired();
+	@isOnlyGodEnter = 1;
+	return;
+	
+OnSpawn:
+	for(.@i = 0; .@i < 'spawnAmount; .@i++){
+		areamonster 'mapName$,115,115,160,160,"--ja--",$mvpIds[rand(getarraysize($mvpIds))],1,instance_npcname(strnpcinfo(0)) + "::OnBossDead";
+	setunitdata $@mobid[0],UMOB_RANK,monsterRank;
+	setunitdata $@mobid[0],UMOB_SPEED,rand(77,177);
+	setunitdata $@mobid[0],UMOB_DAMAGETAKEN,1;
+	}
+	return;
+
+OnBossDead:
+	'progression++;
+	if('progression >= 'spawnAmount){
+		'round--;
+		if('round){
+			'progression = 0;
+			announce "เหลืออีก " + 'round + " รอบ",bc_map;
+			callsub OnSpawn;
+			end;
+		}
+		announce "'เดือด' ผ่านแล้ว!",bc_map;
+		getitem $masteryTicketItemId,'rewardAmount;
+		addtimer 2000,instance_npcname(strnpcinfo(0)) + "::OnComplete";
+	}
+	else
+		announce "Boss เหลือ " + F_InsertComma('spawnAmount - 'progression) + " ตัว",bc_map;
+	end;
+
+OnComplete:
+	warp "Save",0,0;
+	end;
+
+OnInstanceInit:
+	'progression = 0;
+	'mapName$ = instance_mapname("8@thts");
+	end;
+
+OnInit:
+	waitingroom "เริ่ม",0;
+	end;
+}

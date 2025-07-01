@@ -1,0 +1,39 @@
+-	script	TiredReset	-1,{
+	if(!tired)
+	{
+		message strcharinfo(0),"เกิดข้อผิดพลาด: คุณไม่ได้เหนื่อยล้า";
+		end;
+	}
+	else if(tiredSpot != atoi(strnpcinfo(3)))
+	{
+		message strcharinfo(0),"เกิดข้อผิดพลาด: โปรดพักผ่อนที่จุดพักที่ " + tiredSpot;
+		end;
+	}
+	specialeffect2 59;
+	progressbar "",10;
+	if(getstatus(SC_BLESSING,5) < 600000)
+	sc_start SC_BLESSING,600000,10;
+	if(getstatus(SC_INCREASEAGI,5) < 600000)
+	sc_start SC_INCREASEAGI,600000,10;
+	percentheal 100,100;
+	specialeffect2 77;
+	ResetTired();
+	end;
+}
+
+prt_in,45,109,4	duplicate(TiredReset)	จุดพักผ่อน 1::1	10043
+prt_in,129,75,4	duplicate(TiredReset)	จุดพักผ่อน 2::2	10043
+prt_in,162,131,4	duplicate(TiredReset)	จุดพักผ่อน 3::3	10043
+prt_in,63,69,4	duplicate(TiredReset)	จุดพักผ่อน 4::4	10043
+prt_in,244,136,4	duplicate(TiredReset)	จุดพักผ่อน 5::5	10043
+prt_in,179,92,4	duplicate(TiredReset)	จุดพักผ่อน 6::6	10043
+prt_in,175,50,4	duplicate(TiredReset)	จุดพักผ่อน 7::7	10043
+prt_in,61,141,4	duplicate(TiredReset)	จุดพักผ่อน 8::8	10043
+prt_in,177,23,4	duplicate(TiredReset)	จุดพักผ่อน 9::9	10043
+prt_in,83,106,4	duplicate(TiredReset)	จุดพักผ่อน 10::10	10043
+prt_in,118,35,4	duplicate(TiredReset)	จุดพักผ่อน 11::11	10043
+prt_in,253,168,4	duplicate(TiredReset)	จุดพักผ่อน 12::12	10043
+prt_in,42,24,4	duplicate(TiredReset)	จุดพักผ่อน 13::13	10043
+s_atelier,17,122,4	duplicate(TiredReset)	จุดพักผ่อน 14::14	10043
+prt_in,233,16,4	duplicate(TiredReset)	จุดพักผ่อน 15::15	10043
+prt_church,103,64,4	duplicate(TiredReset)	จุดพักผ่อน 16::16	10043

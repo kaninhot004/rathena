@@ -1,0 +1,73 @@
+prontera,134,172,4	script	ลักซี่	10463,{
+	//menu "ฟัก Poring",-,"เปลี่ยนความสนิทสนม",L_Love,"เปลี่ยนความหิว",L_Food,"เปลี่ยนความสนิทสนม Homunculus",L_HomunLove,"เปลี่ยนความหิว Homunculus",L_HomunFood,"เปลี่ยน Level Homunculus",L_HomunLv,"Evolution Homunculus",L_HomunEvo,"Mutation Homunculus",L_HomunMutation;
+	menu "ฟักไข่",L_Birth,"Evolution Homunculus",L_HomunEvo,"Mutation Homunculus",L_HomunMutation;
+	makepet 1002;
+	sleep2 1;
+	L_Birth:
+	birthpet;
+	end;
+	
+	L_Love:
+	input .@i;
+	atcommand "@petfriendly " + .@i;
+	end;
+	
+	L_Food:
+	input .@i;
+	atcommand "@pethungry " + .@i;
+	end;
+	
+	L_HomunLove:
+	input .@i;
+	atcommand "@homfriendly " + .@i;
+	end;
+	
+	L_HomunFood:
+	input .@i;
+	atcommand "@homhungry " + .@i;
+	end;
+	
+	L_HomunLv:
+	input .@i;
+	atcommand "@homlevel +" + .@i;
+	end;
+	
+	L_HomunEvo:
+	homevolution;
+	end;
+	
+	L_HomunMutation:
+	if(gethominfo(6) < 99)
+	end;
+	switch(select("Eira:Sera:Dieter:Bayeri:Eleanor")) {
+	case 1:
+		cutin "Mer_Eira_Card",3;
+		.@id = 6048;
+		break;
+	case 2:
+		cutin "Mer_Sera_Card",3;
+		.@id = 6050;
+		break;
+	case 3:
+		cutin "Mer_Dieter_Card",3;
+		.@id = 6051;
+		break;
+	case 4:
+		cutin "Mer_Bayeri_Card",3;
+		.@id = 6049;
+		break;
+	case 5:
+		cutin "Mer_Eleanor_Card",3;
+		.@id = 6052;
+		break;
+	}
+	menu "เลือกใหม่",L_HomunMutation,"ยืนยัน",-;
+	cutin "",255;
+	morphembryo;
+	hommutate .@id;
+	end;
+	
+	OnInit:
+	waitingroom "Pet & Homunculus",0;
+	end;
+}
