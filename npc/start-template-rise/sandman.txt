@@ -1,0 +1,9 @@
+moc_akhet,185,299,4	script	Sandman	1165,{
+	if(!isSuitPicked)
+	end;
+	end;
+	
+OnInit:
+	waitingroom "บริจาค",0;
+	end;
+}

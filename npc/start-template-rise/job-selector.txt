@@ -16,7 +16,8 @@ OnCancel:
 OnConfirm:
 	close2;
 	isSuitPicked = 1;
-	warp strcharinfo(3),190,isSuitPicked ? 100 : 60;
+	savepoint strcharinfo(3),190,100;
+	warp strcharinfo(3),190,100;
 	end;
 	
 OnInit:

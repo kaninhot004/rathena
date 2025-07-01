@@ -12,7 +12,7 @@ OnTimer60000:
 	
 	L_Spawn:
 	.@index = getarg(0,0);
-	setarray .@baseMonsterRank[0],0,10,100,1000;
+	setarray .@baseMonsterRank[0],0,5,10,100;
 	freeloop(1);
 	for(.@i = 0; .@i < getarraysize($testDamageMonsterId); .@i++){
 		monster $testDamageMapName$[.@index],0,0,"--ja--",$testDamageMonsterId[.@i],1;

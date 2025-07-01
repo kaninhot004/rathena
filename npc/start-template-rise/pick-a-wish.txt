@@ -1,0 +1,22 @@
+-	script	PickAWish	-1,{
+	if(!isSuitPicked)
+	end;
+	end;
+	
+OnInit:
+	waitingroom strnpcinfo(1),0;
+	end;
+}
+
+moc_akhet,178,188,5	duplicate(PickAWish)	พร Set ที่ 1#0	10172
+moc_akhet,178,194,5	duplicate(PickAWish)	พร Set ที่ 2#1	10172
+moc_akhet,178,200,5	duplicate(PickAWish)	พร Set ที่ 3#2	10172
+moc_akhet,178,206,5	duplicate(PickAWish)	พร Set ที่ 4#3	10172
+moc_akhet,178,212,5	duplicate(PickAWish)	พร Set ที่ 5#4	10172
+moc_akhet,178,218,5	duplicate(PickAWish)	พร Set ที่ 6#5	10172
+moc_akhet,201,188,4	duplicate(PickAWish)	พร Set ที่ 7#6	10172
+moc_akhet,201,194,4	duplicate(PickAWish)	พร Set ที่ 8#7	10172
+moc_akhet,201,200,4	duplicate(PickAWish)	พร Set ที่ 9#8	10172
+moc_akhet,201,206,4	duplicate(PickAWish)	พร Set ที่ 10#9	10172
+moc_akhet,201,212,4	duplicate(PickAWish)	พร Set ที่ 11#10	10172
+moc_akhet,201,218,4	duplicate(PickAWish)	พร Set ที่ 12#11	10172

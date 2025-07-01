@@ -1,0 +1,9 @@
+moc_akhet,190,248,5	script	กองไฟนิทรา	10252,{
+	if(!isSuitPicked)
+	end;
+	end;
+	
+OnInit:
+	waitingroom strnpcinfo(1),0;
+	end;
+}
