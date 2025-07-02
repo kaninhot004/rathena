@@ -1,24 +1,24 @@
 // ราคาขายของทุกชิ้น มากสุดเท่าใด (มากสุด 2147483647)
-config_global_maximum_sell: 5000
+config_global_maximum_sell: 0
 
 // Monster ทุกตัว Drop Item Id (ใส่ 0 เพื่อปิดการใช้งาน)
 config_global_drop: 0
 // %
-config_global_drop_base_rate: 1
+config_global_drop_base_rate: 0
 // % ด้านบน คูณด้วย Monster Level (ใส่ 0 เพื่อปิดการใช้งาน)
-config_global_drop_multiply_monster_level: 1
+config_global_drop_multiply_monster_level: 0
 
 // Boss ทุกตัว Drop Item Id (ใส่ 0 เพื่อปิดการใช้งาน)
-config_global_mvp_drop: 10000000
+config_global_mvp_drop: 0
 // %
-config_global_mvp_drop_rate: 1
+config_global_mvp_drop_rate: 0
 // % ด้านบน คูณด้วย Monster Level จาก  (ใส่ 0 เพื่อปิดการใช้งาน)
 config_global_mvp_drop_multiply_monster_level: 0
 
 // Item Id ที่จะ Delay การ Drop (ใส่ 0 เพื่อปิดการใช้งาน)
-config_main_item_drop_id: 10000001
+config_main_item_drop_id: 0
 // Delay กี่วินาที
-config_main_item_drop_delay: 1
+config_main_item_drop_delay: 0
 
 // โอกาสป้องกัน 100% จะโดนลดเหลือ n% (ใส่ 0 เพื่อปิดการใช้งาน)
 config_invulnerable_break_rate: 50
@@ -28,7 +28,7 @@ config_invulnerable_break_rate: 50
 config_invulnerable_break_value: 100
 
 // โอกาสทะลุ โจมตี 1 (โจมตีพวกต้นไม้)  (ใส่ 0 เพื่อปิดการใช้งาน)
-config_infinite_defense_break_rate: 10
+config_infinite_defense_break_rate: 100
 
 // โอกาส Perfect Dodge 100% จะโดนลดเหลือ n% (ใส่ 0 เพื่อปิดการใช้งาน)
 config_perfect_dodge_break_rate: 50
@@ -38,7 +38,7 @@ config_perfect_dodge_break_rate: 50
 config_perfect_dodge_break_value: 900
 
 // Enchantment คลิกใส่เลยได้ไหม (1 ได้)
-config_enchantment_clickable: 1
+config_enchantment_clickable: 0
 
 // Enchantment คลิกใส่ได้มากสุดกี่ช่อง (มากสุด 4)
 config_enchantment_maximum: 4
@@ -50,16 +50,16 @@ config_all_equipment_refinable: 1
 config_all_equipment_gradable: 1
 
 // Equipment ทุกชิ้น ไม่สนใจเพศ (1 ไม่สน)
-config_all_equipment_skip_gender: 0
+config_all_equipment_skip_gender: 1
 
 // Equipment ทุกชิ้น ไม่สนใจคลาส (1 ไม่สน)
-config_all_equipment_skip_class: 0
+config_all_equipment_skip_class: 1
 
 // Equipment ทุกชิ้น ไม่สนใจอาชีพ (1 ไม่สน)
-config_all_equipment_skip_job: 0
+config_all_equipment_skip_job: 1
 
 // Item ทุกชิ้นตั้งร้านค้ารับซื้อได้ไหม (1ได้)
-config_all_item_buying_store: 1
+config_all_item_buying_store: 0
 
 // Item ทุกชิ้นไม่สนข้อผูกมัดหรือไม่ (1 ไม่สน)
 config_all_item_no_bind: 1
@@ -71,7 +71,7 @@ config_all_item_trade: 1
 config_equipment_drop_auto_identify: 1
 
 // Monster ที่ Spawn ปกติมี Rank 0~(n-1)
-config_random_monster_rank: 91
+config_random_monster_rank: 0
 
 // ไม่นับคน Auto Trade (0 ไม่นับ)
 config_auto_trade_player_count: 0
@@ -79,19 +79,19 @@ config_auto_trade_player_count: 0
 // Rank ของ Monster จะเพิ่ม Damage ให้ Monster แบบใด
 // 0 = % ถ้า Rank 1 ก็เพิ่ม Damage 1%
 // 1 = คูณ ถ้า Rank 1 ก็ Damage คูณ 2
-config_monster_rank_damage_mode: 0
+config_monster_rank_damage_mode: 1
 
 // Rank ของ Monster จะลด Damage ที่ได้รับ แบบใด
 // 0 = % ถ้า Rank 1 ก็ลด Damage ที่ได้รับ 1% (แต่จะลดได้มากสุด 99% เพื่อไม่ให้เป็นอมตะ)
 // 1 = หาร ถ้า Rank 1 ก็ Damage ที่ได้รับ หาร 2
-config_monster_rank_defense_mode: 0
+config_monster_rank_defense_mode: 1
 
 // Rank ของ Monster จะเพิ่ม % EXP แบบใด
 // 0 = % ถ้า Rank 1 ก็เพิ่ม EXP 1%
 // 1 = คูณ ถ้า Rank 1 ก็ EXP คูณ 2
-config_monster_rank_exp_bonus_mode: 0
+config_monster_rank_exp_bonus_mode: 1
 
 // Rank ของ Monster จะเพิ่ม % Drop แบบใด
 // 0 = % ถ้า Rank 1 ก็เพิ่ม Drop 1%
 // 1 = คูณ ถ้า Rank 1 ก็ Drop คูณ 2
-config_monster_rank_drop_bonus_mode: 0
+config_monster_rank_drop_bonus_mode: 1
