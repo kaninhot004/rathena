@@ -1,4 +1,4 @@
-prontera,163,178,1	script	ตั้งค่า	10372,{
+moc_akhet,194,308,7	script	ตั้งค่า	10372,{
 	L_Menu:
 	menu
 	"ดูคำสั่งที่ใช้ได้",L_Commands,

@@ -1,6 +1,8 @@
 -	script	PickAWish	-1,{
 	if(!isSuitPicked)
 	end;
+	.@wishIndex = atoi(strnpcinfo(2));
+	message strcharinfo(0),"รับพร Set ที่ " + (.@wishIndex + 1) + " เรียบร้อยแล้ว!";
 	end;
 	
 OnInit:

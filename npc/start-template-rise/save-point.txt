@@ -1,4 +1,4 @@
-prontera,158,198,3	script	เปลี่ยน Save Point	835,{
+moc_akhet,190,175,5	script	เปลี่ยน Save Point	835,{
 	getmapxy(.@map$,.@x,.@y,BL_PC);
 	savepoint strcharinfo(3),.@x,.@y,2,2;
 	specialeffect2 747;
@@ -9,9 +9,11 @@ OnRefreshOnlineAmount:
 	if(.isWaitingRoom)
 	delwaitingroom;
 	query_sql("SELECT `char`.char_id FROM `char` WHERE `char`.`online` = 1",.@onlinePlayers);
-	query_sql("SELECT vendings.id FROM vendings WHERE vendings.autotrade = 1",.@autoTraders);
-	query_sql("SELECT buyingstores.id FROM buyingstores WHERE buyingstores.autotrade = 1",.@buyAutoTraders);
-	waitingroom "ON: " + getarraysize(.@onlinePlayers) + " | AT: " + (getarraysize(.@autoTraders) + getarraysize(.@buyAutoTraders)),0;
+	waitingroom "ผู้เล่น: " + getarraysize(.@onlinePlayers) + " ท่าน",0;
 	.isWaitingRoom = 1;
 	end;
 }
+
+moc_akhet,190,220,5	duplicate(เปลี่ยน Save Point)	เปลี่ยน Save Point#2	835
+moc_akhet,190,285,5	duplicate(เปลี่ยน Save Point)	เปลี่ยน Save Point#3	835
+	
