@@ -71,7 +71,7 @@ config_all_item_trade: 1
 config_equipment_drop_auto_identify: 1
 
 // Monster ที่ Spawn ปกติมี Rank 0~(n-1)
-config_random_monster_rank: 0
+config_random_monster_rank: 1
 
 // ไม่นับคน Auto Trade (0 ไม่นับ)
 config_auto_trade_player_count: 0
