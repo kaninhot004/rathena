@@ -1,6 +1,12 @@
 -	script	PickAWish	-1,{
 	if(!isSuitPicked)
 	end;
+
+	if(!isWishGranted){
+		mes "ท่านยังไม่เคยขอพร..";
+		close;
+	}
+	
 	.@wishIndex = atoi(strnpcinfo(2));
 	message strcharinfo(0),"รับพร Set ที่ " + (.@wishIndex + 1) + " เรียบร้อยแล้ว!";
 	end;
@@ -22,3 +28,30 @@ moc_akhet,201,200,4	duplicate(PickAWish)	พร Set ที่ 9#8	10172
 moc_akhet,201,206,4	duplicate(PickAWish)	พร Set ที่ 10#9	10172
 moc_akhet,201,212,4	duplicate(PickAWish)	พร Set ที่ 11#10	10172
 moc_akhet,201,218,4	duplicate(PickAWish)	พร Set ที่ 12#11	10172
+
+moc_akhet,190,195,4	script	ขอพร	10545,{
+	.@dreamLevelIndex = GetDreamLevelIndex();
+	.@dreamLevelWording = (.@dreamLevelIndex + 1);
+	mes "ท่านต้องการที่จะขอพร Set ใหม่ ใช่หรือไม่?";
+	menu "ยกเลิก",-,"ยกเลิก",-,"ยกเลิก",-,"ขอพร Set ใหม่ (ระดับพร " + .@dreamLevelWording + ")",OnGenerateWish;
+	close;
+	
+OnGenerateWish:
+	maximumWishSet = $maximumWishSet[.@dreamLevelIndex];
+	for(.@i = 0; .@i < maximumWishSet; .@i++){
+		// Status
+		// Trait
+		// Skill
+		// Refine
+		// Grade
+		// Card
+		// Enchantment
+		// Random Option
+	}
+	mes "ขอพรใหม่แล้วทั้งหมด " + maximumWishSet +" Set";
+	close;
+	
+OnInit:
+	waitingroom "ขอพร Set ใหม่",0;
+	end;
+}

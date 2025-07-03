@@ -36,5 +36,55 @@ OnInit:
 		deletearray $mvpIds[0],getarraysize($mvpIds);
 		setarray $mvpIds[0],1038,1039,1046,1059,1086,1087,1112,1115,1147,1150,1157,1159,1190,1251,1252,1272,1312,1373,1389,1399,1418,1492,1502,1511,1518,1583,1623,1630,1646,1647,1648,1649,1650,1651,1658,1685,1688,1708,1719,1734,1751,1766,1767,1768,1779,1785,1813,1817,1832,1871,1874,1876,1885,1917,1956,1957,1980,2022,2052,2066,2068,2075,2087,2094,2095,2096,2097,2098,2099,2100,2101,2102,2103,2104,2105,2106,2107,2108,2109,2110,2111,2112,2113,2131,2165,2187,2188,2189,2190,2202,2212,2235,2236,2237,2238,2239,2240,2241,2249,2251,2253,2255,2306,2319,2322,2327,2341,2352,2362,2441,2442,2475,2476,2483,2529,2532,2533,2534,2535,2564,2942,2996,3000,3029,3073,3074,3097,3124,3181,3190,3220,3221,3222,3223,3224,3225,3240,3241,3242,3243,3244,3245,3246,3254,3426,3427,3428,3429,3430,3450,3473,3505,3621,3628,3633,3658,3659,3741,3757,3758,3796,3804,3810,20273,20277,20340,20346,20381,20419,20421,20422,20601,20620,20621,20642,20648,20659,20667,20668,20811,20843,20928,20934,20943,21301,21314,21316,21317,21360,21361,21395;
 	}
+	if($globalVariables7Version != 1){
+		$globalVariables7Version = 1;
+		
+		deletearray $dreamLevel[0],getarraysize($dreamLevel);
+		setarray $dreamLevel[0],0,5,10,15,20,25,30,40,50,60,70,80,90,100,125,150,175,200,225,250,275,300,330,360,390,420,450,490,530,570,610,650,700,750,800,850,900,975;
+		
+		deletearray $maximumWishSet[0],getarraysize($maximumWishSet);
+		setarray $maximumWishSet[0],2,3,3,3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5,6,6,6,6,6,6;
+		
+		deletearray $minimumStatus[0],getarraysize($minimumStatus);
+		setarray $minimumStatus[0],1,2,3,4,5,6,7,9,11,13,15,17,19,21,24,27,30,33,36,39,42,45,49,53,57,61,65,70,75,80,85,90,96,102,108,114,120,127;
+		$maximumStatus = 130;
+
+		deletearray $minimumTrait[0],getarraysize($minimumTrait);
+		setarray $minimumTrait[0],0,1,2,3,4,5,6,7,8,9,10,11,12,13,15,17,19,21,23,25,27,29,32,35,38,41,44,48,52,56,60,64,69,74,79,84,89,95;
+		$maximumTrait = 100;
+
+		deletearray $minimumSkill[0],getarraysize($minimumSkill);
+		deletearray $maximumSkill[0],getarraysize($maximumSkill);
+		setarray $minimumSkill[0],5,6,7,8,9,10,11,12,13,14,15,16,17,18,20,22,24,26,28,30,32,34,36,38,40,42,44,47,50,53,56,59,62,65,68,71,74,78;
+		setarray $maximumSkill[0],10,12,14,16,18,20,22,24,26,28,30,32,34,36,40,44,48,52,56,60,64,68,72,76,80,84,88,94,100,106,112,118,124,130,136,142,148,156;
+
+		deletearray $minimumRefine[0],getarraysize($minimumRefine);
+		deletearray $maximumRefine[0],getarraysize($maximumRefine);
+		setarray $minimumRefine[0],0,1,1,1,1,1,1,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19;
+		setarray $maximumRefine[0],5,10,10,10,10,10,10,12,12,12,12,12,12,12,14,14,14,14,14,14,14,14,16,16,16,16,16,18,18,18,18,18,20,20,20,20,20,20;
+
+		deletearray $minimumGrade[0],getarraysize($minimumGrade);
+		deletearray $maximumGrade[0],getarraysize($maximumGrade);
+		setarray $minimumGrade[0],0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,3;
+		setarray $maximumGrade[0],1,1,1,1,1,1,1,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4;
+
+		deletearray $cardRate[0],getarraysize($cardRate);
+		deletearray $enchantmentRate[0],getarraysize($enchantmentRate);
+		setarray $cardRate[0],1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,40;
+		setarray $enchantmentRate[0],1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,40;
+
+		deletearray $minimumRandomOption[0],getarraysize($minimumRandomOption);
+		deletearray $maximumRandomOption[0],getarraysize($maximumRandomOption);
+		setarray $minimumRandomOption[0],0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,3,3,3,3,3,4;
+		setarray $maximumRandomOption[0],1,2,2,2,2,2,2,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5;
+
+		deletearray $minimumRank[0],getarraysize($minimumRank);
+		deletearray $maximumRank[0],getarraysize($maximumRank);
+		setarray $minimumRank[0],0,0,0,0,0,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,5,5,5,5,5,8,8,8,8,8,11,25,50;
+		setarray $maximumRank[0],1,1,1,1,1,2,2,2,2,2,2,2,4,4,4,4,4,4,4,4,7,7,7,7,7,11,11,11,11,11,16,16,16,16,16,22,50,100;
+
+		deletearray $monsterAmount[0],getarraysize($monsterAmount);
+		setarray $monsterAmount[0],25,30,35,40,45,55,65,75,85,95,105,115,120,125,130,135,140,145,150,155,165,175,185,195,205,210,215,220,225,230,240,245,250,255,260,265,275,280;
+	}
 	end;
 }

@@ -569,3 +569,11 @@ function	script	MasteryTicket	{
 	
 	return;
 }
+
+function	script	GetDreamLevelIndex	{
+	for(.@i = 0; .@i < getarraysize($dreamLevel); .@i++){
+		if(dreamLevel <= $dreamLevel[.@i]){
+			return .@i;
+		}
+	}
+}
