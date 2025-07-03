@@ -10,6 +10,9 @@ OnCancel:
 	.@select = select(.@menu$) - 1;
 	.@jobId = .jobId[.@select];
 	jobchange ((.@jobId == 4263) && (Sex == 1)) ? 4264 : ((.@jobId == 4304) && (Sex == 1)) ? 4305 : .@jobId;
+	BaseLevel = INT_MAX;
+	JobLevel = INT_MAX;
+	ClearAll();
 	menu "เลือกใหม่",OnCancel,"ยืนยัน",OnConfirm;
 	close;
 	

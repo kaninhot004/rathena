@@ -7,8 +7,41 @@
 		close;
 	}
 	
-	.@wishIndex = atoi(strnpcinfo(2));
-	message strcharinfo(0),"รับพร Set ที่ " + (.@wishIndex + 1) + " เรียบร้อยแล้ว!";
+	.@index = atoi(strnpcinfo(2));
+	
+	if(maximumWishSet <= .@index){
+		mes "ไม่สามารถขอพร Set ที่ " + (.@index + 1) + " ได้ในขณะนี้..";
+		close;
+	}
+	
+	ClearAll();
+	
+	// Status
+	statusup2 bStr,statusStr[.@index];
+	statusup2 bAgi,statusAgi[.@index];
+	statusup2 bVit,statusVit[.@index];
+	statusup2 bInt,statusInt[.@index];
+	statusup2 bDex,statusDex[.@index];
+	statusup2 bLuk,statusLuk[.@index];
+	
+	// Trait
+	traitstatusup2 bPow,traitPow[.@index];
+	traitstatusup2 bSta,traitSta[.@index];
+	traitstatusup2 bWis,traitWis[.@index];
+	traitstatusup2 bSpl,traitSpl[.@index];
+	traitstatusup2 bCon,traitCon[.@index];
+	traitstatusup2 bCrt,traitCrt[.@index];
+	
+	// Skill
+	// Refine
+	// Grade
+	// Card
+	// Enchantment
+	// Random Option
+	
+	FullHeal();
+	
+	message strcharinfo(0),"รับพร Set ที่ " + (.@index + 1) + " เรียบร้อยแล้ว!";
 	end;
 	
 OnInit:
@@ -33,6 +66,7 @@ moc_akhet,190,195,4	script	ขอพร	10545,{
 	.@dreamLevelIndex = GetDreamLevelIndex();
 	.@dreamLevelWording = (.@dreamLevelIndex + 1);
 	mes "ท่านต้องการที่จะขอพร Set ใหม่ ใช่หรือไม่?";
+	next;
 	menu "ยกเลิก",-,"ยกเลิก",-,"ยกเลิก",-,"ขอพร Set ใหม่ (ระดับพร " + .@dreamLevelWording + ")",OnGenerateWish;
 	close;
 	
@@ -40,7 +74,21 @@ OnGenerateWish:
 	maximumWishSet = $maximumWishSet[.@dreamLevelIndex];
 	for(.@i = 0; .@i < maximumWishSet; .@i++){
 		// Status
+		statusStr[.@i] = rand($minimumStatus[0],$maximumStatus);
+		statusAgi[.@i] = rand($minimumStatus[0],$maximumStatus);
+		statusVit[.@i] = rand($minimumStatus[0],$maximumStatus);
+		statusInt[.@i] = rand($minimumStatus[0],$maximumStatus);
+		statusDex[.@i] = rand($minimumStatus[0],$maximumStatus);
+		statusLuk[.@i] = rand($minimumStatus[0],$maximumStatus);
+		
 		// Trait
+		traitPow[.@i] = rand($minimumTrait[0],$maximumTrait);
+		traitSta[.@i] = rand($minimumTrait[0],$maximumTrait);
+		traitWis[.@i] = rand($minimumTrait[0],$maximumTrait);
+		traitSpl[.@i] = rand($minimumTrait[0],$maximumTrait);
+		traitCon[.@i] = rand($minimumTrait[0],$maximumTrait);
+		traitCrt[.@i] = rand($minimumTrait[0],$maximumTrait);
+		
 		// Skill
 		// Refine
 		// Grade
@@ -48,6 +96,7 @@ OnGenerateWish:
 		// Enchantment
 		// Random Option
 	}
+	isWishGranted = 1;
 	mes "ขอพรใหม่แล้วทั้งหมด " + maximumWishSet +" Set";
 	close;
 	

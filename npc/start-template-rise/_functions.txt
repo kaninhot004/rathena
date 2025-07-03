@@ -577,3 +577,25 @@ function	script	GetDreamLevelIndex	{
 		}
 	}
 }
+
+function	script	FullHeal	{
+	percentheal 100,100;
+	healap INT_MAX;
+	return;
+}
+
+function	script	ClearAll	{
+	nude;
+	atcommand "@itemreset";
+	atcommand "@clearstorage";
+	atcommand "@cleargstorage";
+	atcommand "@clearcart";
+	resetstatus;
+	resetskill;
+	StatusPoint = 0;
+	TraitPoint = 0;
+	SkillPoint = 0;
+	sc_end SC_ALL;
+	FullHeal();
+	return;
+}
