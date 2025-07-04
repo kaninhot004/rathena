@@ -143,8 +143,8 @@ OnGenerateWish:
 			}
 			else if(.@r == 4) // EQI_HEAD_LOW
 			{
-				if(((getd("itemId" + .@i + "[5]") != 0) && (getiteminfo(getd("itemId" + .@i + "[5]"),ITEMINFO_LOCATIONS) & 512))
-					|| ((getd("itemId" + .@i + "[6]") != 0) && (getiteminfo(getd("itemId" + .@i + "[6]"),ITEMINFO_LOCATIONS) & 256)))
+				if(((getd("itemId" + .@i + "[5]") != 0) && (getiteminfo(getd("itemId" + .@i + "[5]"),ITEMINFO_LOCATIONS) & 1))
+						|| ((getd("itemId" + .@i + "[6]") != 0) && (getiteminfo(getd("itemId" + .@i + "[6]"),ITEMINFO_LOCATIONS) & 1)))
 				{
 					continue;
 				}
@@ -158,8 +158,8 @@ OnGenerateWish:
 			}
 			else if(.@r == 5) // EQI_HEAD_MID
 			{
-				if(((getd("itemId" + .@i + "[4]") != 0) && (getiteminfo(getd("itemId" + .@i + "[4]"),ITEMINFO_LOCATIONS) & 1))
-					|| ((getd("itemId" + .@i + "[6]") != 0) && (getiteminfo(getd("itemId" + .@i + "[6]"),ITEMINFO_LOCATIONS) & 256)))
+				if(((getd("itemId" + .@i + "[4]") != 0) && (getiteminfo(getd("itemId" + .@i + "[4]"),ITEMINFO_LOCATIONS) & 512))
+						|| ((getd("itemId" + .@i + "[6]") != 0) && (getiteminfo(getd("itemId" + .@i + "[6]"),ITEMINFO_LOCATIONS) & 512)))
 				{
 					continue;
 				}
@@ -173,8 +173,8 @@ OnGenerateWish:
 			}
 			else if(.@r == 6) // EQI_HEAD_TOP
 			{
-				if(((getd("itemId" + .@i + "[4]") != 0) && (getiteminfo(getd("itemId" + .@i + "[4]"),ITEMINFO_LOCATIONS) & 1))
-					|| ((getd("itemId" + .@i + "[5]") != 0) && (getiteminfo(getd("itemId" + .@i + "[5]"),ITEMINFO_LOCATIONS) & 512)))
+				if(((getd("itemId" + .@i + "[4]") != 0) && (getiteminfo(getd("itemId" + .@i + "[4]"),ITEMINFO_LOCATIONS) & 256))
+						|| ((getd("itemId" + .@i + "[5]") != 0) && (getiteminfo(getd("itemId" + .@i + "[5]"),ITEMINFO_LOCATIONS) & 256)))
 				{
 					continue;
 				}
@@ -192,7 +192,7 @@ OnGenerateWish:
 			}
 			else if(.@r == 8) // EQI_HAND_L
 			{
-				if(getiteminfo(itemId[9],ITEMINFO_LOCATIONS) & 2)
+				if(getiteminfo(itemId[9],ITEMINFO_LOCATIONS) & 32)
 				{
 					continue;
 				}
@@ -204,8 +204,8 @@ OnGenerateWish:
 			}
 			else if(.@r == 10) // EQI_COSTUME_HEAD_TOP
 			{
-				if(((getd("itemId" + .@i + "[11]") != 0) && (getiteminfo(getd("itemId" + .@i + "[11]"),ITEMINFO_LOCATIONS) & 2048))
-					|| ((getd("itemId" + .@i + "[12]") != 0) && (getiteminfo(getd("itemId" + .@i + "[12]"),ITEMINFO_LOCATIONS) & 4096)))
+				if(((getd("itemId" + .@i + "[11]") != 0) && (getiteminfo(getd("itemId" + .@i + "[11]"),ITEMINFO_LOCATIONS) & 1024))
+						|| ((getd("itemId" + .@i + "[12]") != 0) && (getiteminfo(getd("itemId" + .@i + "[12]"),ITEMINFO_LOCATIONS) & 1024)))
 				{
 					continue;
 				}
@@ -219,8 +219,8 @@ OnGenerateWish:
 			}
 			else if(.@r == 11) // EQI_COSTUME_HEAD_MID
 			{
-				if(((getd("itemId" + .@i + "[10]") != 0) && (getiteminfo(getd("itemId" + .@i + "[10]"),ITEMINFO_LOCATIONS) & 1024))
-					|| ((getd("itemId" + .@i + "[12]") != 0) && (getiteminfo(getd("itemId" + .@i + "[12]"),ITEMINFO_LOCATIONS) & 4096)))
+				if(((getd("itemId" + .@i + "[10]") != 0) && (getiteminfo(getd("itemId" + .@i + "[10]"),ITEMINFO_LOCATIONS) & 2048))
+						|| ((getd("itemId" + .@i + "[12]") != 0) && (getiteminfo(getd("itemId" + .@i + "[12]"),ITEMINFO_LOCATIONS) & 2048)))
 				{
 					continue;
 				}
@@ -234,8 +234,8 @@ OnGenerateWish:
 			}
 			else if(.@r == 12) // EQI_COSTUME_HEAD_LOW
 			{
-				if(((getd("itemId" + .@i + "[10]") != 0) && (getiteminfo(getd("itemId" + .@i + "[10]"),ITEMINFO_LOCATIONS) & 1024))
-					|| ((getd("itemId" + .@i + "[11]") != 0) && (getiteminfo(getd("itemId" + .@i + "[11]"),ITEMINFO_LOCATIONS) & 2048)))
+				if(((getd("itemId" + .@i + "[10]") != 0) && (getiteminfo(getd("itemId" + .@i + "[10]"),ITEMINFO_LOCATIONS) & 4096))
+						|| ((getd("itemId" + .@i + "[11]") != 0) && (getiteminfo(getd("itemId" + .@i + "[11]"),ITEMINFO_LOCATIONS) & 4096)))
 				{
 					continue;
 				}
