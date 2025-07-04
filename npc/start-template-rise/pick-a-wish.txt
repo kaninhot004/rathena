@@ -16,6 +16,8 @@
 	
 	ClearAll();
 	
+	freeloop(1);
+	
 	// Status
 	statusup2 bStr,statusStr[.@index];
 	statusup2 bAgi,statusAgi[.@index];
@@ -33,11 +35,23 @@
 	traitstatusup2 bCrt,traitCrt[.@index];
 	
 	// Skill
-	// Refine
-	// Grade
-	// Card
-	// Enchantment
-	// Random Option
+	
+	// Equipment
+	for(.@r = 0; .@r < 20; .@r++){
+		.@itemId = getd("itemId" + .@index + "[" + .@r + "]");
+		if(.@itemId > 0){
+			getitem .@itemId,1;
+			equip .@itemId;
+		}
+		// Refine
+		// Grade
+		// Random Option
+		// Slot
+		// Card
+		// Enchantment
+	}
+	
+	freeloop(0);
 	
 	FullHeal();
 	
@@ -72,30 +86,213 @@ moc_akhet,190,195,4	script	ขอพร	10545,{
 	
 OnGenerateWish:
 	maximumWishSet = $maximumWishSet[.@dreamLevelIndex];
+	freeloop(1);
 	for(.@i = 0; .@i < maximumWishSet; .@i++){
 		// Status
-		statusStr[.@i] = rand($minimumStatus[0],$maximumStatus);
-		statusAgi[.@i] = rand($minimumStatus[0],$maximumStatus);
-		statusVit[.@i] = rand($minimumStatus[0],$maximumStatus);
-		statusInt[.@i] = rand($minimumStatus[0],$maximumStatus);
-		statusDex[.@i] = rand($minimumStatus[0],$maximumStatus);
-		statusLuk[.@i] = rand($minimumStatus[0],$maximumStatus);
+		.@minimumStatus = $minimumStatus[.@dreamLevelIndex];
+		statusStr[.@i] = rand(.@minimumStatus,$maximumStatus);
+		statusAgi[.@i] = rand(.@minimumStatus,$maximumStatus);
+		statusVit[.@i] = rand(.@minimumStatus,$maximumStatus);
+		statusInt[.@i] = rand(.@minimumStatus,$maximumStatus);
+		statusDex[.@i] = rand(.@minimumStatus,$maximumStatus);
+		statusLuk[.@i] = rand(.@minimumStatus,$maximumStatus);
 		
 		// Trait
-		traitPow[.@i] = rand($minimumTrait[0],$maximumTrait);
-		traitSta[.@i] = rand($minimumTrait[0],$maximumTrait);
-		traitWis[.@i] = rand($minimumTrait[0],$maximumTrait);
-		traitSpl[.@i] = rand($minimumTrait[0],$maximumTrait);
-		traitCon[.@i] = rand($minimumTrait[0],$maximumTrait);
-		traitCrt[.@i] = rand($minimumTrait[0],$maximumTrait);
+		.@minimumTrait = $minimumTrait[.@dreamLevelIndex];
+		traitPow[.@i] = rand(.@minimumTrait,$maximumTrait);
+		traitSta[.@i] = rand(.@minimumTrait,$maximumTrait);
+		traitWis[.@i] = rand(.@minimumTrait,$maximumTrait);
+		traitSpl[.@i] = rand(.@minimumTrait,$maximumTrait);
+		traitCon[.@i] = rand(.@minimumTrait,$maximumTrait);
+		traitCrt[.@i] = rand(.@minimumTrait,$maximumTrait);
 		
 		// Skill
-		// Refine
-		// Grade
-		// Card
-		// Enchantment
-		// Random Option
+		
+		// Equipment
+		for(.@r = 20; .@r >= 0; .@r--){
+			deletearray .@location$[0],getarraysize(.@location$);
+
+			set getd("itemId" + .@i + "[" +.@r + "]"),0;
+
+			if(.@r == 14) // EQI_AMMO
+			{
+				continue;
+			}
+			
+			if(.@r == 0) // EQI_ACC_L
+			{
+				setarray .@location$[0],"A","LA";
+			}
+			else if(.@r == 1) // EQI_ACC_R
+			{
+				setarray .@location$[0],"A","RA";
+			}
+			else if(.@r == 2) // EQI_SHOES
+			{
+				setarray .@location$[0],"SHOES";
+			}
+			else if(.@r == 3) // EQI_GARMENT
+			{
+				setarray .@location$[0],"GARMENT";
+			}
+			else if(.@r == 4) // EQI_HEAD_LOW
+			{
+				if(((getiteminfo(itemId[5],ITEMINFO_LOCATIONS) & 1) != 0) || ((getiteminfo(itemId[6],ITEMINFO_LOCATIONS) & 1) != 0))
+				continue;
+				setarray .@location$[0],"LOW","LOWMIDTOP","LOWMID","LOWTOP","TOPMIDLOW","MIDLOW","TOPLOW";
+				// 50% Chance to appear this location
+				if(rand(0,1) == 0){
+					deletearray .@location$[0],getarraysize(.@location$);
+					setarray .@location$[0],"LOW";
+				}
+			}
+			else if(.@r == 5) // EQI_HEAD_MID
+			{
+				if(((getiteminfo(itemId[4],ITEMINFO_LOCATIONS) & 512) != 0) || ((getiteminfo(itemId[6],ITEMINFO_LOCATIONS) & 512) != 0))
+				continue;
+				setarray .@location$[0],"MID","MIDTOP","LOWMIDTOP","LOWMID","TOPMID","TOPMIDLOW","MIDLOW";
+				// 50% Chance to appear this location
+				if(rand(0,1) == 0){
+					deletearray .@location$[0],getarraysize(.@location$);
+					setarray .@location$[0],"MID";
+				}
+			}
+			else if(.@r == 6) // EQI_HEAD_TOP
+			{
+				if(((getiteminfo(itemId[4],ITEMINFO_LOCATIONS) & 256) != 0) || ((getiteminfo(itemId[5],ITEMINFO_LOCATIONS) & 256) != 0))
+				continue;
+				setarray .@location$[0],"TOP","MIDTOP","LOWMIDTOP","LOWTOP","TOPMID","TOPMIDLOW","TOPLOW";
+				// 50% Chance to appear this location
+				if(rand(0,1) == 0){
+					deletearray .@location$[0],getarraysize(.@location$);
+					setarray .@location$[0],"TOP";
+				}
+			}
+			else if(.@r == 7) // EQI_ARMOR
+			{
+				setarray .@location$[0],"ARMOR";
+			}
+			else if(.@r == 8) // EQI_HAND_L
+			{
+				if((getiteminfo(itemId[9],ITEMINFO_LOCATIONS) & 32) != 0)
+				continue;
+				setarray .@location$[0],"SHIELD";
+			}
+			else if(.@r == 9) // EQI_HAND_R
+			{
+				setarray .@location$[0],"1hSword","2hSword","Dagger","Katar","1hAxe","2hAxe","Huuma","Mace","1hSpear","2hSpear","2hStaff","Book","Staff","Bow","Knuckle","Musical","Whip","Revolver","Rifle","Shotgun","Gatling","Grenade";
+			}
+			else if(.@r == 10) // EQI_COSTUME_HEAD_TOP
+			{
+				if(((getiteminfo(itemId[11],ITEMINFO_LOCATIONS) & 1024) != 0) || ((getiteminfo(itemId[12],ITEMINFO_LOCATIONS) & 1024) != 0))
+				continue;
+				setarray .@location$[0],"CTOP","CTOPCMID","CTOPCMIDCLOW","CTOPCLOW";
+				// 50% Chance to appear this location
+				if(rand(0,1) == 0){
+					deletearray .@location$[0],getarraysize(.@location$);
+					setarray .@location$[0],"CTOP";
+				}
+			}
+			else if(.@r == 11) // EQI_COSTUME_HEAD_MID
+			{
+				if(((getiteminfo(itemId[10],ITEMINFO_LOCATIONS) & 2048) != 0) || ((getiteminfo(itemId[12],ITEMINFO_LOCATIONS) & 2048) != 0))
+				continue;
+				setarray .@location$[0],"CMID","CMIDCLOW","CTOPCMID","CTOPCMIDCLOW";
+				// 50% Chance to appear this location
+				if(rand(0,1) == 0){
+					deletearray .@location$[0],getarraysize(.@location$);
+					setarray .@location$[0],"CMID";
+				}
+			}
+			else if(.@r == 12) // EQI_COSTUME_HEAD_LOW
+			{
+				if(((getiteminfo(itemId[10],ITEMINFO_LOCATIONS) & 4096) != 0) || ((getiteminfo(itemId[11],ITEMINFO_LOCATIONS) & 4096) != 0))
+				continue;
+				setarray .@location$[0],"CLOW","CMIDCLOW","CTOPCMIDCLOW","CTOPCLOW";
+				// 50% Chance to appear this location
+				if(rand(0,1) == 0){
+					deletearray .@location$[0],getarraysize(.@location$);
+					setarray .@location$[0],"CLOW";
+				}
+			}
+			else if(.@r == 13) // EQI_COSTUME_GARMENT
+			{
+				setarray .@location$[0],"CGARMENT";
+			}
+			else if(.@r == 15) // EQI_SHADOW_ARMOR
+			{
+				setarray .@location$[0],"SARMOR";
+			}
+			else if(.@r == 16) // EQI_SHADOW_WEAPON
+			{
+				setarray .@location$[0],"SWEAPON";
+			}
+			else if(.@r == 17) // EQI_SHADOW_SHIELD
+			{
+				setarray .@location$[0],"SSHIELD";
+			}
+			else if(.@r == 18) // EQI_SHADOW_SHOES
+			{
+				setarray .@location$[0],"SSHOES";
+			}
+			else if(.@r == 19) // EQI_SHADOW_ACC_R
+			{
+				setarray .@location$[0],"SRA";
+			}
+			else if(.@r == 20) // EQI_SHADOW_ACC_L
+			{
+				setarray .@location$[0],"SLA";
+			}
+			debugmes "#A:"+.@r;
+			.@variableArraySize = getarraysize(.@location$);
+			if(.@variableArraySize > 1){
+				.@locationVariableName$ = "$" + ((.@r == 9) ? "Weapon_" : "") + .@location$[rand(.@variableArraySize)];
+			}
+			else{
+				.@locationVariableName$ = "$" + ((.@r == 9) ? "Weapon_" : "") + .@location$[0];
+			}
+			debugmes "#B:"+.@locationVariableName$ + " Size:"+getarraysize(getd(.@locationVariableName$));
+			set getd("itemId" + .@i + "[" +.@r + "]"),getd(.@locationVariableName$ + "[" + rand(getarraysize(getd(.@locationVariableName$))) + "]");
+			debugmes "#1";
+			// Refine
+			.@minimumRefine = $minimumRefine[.@dreamLevelIndex];
+			.@maximumRefine = $maximumRefine[.@dreamLevelIndex];
+			set getd("refine" + .@r),rand(.@minimumRefine,.@maximumRefine);
+			debugmes "#2";
+			// Grade
+			.@minimumGrade = $minimumGrade[.@dreamLevelIndex];
+			.@maximumGrade = $maximumGrade[.@dreamLevelIndex];
+			set getd("grade" + .@r),rand(.@minimumGrade,.@maximumGrade);
+			debugmes "#3";
+			// Random Option
+			.@minimumRandomOption = $minimumRandomOption[.@dreamLevelIndex];
+			.@maximumRandomOption = $maximumRandomOption[.@dreamLevelIndex];
+			.@randomOptionAmount = rand(.@minimumRandomOption,.@maximumRandomOption);
+			debugmes "#4";
+			set getd("randomOption" + .@r + "[0]"),(.@randomOptionAmount >= 1) ? GetRandomOptionId() : 0;
+			set getd("randomOption" + .@r + "[1]"),(.@randomOptionAmount >= 2) ? GetRandomOptionId() : 0;
+			set getd("randomOption" + .@r + "[2]"),(.@randomOptionAmount >= 3) ? GetRandomOptionId() : 0;
+			set getd("randomOption" + .@r + "[3]"),(.@randomOptionAmount >= 4) ? GetRandomOptionId() : 0;
+			set getd("randomOption" + .@r + "[4]"),(.@randomOptionAmount >= 5) ? GetRandomOptionId() : 0;
+			// Slot
+			.@itemSlot = getitemslots(.@itemId);
+			// Card
+			debugmes "#5";
+			.@cardAmount = getarraysize($card2Ids);
+			set getd("card" + .@r + "[0]"),(.@itemSlot >= 1) ? $card2Ids[rand(.@cardAmount)] : 0;
+			set getd("card" + .@r + "[1]"),(.@itemSlot >= 2) ? $card2Ids[rand(.@cardAmount)] : 0;
+			set getd("card" + .@r + "[2]"),(.@itemSlot >= 3) ? $card2Ids[rand(.@cardAmount)] : 0;
+			set getd("card" + .@r + "[3]"),(.@itemSlot >= 4) ? $card2Ids[rand(.@cardAmount)] : 0;
+			// Enchantment
+			.@enchantmentAmount = getarraysize($enchant2Ids);
+			debugmes "#6:" + .@enchantmentAmount;
+			set getd("enchantment" + .@r + "[0]"),(.@itemSlot < 1) ? $enchant2Ids[rand(.@enchantmentAmount)] : 0;
+			set getd("enchantment" + .@r + "[1]"),(.@itemSlot < 2) ? $enchant2Ids[rand(.@enchantmentAmount)] : 0;
+			set getd("enchantment" + .@r + "[2]"),(.@itemSlot < 3) ? $enchant2Ids[rand(.@enchantmentAmount)] : 0;
+			set getd("enchantment" + .@r + "[3]"),(.@itemSlot < 4) ? $enchant2Ids[rand(.@enchantmentAmount)] : 0;
+		}
 	}
+	freeloop(0);
 	isWishGranted = 1;
 	mes "ขอพรใหม่แล้วทั้งหมด " + maximumWishSet +" Set";
 	close;
