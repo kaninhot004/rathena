@@ -81,7 +81,7 @@ moc_akhet,201,206,4	duplicate(PickAWish)	พร Set ที่ 10#9	10172
 moc_akhet,201,212,4	duplicate(PickAWish)	พร Set ที่ 11#10	10172
 moc_akhet,201,218,4	duplicate(PickAWish)	พร Set ที่ 12#11	10172
 
-moc_akhet,190,195,4	script	ขอพร	10545,{
+moc_akhet,190,195,4	script	ขอพร	10545,{	
 	.@dreamLevelIndex = GetDreamLevelIndex();
 	.@dreamLevelWording = (.@dreamLevelIndex + 1);
 	mes "ท่านต้องการที่จะขอพร Set ใหม่ ใช่หรือไม่?";
@@ -143,8 +143,8 @@ OnGenerateWish:
 			}
 			else if(.@r == 4) // EQI_HEAD_LOW
 			{
-				if(((getd("itemId" + .@i + "[5]") != 0) && (getiteminfo(getd("itemId" + .@i + "[5]"),ITEMINFO_LOCATIONS) & 1))
-						|| ((getd("itemId" + .@i + "[6]") != 0) && (getiteminfo(getd("itemId" + .@i + "[6]"),ITEMINFO_LOCATIONS) & 1)))
+				if(((getd("itemId" + .@i + "[5]") != 0) && ((getiteminfo(getd("itemId" + .@i + "[5]"),ITEMINFO_LOCATIONS) & 1) != 0))
+						|| ((getd("itemId" + .@i + "[6]") != 0) && ((getiteminfo(getd("itemId" + .@i + "[6]"),ITEMINFO_LOCATIONS) & 1) != 0)))
 				{
 					continue;
 				}
@@ -158,8 +158,8 @@ OnGenerateWish:
 			}
 			else if(.@r == 5) // EQI_HEAD_MID
 			{
-				if(((getd("itemId" + .@i + "[4]") != 0) && (getiteminfo(getd("itemId" + .@i + "[4]"),ITEMINFO_LOCATIONS) & 512))
-						|| ((getd("itemId" + .@i + "[6]") != 0) && (getiteminfo(getd("itemId" + .@i + "[6]"),ITEMINFO_LOCATIONS) & 512)))
+				if(((getd("itemId" + .@i + "[4]") != 0) && ((getiteminfo(getd("itemId" + .@i + "[4]"),ITEMINFO_LOCATIONS) & 512) != 0))
+						|| ((getd("itemId" + .@i + "[6]") != 0) && ((getiteminfo(getd("itemId" + .@i + "[6]"),ITEMINFO_LOCATIONS) & 512) != 0)))
 				{
 					continue;
 				}
@@ -173,8 +173,8 @@ OnGenerateWish:
 			}
 			else if(.@r == 6) // EQI_HEAD_TOP
 			{
-				if(((getd("itemId" + .@i + "[4]") != 0) && (getiteminfo(getd("itemId" + .@i + "[4]"),ITEMINFO_LOCATIONS) & 256))
-						|| ((getd("itemId" + .@i + "[5]") != 0) && (getiteminfo(getd("itemId" + .@i + "[5]"),ITEMINFO_LOCATIONS) & 256)))
+				if(((getd("itemId" + .@i + "[4]") != 0) && ((getiteminfo(getd("itemId" + .@i + "[4]"),ITEMINFO_LOCATIONS) & 256) != 0))
+						|| ((getd("itemId" + .@i + "[5]") != 0) && ((getiteminfo(getd("itemId" + .@i + "[5]"),ITEMINFO_LOCATIONS) & 256) != 0)))
 				{
 					continue;
 				}
@@ -192,7 +192,7 @@ OnGenerateWish:
 			}
 			else if(.@r == 8) // EQI_HAND_L
 			{
-				if(getiteminfo(itemId[9],ITEMINFO_LOCATIONS) & 32)
+				if((getiteminfo(itemId[9],ITEMINFO_LOCATIONS) & 32) != 0)
 				{
 					continue;
 				}
@@ -204,8 +204,8 @@ OnGenerateWish:
 			}
 			else if(.@r == 10) // EQI_COSTUME_HEAD_TOP
 			{
-				if(((getd("itemId" + .@i + "[11]") != 0) && (getiteminfo(getd("itemId" + .@i + "[11]"),ITEMINFO_LOCATIONS) & 1024))
-						|| ((getd("itemId" + .@i + "[12]") != 0) && (getiteminfo(getd("itemId" + .@i + "[12]"),ITEMINFO_LOCATIONS) & 1024)))
+				if(((getd("itemId" + .@i + "[11]") != 0) && ((getiteminfo(getd("itemId" + .@i + "[11]"),ITEMINFO_LOCATIONS) & 1024) != 0))
+						|| ((getd("itemId" + .@i + "[12]") != 0) && ((getiteminfo(getd("itemId" + .@i + "[12]"),ITEMINFO_LOCATIONS) & 1024) != 0)))
 				{
 					continue;
 				}
@@ -219,8 +219,8 @@ OnGenerateWish:
 			}
 			else if(.@r == 11) // EQI_COSTUME_HEAD_MID
 			{
-				if(((getd("itemId" + .@i + "[10]") != 0) && (getiteminfo(getd("itemId" + .@i + "[10]"),ITEMINFO_LOCATIONS) & 2048))
-						|| ((getd("itemId" + .@i + "[12]") != 0) && (getiteminfo(getd("itemId" + .@i + "[12]"),ITEMINFO_LOCATIONS) & 2048)))
+				if(((getd("itemId" + .@i + "[10]") != 0) && ((getiteminfo(getd("itemId" + .@i + "[10]"),ITEMINFO_LOCATIONS) & 2048) != 0))
+						|| ((getd("itemId" + .@i + "[12]") != 0) && ((getiteminfo(getd("itemId" + .@i + "[12]"),ITEMINFO_LOCATIONS) & 2048) != 0)))
 				{
 					continue;
 				}
@@ -234,8 +234,8 @@ OnGenerateWish:
 			}
 			else if(.@r == 12) // EQI_COSTUME_HEAD_LOW
 			{
-				if(((getd("itemId" + .@i + "[10]") != 0) && (getiteminfo(getd("itemId" + .@i + "[10]"),ITEMINFO_LOCATIONS) & 4096))
-						|| ((getd("itemId" + .@i + "[11]") != 0) && (getiteminfo(getd("itemId" + .@i + "[11]"),ITEMINFO_LOCATIONS) & 4096)))
+				if(((getd("itemId" + .@i + "[10]") != 0) && ((getiteminfo(getd("itemId" + .@i + "[10]"),ITEMINFO_LOCATIONS) & 4096) != 0))
+						|| ((getd("itemId" + .@i + "[11]") != 0) && ((getiteminfo(getd("itemId" + .@i + "[11]"),ITEMINFO_LOCATIONS) & 4096) != 0)))
 				{
 					continue;
 				}
@@ -276,6 +276,7 @@ OnGenerateWish:
 				setarray .@location$[0],"SLA";
 			}
 			.@variableArraySize = getarraysize(.@location$);
+			debugmes "#A";
 			if(.@variableArraySize > 1)
 			{
 				.@locationVariableName$ = "$" + ((.@r == 9) ? "Weapon_" : "") + .@location$[rand(.@variableArraySize)];
@@ -284,15 +285,27 @@ OnGenerateWish:
 			{
 				.@locationVariableName$ = "$" + ((.@r == 9) ? "Weapon_" : "") + .@location$[0];
 			}
-			set getd("itemId" + .@i + "[" +.@r + "]"),getd(.@locationVariableName$ + "[" + rand(getarraysize(getd(.@locationVariableName$))) + "]");
+			.@itemArraySize = getarraysize(getd(.@locationVariableName$));
+			debugmes "#B | .@locationVariableName$:"+.@locationVariableName$ + " | Size: "+.@itemArraySize;
+			if(.@itemArraySize > 1)
+			{
+				set getd("itemId" + .@i + "[" +.@r + "]"),getd(.@locationVariableName$ + "[" + rand(.@itemArraySize) + "]");
+			}
+			else
+			{
+				set getd("itemId" + .@i + "[" +.@r + "]"),getd(.@locationVariableName$ + "[0]");
+			}
+			debugmes "#C";
 			// Refine
 			.@minimumRefine = $minimumRefine[.@dreamLevelIndex];
 			.@maximumRefine = $maximumRefine[.@dreamLevelIndex];
 			set getd("refine" + .@r),rand(.@minimumRefine,.@maximumRefine);
+			debugmes "#D";
 			// Grade
 			.@minimumGrade = $minimumGrade[.@dreamLevelIndex];
 			.@maximumGrade = $maximumGrade[.@dreamLevelIndex];
 			set getd("grade" + .@r),rand(.@minimumGrade,.@maximumGrade);
+			debugmes "#E";
 			// Random Option
 			.@minimumRandomOption = $minimumRandomOption[.@dreamLevelIndex];
 			.@maximumRandomOption = $maximumRandomOption[.@dreamLevelIndex];
@@ -304,12 +317,14 @@ OnGenerateWish:
 			set getd("randomOption" + .@r + "[4]"),(.@randomOptionAmount >= 5) ? GetRandomOptionId() : 0;
 			// Slot
 			.@itemSlot = getitemslots(.@itemId);
+			debugmes "#F";
 			// Card
 			.@cardAmount = getarraysize($card2Ids);
 			set getd("card" + .@r + "[0]"),(.@itemSlot >= 1) ? $card2Ids[rand(.@cardAmount)] : 0;
 			set getd("card" + .@r + "[1]"),(.@itemSlot >= 2) ? $card2Ids[rand(.@cardAmount)] : 0;
 			set getd("card" + .@r + "[2]"),(.@itemSlot >= 3) ? $card2Ids[rand(.@cardAmount)] : 0;
 			set getd("card" + .@r + "[3]"),(.@itemSlot >= 4) ? $card2Ids[rand(.@cardAmount)] : 0;
+			debugmes "#G";
 			// Enchantment
 			.@enchantmentAmount = getarraysize($enchant2Ids);
 			set getd("enchantment" + .@r + "[0]"),(.@itemSlot < 1) ? $enchant2Ids[rand(.@enchantmentAmount)] : 0;
