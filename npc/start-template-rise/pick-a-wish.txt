@@ -116,6 +116,7 @@ OnGenerateWish:
 		
 		// Equipment
 		deletearray getd("itemId" + .@i + "[0]"),getarraysize(getd("itemId" + .@i));
+		deletearray getd("banLocation" + .@i + "[0]"),getarraysize(getd("banLocation" + .@i));
 		for(.@r = 20; .@r >= 0; .@r--)
 		{
 			deletearray .@location$[0],getarraysize(.@location$);
@@ -143,8 +144,7 @@ OnGenerateWish:
 			}
 			else if(.@r == 4) // EQI_HEAD_LOW
 			{
-				if(((getd("itemId" + .@i + "[5]") != 0) && ((getiteminfo(getd("itemId" + .@i + "[5]"),ITEMINFO_LOCATIONS) & 1) != 0))
-						|| ((getd("itemId" + .@i + "[6]") != 0) && ((getiteminfo(getd("itemId" + .@i + "[6]"),ITEMINFO_LOCATIONS) & 1) != 0)))
+				if(getd("banLocation" + .@i + "[" + .@r + "]"))
 				{
 					continue;
 				}
@@ -158,8 +158,7 @@ OnGenerateWish:
 			}
 			else if(.@r == 5) // EQI_HEAD_MID
 			{
-				if(((getd("itemId" + .@i + "[4]") != 0) && ((getiteminfo(getd("itemId" + .@i + "[4]"),ITEMINFO_LOCATIONS) & 512) != 0))
-						|| ((getd("itemId" + .@i + "[6]") != 0) && ((getiteminfo(getd("itemId" + .@i + "[6]"),ITEMINFO_LOCATIONS) & 512) != 0)))
+				if(getd("banLocation" + .@i + "[" + .@r + "]"))
 				{
 					continue;
 				}
@@ -173,8 +172,7 @@ OnGenerateWish:
 			}
 			else if(.@r == 6) // EQI_HEAD_TOP
 			{
-				if(((getd("itemId" + .@i + "[4]") != 0) && ((getiteminfo(getd("itemId" + .@i + "[4]"),ITEMINFO_LOCATIONS) & 256) != 0))
-						|| ((getd("itemId" + .@i + "[5]") != 0) && ((getiteminfo(getd("itemId" + .@i + "[5]"),ITEMINFO_LOCATIONS) & 256) != 0)))
+				if(getd("banLocation" + .@i + "[" + .@r + "]"))
 				{
 					continue;
 				}
@@ -192,7 +190,7 @@ OnGenerateWish:
 			}
 			else if(.@r == 8) // EQI_HAND_L
 			{
-				if((getiteminfo(itemId[9],ITEMINFO_LOCATIONS) & 32) != 0)
+				if(getiteminfo(itemId[9],ITEMINFO_LOCATIONS) & 32)
 				{
 					continue;
 				}
@@ -204,8 +202,7 @@ OnGenerateWish:
 			}
 			else if(.@r == 10) // EQI_COSTUME_HEAD_TOP
 			{
-				if(((getd("itemId" + .@i + "[11]") != 0) && ((getiteminfo(getd("itemId" + .@i + "[11]"),ITEMINFO_LOCATIONS) & 1024) != 0))
-						|| ((getd("itemId" + .@i + "[12]") != 0) && ((getiteminfo(getd("itemId" + .@i + "[12]"),ITEMINFO_LOCATIONS) & 1024) != 0)))
+				if(getd("banLocation" + .@i + "[" + .@r + "]"))
 				{
 					continue;
 				}
@@ -219,8 +216,7 @@ OnGenerateWish:
 			}
 			else if(.@r == 11) // EQI_COSTUME_HEAD_MID
 			{
-				if(((getd("itemId" + .@i + "[10]") != 0) && ((getiteminfo(getd("itemId" + .@i + "[10]"),ITEMINFO_LOCATIONS) & 2048) != 0))
-						|| ((getd("itemId" + .@i + "[12]") != 0) && ((getiteminfo(getd("itemId" + .@i + "[12]"),ITEMINFO_LOCATIONS) & 2048) != 0)))
+				if(getd("banLocation" + .@i + "[" + .@r + "]"))
 				{
 					continue;
 				}
@@ -234,8 +230,7 @@ OnGenerateWish:
 			}
 			else if(.@r == 12) // EQI_COSTUME_HEAD_LOW
 			{
-				if(((getd("itemId" + .@i + "[10]") != 0) && ((getiteminfo(getd("itemId" + .@i + "[10]"),ITEMINFO_LOCATIONS) & 4096) != 0))
-						|| ((getd("itemId" + .@i + "[11]") != 0) && ((getiteminfo(getd("itemId" + .@i + "[11]"),ITEMINFO_LOCATIONS) & 4096) != 0)))
+				if(getd("banLocation" + .@i + "[" + .@r + "]"))
 				{
 					continue;
 				}
@@ -285,6 +280,43 @@ OnGenerateWish:
 			{
 				.@locationVariableName$ = "$" + ((.@r == 9) ? "Weapon_" : "") + .@location$[0];
 			}
+			
+			// Ban Location
+			if(.@locationVariableName$ == "CMIDCLOW"){
+				set getd("banLocation" + .@i + "[11]"),1;
+				set getd("banLocation" + .@i + "[12]"),1;
+			}
+			else if(.@locationVariableName$ == "CTOPCMIDCLOW"){
+				set getd("banLocation" + .@i + "[10]"),1;
+				set getd("banLocation" + .@i + "[11]"),1;
+				set getd("banLocation" + .@i + "[12]"),1;
+			}
+			else if(.@locationVariableName$ == "CTOPCLOW"){
+				set getd("banLocation" + .@i + "[10]"),1;
+				set getd("banLocation" + .@i + "[12]"),1;
+			}
+			else if(.@locationVariableName$ == "CTOPCMID"){
+				set getd("banLocation" + .@i + "[10]"),1;
+				set getd("banLocation" + .@i + "[11]"),1;
+			}
+			else if((.@locationVariableName$ == "MIDTOP") || (.@locationVariableName$ == "TOPMID")){
+				set getd("banLocation" + .@i + "[5]"),1;
+				set getd("banLocation" + .@i + "[6]"),1;
+			}
+			else if((.@locationVariableName$ == "LOWMIDTOP") || (.@locationVariableName$ == "TOPMIDLOW")){
+				set getd("banLocation" + .@i + "[4]"),1;
+				set getd("banLocation" + .@i + "[5]"),1;
+				set getd("banLocation" + .@i + "[6]"),1;
+			}
+			else if((.@locationVariableName$ == "LOWTOP") || (.@locationVariableName$ == "TOPLOW")){
+				set getd("banLocation" + .@i + "[4]"),1;
+				set getd("banLocation" + .@i + "[6]"),1;
+			}
+			else if((.@locationVariableName$ == "LOWMID") || (.@locationVariableName$ == "MIDLOW")){
+				set getd("banLocation" + .@i + "[4]"),1;
+				set getd("banLocation" + .@i + "[5]"),1;
+			}
+			
 			.@itemArraySize = getarraysize(getd(.@locationVariableName$));
 			debugmes "#B | .@locationVariableName$:"+.@locationVariableName$ + " | Size: "+.@itemArraySize;
 			if(.@itemArraySize > 1)
