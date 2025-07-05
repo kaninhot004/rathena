@@ -547,43 +547,57 @@ uint64 ItemDatabase::parseBodyNode(const ryml::NodeRef& node) {
 		}
 	}
 
-	if (this->nodeExists(node, "EquipLevelMin")) {
-		uint16 lv;
+	if (battle_config.config_all_equipment_skip_level) {
+		// [Start's]
+		item->elv = 0;
+	}
+	else {
+		if (this->nodeExists(node, "EquipLevelMin")) {
+			uint16 lv;
 
-		if (!this->asUInt16(node, "EquipLevelMin", lv))
-			return 0;
+			if (!this->asUInt16(node, "EquipLevelMin", lv))
+				return 0;
 
-		if (lv > MAX_LEVEL) {
-			this->invalidWarning(node["EquipLevelMin"], "Minimum equip level %d exceeds MAX_LEVEL (%d), capping to MAX_LEVEL.\n", lv, MAX_LEVEL);
-			lv = MAX_LEVEL;
+			if (lv > MAX_LEVEL) {
+				this->invalidWarning(node["EquipLevelMin"], "Minimum equip level %d exceeds MAX_LEVEL (%d), capping to MAX_LEVEL.\n", lv, MAX_LEVEL);
+				lv = MAX_LEVEL;
+			}
+
+			item->elv = lv;
 		}
-
-		item->elv = lv;
-	} else {
-		if (!exists)
-			item->elv = 0;
+		else {
+			if (!exists)
+				item->elv = 0;
+		}
 	}
 
-	if (this->nodeExists(node, "EquipLevelMax")) {
-		uint16 lv;
+	if (battle_config.config_all_equipment_skip_level) {
+		// [Start's]
+		item->elvmax = MAX_LEVEL;
+	}
+	else {
+		if (this->nodeExists(node, "EquipLevelMax")) {
+			uint16 lv;
 
-		if (!this->asUInt16(node, "EquipLevelMax", lv))
-			return 0;
+			if (!this->asUInt16(node, "EquipLevelMax", lv))
+				return 0;
 
-		if (lv < item->elv) {
-			this->invalidWarning(node["EquipLevelMax"], "Maximum equip level %d is less than minimum equip level %d, capping to minimum equip level.\n", lv, item->elv);
-			lv = item->elv;
+			if (lv < item->elv) {
+				this->invalidWarning(node["EquipLevelMax"], "Maximum equip level %d is less than minimum equip level %d, capping to minimum equip level.\n", lv, item->elv);
+				lv = item->elv;
+			}
+
+			if (lv > MAX_LEVEL) {
+				this->invalidWarning(node["EquipLevelMax"], "Maximum equip level %d exceeds MAX_LEVEL (%d), capping to MAX_LEVEL.\n", lv, MAX_LEVEL);
+				lv = MAX_LEVEL;
+			}
+
+			item->elvmax = lv;
 		}
-
-		if (lv > MAX_LEVEL) {
-			this->invalidWarning(node["EquipLevelMax"], "Maximum equip level %d exceeds MAX_LEVEL (%d), capping to MAX_LEVEL.\n", lv, MAX_LEVEL);
-			lv = MAX_LEVEL;
+		else {
+			if (!exists)
+				item->elvmax = MAX_LEVEL;
 		}
-
-		item->elvmax = lv;
-	} else {
-		if (!exists)
-			item->elvmax = MAX_LEVEL;
 	}
 
 	if (battle_config.config_all_equipment_refinable) {
