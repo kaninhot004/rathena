@@ -44,16 +44,27 @@
 	for(.@r = 0; .@r <= 20; .@r++)
 	{
 		.@itemId = getd("itemId" + .@index + "[" + .@r + "]");
+		.@refine = getd("refine" + .@index + "[" + .@r + "]");
+		.@card1 = getd("card" + .@index + "_" + .@r + "[0]");
+		.@card2 = getd("card" + .@index + "_" + .@r + "[1]");
+		.@card3 = getd("card" + .@index + "_" + .@r + "[2]");
+		.@card4 = getd("card" + .@index + "_" + .@r + "[3]");
+		.@enchantment1 = getd("enchantment" + .@index + "_" + .@r + "[0]");
+		.@enchantment2 = getd("enchantment" + .@index + "_" + .@r + "[1]");
+		.@enchantment3 = getd("enchantment" + .@index + "_" + .@r + "[2]");
+		.@enchantment4 = getd("enchantment" + .@index + "_" + .@r + "[3]");
+		.@slot1 = (.@card1 > 0) ? .@card1 : .@enchantment1;
+		.@slot2 = (.@card2 > 0) ? .@card2 : .@enchantment2;
+		.@slot3 = (.@card3 > 0) ? .@card3 : .@enchantment3;
+		.@slot4 = (.@card4 > 0) ? .@card4 : .@enchantment4;
+		.@grade = getd("grade" + .@index + "[" + .@r + "]");
+		setarray .@randomOptionIds[0],getd("randomOption" + .@index + "_" + .@r + "[0]"),getd("randomOption" + .@index + "_" + .@r + "[1]"),getd("randomOption" + .@index + "_" + .@r + "[2]"),getd("randomOption" + .@index + "_" + .@r + "[3]"),getd("randomOption" + .@index + "_" + .@r + "[4]");
+		setarray .@randomOptionValues[0],1,1,1,1,1;
+		setarray .@randomOptionParams[0],0,0,0,0,0;
 		if(.@itemId > 0){
-			getitem .@itemId,1;
+			getitem4 .@itemId,1,1,.@refine,0,.@slot1,.@slot2,.@slot3,.@slot4,.@grade,.@randomOptionIds,.@randomOptionValues,.@randomOptionParams;
 			equip .@itemId;
 		}
-		// Refine
-		// Grade
-		// Random Option
-		// Slot
-		// Card
-		// Enchantment
 	}
 	
 	// Run equip again to prevent Accessory not equipped
@@ -325,38 +336,38 @@ OnGenerateWish:
 			// Refine
 			.@minimumRefine = $minimumRefine[.@dreamLevelIndex];
 			.@maximumRefine = $maximumRefine[.@dreamLevelIndex];
-			set getd("refine" + .@r),rand(.@minimumRefine,.@maximumRefine);
+			set getd("refine" + .@i + "[" + .@r + "]"),rand(.@minimumRefine,.@maximumRefine);
 			debugmes "#D";
 			// Grade
 			.@minimumGrade = $minimumGrade[.@dreamLevelIndex];
 			.@maximumGrade = $maximumGrade[.@dreamLevelIndex];
-			set getd("grade" + .@r),rand(.@minimumGrade,.@maximumGrade);
+			set getd("grade" + .@i + "[" + .@r + "]"),rand(.@minimumGrade,.@maximumGrade);
 			debugmes "#E";
 			// Random Option
 			.@minimumRandomOption = $minimumRandomOption[.@dreamLevelIndex];
 			.@maximumRandomOption = $maximumRandomOption[.@dreamLevelIndex];
 			.@randomOptionAmount = rand(.@minimumRandomOption,.@maximumRandomOption);
-			set getd("randomOption" + .@r + "[0]"),(.@randomOptionAmount >= 1) ? GetRandomOptionId() : 0;
-			set getd("randomOption" + .@r + "[1]"),(.@randomOptionAmount >= 2) ? GetRandomOptionId() : 0;
-			set getd("randomOption" + .@r + "[2]"),(.@randomOptionAmount >= 3) ? GetRandomOptionId() : 0;
-			set getd("randomOption" + .@r + "[3]"),(.@randomOptionAmount >= 4) ? GetRandomOptionId() : 0;
-			set getd("randomOption" + .@r + "[4]"),(.@randomOptionAmount >= 5) ? GetRandomOptionId() : 0;
+			set getd("randomOption" + .@i + "_" + .@r + "[0]"),(.@randomOptionAmount >= 1) ? GetRandomOptionId() : 0;
+			set getd("randomOption" + .@i + "_" + .@r + "[1]"),(.@randomOptionAmount >= 2) ? GetRandomOptionId() : 0;
+			set getd("randomOption" + .@i + "_" + .@r + "[2]"),(.@randomOptionAmount >= 3) ? GetRandomOptionId() : 0;
+			set getd("randomOption" + .@i + "_" + .@r + "[3]"),(.@randomOptionAmount >= 4) ? GetRandomOptionId() : 0;
+			set getd("randomOption" + .@i + "_" + .@r + "[4]"),(.@randomOptionAmount >= 5) ? GetRandomOptionId() : 0;
 			// Slot
 			.@itemSlot = getitemslots(.@itemId);
 			debugmes "#F";
 			// Card
 			.@cardAmount = getarraysize($card2Ids);
-			set getd("card" + .@r + "[0]"),(.@itemSlot >= 1) ? $card2Ids[rand(.@cardAmount)] : 0;
-			set getd("card" + .@r + "[1]"),(.@itemSlot >= 2) ? $card2Ids[rand(.@cardAmount)] : 0;
-			set getd("card" + .@r + "[2]"),(.@itemSlot >= 3) ? $card2Ids[rand(.@cardAmount)] : 0;
-			set getd("card" + .@r + "[3]"),(.@itemSlot >= 4) ? $card2Ids[rand(.@cardAmount)] : 0;
+			set getd("card" + .@i + "_" + .@r + "[0]"),(.@itemSlot >= 1) ? $card2Ids[rand(.@cardAmount)] : 0;
+			set getd("card" + .@i + "_" + .@r + "[1]"),(.@itemSlot >= 2) ? $card2Ids[rand(.@cardAmount)] : 0;
+			set getd("card" + .@i + "_" + .@r + "[2]"),(.@itemSlot >= 3) ? $card2Ids[rand(.@cardAmount)] : 0;
+			set getd("card" + .@i + "_" + .@r + "[3]"),(.@itemSlot >= 4) ? $card2Ids[rand(.@cardAmount)] : 0;
 			debugmes "#G";
 			// Enchantment
 			.@enchantmentAmount = getarraysize($enchant2Ids);
-			set getd("enchantment" + .@r + "[0]"),(.@itemSlot < 1) ? $enchant2Ids[rand(.@enchantmentAmount)] : 0;
-			set getd("enchantment" + .@r + "[1]"),(.@itemSlot < 2) ? $enchant2Ids[rand(.@enchantmentAmount)] : 0;
-			set getd("enchantment" + .@r + "[2]"),(.@itemSlot < 3) ? $enchant2Ids[rand(.@enchantmentAmount)] : 0;
-			set getd("enchantment" + .@r + "[3]"),(.@itemSlot < 4) ? $enchant2Ids[rand(.@enchantmentAmount)] : 0;
+			set getd("enchantment" + .@i + "_" + .@r + "[0]"),(.@itemSlot < 1) ? $enchant2Ids[rand(.@enchantmentAmount)] : 0;
+			set getd("enchantment" + .@i + "_" + .@r + "[1]"),(.@itemSlot < 2) ? $enchant2Ids[rand(.@enchantmentAmount)] : 0;
+			set getd("enchantment" + .@i + "_" + .@r + "[2]"),(.@itemSlot < 3) ? $enchant2Ids[rand(.@enchantmentAmount)] : 0;
+			set getd("enchantment" + .@i + "_" + .@r + "[3]"),(.@itemSlot < 4) ? $enchant2Ids[rand(.@enchantmentAmount)] : 0;
 		}
 	}
 	freeloop(0);
