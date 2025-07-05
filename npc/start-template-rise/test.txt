@@ -119,3 +119,39 @@ prontera,164,188,4	script	เช็ค Item เด้ง	84,{
 OnBuyItem:
 	end;
 }
+
+prontera,166,188,4	script	เช็ค Hat Effect เด้ง	84,{
+	.@isStrictTest = 1;
+	
+	.@min = 1;
+	.@max = 261;
+	
+	if(.@isStrictTest)
+	{
+		freeloop(1);
+		for(.@i = .@min; .@i <= .@max; .@i++)
+		{
+			dispbottom "Hat Effect ON:" + .@i;
+			sleep2 100;
+			hateffect .@i,TRUE;
+		}
+		freeloop(0);
+		end;
+	}
+	
+	if(testHatEffectError < .@min)
+	{
+		testHatEffectError = .@min;
+	}
+	dispbottom "Hat Effect ON:" + testHatEffectError;
+	hateffect testHatEffectError,TRUE;
+	progressbar 0,1;
+	hateffect testHatEffectError,FALSE;
+	dispbottom "Hat Effect OFF:" + testHatEffectError;
+	testHatEffectError++;
+	if(testHatEffectError > .@max)
+	{
+		testHatEffectError = .@min;
+	}
+	end;
+}

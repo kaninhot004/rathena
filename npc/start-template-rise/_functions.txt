@@ -585,6 +585,7 @@ function	script	FullHeal	{
 }
 
 function	script	ClearAll	{
+	bonus_script_clear 1;
 	nude;
 	atcommand "@itemreset";
 	atcommand "@clearstorage";

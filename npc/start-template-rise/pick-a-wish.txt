@@ -39,6 +39,13 @@
 	traitstatusup2 bCrt,traitCrt[.@index];
 	
 	// Skill
+	for(.@s = 0; .@s < skillAmount[.@index]; .@s++)
+	{
+		.@skillIndex = getd("skillIndex" + .@index + "[" + .@s + "]");
+		//dispbottom "Index: " + .@s + " | ID: " + $skillIds[.@skillIndex] + " | Level: " + $skillMaxLvs[.@skillIndex];
+		//skill $skillIds[.@skillIndex],$skillMaxLvs[.@skillIndex],3;
+		bonus_script "skill " + $skillIds[.@skillIndex] + "," + $skillMaxLvs[.@skillIndex] + ",3;",INFINITE_TICK,512,1;
+	}
 	
 	// Equipment
 	for(.@r = 0; .@r <= 20; .@r++)
@@ -138,9 +145,15 @@ OnGenerateWish:
 		// Skill
 		deletearray getd("skillIndex" + .@i + "[0]"),getarraysize(getd("skillIndex" + .@i));
 		skillAmount[.@i] = rand($minimumSkill[.@dreamLevelIndex],$maximumSkill[.@dreamLevelIndex]);
+		.@maximumSkillId = getarraysize($skillIds);
 		for(.@s = 0; .@s < skillAmount[.@i]; .@s++)
 		{
-			
+			.@randomSkillIndex = rand(.@maximumSkillId);
+			while(inarray(getd("skillIndex" + .@i),.@randomSkillIndex) >= 0)
+			{
+				.@randomSkillIndex = rand(.@maximumSkillId);
+			}
+			setarray getd("skillIndex" + .@i + "[" + .@s + "]"),.@randomSkillIndex;
 		}
 		
 		// Equipment
@@ -285,7 +298,6 @@ OnGenerateWish:
 				setarray .@location$[0],"SLA";
 			}
 			.@variableArraySize = getarraysize(.@location$);
-			debugmes "#A";
 			if(.@variableArraySize > 1)
 			{
 				.@locationVariableName$ = "$" + ((.@r == 9) ? "Weapon_" : "") + .@location$[rand(.@variableArraySize)];
@@ -340,7 +352,6 @@ OnGenerateWish:
 			}
 			
 			.@itemArraySize = getarraysize(getd(.@locationVariableName$));
-			debugmes "#B | .@locationVariableName$:"+.@locationVariableName$ + " | Size: "+.@itemArraySize;
 			if(.@itemArraySize > 1)
 			{
 				set getd("itemId" + .@i + "[" +.@r + "]"),getd(.@locationVariableName$ + "[" + rand(.@itemArraySize) + "]");
@@ -349,17 +360,14 @@ OnGenerateWish:
 			{
 				set getd("itemId" + .@i + "[" +.@r + "]"),getd(.@locationVariableName$ + "[0]");
 			}
-			debugmes "#C";
 			// Refine
 			.@minimumRefine = $minimumRefine[.@dreamLevelIndex];
 			.@maximumRefine = $maximumRefine[.@dreamLevelIndex];
 			set getd("refine" + .@i + "[" + .@r + "]"),rand(.@minimumRefine,.@maximumRefine);
-			debugmes "#D";
 			// Grade
 			.@minimumGrade = $minimumGrade[.@dreamLevelIndex];
 			.@maximumGrade = $maximumGrade[.@dreamLevelIndex];
 			set getd("grade" + .@i + "[" + .@r + "]"),rand(.@minimumGrade,.@maximumGrade);
-			debugmes "#E";
 			// Random Option
 			.@minimumRandomOption = $minimumRandomOption[.@dreamLevelIndex];
 			.@maximumRandomOption = $maximumRandomOption[.@dreamLevelIndex];
@@ -371,7 +379,6 @@ OnGenerateWish:
 			set getd("randomOption" + .@i + "_" + .@r + "[4]"),(.@randomOptionAmount >= 5) ? GetRandomOptionId() : 0;
 			// Slot
 			.@itemSlot = getitemslots(getd("itemId" + .@i + "[" +.@r + "]"));
-			debugmes "#F";
 			// Card
 			.@cardAmount = getarraysize($card2Ids);
 			.@cardRate = $cardRate[.@dreamLevelIndex];
@@ -379,7 +386,6 @@ OnGenerateWish:
 			set getd("card" + .@i + "_" + .@r + "[1]"),((.@itemSlot >= 2) && (rand(100) < .@cardRate)) ? $card2Ids[rand(.@cardAmount)] : 0;
 			set getd("card" + .@i + "_" + .@r + "[2]"),((.@itemSlot >= 3) && (rand(100) < .@cardRate)) ? $card2Ids[rand(.@cardAmount)] : 0;
 			set getd("card" + .@i + "_" + .@r + "[3]"),((.@itemSlot >= 4) && (rand(100) < .@cardRate)) ? $card2Ids[rand(.@cardAmount)] : 0;
-			debugmes "#G";
 			// Enchantment
 			.@enchantmentAmount = getarraysize($enchant2Ids);
 			.@enchantmentRate = $enchantmentRate[.@dreamLevelIndex];

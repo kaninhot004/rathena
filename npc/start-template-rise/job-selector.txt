@@ -1,4 +1,4 @@
-moc_akhet,189,70,3	script	เลือกชุด	21321,5,5,{
+moc_akhet,189,70,3	script	เลือกชุด	21321,10,10,{
 OnCancel:
 	if(isSuitPicked)
 	end;
