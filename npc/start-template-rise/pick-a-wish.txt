@@ -61,7 +61,8 @@
 		setarray .@randomOptionIds[0],getd("randomOption" + .@index + "_" + .@r + "[0]"),getd("randomOption" + .@index + "_" + .@r + "[1]"),getd("randomOption" + .@index + "_" + .@r + "[2]"),getd("randomOption" + .@index + "_" + .@r + "[3]"),getd("randomOption" + .@index + "_" + .@r + "[4]");
 		setarray .@randomOptionValues[0],1,1,1,1,1;
 		setarray .@randomOptionParams[0],0,0,0,0,0;
-		if(.@itemId > 0){
+		if(.@itemId > 0)
+		{
 			getitem4 .@itemId,1,1,.@refine,0,.@slot1,.@slot2,.@slot3,.@slot4,.@grade,.@randomOptionIds,.@randomOptionValues,.@randomOptionParams;
 			equip .@itemId;
 		}
@@ -71,7 +72,8 @@
 	for(.@r = 0; .@r <= 20; .@r++)
 	{
 		.@itemId = getd("itemId" + .@index + "[" + .@r + "]");
-		if(.@itemId > 0){
+		if(.@itemId > 0)
+		{
 			equip .@itemId;
 		}
 	}
@@ -134,6 +136,12 @@ OnGenerateWish:
 		traitCrt[.@i] = rand(.@minimumTrait,$maximumTrait);
 		
 		// Skill
+		deletearray getd("skillIndex" + .@i + "[0]"),getarraysize(getd("skillIndex" + .@i));
+		skillAmount[.@i] = rand($minimumSkill[.@dreamLevelIndex],$maximumSkill[.@dreamLevelIndex]);
+		for(.@s = 0; .@s < skillAmount[.@i]; .@s++)
+		{
+			
+		}
 		
 		// Equipment
 		deletearray getd("itemId" + .@i + "[0]"),getarraysize(getd("itemId" + .@i));
@@ -288,37 +296,45 @@ OnGenerateWish:
 			}
 			
 			// Ban Location
-			if(.@locationVariableName$ == "$CMIDCLOW"){
+			if(.@locationVariableName$ == "$CMIDCLOW")
+			{
 				set getd("banLocation" + .@i + "[11]"),1;
 				set getd("banLocation" + .@i + "[12]"),1;
 			}
-			else if(.@locationVariableName$ == "$CTOPCMIDCLOW"){
+			else if(.@locationVariableName$ == "$CTOPCMIDCLOW")
+			{
 				set getd("banLocation" + .@i + "[10]"),1;
 				set getd("banLocation" + .@i + "[11]"),1;
 				set getd("banLocation" + .@i + "[12]"),1;
 			}
-			else if(.@locationVariableName$ == "$CTOPCLOW"){
+			else if(.@locationVariableName$ == "$CTOPCLOW")
+			{
 				set getd("banLocation" + .@i + "[10]"),1;
 				set getd("banLocation" + .@i + "[12]"),1;
 			}
-			else if(.@locationVariableName$ == "$CTOPCMID"){
+			else if(.@locationVariableName$ == "$CTOPCMID")
+			{
 				set getd("banLocation" + .@i + "[10]"),1;
 				set getd("banLocation" + .@i + "[11]"),1;
 			}
-			else if((.@locationVariableName$ == "$MIDTOP") || (.@locationVariableName$ == "$TOPMID")){
+			else if((.@locationVariableName$ == "$MIDTOP") || (.@locationVariableName$ == "$TOPMID"))
+			{
 				set getd("banLocation" + .@i + "[5]"),1;
 				set getd("banLocation" + .@i + "[6]"),1;
 			}
-			else if((.@locationVariableName$ == "$LOWMIDTOP") || (.@locationVariableName$ == "$TOPMIDLOW")){
+			else if((.@locationVariableName$ == "$LOWMIDTOP") || (.@locationVariableName$ == "$TOPMIDLOW"))
+			{
 				set getd("banLocation" + .@i + "[4]"),1;
 				set getd("banLocation" + .@i + "[5]"),1;
 				set getd("banLocation" + .@i + "[6]"),1;
 			}
-			else if((.@locationVariableName$ == "$LOWTOP") || (.@locationVariableName$ == "$TOPLOW")){
+			else if((.@locationVariableName$ == "$LOWTOP") || (.@locationVariableName$ == "$TOPLOW"))
+			{
 				set getd("banLocation" + .@i + "[4]"),1;
 				set getd("banLocation" + .@i + "[6]"),1;
 			}
-			else if((.@locationVariableName$ == "$LOWMID") || (.@locationVariableName$ == "$MIDLOW")){
+			else if((.@locationVariableName$ == "$LOWMID") || (.@locationVariableName$ == "$MIDLOW"))
+			{
 				set getd("banLocation" + .@i + "[4]"),1;
 				set getd("banLocation" + .@i + "[5]"),1;
 			}
@@ -358,17 +374,19 @@ OnGenerateWish:
 			debugmes "#F";
 			// Card
 			.@cardAmount = getarraysize($card2Ids);
-			set getd("card" + .@i + "_" + .@r + "[0]"),((.@itemSlot >= 1) && (rand(100) < $cardRate[.@dreamLevelIndex])) ? $card2Ids[rand(.@cardAmount)] : 0;
-			set getd("card" + .@i + "_" + .@r + "[1]"),((.@itemSlot >= 2) && (rand(100) < $cardRate[.@dreamLevelIndex])) ? $card2Ids[rand(.@cardAmount)] : 0;
-			set getd("card" + .@i + "_" + .@r + "[2]"),((.@itemSlot >= 3) && (rand(100) < $cardRate[.@dreamLevelIndex])) ? $card2Ids[rand(.@cardAmount)] : 0;
-			set getd("card" + .@i + "_" + .@r + "[3]"),((.@itemSlot >= 4) && (rand(100) < $cardRate[.@dreamLevelIndex])) ? $card2Ids[rand(.@cardAmount)] : 0;
+			.@cardRate = $cardRate[.@dreamLevelIndex];
+			set getd("card" + .@i + "_" + .@r + "[0]"),((.@itemSlot >= 1) && (rand(100) < .@cardRate)) ? $card2Ids[rand(.@cardAmount)] : 0;
+			set getd("card" + .@i + "_" + .@r + "[1]"),((.@itemSlot >= 2) && (rand(100) < .@cardRate)) ? $card2Ids[rand(.@cardAmount)] : 0;
+			set getd("card" + .@i + "_" + .@r + "[2]"),((.@itemSlot >= 3) && (rand(100) < .@cardRate)) ? $card2Ids[rand(.@cardAmount)] : 0;
+			set getd("card" + .@i + "_" + .@r + "[3]"),((.@itemSlot >= 4) && (rand(100) < .@cardRate)) ? $card2Ids[rand(.@cardAmount)] : 0;
 			debugmes "#G";
 			// Enchantment
 			.@enchantmentAmount = getarraysize($enchant2Ids);
-			set getd("enchantment" + .@i + "_" + .@r + "[0]"),((.@itemSlot < 1) && (rand(100) < $enchantmentRate[.@dreamLevelIndex])) ? $enchant2Ids[rand(.@enchantmentAmount)] : 0;
-			set getd("enchantment" + .@i + "_" + .@r + "[1]"),((.@itemSlot < 2) && (rand(100) < $enchantmentRate[.@dreamLevelIndex])) ? $enchant2Ids[rand(.@enchantmentAmount)] : 0;
-			set getd("enchantment" + .@i + "_" + .@r + "[2]"),((.@itemSlot < 3) && (rand(100) < $enchantmentRate[.@dreamLevelIndex])) ? $enchant2Ids[rand(.@enchantmentAmount)] : 0;
-			set getd("enchantment" + .@i + "_" + .@r + "[3]"),((.@itemSlot < 4) && (rand(100) < $enchantmentRate[.@dreamLevelIndex])) ? $enchant2Ids[rand(.@enchantmentAmount)] : 0;
+			.@enchantmentRate = $enchantmentRate[.@dreamLevelIndex];
+			set getd("enchantment" + .@i + "_" + .@r + "[0]"),((.@itemSlot < 1) && (rand(100) < .@enchantmentRate)) ? $enchant2Ids[rand(.@enchantmentAmount)] : 0;
+			set getd("enchantment" + .@i + "_" + .@r + "[1]"),((.@itemSlot < 2) && (rand(100) < .@enchantmentRate)) ? $enchant2Ids[rand(.@enchantmentAmount)] : 0;
+			set getd("enchantment" + .@i + "_" + .@r + "[2]"),((.@itemSlot < 3) && (rand(100) < .@enchantmentRate)) ? $enchant2Ids[rand(.@enchantmentAmount)] : 0;
+			set getd("enchantment" + .@i + "_" + .@r + "[3]"),((.@itemSlot < 4) && (rand(100) < .@enchantmentRate)) ? $enchant2Ids[rand(.@enchantmentAmount)] : 0;
 		}
 	}
 	freeloop(0);
