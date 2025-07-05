@@ -11,6 +11,7 @@
  *	 { "name", &battle_config.<variable name>, <default value>, <minimum value>, <maximum value> },
  **/
 
+ { "config_skip_error_hat_effect", &battle_config.config_skip_error_hat_effect, 1, 0, 1 },
  { "config_global_maximum_sell", &battle_config.config_global_maximum_sell, 5000, 0, INT_MAX },
  { "config_global_drop", &battle_config.config_global_drop, 10000001, 0, INT_MAX },
  { "config_global_drop_base_rate", &battle_config.config_global_drop_base_rate, 1, 0, INT_MAX },
