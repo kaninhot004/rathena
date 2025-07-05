@@ -58,6 +58,9 @@ config_all_equipment_skip_class: 1
 // Equipment ทุกชิ้น ไม่สนใจอาชีพ (1 ไม่สน)
 config_all_equipment_skip_job: 1
 
+// Equipment ทุกชิ้น ไม่สนใจ Level (1 ไม่สน)
+config_all_equipment_skip_level: 0
+
 // Item ทุกชิ้นตั้งร้านค้ารับซื้อได้ไหม (1ได้)
 config_all_item_buying_store: 0
 

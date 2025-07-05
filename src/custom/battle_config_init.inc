@@ -32,6 +32,7 @@
  { "config_all_equipment_skip_gender", &battle_config.config_all_equipment_skip_gender, 0, 0, 1 },
  { "config_all_equipment_skip_class", &battle_config.config_all_equipment_skip_class, 0, 0, 1 },
  { "config_all_equipment_skip_job", &battle_config.config_all_equipment_skip_job, 0, 0, 1 },
+ { "config_all_equipment_skip_level", &battle_config.config_all_equipment_skip_level, 0, 0, 1 },
  { "config_all_item_buying_store", &battle_config.config_all_item_buying_store, 1, 0, 1 },
  { "config_all_item_no_bind", &battle_config.config_all_item_no_bind, 1, 0, 1 },
  { "config_all_item_trade", &battle_config.config_all_item_trade, 1, 0, 1 },
