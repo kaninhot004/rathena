@@ -80,7 +80,8 @@
 	
 	FullHeal();
 	
-	message strcharinfo(0),"ÃÑº¾Ã Set ·Õè " + (.@index + 1) + " àÃÕÂºÃéÍÂáÅéÇ!";
+	dispbottom "ÃÑº¾Ã Set ·Õè " + (.@index + 1) + " àÃÕÂºÃéÍÂáÅéÇ!",0x33ffa5;
+	
 	end;
 	
 OnInit:
@@ -353,21 +354,21 @@ OnGenerateWish:
 			set getd("randomOption" + .@i + "_" + .@r + "[3]"),(.@randomOptionAmount >= 4) ? GetRandomOptionId() : 0;
 			set getd("randomOption" + .@i + "_" + .@r + "[4]"),(.@randomOptionAmount >= 5) ? GetRandomOptionId() : 0;
 			// Slot
-			.@itemSlot = getitemslots(.@itemId);
+			.@itemSlot = getitemslots(getd("itemId" + .@i + "[" +.@r + "]"));
 			debugmes "#F";
 			// Card
 			.@cardAmount = getarraysize($card2Ids);
-			set getd("card" + .@i + "_" + .@r + "[0]"),(.@itemSlot >= 1) ? $card2Ids[rand(.@cardAmount)] : 0;
-			set getd("card" + .@i + "_" + .@r + "[1]"),(.@itemSlot >= 2) ? $card2Ids[rand(.@cardAmount)] : 0;
-			set getd("card" + .@i + "_" + .@r + "[2]"),(.@itemSlot >= 3) ? $card2Ids[rand(.@cardAmount)] : 0;
-			set getd("card" + .@i + "_" + .@r + "[3]"),(.@itemSlot >= 4) ? $card2Ids[rand(.@cardAmount)] : 0;
+			set getd("card" + .@i + "_" + .@r + "[0]"),((.@itemSlot >= 1) && (rand(100) < $cardRate[.@dreamLevelIndex])) ? $card2Ids[rand(.@cardAmount)] : 0;
+			set getd("card" + .@i + "_" + .@r + "[1]"),((.@itemSlot >= 2) && (rand(100) < $cardRate[.@dreamLevelIndex])) ? $card2Ids[rand(.@cardAmount)] : 0;
+			set getd("card" + .@i + "_" + .@r + "[2]"),((.@itemSlot >= 3) && (rand(100) < $cardRate[.@dreamLevelIndex])) ? $card2Ids[rand(.@cardAmount)] : 0;
+			set getd("card" + .@i + "_" + .@r + "[3]"),((.@itemSlot >= 4) && (rand(100) < $cardRate[.@dreamLevelIndex])) ? $card2Ids[rand(.@cardAmount)] : 0;
 			debugmes "#G";
 			// Enchantment
 			.@enchantmentAmount = getarraysize($enchant2Ids);
-			set getd("enchantment" + .@i + "_" + .@r + "[0]"),(.@itemSlot < 1) ? $enchant2Ids[rand(.@enchantmentAmount)] : 0;
-			set getd("enchantment" + .@i + "_" + .@r + "[1]"),(.@itemSlot < 2) ? $enchant2Ids[rand(.@enchantmentAmount)] : 0;
-			set getd("enchantment" + .@i + "_" + .@r + "[2]"),(.@itemSlot < 3) ? $enchant2Ids[rand(.@enchantmentAmount)] : 0;
-			set getd("enchantment" + .@i + "_" + .@r + "[3]"),(.@itemSlot < 4) ? $enchant2Ids[rand(.@enchantmentAmount)] : 0;
+			set getd("enchantment" + .@i + "_" + .@r + "[0]"),((.@itemSlot < 1) && (rand(100) < $enchantmentRate[.@dreamLevelIndex])) ? $enchant2Ids[rand(.@enchantmentAmount)] : 0;
+			set getd("enchantment" + .@i + "_" + .@r + "[1]"),((.@itemSlot < 2) && (rand(100) < $enchantmentRate[.@dreamLevelIndex])) ? $enchant2Ids[rand(.@enchantmentAmount)] : 0;
+			set getd("enchantment" + .@i + "_" + .@r + "[2]"),((.@itemSlot < 3) && (rand(100) < $enchantmentRate[.@dreamLevelIndex])) ? $enchant2Ids[rand(.@enchantmentAmount)] : 0;
+			set getd("enchantment" + .@i + "_" + .@r + "[3]"),((.@itemSlot < 4) && (rand(100) < $enchantmentRate[.@dreamLevelIndex])) ? $enchant2Ids[rand(.@enchantmentAmount)] : 0;
 		}
 	}
 	freeloop(0);
