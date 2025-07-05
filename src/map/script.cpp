@@ -24768,6 +24768,28 @@ BUILDIN_FUNC(hateffect){
 	int16 effectID = script_getnum(st,2);
 	bool enable = script_getnum(st,3) ? true : false;
 
+	// [Start's] Classes 4 error Hat Effects
+	if (battle_config.config_skip_error_hat_effect
+		&&
+		((effectID == HAT_EF_C_2021RTC_HEADSET_1_TW)
+			|| (effectID == HAT_EF_C_2021RTC_HEADSET_2_TW)
+			|| (effectID == HAT_EF_C_2021RTC_HEADSET_3_TW)
+			|| (effectID == HAT_EF_C_CONSECRATE_F_AUREOLA)
+			|| (effectID == HAT_EF_NIFLHEIM_NIGHT_SKY)
+			|| (effectID == HAT_EF_BLACK_THUNDER_)
+			|| (effectID == HAT_EF_C_DRAGON_GREEN_AURA)
+			|| (effectID == HAT_EF_C_DRAGON_RED_AURA)
+			|| (effectID == HAT_EF_C_DRAGON_YELLOW_AURA)
+			|| (effectID == HAT_EF_C_AUSPICLOUD)
+			|| (effectID == HAT_EF_PERM_FROST_OBLIVION)
+			|| (effectID == HAT_EF_C_MGSGPH_POTARL)
+			|| (effectID == HAT_EF_C_IGUAZU_FALLS)
+			|| (effectID == FOOTPRINT_EF_BLOSSOM)
+			|| (effectID == FOOTPRINT_EF_BUD)
+			)) {
+		return SCRIPT_CMD_FAILURE;
+	}
+
 	if( effectID <= HAT_EF_MIN || effectID >= HAT_EF_MAX ){
 		ShowError( "buildin_hateffect: unsupported hat effect id %d\n", effectID );
 		return SCRIPT_CMD_FAILURE;

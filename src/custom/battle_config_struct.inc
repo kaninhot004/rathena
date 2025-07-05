@@ -12,6 +12,7 @@
  *	 <datatype> name;
  **/
 
+ int config_skip_error_hat_effect;
  int config_global_maximum_sell;
  int config_global_drop;
  int config_global_drop_base_rate;

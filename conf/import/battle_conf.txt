@@ -1,3 +1,6 @@
+// ข้ามการแสดงผล Hat Effect ที่ Error (มีประโยชน์มาก ๆ ทำให้เกมไม่ Crash) (ใส่ 0 เพื่อปิดการใช้งาน)
+config_skip_error_hat_effect: 1
+
 // ราคาขายของทุกชิ้น มากสุดเท่าใด (มากสุด 2147483647)
 config_global_maximum_sell: 0
 
