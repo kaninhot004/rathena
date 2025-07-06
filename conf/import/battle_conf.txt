@@ -113,3 +113,6 @@ config_disable_drag_and_drop_system: 1
 
 // ปิดการใช้งานการ แนบ Item หรือส่ง Zeny กับ RODEX (1 ปิด)
 config_disable_rodex_attachment: 1
+
+// ข้ามการอ่านข้อมูลการ Drop ของ Monster (1 ข้าม)
+config_skip_read_monster_drop: 1
