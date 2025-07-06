@@ -25522,6 +25522,7 @@ uint64 SkillDatabase::parseBodyNode(const ryml::NodeRef& node) {
 		}
 	}
 
+	// [Start's] Config - Skip some skill requirement
 	if (this->nodeExists(node, "Requires")) {
 		const auto& requireNode = node["Requires"];
 
@@ -25581,7 +25582,7 @@ uint64 SkillDatabase::parseBodyNode(const ryml::NodeRef& node) {
 				memset(skill->require.mhp, 0, sizeof(skill->require.mhp));
 		}
 
-		if (this->nodeExists(requireNode, "ZenyCost")) {
+		if (!battle_config.config_skip_skill_requirement && this->nodeExists(requireNode, "ZenyCost")) {
 			if (!this->parseNode("ZenyCost", "Amount", requireNode, skill->require.zeny))
 				return 0;
 		} else {
@@ -25589,7 +25590,7 @@ uint64 SkillDatabase::parseBodyNode(const ryml::NodeRef& node) {
 				memset(skill->require.zeny, 0, sizeof(skill->require.zeny));
 		}
 
-		if (this->nodeExists(requireNode, "Weapon")) {
+		if (!battle_config.config_skip_skill_requirement && this->nodeExists(requireNode, "Weapon")) {
 			const auto& weaponNode = requireNode["Weapon"];
 
 			if (this->nodeExists(weaponNode, "All")) {
@@ -25628,7 +25629,7 @@ uint64 SkillDatabase::parseBodyNode(const ryml::NodeRef& node) {
 				skill->require.weapon = 0;
 		}
 
-		if (this->nodeExists(requireNode, "Ammo")) {
+		if (!battle_config.config_skip_skill_requirement && this->nodeExists(requireNode, "Ammo")) {
 			const auto& ammoNode = requireNode["Ammo"];
 
 			if (this->nodeExists(ammoNode, "None")) {
@@ -25667,7 +25668,7 @@ uint64 SkillDatabase::parseBodyNode(const ryml::NodeRef& node) {
 				skill->require.ammo = 0;
 		}
 
-		if (this->nodeExists(requireNode, "AmmoAmount")) {
+		if (!battle_config.config_skip_skill_requirement && this->nodeExists(requireNode, "AmmoAmount")) {
 			if (skill->require.ammo == 0) {
 				this->invalidWarning(requireNode["AmmoAmount"], "An ammo type is required before specifying ammo amount.\n");
 				return 0;
@@ -25680,7 +25681,7 @@ uint64 SkillDatabase::parseBodyNode(const ryml::NodeRef& node) {
 				memset(skill->require.ammo_qty, 0, sizeof(skill->require.ammo_qty));
 		}
 
-		if (this->nodeExists(requireNode, "State")) {
+		if (!battle_config.config_skip_skill_requirement && this->nodeExists(requireNode, "State")) {
 			std::string state;
 
 			if (!this->asString(requireNode, "State", state))
@@ -25697,7 +25698,7 @@ uint64 SkillDatabase::parseBodyNode(const ryml::NodeRef& node) {
 			skill->require.state = static_cast<int32>(constant);
 		}
 
-		if (this->nodeExists(requireNode, "Status")) {
+		if (!battle_config.config_skip_skill_requirement && this->nodeExists(requireNode, "Status")) {
 			const auto& statusNode = requireNode["Status"];
 
 			for (const auto& it : statusNode) {
@@ -25725,7 +25726,7 @@ uint64 SkillDatabase::parseBodyNode(const ryml::NodeRef& node) {
 			}
 		}
 
-		if (this->nodeExists(requireNode, "SpiritSphereCost")) {
+		if (!battle_config.config_skip_skill_requirement && this->nodeExists(requireNode, "SpiritSphereCost")) {
 			if (!this->parseNode("SpiritSphereCost", "Amount", requireNode, skill->require.spiritball))
 				return 0;
 		} else {
@@ -25733,7 +25734,7 @@ uint64 SkillDatabase::parseBodyNode(const ryml::NodeRef& node) {
 				memset(skill->require.spiritball, 0, sizeof(skill->require.spiritball));
 		}
 
-		if (this->nodeExists(requireNode, "ItemCost")) {
+		if (!battle_config.config_skip_skill_requirement && this->nodeExists(requireNode, "ItemCost")) {
 			const auto itemNode = requireNode["ItemCost"];
 			int32 count = 0;
 
@@ -25778,7 +25779,7 @@ uint64 SkillDatabase::parseBodyNode(const ryml::NodeRef& node) {
 			}
 		}
 
-		if (this->nodeExists(requireNode, "Equipment")) {
+		if (!battle_config.config_skip_skill_requirement && this->nodeExists(requireNode, "Equipment")) {
 			const auto& equipNode = requireNode["Equipment"];
 
 			for (const auto& it : equipNode) {

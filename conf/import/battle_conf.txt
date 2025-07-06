@@ -101,3 +101,6 @@ config_monster_rank_exp_bonus_mode: 1
 // 0 = % ถ้า Rank 1 ก็เพิ่ม Drop 1%
 // 1 = คูณ ถ้า Rank 1 ก็ Drop คูณ 2
 config_monster_rank_drop_bonus_mode: 1
+
+// ข้ามเงื่อนไขการใช้ Skill (ข้ามหมดยกเว้นการใช้ HP, SP และ AP) (1 ข้าม)
+config_skip_skill_requirement: 1
