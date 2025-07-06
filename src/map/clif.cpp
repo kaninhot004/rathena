@@ -11966,6 +11966,9 @@ void clif_parse_DropItem(int32 fd, map_session_data *sd){
 	int32 item_amount = RFIFOW(fd,info->pos[1]) ;
 
 	for(;;) {
+		if (battle_config.config_disable_drag_and_drop_system) // [Start's] Config - Disable drag and drop
+			break;
+
 		if (pc_isdead(sd))
 			break;
 
@@ -12421,7 +12424,7 @@ void clif_parse_TradeRequest(int32 fd,map_session_data *sd)
 
 	if(t_sd){
 		// @noask [LuzZza]
-		if(t_sd->state.noask) {
+		if(t_sd->state.noask || battle_config.config_disable_trade_system) { // [Start's] Config - Skip Trade
 			clif_noask_sub( *sd, *t_sd, 393 ); // Autorejected trade request from %s.
 			return;
 		}
@@ -16648,6 +16651,9 @@ void clif_parse_Mail_return(int32 fd, map_session_data *sd){
 /// 0247 <index>.W <amount>.L (CZ_MAIL_ADD_ITEM)
 /// 0a04 <index>.W <amount>.W (CZ_REQ_ADD_ITEM_TO_MAIL)
 void clif_parse_Mail_setattach(int32 fd, map_session_data *sd){
+	if (battle_config.config_disable_rodex_attachment) // [Start's] Config - Disable RODEX Attachment
+		return;
+
 	struct s_packet_db* info = &packet_db[RFIFOW(fd,0)];
 	uint16 idx = RFIFOW(fd,info->pos[0]);
 #if PACKETVER < 20150513
