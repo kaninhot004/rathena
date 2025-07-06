@@ -94,7 +94,7 @@
 	end;
 	
 OnInit:
-	waitingroom strnpcinfo(1),0;
+	waitingroom "รับ" + strnpcinfo(1),0;
 	end;
 }
 

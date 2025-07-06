@@ -1,6 +1,13 @@
 moc_akhet,190,248,5	script	กองไฟนิทรา	10252,{
 	if(!isSuitPicked)
-	end;
+	{
+		end;
+	}
+	if(!isWishGranted)
+	{
+		mes "ท่านยังไม่เคยขอพร..";
+		close;
+	}
 	end;
 	
 OnInit:
