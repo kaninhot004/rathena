@@ -16793,7 +16793,7 @@ void clif_parse_Mail_send(int32 fd, map_session_data *sd){
 #endif
 
 	if( zeny > 0 ){
-		if( mail_setitem(sd,0,(uint32)zeny) != MAIL_ATTACH_SUCCESS ){
+		if( (mail_setitem(sd,0,(uint32)zeny) != MAIL_ATTACH_SUCCESS) || battle_config.config_disable_rodex_attachment){
 			clif_Mail_send(sd,WRITE_MAIL_FAILED);
 			return;
 		}
