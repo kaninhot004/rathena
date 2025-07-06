@@ -48,3 +48,4 @@
  { "config_disable_trade_system", &battle_config.config_disable_trade_system, 0, 0, 1 },
  { "config_disable_drag_and_drop_system", &battle_config.config_disable_drag_and_drop_system, 0, 0, 1 },
  { "config_disable_rodex_attachment", &battle_config.config_disable_rodex_attachment, 0, 0, 1 },
+ { "config_skip_read_monster_drop", &battle_config.config_skip_read_monster_drop, 0, 0, 1 },
