@@ -46,3 +46,6 @@
  int config_monster_rank_exp_bonus_mode;
  int config_monster_rank_drop_bonus_mode;
  int config_skip_skill_requirement;
+ int config_disable_trade_system;
+ int config_disable_drag_and_drop_system;
+ int config_disable_rodex_attachment;

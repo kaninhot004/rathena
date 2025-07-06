@@ -45,3 +45,6 @@
  { "config_monster_rank_exp_bonus_mode", &battle_config.config_monster_rank_exp_bonus_mode, 0, 0, 1 },
  { "config_monster_rank_drop_bonus_mode", &battle_config.config_monster_rank_drop_bonus_mode, 0, 0, 1 },
  { "config_skip_skill_requirement", &battle_config.config_skip_skill_requirement, 0, 0, 1 },
+ { "config_disable_trade_system", &battle_config.config_disable_trade_system, 0, 0, 1 },
+ { "config_disable_drag_and_drop_system", &battle_config.config_disable_drag_and_drop_system, 0, 0, 1 },
+ { "config_disable_rodex_attachment", &battle_config.config_disable_rodex_attachment, 0, 0, 1 },
