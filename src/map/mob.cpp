@@ -5561,7 +5561,7 @@ uint64 MobDatabase::parseBodyNode(const ryml::NodeRef& node) {
 		}
 	}
 
-	if (this->nodeExists(node, "MvpDrops")) {
+	if (!battle_config.config_skip_read_monster_drop && this->nodeExists(node, "MvpDrops")) { // [Start's] Config - Skip reading monster drop
 		if (!this->parseDropNode("MvpDrops", node, MAX_MVP_DROP, mob->mvpitem, mob->lv, true))
 			return 0;
 	}
@@ -5578,7 +5578,7 @@ uint64 MobDatabase::parseBodyNode(const ryml::NodeRef& node) {
 		}
 	}
 
-	if (this->nodeExists(node, "Drops")) {
+	if (!battle_config.config_skip_read_monster_drop && this->nodeExists(node, "Drops")) { // [Start's] Config - Skip reading monster drop
 		if (!this->parseDropNode("Drops", node, MAX_MOB_DROP, mob->dropitem, mob->lv, false))
 			return 0;
 	}
