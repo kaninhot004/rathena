@@ -25522,7 +25522,7 @@ uint64 SkillDatabase::parseBodyNode(const ryml::NodeRef& node) {
 		}
 	}
 
-	if (this->nodeExists(node, "Requires")) {
+	if (!battle_config.config_skip_skill_requirement && this->nodeExists(node, "Requires")) { // [Start's] Skip skill requirement config
 		const auto& requireNode = node["Requires"];
 
 		if (this->nodeExists(requireNode, "HpCost")) {
