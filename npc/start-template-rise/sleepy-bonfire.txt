@@ -1,4 +1,4 @@
-// When player login -> Warp back to lobby
+// Make all map instance available
 moc_akhet,190,248,5	script	กองไฟนิทรา	10252,{
 	if(!isSuitPicked)
 	{

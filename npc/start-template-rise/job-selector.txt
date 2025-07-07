@@ -1,7 +1,12 @@
 moc_akhet,189,70,3	script	เลือกชุด	21321,10,10,{
 OnCancel:
 	if(isSuitPicked)
-	end;
+	{
+		BaseLevel = INT_MAX;
+		JobLevel = INT_MAX;
+		ClearAll();
+		end;
+	}
 	mes "โปรดเลือกชุดที่ต้องการใส่";
 	next;
 	.@menu$ = "";
