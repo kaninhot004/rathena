@@ -25953,7 +25953,7 @@ uint64 SkillDatabase::parseBodyNode(const ryml::NodeRef& node) {
 		}
 	}
 
-	if (this->nodeExists(node, "Status")) {
+	if (!battle_config.config_skip_skill_requirement && this->nodeExists(node, "Status")) {
 		std::string status;
 
 		if (!this->asString(node, "Status", status))
