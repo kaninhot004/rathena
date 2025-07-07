@@ -18896,7 +18896,7 @@ bool skill_check_condition_castbegin( map_session_data& sd, uint16 skill_id, uin
 			}
 			[[fallthrough]];
 		case NJ_BUNSINJYUTSU:
-			if (!battle_config.config_skip_skill_requirement && !(sc && sc->getSCE(SC_NEN))) {
+			if (!(sc && sc->getSCE(SC_NEN))) {
 				clif_skill_fail( sd, skill_id );
 				return false;
 			}
