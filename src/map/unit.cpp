@@ -2941,7 +2941,7 @@ int32 unit_attack(struct block_list *src,int32 target_id,int32 continuous)
 	ud->state.step_attack = (continuous&2)?1:0;
 	unit_set_target(ud, target_id);
 
-	range = status_get_range(src);
+	range = cap_value(status_get_range(src), 1, battle_config.config_maximum_range);
 
 	if (continuous) // If you're to attack continously, set to auto-chase character
 		ud->chaserange = range;
