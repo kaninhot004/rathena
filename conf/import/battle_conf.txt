@@ -116,3 +116,6 @@ config_disable_rodex_attachment: 1
 
 // ข้ามการอ่านข้อมูลการ Drop ของ Monster (1 ข้าม)
 config_skip_read_monster_drop: 1
+
+// ระยะโจมตีปกติไกลสุดกี่ช่อง (1~14)
+config_maximum_range: 14
