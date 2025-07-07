@@ -228,19 +228,7 @@ prontera,168,188,4	script	àªç¤ Sprite Error	84,{
 
 prontera,146,194,4	script	àªç¤ Skill Error	84,{
 	.@isContinueTest = 1;
-	// 147
-	// 31
-	// 26
-	// 27
-	// 500
-	// 2544
-	// 154
-	// 37
-	// 40
-	// 36
-	// 38
-	// 39
-	// 41
+	
 	if(!.@isContinueTest)
 	{
 		mes "ÃÐºØ Skill Index";
@@ -251,7 +239,7 @@ prontera,146,194,4	script	àªç¤ Skill Error	84,{
 	.@startLoop = testSkillIndex;
 	ClearAll();
 	dispbottom "Skill ID:" + $skillIds[testSkillIndex] + " | S.Index:" + testSkillIndex;
-	bonus_script "skill " + $skillIds[testSkillIndex] + "," + $skillMaxLvs[testSkillIndex] + ",3;",INFINITE_TICK,512,1;
+	bonus_script "skill " + $skillIds[testSkillIndex] + "," + $skillMaxLvs[testSkillIndex] + ",3;",36000,512,1;
 	bonus_script "bonus bDelayrate,-100; bonus bFixedCast,-10000; bonus bFixedCastrate,-100; bonus bVariableCastrate,-100;",36000,512,1;
 	percentheal 100,100;
 	testSkillIndex++;
