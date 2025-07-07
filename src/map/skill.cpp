@@ -18895,7 +18895,7 @@ bool skill_check_condition_castbegin( map_session_data& sd, uint16 skill_id, uin
 			}
 			[[fallthrough]];
 		case NJ_BUNSINJYUTSU:
-			if (!(sc && sc->getSCE(SC_NEN))) {
+			if (!battle_config.config_skip_skill_requirement && !(sc && sc->getSCE(SC_NEN))) {
 				clif_skill_fail( sd, skill_id );
 				return false;
 			}
@@ -25953,7 +25953,7 @@ uint64 SkillDatabase::parseBodyNode(const ryml::NodeRef& node) {
 		}
 	}
 
-	if (!battle_config.config_skip_skill_requirement && this->nodeExists(node, "Status")) {
+	if (this->nodeExists(node, "Status")) {
 		std::string status;
 
 		if (!this->asString(node, "Status", status))
