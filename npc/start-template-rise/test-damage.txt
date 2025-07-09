@@ -3,7 +3,7 @@
 
 OnTimer60000:
 	.@testDamageSpawnAmount = 30;
-	for(.@i = 0; .@i < getarraysize($testDamageMapName$); .@i++){
+	for(.@i = 0; .@i < (getarraysize($testDamageMapName$) - 1); .@i++){
 		killmonsterall $testDamageMapName$[.@i];
 		callsub L_Spawn,.@i,.@testDamageSpawnAmount;
 	}
@@ -32,9 +32,11 @@ OnInit:
 	}
 	.@testDamageSpawnAmount = 30;
 	deletearray $testDamageMapName$[0],getarraysize($testDamageMapName$);
-	setarray $testDamageMapName$[0],"06guild_01","06guild_02","06guild_03","06guild_04";
-	for(.@i = 0; .@i < getarraysize($testDamageMapName$); .@i++)
+	setarray $testDamageMapName$[0],"06guild_01","06guild_02","06guild_03","06guild_04","bat_c01";
+	for(.@i = 0; .@i < (getarraysize($testDamageMapName$) - 1); .@i++)
 	callsub L_Spawn,.@i,.@testDamageSpawnAmount;
 	initnpctimer;
 	end;
 }
+
+bat_c01	mapflag	pvp

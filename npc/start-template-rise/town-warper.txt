@@ -21,7 +21,7 @@ OnStylist:
 	end;
 	
 OnTestDamage:
-	.@selectIndex = (select("Rank 0:Rank 5:Rank 10:Rank 100") - 1);
+	.@selectIndex = (select("Rank 0:Rank 5:Rank 10:Rank 100:PvP") - 1);
 	warp $testDamageMapName$[.@selectIndex],0,0;
 	end;
 	
