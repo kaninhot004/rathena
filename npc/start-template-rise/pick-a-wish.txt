@@ -417,3 +417,64 @@ OnInit:
 	waitingroom "ขอพร Set ใหม่",0;
 	end;
 }
+
+moc_akhet,190,205,4	script	ของใช้ตาม Skill	10249,{
+	menu
+	"Falcon",OnFalcon
+	,"Mado Gear",OnMadoGear
+	,"Dragon",OnDragon
+	;
+	
+OnFalcon:
+	if(checkfalcon())
+	{
+		end;
+	}
+	if(!getskilllv("HT_FALCON"))
+	{
+		message strcharinfo(0),"ต้องมี Skill Falconry Mastery เสียก่อน";
+		end;
+	}
+	setfalcon;
+	end;
+	
+OnMadoGear:
+	if(checkmadogear())
+	{
+		end;
+	}
+	if((eaclass()&EAJ_THIRDMASK) != EAJ_MECHANIC)
+	{
+		message strcharinfo(0),"เฉพาะชุด Meister เท่านั้น";
+		end;
+	}
+	if(!getskilllv("NC_MADOLICENCE"))
+	{
+		message strcharinfo(0),"ต้องมี Skill Mado License เสียก่อน";
+		end;
+	}
+	setmadogear;
+	end;
+	
+OnDragon:
+	if(checkdragon())
+	{
+		end;
+	}
+	if((eaclass()&EAJ_THIRDMASK) != EAJ_RUNE_KNIGHT)
+	{
+		message strcharinfo(0),"เฉพาะชุด Dragon Knight เท่านั้น";
+		end;
+	}
+	if(!getskilllv("RK_DRAGONTRAINING"))
+	{
+		message strcharinfo(0),"ต้องมี Skill Dragon Training เสียก่อน";
+		end;
+	}
+	setdragon;
+	end;
+	
+OnInit:
+	waitingroom strnpcinfo(0),0;
+	end;
+}
