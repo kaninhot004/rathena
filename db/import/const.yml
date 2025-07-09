@@ -33,3 +33,7 @@
 Header:
   Type: CONSTANT_DB
   Version: 1
+
+Body:
+  - Name: SLEEPING_PILL
+    Value: 10000017

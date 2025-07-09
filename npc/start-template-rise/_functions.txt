@@ -587,6 +587,7 @@ function	script	FullHeal	{
 function	script	ClearAll	{
 	bonus_script_clear 1;
 	nude;
+	atcommand "@resetcooltime";
 	atcommand "@itemreset";
 	atcommand "@clearstorage";
 	if(getcharid(2)){

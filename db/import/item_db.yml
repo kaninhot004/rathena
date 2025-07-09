@@ -224,3 +224,14 @@ Body:
       NoSell: true
     Script: |
       callfunc("MasteryTicket");
+  - Id: 10000017
+    AegisName: Sleeping_Pill
+    Name: Sleeping Pill
+    Type: Healing
+    Buy: 1
+    Trade:
+      NoSell: true
+    Script: |
+      percentheal 100,100;
+      healap INT_MAX;
+      specialeffect2 748;

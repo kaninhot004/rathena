@@ -22,6 +22,9 @@
 	
 	freeloop(1);
 	
+	// Sleeping Pill
+	getitem SLEEPING_PILL,sleepingPill[.@index];
+	
 	// Status
 	statusup2 bStr,statusStr[.@index];
 	statusup2 bAgi,statusAgi[.@index];
@@ -130,6 +133,9 @@ OnGenerateWish:
 	freeloop(1);
 	for(.@i = 0; .@i < maximumWishSet; .@i++)
 	{
+		// Sleeping Pill
+		sleepingPill[.@i] = rand(0,$maximumPill[.@dreamLevelIndex]);
+		
 		// Status
 		.@minimumStatus = $minimumStatus[.@dreamLevelIndex];
 		statusStr[.@i] = rand(.@minimumStatus,$maximumStatus);
