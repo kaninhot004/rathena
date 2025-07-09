@@ -239,8 +239,8 @@ prontera,146,194,4	script	àªç¤ Skill Error	84,{
 	.@startLoop = testSkillIndex;
 	ClearAll();
 	dispbottom "Skill ID:" + $skillIds[testSkillIndex] + " | S.Index:" + testSkillIndex;
-	bonus_script "skill " + $skillIds[testSkillIndex] + "," + $skillMaxLvs[testSkillIndex] + ",3;",36000,512,1;
-	bonus_script "bonus bDelayrate,-100; bonus bFixedCast,-10000; bonus bFixedCastrate,-100; bonus bVariableCastrate,-100;",36000,512,1;
+	bonus_script "skill " + $skillIds[testSkillIndex] + "," + $skillMaxLvs[testSkillIndex] + ";",86400,512;
+	bonus_script "bonus bDelayrate,-100; bonus bFixedCast,-10000; bonus bFixedCastrate,-100; bonus bVariableCastrate,-100;",86400,512;
 	percentheal 100,100;
 	testSkillIndex++;
 	

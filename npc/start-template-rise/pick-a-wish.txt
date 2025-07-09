@@ -42,9 +42,7 @@
 	for(.@s = 0; .@s < skillAmount[.@index]; .@s++)
 	{
 		.@skillIndex = getd("skillIndex" + .@index + "[" + .@s + "]");
-		//dispbottom "Index: " + .@s + " | ID: " + $skillIds[.@skillIndex] + " | Level: " + $skillMaxLvs[.@skillIndex];
-		//skill $skillIds[.@skillIndex],$skillMaxLvs[.@skillIndex],3;
-		bonus_script "skill " + $skillIds[.@skillIndex] + "," + $skillMaxLvs[.@skillIndex] + ",3;",INFINITE_TICK,512,1;
+		bonus_script "skill " + $skillIds[.@skillIndex] + "," + $skillMaxLvs[.@skillIndex] + ";",86400,512;
 	}
 	
 	// Equipment
