@@ -1,14 +1,73 @@
-// Make all map instance available
 moc_akhet,190,248,5	script	กองไฟนิทรา	10252,{
-	if(!isSuitPicked)
+	if(!is_party_leader())
 	{
-		end;
-	}
-	if(!isWishGranted)
-	{
-		mes "ท่านยังไม่เคยขอพร..";
+		mes "ท่านต้องเป็นหัวหน้า Party..";
 		close;
 	}
+	.@partyId = getcharid(1);
+	getpartymember .@partyId,1;
+	getpartymember .@partyId,2;
+	.@partySize = getarraysize($@partymembercid[.@i]);
+	.@online = 0;
+	playDreamIndex = INT_MAX;
+	for(.@i = 0; .@i < .@partySize; .@i++)
+	{
+		if(!isloggedin($@partymemberaid[.@i],$@partymembercid[.@i]))
+		{
+			continue;
+		}
+		.@online++;
+		if(!getvar(isSuitPicked,$@partymembercid[.@i]))
+		{
+			mes "มีสมาชิกใน Party ยังไม่ได้เลือกชุด..";
+			close;
+		}
+		if(!getvar(isWishGranted,$@partymembercid[.@i]))
+		{
+			mes "มีสมาชิกใน Party ยังไม่เคยขอพร..";
+			close;
+		}
+		.@dreamIndex = getvar(dreamIndex,$@partymembercid[.@i]);
+		// Try to get lowest dream index
+		if(.@dreamIndex < playDreamIndex)
+		{
+			playDreamIndex = .@dreamIndex;
+			.@dreamBy$ = strcharinfo(0,$@partymembercid[.@i]);
+		}
+	}
+	if(.@online <= 0)
+	{
+		mes "ไม่พบสมาชิกใน Party ที่ Online อยู่เลย";
+		close;
+	}
+	.@dreamLevelIndex = GetDreamLevelIndex(playDreamIndex);
+	// Monster Setup
+	mRankMin = $minimumRank[.@dreamLevelIndex];
+	mRankMax = $maximumRank[.@dreamLevelIndex];
+	// One time setup
+	if(!isDreamSetup)
+	{
+		.@monsterType = rand($monsterTypeMin[.@dreamLevelIndex],$monsterTypeMax[.@dreamLevelIndex]);
+		deletearray monsterType[0],getarraysize(monsterType);
+		for(.@i = 0; .@i < .@monsterType; .@i++)
+		{
+			setarray monsterType[.@i],$attackableMonsterIds[rand(getarraysize($attackableMonsterIds))];
+		}
+		isDreamSetup = 1;
+	}
+	mes "จะทำการเข้าสู่ชั้นความฝันที่ " + playDreamIndex + " ของ " + .@dreamBy$;
+	mes "Monster จะมี";
+	mes "• Rank " + mRankMin + "~" + mRankMax;
+	mes "• " + ($monsterAmount[.@dreamLevelIndex] * .@online) + " ตัว";
+	mes "• " + getarraysize(monsterType) + " ชนิด";
+	close;
+	// Set map
+	// Wait to enter
+	// Warp party
+	// Spawn monster x Party member amount
+	// Cooldown to everyone
+	// On Dead or On Leader logout --- Clear map, Warp out, Decrease leader dream level
+	// On Won --- Increase dream level to everyone (If possible)
 	end;
 	
 OnInit:
