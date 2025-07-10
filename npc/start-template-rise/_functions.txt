@@ -605,3 +605,43 @@ function	script	ClearAll	{
 	FullHeal();
 	return;
 }
+
+function	script	PaWButterflyWing	{
+	.@isSkip = (strcharinfo(3) == $town$);
+	if(!.@isSkip)
+	{
+		specialeffect2 35;
+		progressbar "",(strcharinfo(3) == "guild_vs1") ? 4 : 2;
+	}
+	warp "Save",0,0;
+	return;
+}
+
+function	script	PaWFlyWing	{
+	.@isSkip = (strcharinfo(3) == $town$);
+	if(!.@isSkip)
+	{
+		specialeffect2 35;
+		progressbar "",(strcharinfo(3) == "guild_vs1") ? 4 : 2;
+	}
+	warp "Random",0,0;
+	return;
+}
+
+function	script	PaWGiantFlyWing	{
+	if (is_party_leader())
+	{
+		.@isSkip = (strcharinfo(3) == $town$);
+		if(!.@isSkip)
+		{
+			specialeffect2 35;
+			progressbar "",(strcharinfo(3) == "guild_vs1") ? 4 : 2;
+		}
+		warpparty "RandomAll", 0, 0, getcharid(1), strcharinfo(3), 3, 3;
+	}
+	else
+	{
+		message strcharinfo(0),"เฉพาะหัวหน้า Party เท่านั้น";
+	}
+	return;
+}

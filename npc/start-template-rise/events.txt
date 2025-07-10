@@ -10,7 +10,8 @@ OnPCLogoutEvent:
 	end;
 	
 OnPCLoadMapEvent:
-	if(strcharinfo(3) == $town$){
+	if(strcharinfo(3) == $town$)
+	{
 	}
 	end;
 	
@@ -19,12 +20,7 @@ OnInit:
 	end;
 
 OnLoad:
-	.@isSkip = (strcharinfo(3) == $town$);
-	if(!.@isSkip){
-		specialeffect2 35;
-		progressbar "",(strcharinfo(3) == "guild_vs1") ? 4 : 2;
-	}
-	warp "Save",0,0;
+	PaWButterflyWing();
 	end;
 }
 

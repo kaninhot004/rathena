@@ -31,21 +31,3 @@
 Header:
   Type: ITEM_CASH_DB
   Version: 1
-
-Body:
- - Tab: New
-   Items:
-     - Item: Refine_Hack_Powder
-       Price: 1000000
-     - Item: Wishing_Ticket
-       Price: 500000
-     - Item: Rise_Stone
-       Price: 10000
-     - Item: Mystery_Buff_Box
-       Price: 50000
-     - Item: Mystery_Package_Box
-       Price: 100000
-     - Item: God_Ticket
-       Price: 5000000
-     - Item: Mastery_Ticket
-       Price: 10000000
