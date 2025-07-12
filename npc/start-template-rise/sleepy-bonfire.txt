@@ -74,6 +74,7 @@ moc_akhet,190,248,5	script	กองไฟนิทรา	10252,{
 	if(!isDreamSetup)
 	{
 		// Monster Setup
+		.@guaranteeMvp = $guaranteeMvp[.@dreamLevelIndex];
 		mRankMin = $minimumRank[.@dreamLevelIndex];
 		mRankMax = $maximumRank[.@dreamLevelIndex];
 		.@monsterType = rand($monsterTypeMin[.@dreamLevelIndex],$monsterTypeMax[.@dreamLevelIndex]);
@@ -81,6 +82,13 @@ moc_akhet,190,248,5	script	กองไฟนิทรา	10252,{
 		for(.@i = 0; .@i < .@monsterType; .@i++)
 		{
 			setarray monsterType[.@i],$attackableMonsterIds[rand(getarraysize($attackableMonsterIds))];
+		}
+		if(.@guaranteeMvp > 0)
+		{
+			for(.@i = 0; .@i < getarraysize(.@guaranteeMvp); .@i++)
+			{
+				monsterType[.@i] = $mvpIds[rand(getarraysize($mvpIds))];
+			}
 		}
 		isDreamSetup = 1;
 	}
