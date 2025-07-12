@@ -1,6 +1,39 @@
 moc_akhet,185,299,4	script	Sandman	1165,{
-	if(!isSuitPicked)
-	end;
+	if(!getgmlevel())
+	{
+		mes "<URL>บริจาค<INFO>https://docs.google.com/spreadsheets/d/1LNPU675TnTJYiAvVKJbVEBLglASXDCZMJ6fzf8jDQzM/edit?gid=2047888752#gid=2047888752&range=A1</INFO></URL>";
+		close;
+	}
+	else
+	{
+		input .@id$;
+		query_sql("SELECT login.account_id FROM login WHERE login.userid = '" + .@id$ + "'",.@aid);
+		if(.@aid <= 0)
+		{
+			mes "ไม่พบ ID";
+			close;
+		}
+		mes "ID: " + .@id$;
+		mes "AID: " + .@aid;
+		query_sql("SELECT acc_reg_num.value FROM acc_reg_num WHERE acc_reg_num.account_id = '" + .@aid + "' AND acc_reg_num.key = '#DONATE'",.@donate);
+		mes "Total Donate: " + .@donate;
+		menu "Add more donate",-;
+		input .@donateAmount;
+		if(.@donate <= 0)
+		{
+			query_sql("INSERT INTO acc_reg_num (`account_id`, `key`, `index`, `value`) VALUES ('" + .@aid + "', '#DONATE', '0', '" + .@donateAmount + "')");
+		}
+		else
+		{
+			query_sql("UPDATE acc_reg_num SET value = '" + (.@donate + .@donateAmount) + "' WHERE acc_reg_num.account_id = '" + .@aid + "' AND acc_reg_num.key = '#DONATE'");
+		}
+		query_sql("SELECT acc_reg_num.value FROM acc_reg_num WHERE acc_reg_num.account_id = '" + .@aid + "' AND acc_reg_num.key = '#DONATE'",.@donate);
+		next;
+		mes "ID: " + .@id$;
+		mes "AID: " + .@aid;
+		mes "Total Donate: " + .@donate + " (+" + .@donateAmount + ")";
+		close;
+	}
 	end;
 	
 OnInit:

@@ -37,3 +37,5 @@ Header:
 Body:
   - Name: SLEEPING_PILL
     Value: 10000017
+  - Name: CLOCK
+    Value: 10000018

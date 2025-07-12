@@ -22,8 +22,12 @@
 	
 	freeloop(1);
 	
+	pickWishIndex = .@index;
+	
 	// Sleeping Pill
 	getitem SLEEPING_PILL,sleepingPill[.@index];
+	// Clock
+	getitem CLOCK,1;
 	
 	// Normal Usable Item
 	getitem 602,1;
@@ -131,11 +135,11 @@ moc_akhet,190,195,4	script	ขอพร	10545,{
 	mes "^ff3333*บาง Skill จะยังมีเงื่อนไขเฉพาะอยู่^000000";
 	mes "^17b217*แต่ส่วนใหญ่แล้ว จะกดใช้ได้เลย^000000^ff3333 (การใช้ HP, SP และ AP ยังมีอยู่)^000000";
 	next;
-	menu "ยกเลิก",-,"ยกเลิก",-,"ยกเลิก",-,"ขอพร Set ใหม่ (ระดับพร " + .@dreamLevelWording + ")",OnGenerateWish;
+	menu "ยกเลิก",-,"ยกเลิก",-,"ยกเลิก",-,"ขอพร Set ใหม่ (ระดับพร " + .@dreamLevelWording + " ได้รับ " + $maximumWishSet[.@dreamLevelIndex] + " + " + GetDonateMaxWishSetBonus() + " Set)",OnGenerateWish;
 	close;
 	
 OnGenerateWish:
-	maximumWishSet = $maximumWishSet[.@dreamLevelIndex];
+	maximumWishSet = $maximumWishSet[.@dreamLevelIndex] + GetDonateMaxWishSetBonus();
 	freeloop(1);
 	for(.@i = 0; .@i < maximumWishSet; .@i++)
 	{

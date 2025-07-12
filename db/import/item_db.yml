@@ -249,6 +249,15 @@ Body:
       sc_end SC_HANDICAPSTATE_DEPRESSION;
       sc_end SC_HANDICAPSTATE_HOLYFLAME;
       specialeffect2 748;
+  - Id: 10000018
+    AegisName: Clock
+    Name: Clock
+    Type: DelayConsume
+    Buy: 1
+    Trade:
+      NoSell: true
+    Script: |
+      callfunc "PaWClock";
   - Id: 602
     AegisName: Wing_Of_Butterfly
     Name: Butterfly Wing
