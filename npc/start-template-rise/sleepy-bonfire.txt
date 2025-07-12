@@ -1,15 +1,42 @@
 moc_akhet,190,248,5	script	กองไฟนิทรา	10252,{
+	// Still warping
+	if(isWarping)
+	{
+		end;
+	}
+	// Filling up Sleeping Pill
+	FillUpSleepyPill();
+	// Only party leader
 	if(!is_party_leader())
 	{
 		mes "ท่านต้องเป็นหัวหน้า Party..";
 		close;
 	}
+	// Cooldowning
+	if(dreamCd > gettimetick(2))
+	{
+		mes "โปรดรอ " + (dreamCd - gettimetick(2)) + " วินาที..";
+		close;
+	}
+	// Clear 0 player in busy map
+	freeloop(1);
+	for(.@i = getarraysize($busyMap$) - 1; .@i >= 0; .@i--)
+	{
+		if(getmapusers($busyMap$[.@i]) <= 0)
+		{
+			deletearray $busyMap$[.@i],1;
+		}
+	}
+	freeloop(0);
+	// Setup
 	.@partyId = getcharid(1);
 	getpartymember .@partyId,1;
 	getpartymember .@partyId,2;
-	.@partySize = getarraysize($@partymembercid[.@i]);
+	.@partySize = $@partymembercount;
+	partySize = .@partySize;
 	.@online = 0;
-	playDreamIndex = INT_MAX;
+	.@playDreamIndex = INT_MAX;
+	freeloop(1);
 	for(.@i = 0; .@i < .@partySize; .@i++)
 	{
 		if(!isloggedin($@partymemberaid[.@i],$@partymembercid[.@i]))
@@ -29,24 +56,26 @@ moc_akhet,190,248,5	script	กองไฟนิทรา	10252,{
 		}
 		.@dreamIndex = getvar(dreamIndex,$@partymembercid[.@i]);
 		// Try to get lowest dream index
-		if(.@dreamIndex < playDreamIndex)
+		if((.@dreamIndex < .@playDreamIndex) || (.@playDreamIndex != playDreamIndex))
 		{
+			.@playDreamIndex = .@dreamIndex;
 			playDreamIndex = .@dreamIndex;
-			.@dreamBy$ = strcharinfo(0,$@partymembercid[.@i]);
+			isDreamSetup = 0;
+			dreamBy$ = strcharinfo(0,$@partymembercid[.@i]);
 		}
 	}
 	if(.@online <= 0)
 	{
-		mes "ไม่พบสมาชิกใน Party ที่ Online อยู่เลย";
+		mes "ไม่พบสมาชิกใน Party ที่ Online อยู่เลย..";
 		close;
 	}
 	.@dreamLevelIndex = GetDreamLevelIndex(playDreamIndex);
-	// Monster Setup
-	mRankMin = $minimumRank[.@dreamLevelIndex];
-	mRankMax = $maximumRank[.@dreamLevelIndex];
 	// One time setup
 	if(!isDreamSetup)
 	{
+		// Monster Setup
+		mRankMin = $minimumRank[.@dreamLevelIndex];
+		mRankMax = $maximumRank[.@dreamLevelIndex];
 		.@monsterType = rand($monsterTypeMin[.@dreamLevelIndex],$monsterTypeMax[.@dreamLevelIndex]);
 		deletearray monsterType[0],getarraysize(monsterType);
 		for(.@i = 0; .@i < .@monsterType; .@i++)
@@ -55,22 +84,237 @@ moc_akhet,190,248,5	script	กองไฟนิทรา	10252,{
 		}
 		isDreamSetup = 1;
 	}
-	mes "จะทำการเข้าสู่ชั้นความฝันที่ " + playDreamIndex + " ของ " + .@dreamBy$;
+	mAmount = ($monsterAmount[.@dreamLevelIndex] * .@online);
+	mes "จะทำการเข้าสู่ชั้นความฝันที่ ^292fff" + playDreamIndex + "^000000 ของ ^292fff" + dreamBy$ + "^000000";
 	mes "Monster จะมี";
-	mes "• Rank " + mRankMin + "~" + mRankMax;
-	mes "• " + ($monsterAmount[.@dreamLevelIndex] * .@online) + " ตัว";
-	mes "• " + getarraysize(monsterType) + " ชนิด";
-	close;
-	// Set map
-	// Wait to enter
-	// Warp party
-	// Spawn monster x Party member amount
-	// Cooldown to everyone
-	// On Dead or On Leader logout --- Clear map, Warp out, Decrease leader dream level
-	// On Won --- Increase dream level to everyone (If possible)
+	mes "• ^ff2929Rank " + mRankMin + "~" + mRankMax + "^000000";
+	mes "• ^ff2929" + mAmount + " ตัว^000000";
+	mes "• ^ff2929" + getarraysize(monsterType) + " ชนิด^000000";
+	freeloop(0);
+	menu "เข้าสู่ความฝัน",-;
+	freeloop(1);
+	.@partyId = getcharid(1);
+	getpartymember .@partyId,1;
+	getpartymember .@partyId,2;
+	.@partySize = $@partymembercount;
+	if(.@partySize != partySize)
+	{
+		mes "สมาชิกใน Party มีการเปลี่ยนแปลง โปรดลองใหม่อีกครั้ง";
+		close;
+	}
+	.@retry = 300;
+	// Map Setup
+	map$ = $maps$[rand(getarraysize($maps$))];
+	while((inarray($busyMap$,map$) >= 0) && (.@retry > 0))
+	{
+		map$ = $maps$[rand(getarraysize($maps$))];
+		.@retry--;
+	}
+	freeloop(0);
+	if(.@retry <= 0)
+	{
+		mes "มีคนกำลังฝันอยู่เยอะเกินไป โปรดรอสักครู่..";
+		close;
+	}
+	deletearray getd("$" + map$ + "MonsterType[0]"),getarraysize(getd("$" + map$ + "MonsterType"));
+	for(.@i = 0; .@i < getarraysize(monsterType); .@i++)
+	{
+		set(getd("$" + map$ + "MonsterType[" + .@i + "]"),monsterType[.@i]);
+	}
+	set(getd("$" + map$ + "MonsterRankMin"),mRankMin);
+	set(getd("$" + map$ + "MonsterRankMax"),mRankMax);
+	set(getd("$" + map$ + "RemainingMonster"),mAmount);
+	set(getd("$" + map$ + "Killed"),0);
+	setarray $busyMap$[getarraysize($busyMap$)],map$;
+	// Set variables to everyone
+	.@partyId = getcharid(1);
+	getpartymember .@partyId,1;
+	getpartymember .@partyId,2;
+	.@partySize = $@partymembercount;
+	.@cd = gettimetick(2) + 60;
+	for(.@i = 0; .@i < .@partySize; .@i++)
+	{
+		if(!isloggedin($@partymemberaid[.@i],$@partymembercid[.@i]))
+		{
+			continue;
+		}
+		set(dreamCd,.@cd,$@partymembercid[.@i]);
+		set(isPartyLeader,0,$@partymembercid[.@i]);
+		set(playDreamIndex,playDreamIndex,$@partymembercid[.@i]);
+		set(mRankMin,mRankMin,$@partymembercid[.@i]);
+		set(mRankMax,mRankMax,$@partymembercid[.@i]);
+		set(isDreamSetup,1,$@partymembercid[.@i]);
+	}
+	isPartyLeader = 1;
+	isWarping = 1;
+	// Wait 0.001s to warp
+	addtimer 1,strnpcinfo(0) + "::OnWarpToDream";
+	// Wait 5s to spawn
+	addtimer 5000,strnpcinfo(0) + "::OnSpawn";
+	// Set monster type to everyone
+	.monsterType = getarraysize(monsterType);
+	copyarray .monsterId[0],monsterType[0],.monsterType;
+	addrid(2,0,.@partyId);
+	deletearray monsterType[0],getarraysize(monsterType);
+	for(.@i = 0; .@i < .monsterType; .@i++)
+	{
+		setarray monsterType[.@i],.monsterId[.@i];
+	}
 	end;
 	
+OnWarpToDream:
+	isWarping = 0;
+	.@partyId = getcharid(1);
+	getpartymember .@partyId,1;
+	getpartymember .@partyId,2;
+	.@partySize = $@partymembercount;
+	if(.@partySize != partySize)
+	{
+		mes "สมาชิกใน Party มีการเปลี่ยนแปลง โปรดลองใหม่อีกครั้ง";
+		close;
+	}
+	// Warp party
+	warpparty map$,0,0,.@partyId;
+	end;
+	
+OnSpawn:
+	if(!playerattached())
+	{
+		end;
+	}
+	.@mapName$ = strcharinfo(3);
+	// Map checking
+	if(IsSafeMap())
+	{
+		end;
+	}
+	// Party member amount checking
+	.@partyId = getcharid(1);
+	getpartymember .@partyId,1;
+	getpartymember .@partyId,2;
+	.@partySize = $@partymembercount;
+	if(.@partySize != partySize)
+	{
+		// Remove from busy map
+		.@busyMapIndex = inarray($busyMap$,.@mapName$);
+		if(.@busyMapIndex != -1)
+		{
+			deletearray $busyMap$[.@busyMapIndex],1;
+		}
+		addrid(1);
+		isPartyAmountChange = 1;
+		// Warp map
+		warp "Save",0,0;
+		end;
+	}
+	// Spawn monster
+	freeloop(1);
+	.@remainingMonster = getd("$" + .@mapName$ + "RemainingMonster");
+	mapannounce .@mapName$,"ศัตรูคงเหลือ " + .@remainingMonster + " ตัว",0;
+	for(.@i = 0; .@i < .@remainingMonster; .@i++)
+	{
+		.@maximumMonsterType = getarraysize(getd("$" + .@mapName$ + "MonsterType[" + .@i + "]"));
+		if(.@maximumMonsterType <= 1)
+		{
+			.@monsterId = getd("$" + .@mapName$ + "MonsterType[0]");
+		}
+		else
+		{
+			.@monsterId = getd("$" + .@mapName$ + "MonsterType[" + rand(.@maximumMonsterType) + "]");
+		}
+		monster .@mapName$,0,0,"--ja--",.@monsterId,1,strnpcinfo(0) + "::OnMonsterDead";
+		setunitdata $@mobid[0],UMOB_RANK,rand(mRankMin,mRankMax);
+		// Limit to 300 per spawn
+		if(.@i >= 300)
+		{
+			break;
+		}
+	}
+	freeloop(0);
+	end;
+	
+OnMonsterDead:
+	if(!playerattached())
+	{
+		end;
+	}
+	.@mapName$ = strcharinfo(3);
+	if(IsSafeMap())
+	{
+		end;
+	}
+	if((getcharid(1) <= 0) && isPartyLeader)
+	{
+		isWishGenerated = 0;
+		dreamIndex = cap_value(dreamIndex - 1,0,1000);
+		// Remove monster
+		killmonsterall .@mapName$;
+		// Remove from busy map
+		.@busyMapIndex = inarray($busyMap$,.@mapName$);
+		if(.@busyMapIndex != -1)
+		{
+			deletearray $busyMap$[.@busyMapIndex],1;
+		}
+		addrid(1);
+		isPartyLeaderLeaveParty = 1;
+		// Warp map
+		warp "Save",0,0;
+		end;
+	}
+	set(getd("$" + .@mapName$ + "Killed"),getd("$" + .@mapName$ + "Killed") + 1);
+	.@remainingMonster = getd("$" + .@mapName$ + "RemainingMonster") - getd("$" + .@mapName$ + "Killed");
+	
+	if(.@remainingMonster > 0)
+	{
+		mapannounce .@mapName$,"ศัตรูคงเหลือ " + .@remainingMonster + " ตัว",0;
+		.@maximumMonsterType = getarraysize(getd("$" + .@mapName$ + "MonsterType[" + .@i + "]"));
+		if(.@maximumMonsterType <= 1)
+		{
+			.@monsterId = getd("$" + .@mapName$ + "MonsterType[0]");
+		}
+		else
+		{
+			.@monsterId = getd("$" + .@mapName$ + "MonsterType[" + rand(.@maximumMonsterType) + "]");
+		}
+		monster .@mapName$,0,0,"--ja--",.@monsterId,1,strnpcinfo(0) + "::OnMonsterDead";
+		setunitdata $@mobid[0],UMOB_RANK,rand(getd("$" + .@mapName$ + "MonsterRankMin"),getd("$" + .@mapName$ + "MonsterRankMax"));
+	}
+	else{
+		.@rewardDreamIndex = cap_value(playDreamIndex + 1,0,1000);
+		// Increase dream level to everyone (If possible)
+		.@partyId = getcharid(1);
+		getpartymember .@partyId,1;
+		getpartymember .@partyId,2;
+		.@partySize = $@partymembercount;
+		for(.@i = 0; .@i < .@partySize; .@i++)
+		{
+			if(!isloggedin($@partymemberaid[.@i],$@partymembercid[.@i]) || (strcharinfo(3,$@partymembercid[.@i]) != strcharinfo(3)))
+			{
+				continue;
+			}
+			set(isDreamSetup,0,$@partymembercid[.@i]);
+			set(dreamCd,0,$@partymembercid[.@i]);
+			if(getvar(dreamIndex,$@partymembercid[.@i]) < .@rewardDreamIndex)
+			{
+				set(isWishGenerated,0,$@partymembercid[.@i]);
+				set(dreamIndex,.@rewardDreamIndex,$@partymembercid[.@i]);
+				set(isAnnounceInLobby,1,$@partymembercid[.@i]);
+			}
+		}
+		// Remove from busy map
+		.@busyMapIndex = inarray($busyMap$,.@mapName$);
+		if(.@busyMapIndex != -1)
+		{
+			deletearray $busyMap$[.@busyMapIndex],1;
+		}
+		// Warp party
+		warpparty $town$,0,0,.@partyId;
+		end;
+	}
+	end;
+
 OnInit:
+	deletearray $busyMap$[0],getarraysize($busyMap$);
 	waitingroom strnpcinfo(1),0;
 	end;
 }
