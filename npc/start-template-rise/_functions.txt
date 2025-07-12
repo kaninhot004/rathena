@@ -608,7 +608,7 @@ function	script	ClearAll	{
 
 function	script	PaWButterflyWing	{
 	.@mapName$ = strcharinfo(3);
-	.@isSkip = (.@mapName$ == $town$);
+	.@isSkip = IsSafeMap();
 	if(!.@isSkip)
 	{
 		specialeffect2 35;
@@ -640,7 +640,7 @@ function	script	PaWButterflyWing	{
 }
 
 function	script	PaWFlyWing	{
-	.@isSkip = (strcharinfo(3) == $town$);
+	.@isSkip = IsSafeMap();
 	if(!.@isSkip)
 	{
 		specialeffect2 35;
@@ -653,7 +653,7 @@ function	script	PaWFlyWing	{
 function	script	PaWGiantFlyWing	{
 	if (is_party_leader())
 	{
-		.@isSkip = (strcharinfo(3) == $town$);
+		.@isSkip = IsSafeMap();
 		if(!.@isSkip)
 		{
 			specialeffect2 35;
@@ -670,12 +670,11 @@ function	script	PaWGiantFlyWing	{
 
 function	script	PaWClock	{
 	.@mapName$ = strcharinfo(3);
-	if(.@mapName$ == $town$)
+	if(IsSafeMap())
 	{
 		return;
 	}
 	specialeffect2 34;
-	progressbar "",1;
 	getmapunits(BL_MOB,.@mapName$,.@mGID[0]);
 	.@mapMonsterAmount = getarraysize(.@mGID);
 	if(.@mapMonsterAmount > 0)
