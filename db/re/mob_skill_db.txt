@@ -4836,8 +4836,6 @@
 1894,Pouring@AL_TELEPORT,walk,26,1,5000,0,5000,yes,self,rudeattacked,,,,,,,,
 1894,Pouring@WZ_STORMGUST,chase,89,10,2000,0,5000,no,target,always,0,,,,,,,
 1894,Pouring@WZ_STORMGUST,attack,89,10,2000,0,5000,no,target,always,0,,,,,,,
-1894,Pouring@WZ_WATERBALL,attack,86,10,10000,500,5000,no,target,always,0,,,,,,,
-1894,Pouring@WZ_WATERBALL,chase,86,10,10000,500,5000,no,target,always,0,,,,,,,
 
 
 // Satan Morocc (12.1)
