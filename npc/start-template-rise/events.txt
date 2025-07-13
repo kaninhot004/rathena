@@ -33,6 +33,7 @@ OnPCLogoutEvent:
 OnPCLoadMapEvent:
 	if(IsSafeMap())
 	{
+		FullHeal();
 		// Fill up Sleeping Pill
 		FillUpSleepyPill();
 		// Victory announcer
