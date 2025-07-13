@@ -183,6 +183,7 @@ OnWarpToDream:
 	}
 	// Warp party
 	warpparty map$,0,0,.@partyId;
+	killmonsterall map$;
 	end;
 	
 OnSpawn:
