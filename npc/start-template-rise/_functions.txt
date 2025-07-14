@@ -658,7 +658,8 @@ function	script	PaWFlyWing	{
 			{
 				getunitdata .@mGID[0],.@uDatas;
 			}
-			warp .@mapName$,.@uDatas[UMOB_X] + rand(-10,10),.@uDatas[UMOB_Y] + rand(-10,10);
+			getfreecell .@mapName$,.@x,.@y,.@uDatas[UMOB_X],.@uDatas[UMOB_Y],10,10;
+			warp .@mapName$,.@x,.@y;
 			return;
 		}
 	}
