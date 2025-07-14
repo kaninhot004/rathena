@@ -38631,7 +38631,6 @@ Body:
     ClientAttackMotion: 0
     DamageMotion: 384
     Ai: 06
-    Class: Battlefield
   - Id: 1906
     AegisName: BARRICADE_
     Name: Barricade
@@ -38656,7 +38655,6 @@ Body:
     ClientAttackMotion: 0
     DamageMotion: 384
     Ai: 06
-    Class: Battlefield
   - Id: 1907
     AegisName: S_EMPEL_1
     Name: Guardian Stone
@@ -38726,7 +38724,6 @@ Body:
     ClientAttackMotion: 288
     DamageMotion: 384
     Ai: 06
-    Class: Battlefield
     Modes:
       IgnoreMagic: true
       IgnoreMelee: true
@@ -38753,7 +38750,6 @@ Body:
     ClientAttackMotion: 288
     DamageMotion: 384
     Ai: 06
-    Class: Battlefield
     Modes:
       IgnoreMagic: true
       IgnoreMelee: true
@@ -38780,7 +38776,6 @@ Body:
     ClientAttackMotion: 0
     DamageMotion: 384
     Ai: 06
-    Class: Battlefield
     Modes:
       IgnoreMagic: true
       IgnoreMelee: true
@@ -38807,7 +38802,6 @@ Body:
     ClientAttackMotion: 0
     DamageMotion: 384
     Ai: 06
-    Class: Battlefield
     Modes:
       IgnoreMagic: true
       IgnoreMelee: true
@@ -38834,7 +38828,6 @@ Body:
     ClientAttackMotion: 0
     DamageMotion: 384
     Ai: 06
-    Class: Battlefield
     Modes:
       IgnoreMagic: true
       IgnoreMelee: true
@@ -38861,7 +38854,6 @@ Body:
     ClientAttackMotion: 0
     DamageMotion: 384
     Ai: 06
-    Class: Battlefield
     Modes:
       IgnoreMagic: true
       IgnoreMelee: true
@@ -38888,7 +38880,6 @@ Body:
     ClientAttackMotion: 0
     DamageMotion: 384
     Ai: 06
-    Class: Battlefield
     Modes:
       IgnoreMagic: true
       IgnoreMelee: true
@@ -55657,7 +55648,6 @@ Body:
     AttackMotion: 1000
     ClientAttackMotion: 768
     Ai: 10
-    Class: Battlefield
     Modes:
       Detector: true
       IgnoreMagic: true
@@ -55878,7 +55868,6 @@ Body:
     AttackMotion: 2000
     ClientAttackMotion: 768
     Ai: 10
-    Class: Battlefield
     Modes:
       Detector: true
       IgnoreMagic: true
@@ -79975,7 +79964,6 @@ Body:
     AttackMotion: 1000
     ClientAttackMotion: 384
     Ai: 06
-    Class: Battlefield
     Modes:
       Detector: true
       IgnoreMagic: true
@@ -80466,7 +80454,6 @@ Body:
     AttackMotion: 1000
     ClientAttackMotion: 384
     Ai: 06
-    Class: Battlefield
     Modes:
       Detector: true
       IgnoreMagic: true
@@ -83202,7 +83189,6 @@ Body:
     AttackMotion: 792
     ClientAttackMotion: 768
     DamageMotion: 360
-    Class: Battlefield
     Modes:
       IgnoreMagic: true
       IgnoreMelee: true
@@ -88319,7 +88305,6 @@ Body:
     ClientAttackMotion: 960
     DamageMotion: 550
     Ai: 21
-    Class: Battlefield
     Modes:
       Detector: true
       IgnoreMagic: true
@@ -98529,7 +98514,6 @@ Body:
     WalkSpeed: 1000
     ClientAttackMotion: 0
     Ai: 06
-    Class: Battlefield
     Modes:
       IgnoreMagic: true
       IgnoreMelee: true
@@ -98561,7 +98545,6 @@ Body:
     WalkSpeed: 1000
     ClientAttackMotion: 0
     Ai: 06
-    Class: Battlefield
     Modes:
       IgnoreMagic: true
       IgnoreMelee: true
@@ -100665,7 +100648,6 @@ Body:
     ClientAttackMotion: 0
     DamageMotion: 384
     Ai: 06
-    Class: Battlefield
     Modes:
       IgnoreMagic: true
       IgnoreMelee: true
@@ -114334,7 +114316,6 @@ Body:
     AttackMotion: 1000
     #DamageMotion: -1
     #Ai:
-    Class: Battlefield
     Modes:
       FixedItemDrop: true
       IgnoreMagic: true
@@ -114362,7 +114343,6 @@ Body:
     AttackMotion: 1000
     #DamageMotion: -1
     #Ai:
-    Class: Battlefield
     Modes:
       FixedItemDrop: true
       IgnoreMagic: true
@@ -114389,7 +114369,6 @@ Body:
     AttackMotion: 1000
     #DamageMotion: -1
     #Ai:
-    Class: Battlefield
     Modes:
       FixedItemDrop: true
       IgnoreMagic: true
@@ -114416,7 +114395,6 @@ Body:
     AttackMotion: 1000
     #DamageMotion: -1
     #Ai:
-    Class: Battlefield
     Modes:
       FixedItemDrop: true
       IgnoreMagic: true
@@ -114477,7 +114455,6 @@ Body:
     AttackMotion: 1000
     #DamageMotion: -1
     #Ai:
-    Class: Battlefield
     Modes:
       FixedItemDrop: true
       IgnoreMagic: true
