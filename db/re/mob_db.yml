@@ -50031,7 +50031,6 @@ Body:
     ClientAttackMotion: 240
     DamageMotion: 360
     Ai: 10
-    Class: Battlefield
     Modes:
       IgnoreMagic: true
       IgnoreMelee: true
@@ -55447,7 +55446,6 @@ Body:
     ClientAttackMotion: 240
     DamageMotion: 360
     Ai: 10
-    Class: Battlefield
     Modes:
       IgnoreMagic: true
       IgnoreMelee: true
