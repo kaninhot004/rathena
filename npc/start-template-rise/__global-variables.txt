@@ -145,8 +145,8 @@ OnInit:
 		setarray $guaranteeMvp[0],0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,3,3,3,3,3,4,4,4,4,4,5,6,7;
 	}
 	// Pick a Wish
-	if($globalVariables6Version != 1){
-		$globalVariables6Version = 1;
+	if($globalVariables6Version != 2){
+		$globalVariables6Version = 2;
 		
 		deletearray $dreamIndex[0],getarraysize($dreamIndex);
 		setarray $dreamIndex[0],0,5,10,15,20,25,30,40,50,60,70,80,90,100,125,150,175,200,225,250,275,300,330,360,390,420,450,490,530,570,610,650,700,750,800,850,900,975;
@@ -201,6 +201,9 @@ OnInit:
 		setarray $monsterTypeMin[0],1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,5,5;
 		deletearray $monsterTypeMax[0],getarraysize($monsterTypeMax);
 		setarray $monsterTypeMax[0],3,3,3,3,3,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,6,6,6,6,6,7,7,7,7,7,8,8,8,8,8,9,10,11;
+		
+		deletearray $spPercentRegen[0],getarraysize($spPercentRegen);
+		setarray $spPercentRegen[0],3,6,6,6,6,6,6,9,9,9,9,9,9,9,12,12,12,12,12,12,12,12,15,15,15,15,15,18,18,18,18,18,21,21,21,21,21,24;
 	}
 	// Skill
 	if($globalVariables7Version != 1){

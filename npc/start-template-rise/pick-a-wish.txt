@@ -58,6 +58,9 @@
 		bonus_script "skill " + $skillIds[.@skillIndex] + "," + $skillMaxLvs[.@skillIndex] + ";",86400,512;
 	}
 	
+	// SP Regeneration
+	bonus_script "bonus2 bSPRegenRate," + $spPercentRegen[.@index] + ",10000;",86400,512;
+	
 	// Equipment
 	for(.@r = 0; .@r <= 20; .@r++)
 	{
