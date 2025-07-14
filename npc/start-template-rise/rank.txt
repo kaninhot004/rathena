@@ -1,0 +1,13 @@
+moc_akhet,190,253,5	script	ป้าย#Rank	10252,{
+	query_sql("SELECT char_reg_num.char_id, char_reg_num.`value` FROM char_reg_num WHERE char_reg_num.`key` = 'dreamIndex' ORDER BY char_reg_num.`value` DESC LIMIT 100",.@brCID,.@v);
+	mes "จัดอันดับ";
+	for(.@i = 0; .@i < getarraysize(.@brCID); .@i++){
+		query_sql("SELECT `char`.`name` FROM `char` WHERE `char`.char_id = '" + .@brCID[.@i] + "'",.@name$);
+		mes (.@i + 1) + ".) " + .@name$ + " (" + .@v[.@i] + ")";
+	}
+	close;
+
+OnInit:
+	waitingroom strnpcinfo(2),0;
+	end;
+}
