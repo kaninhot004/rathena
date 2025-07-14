@@ -147,7 +147,7 @@ OnGenerateWish:
 	for(.@i = 0; .@i < maximumWishSet; .@i++)
 	{
 		// Sleeping Pill
-		sleepingPill[.@i] = rand(0,$maximumPill[.@dreamLevelIndex]);
+		sleepingPill[.@i] = rand($minimumPill[.@dreamLevelIndex],$maximumPill[.@dreamLevelIndex]);
 		
 		// Status
 		.@minimumStatus = $minimumStatus[.@dreamLevelIndex];
