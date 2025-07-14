@@ -9430,45 +9430,36 @@ int32 pc_resetstate(map_session_data* sd)
  *------------------------------------------*/
 int32 pc_resetskill(map_session_data* sd, int32 flag)
 {
-	int32 i, skill_point=0;
+	int32 i, skill_point = 0;
 	nullpo_ret(sd);
 
-	if( flag&4 && (sd->class_&MAPID_UPPERMASK) != MAPID_BARDDANCER )
-		return 0;
-
-	if( !(flag&2) ) { //Remove stuff lost when resetting skills.
-		/**
-		 * It has been confirmed on official servers that when you reset skills with a ranked Taekwon your skills are not reset (because you have all of them anyway)
-		 **/
-		if( pc_is_taekwon_ranker(sd) )
-			return 0;
-
-		if( pc_checkskill(sd, SG_DEVIL) && ((sd->class_&MAPID_THIRDMASK) == MAPID_STAR_EMPEROR || pc_is_maxjoblv(sd)) )
+	if (!(flag & 2)) { //Remove stuff lost when resetting skills.
+		if (pc_checkskill(sd, SG_DEVIL) && ((sd->class_ & MAPID_THIRDMASK) == MAPID_STAR_EMPEROR || pc_is_maxjoblv(sd)))
 			clif_status_load(sd, EFST_DEVIL1, 0); //Remove perma blindness due to skill-reset. [Skotlex]
 		i = sd->sc.option;
-		if( i&OPTION_RIDING && pc_checkskill(sd, KN_RIDING) )
+		if (i & OPTION_RIDING && pc_checkskill(sd, KN_RIDING))
 			i &= ~OPTION_RIDING;
-		if( i&OPTION_FALCON && pc_checkskill(sd, HT_FALCON) )
+		if (i & OPTION_FALCON && pc_checkskill(sd, HT_FALCON))
 			i &= ~OPTION_FALCON;
-		if( i&OPTION_DRAGON && pc_checkskill(sd, RK_DRAGONTRAINING) )
+		if (i & OPTION_DRAGON && pc_checkskill(sd, RK_DRAGONTRAINING))
 			i &= ~OPTION_DRAGON;
-		if( i&OPTION_WUG && pc_checkskill(sd, RA_WUGMASTERY) )
+		if (i & OPTION_WUG && pc_checkskill(sd, RA_WUGMASTERY))
 			i &= ~OPTION_WUG;
-		if( i&OPTION_WUGRIDER && pc_checkskill(sd, RA_WUGRIDER) )
+		if (i & OPTION_WUGRIDER && pc_checkskill(sd, RA_WUGRIDER))
 			i &= ~OPTION_WUGRIDER;
-		if( i&OPTION_MADOGEAR && ( sd->class_&MAPID_THIRDMASK ) == MAPID_MECHANIC )
+		if (i & OPTION_MADOGEAR && (sd->class_ & MAPID_THIRDMASK) == MAPID_MECHANIC)
 			i &= ~OPTION_MADOGEAR;
 #ifndef NEW_CARTS
-		if( i&OPTION_CART && pc_checkskill(sd, MC_PUSHCART) )
+		if (i & OPTION_CART && pc_checkskill(sd, MC_PUSHCART))
 			i &= ~OPTION_CART;
 #else
-		if( sd->sc.getSCE(SC_PUSH_CART) )
+		if (sd->sc.getSCE(SC_PUSH_CART))
 			pc_setcart(sd, 0);
 #endif
-		if( i != sd->sc.option )
+		if (i != sd->sc.option)
 			pc_setoption(sd, i);
 
-		if( hom_is_active(sd->hd) && pc_checkskill(sd, AM_CALLHOMUN) )
+		if (hom_is_active(sd->hd) && pc_checkskill(sd, AM_CALLHOMUN))
 			hom_vaporize(sd, HOM_ST_ACTIVE);
 
 		if (sd->sc.getSCE(SC_SPRITEMABLE) && pc_checkskill(sd, SU_SPRITEMABLE))
@@ -9477,67 +9468,22 @@ int32 pc_resetskill(map_session_data* sd, int32 flag)
 			status_change_end(sd, SC_SOULATTACK);
 	}
 
-	for (const auto &skill : skill_db) {
+	for (const auto& skill : skill_db) {
 		uint16 skill_id = skill.second->nameid, idx = skill_get_index(skill_id);
 		uint8 lv = sd->status.skill[idx].lv;
 
 		if (lv == 0 || skill_id == 0)
 			continue;
 
-		if( skill.second->inf2[INF2_ISWEDDING] || skill.second->inf2[INF2_ISSPIRIT] ) //Avoid reseting wedding/linker skills.
-			continue;
-
-		// Don't reset trick dead if not a novice/baby
-		if( skill_id == NV_TRICKDEAD && (sd->class_&MAPID_UPPERMASK) != MAPID_NOVICE )
-		{
-			sd->status.skill[idx].lv = 0;
-			sd->status.skill[idx].flag = SKILL_FLAG_PERMANENT;
-			continue;
-		}
-
-		// do not reset basic skill
-		if (skill_id == NV_BASIC && (sd->class_&MAPID_UPPERMASK) != MAPID_NOVICE )
-			continue;
-
-		//if( sd->status.skill[idx].flag == SKILL_FLAG_PERM_GRANTED ) // [Start's] Permanent Granted also reset
-		//	continue;
-
-		if( flag&4 && !skill_ischangesex(skill_id) )
-			continue;
-
-		if( skill.second->inf2[INF2_ISQUEST] && !battle_config.quest_skill_learn )
-		{ //Only handle quest skills in a special way when you can't learn them manually
-			if( battle_config.quest_skill_reset && !(flag&2) )
-			{	//Wipe them
-				sd->status.skill[idx].lv = 0;
-				sd->status.skill[idx].flag = SKILL_FLAG_PERMANENT;
-			}
-			continue;
-		}
-		if( sd->status.skill[idx].flag == SKILL_FLAG_PERMANENT )
-			skill_point += lv;
-		else
-		if( sd->status.skill[idx].flag >= SKILL_FLAG_REPLACED_LV_0 )
-			skill_point += (sd->status.skill[idx].flag - SKILL_FLAG_REPLACED_LV_0);
-
-		if( !(flag&2) )
-		{// reset
-			sd->status.skill[idx].lv = 0;
-			sd->status.skill[idx].flag = SKILL_FLAG_PERMANENT;
-		}
+		sd->status.skill[idx].lv = 0;
+		sd->status.skill[idx].flag = SKILL_FLAG_PERMANENT;
 	}
 
-	if( flag&2 || !skill_point ) return skill_point;
+	clif_updatestatus(*sd, SP_SKILLPOINT);
+	clif_skillinfoblock(sd);
+	status_calc_pc(sd, SCO_FORCE);
 
-	sd->status.skill_point += skill_point;
-
-	if (flag&1) {
-		clif_updatestatus(*sd,SP_SKILLPOINT);
-		clif_skillinfoblock(sd);
-		status_calc_pc(sd, SCO_FORCE);
-	}
-
-	return skill_point;
+	return 0;
 }
 
 /*==========================================

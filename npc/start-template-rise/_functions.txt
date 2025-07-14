@@ -596,6 +596,18 @@ function	script	ClearAll	{
 	if(checkcart()){
 		atcommand "@clearcart";
 	}
+	if(checkfalcon())
+	{
+		setfalcon 0;
+	}
+	if(checkmadogear())
+	{
+		setmadogear 0;
+	}
+	if(checkdragon())
+	{
+		setdragon;
+	}
 	resetstatus;
 	resetskill;
 	StatusPoint = 0;
