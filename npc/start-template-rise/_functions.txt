@@ -645,6 +645,22 @@ function	script	PaWFlyWing	{
 	{
 		specialeffect2 35;
 		progressbar "",1;
+		.@mapName$ = strcharinfo(3);
+		getmapunits(BL_MOB,.@mapName$,.@mGID[0]);
+		.@mapMonsterAmount = getarraysize(.@mGID);
+		if(.@mapMonsterAmount > 0)
+		{
+			if(.@mapMonsterAmount > 1)
+			{
+				getunitdata .@mGID[rand(.@mapMonsterAmount)],.@uDatas;
+			}
+			else
+			{
+				getunitdata .@mGID[0],.@uDatas;
+			}
+			warp .@mapName$,.@uDatas[UMOB_X] + rand(-10,10),.@uDatas[UMOB_Y] + rand(-10,10);
+			return;
+		}
 	}
 	warp "Random",0,0;
 	return;
