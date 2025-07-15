@@ -11775,7 +11775,8 @@ static int32 pc_checkcombo(map_session_data *sd, item_data *data) {
 		size_t j;
 		uint32 pos = 0;
 
-		for (j = 0; j < nb_itemCombo; j++) {
+		// [Start's] Skip item check for combo
+		/*for (j = 0; j < nb_itemCombo; j++) {
 			t_itemid id = item_combo->nameid[j];
 			bool found = false;
 
@@ -11853,7 +11854,7 @@ static int32 pc_checkcombo(map_session_data *sd, item_data *data) {
 
 		// Broke out of the count loop without finding all IDs, move to the next combo
 		if (j < nb_itemCombo)
-			continue;
+			continue;*/
 
 		// All items in the combo are matching
 		auto entry = std::make_shared<s_combos>();
@@ -11900,9 +11901,10 @@ static int32 pc_removecombo(map_session_data *sd, item_data *data ) {
 		util::vector_erase_if_exists(sd->combos, del_combo);
 		retval++;
 
+		// [Start's] Just remove combo
 		// Check if combo requirements still fit
-		if (pc_checkcombo(sd, data))
-			continue;
+		/*if (pc_checkcombo(sd, data))
+			continue;*/
 
 		// It's empty, clear all the memory
 		if (sd->combos.empty()) {
