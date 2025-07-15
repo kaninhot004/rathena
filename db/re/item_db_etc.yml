@@ -47260,50 +47260,36 @@ Body:
     Name: Fire Attribute (Weapon)
     Type: Card
     SubType: Enchant
-    Script: |
-      sc_start SC_FIREWEAPON,180000,1;
   - Id: 29691
     AegisName: Wepon_Property_Water
     Name: Water Attribute (Weapon)
     Type: Card
     SubType: Enchant
-    Script: |
-      sc_start SC_WATERWEAPON,180000,1;
   - Id: 29692
     AegisName: Wepon_Property_Wind
     Name: Wind Attribute (Weapon)
     Type: Card
     SubType: Enchant
-    Script: |
-      sc_start SC_WINDWEAPON,180000,1;
   - Id: 29693
     AegisName: Wepon_Property_Ground
     Name: Earth Attribute (Weapon)
     Type: Card
     SubType: Enchant
-    Script: |
-      sc_start SC_EARTHWEAPON,180000,1;
   - Id: 29695
     AegisName: Wepon_Property_Darkness
     Name: Dark Attribute (Weapon)
     Type: Card
     SubType: Enchant
-    Script: |
-      sc_start SC_SHADOWWEAPON,180000,1;
   - Id: 29696
     AegisName: Wepon_Property_Telekine
     Name: Spirit Attribute (Weapon)
     Type: Card
     SubType: Enchant
-    Script: |
-      sc_start SC_GHOSTWEAPON,180000,1;
   - Id: 29697
     AegisName: Wepon_Property_Poison
     Name: Poison Attribute (Weapon)
     Type: Card
     SubType: Enchant
-    Script: |
-      sc_start SC_POISONINGWEAPON,180000,1;
   - Id: 29698
     AegisName: Matk_Race_0
     Name: Lethal Frame (Magic)
