@@ -112,7 +112,13 @@ moc_akhet,190,248,5	script	กองไฟนิทรา	10252,{
 	mes "• ^ff2929" + mAmount + " ตัว^000000";
 	mes "• ^ff2929" + getarraysize(monsterType) + " ชนิด^000000";
 	freeloop(0);
-	menu "เข้าสู่ความฝัน",-;
+	menu "เข้าสู่ความฝัน แบบ Monster เกิดเรื่อย ๆ",OnLargeSpawn,"เข้าสู่ความฝัน แบบ Monster เกิดเท่าที่แจ้ง",OnNormalSpawn;
+	OnLargeSpawn:
+	isLargeSpawn = 1;
+	goto OnStartTalk;
+	OnNormalSpawn:
+	isLargeSpawn = 0;
+	OnStartTalk:
 	freeloop(1);
 	.@partyId = getcharid(1);
 	getpartymember .@partyId,1;
@@ -147,6 +153,7 @@ moc_akhet,190,248,5	script	กองไฟนิทรา	10252,{
 	set(getd("$" + map$ + "RemainingMonster"),mAmount);
 	set(getd("$" + map$ + "Killed"),0);
 	set(getd("$" + map$ + "Spawned"),0);
+	set(getd("$" + map$ + "LargeSpawn"),isLargeSpawn);
 	setarray $busyMap$[getarraysize($busyMap$)],map$;
 	// Set variables to everyone
 	.@partyId = getcharid(1);
@@ -299,6 +306,10 @@ OnMonsterDead:
 	{
 		mapannounce .@mapName$,"ศัตรูคงเหลือ " + .@remainingMonster + " ตัว",0;
 		.@remainingMonsterToSpawn = getd("$" + .@mapName$ + "RemainingMonster") - getd("$" + .@mapName$ + "Spawned");
+		if(getd("$" + .@mapName$ + "LargeSpawn"))
+		{
+			.@remainingMonsterToSpawn = 1;
+		}
 		if(.@remainingMonsterToSpawn > 0)
 		{
 			// Get Freecell
