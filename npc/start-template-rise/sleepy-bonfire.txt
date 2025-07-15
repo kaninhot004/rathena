@@ -90,9 +90,16 @@ moc_akhet,190,248,5	script	กองไฟนิทรา	10252,{
 				monsterType[.@i] = $mvpIds[rand(getarraysize($mvpIds))];
 			}
 		}
+		for(.@i = 0; .@i < getarraysize(monsterType); .@i++)
+		{
+			if(inarray($mvpIds,monsterType[.@i]))
+			{
+				.@mvpAmount++;
+			}
+		}
 		isDreamSetup = 1;
 	}
-	mAmount = ($monsterAmount[.@dreamLevelIndex] * .@online);
+	mAmount = (($monsterAmount[.@dreamLevelIndex] * .@online) / (1 + .@mvpAmount));
 	mes "จะทำการเข้าสู่ชั้นความฝันที่ ^292fff" + playDreamIndex + "^000000 ของ ^292fff" + dreamBy$ + "^000000";
 	mes "Monster จะมี";
 	mes "• ^ff2929Rank " + mRankMin + "~" + mRankMax + "^000000";
