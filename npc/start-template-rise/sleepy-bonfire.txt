@@ -79,9 +79,15 @@ moc_akhet,190,248,5	script	กองไฟนิทรา	10252,{
 		mRankMax = $maximumRank[.@dreamLevelIndex];
 		.@monsterType = rand($monsterTypeMin[.@dreamLevelIndex],$monsterTypeMax[.@dreamLevelIndex]);
 		deletearray monsterType[0],getarraysize(monsterType);
+		.@fairLevel = $fairLevel[.@dreamLevelIndex];
+		.@fairPlay = $fairPlay[.@dreamLevelIndex];
 		for(.@i = 0; .@i < .@monsterType; .@i++)
 		{
 			setarray monsterType[.@i],$attackableMonsterIds[rand(getarraysize($attackableMonsterIds))];
+			if(rand(100) <= .@fairPlay)
+			{
+				setarray monsterType[.@i],getd("$attackableMonsterTier" + .@fairLevel + "Ids[" + rand(getarraysize(getd("$attackableMonsterTier" + .@fairLevel + "Ids")))+ "]");
+			}
 		}
 		if(.@guaranteeMvp > 0)
 		{
@@ -92,7 +98,7 @@ moc_akhet,190,248,5	script	กองไฟนิทรา	10252,{
 		}
 		for(.@i = 0; .@i < getarraysize(monsterType); .@i++)
 		{
-			if(inarray($mvpIds,monsterType[.@i]))
+			if(inarray($mvpIds,monsterType[.@i]) >= 0)
 			{
 				.@mvpAmount++;
 			}
