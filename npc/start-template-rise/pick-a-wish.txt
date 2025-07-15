@@ -55,7 +55,8 @@
 	for(.@s = 0; .@s < skillAmount[.@index]; .@s++)
 	{
 		.@skillIndex = getd("skillIndex" + .@index + "[" + .@s + "]");
-		bonus_script "skill " + $skillIds[.@skillIndex] + "," + $skillMaxLvs[.@skillIndex] + ";",86400,512;
+		skill $skillIds[.@skillIndex],$skillMaxLvs[.@skillIndex],3;
+		//bonus_script "skill " + $skillIds[.@skillIndex] + "," + $skillMaxLvs[.@skillIndex] + ";",86400,512;
 	}
 	
 	// SP Regeneration
