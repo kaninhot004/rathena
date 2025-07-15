@@ -655,8 +655,11 @@ function	script	PaWFlyWing	{
 	.@isSkip = IsSafeMap();
 	if(!.@isSkip)
 	{
-		specialeffect2 35;
-		progressbar "",1;
+		if(@flyWingCd > gettimetick(2))
+		{
+			dispbottom "โปรดรอ " + (@flyWingCd - gettimetick(2)) + " วินาที";
+			return;
+		}
 		.@mapName$ = strcharinfo(3);
 		getmapunits(BL_MOB,.@mapName$,.@mGID[0]);
 		.@mapMonsterAmount = getarraysize(.@mGID);
@@ -671,6 +674,7 @@ function	script	PaWFlyWing	{
 				getunitdata .@mGID[0],.@uDatas;
 			}
 			getfreecell .@mapName$,.@x,.@y,.@uDatas[UMOB_X],.@uDatas[UMOB_Y],10,10;
+			@flyWingCd = gettimetick(2) + 2;
 			warp .@mapName$,.@x,.@y;
 			return;
 		}
