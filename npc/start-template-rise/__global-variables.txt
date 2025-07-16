@@ -172,8 +172,8 @@ OnInit:
 		setarray $fairPlay[0],100,95,90,85,80,80,78,76,74,72,70,65,60,60,60,60,60,60,60,60,50,48,46,44,42,40,38,36,34,32,30,28,26,24,22,20,15,10;
 	}
 	// Pick a Wish
-	if($globalVariables6Version != 6){
-		$globalVariables6Version = 6;
+	if($globalVariables6Version != 7){
+		$globalVariables6Version = 7;
 		
 		deletearray $dreamIndex[0],getarraysize($dreamIndex);
 		setarray $dreamIndex[0],0,5,10,15,20,25,30,40,50,60,70,80,90,100,125,150,175,200,225,250,275,300,330,360,390,420,450,490,530,570,610,650,700,750,800,850,900,975;
@@ -197,22 +197,22 @@ OnInit:
 		deletearray $minimumRefine[0],getarraysize($minimumRefine);
 		deletearray $maximumRefine[0],getarraysize($maximumRefine);
 		setarray $minimumRefine[0],0,1,1,1,1,1,1,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19;
-		setarray $maximumRefine[0],5,10,10,10,10,10,10,12,12,12,12,12,12,12,14,14,14,14,14,14,14,14,16,16,16,16,16,18,18,18,18,18,20,20,20,20,20,20;
+		setarray $maximumRefine[0],20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20;
 
 		deletearray $minimumGrade[0],getarraysize($minimumGrade);
 		deletearray $maximumGrade[0],getarraysize($maximumGrade);
 		setarray $minimumGrade[0],0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,3;
-		setarray $maximumGrade[0],1,1,1,1,1,1,1,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4;
+		setarray $maximumGrade[0],4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4;
 
 		deletearray $cardRate[0],getarraysize($cardRate);
 		deletearray $enchantmentRate[0],getarraysize($enchantmentRate);
-		setarray $cardRate[0],3,6,9,12,15,18,21,24,27,30,33,36,39,42,45,48,51,54,57,60,63,66,69,72,75,78,81,84,87,90,93,96,99,100,100,100,100,100;
-		setarray $enchantmentRate[0],3,6,9,12,15,18,21,24,27,30,33,36,39,42,45,48,51,54,57,60,63,66,69,72,75,78,81,84,87,90,93,96,99,100,100,100,100,100;
+		setarray $cardRate[0],63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100;
+		setarray $enchantmentRate[0],63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100;
 
 		deletearray $minimumRandomOption[0],getarraysize($minimumRandomOption);
 		deletearray $maximumRandomOption[0],getarraysize($maximumRandomOption);
 		setarray $minimumRandomOption[0],0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,3,3,3,3,3,4;
-		setarray $maximumRandomOption[0],1,2,2,2,2,2,2,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5;
+		setarray $maximumRandomOption[0],5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5;
 		
 		deletearray $minimumPill[0],getarraysize($minimumPill);
 		setarray $minimumPill[0],1,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5,5;
