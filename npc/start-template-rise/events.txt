@@ -103,6 +103,7 @@ OnPCDieEvent:
 	
 OnInit:
 	bindatcmd "load",strnpcinfo(3) + "::OnLoad";
+	bindatcmd "stop",strnpcinfo(3) + "::OnStop";
 	addrid(0);
 	dreamCd = 0;
 	.@mapName$ = strcharinfo(3);
@@ -114,6 +115,17 @@ OnInit:
 
 OnLoad:
 	PaWButterflyWing();
+	end;
+	
+OnStop:
+	if(map$ == strcharinfo(3))
+	{
+		if(is_party_leader())
+		{
+			set(getd("$" + map$ + "ContinuePlaying"),0);
+			mapannounce strcharinfo(3),"หัวหน้า Party จะทำการหยุดเล่นชั้นต่อไปหากชนะ",0;
+		}
+	}
 	end;
 }
 
