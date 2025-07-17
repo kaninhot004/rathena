@@ -516,7 +516,7 @@ OnMonsterDead:
 				set(isDreamSetup,1,$@partymembercid[.@i]);
 			}
 			// Wait 5s to spawn
-			mapannounce .@mapName$,"ชั้นความฝันที่ " + playDreamIndex + " กำลังจะเริ่มภายใน 5 วินาที",0;
+			mapannounce .@mapName$,"ชั้นความฝันที่ " + playDreamIndex + " กำลังจะเริ่มภายใน 5 วินาที (หัวหน้า Party สามารถพิมพ์ @stop เพื่อหยุดเล่นชั้นต่อไปหากชนะได้)",0;
 			addtimer 5000,strnpcinfo(0) + "::OnSpawn";
 			// Set monster type to everyone
 			.monsterType = getarraysize(monsterType);
