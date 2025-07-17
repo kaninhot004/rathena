@@ -113,12 +113,13 @@ moc_akhet,190,248,5	script	กองไฟนิทรา	10252,{
 	mes "• ^ff2929แตกต่างกัน " + getarraysize(monsterType) + " ชนิด^000000";
 	freeloop(0);
 	menu
-	"เข้าสู่ความฝัน แบบ Monster ^ff2929ตายแล้ว Spawn เรื่อย ๆ^000000",OnLargeSpawn
+	"เข้าสู่ความฝัน แบบ Monster ^17b217ตายแล้ว Spawn เรื่อย ๆ^000000",OnLargeSpawn
 	,"เข้าสู่ความฝัน แบบ Monster ^ff2929Spawn เยอะมาก ๆ^000000",OnHugeSpawn
 	,"เข้าสู่ความฝัน แบบ Monster ^17b217Spawn เท่าที่แจ้ง^000000",OnNormalSpawn
 	;
 OnHugeSpawn:
 	isLargeSpawn = 2;
+	goto OnStartTalk;
 OnLargeSpawn:
 	isLargeSpawn = 1;
 	goto OnStartTalk;
