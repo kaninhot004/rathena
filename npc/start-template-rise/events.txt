@@ -43,6 +43,18 @@ OnPCLoadMapEvent:
 			mapannounce $town$,strcharinfo(0) + " สามารถเข้าสู่ชั้นความฝันที่ " + dreamIndex + " ได้แล้ว!",0,0xa981ff;
 			isAnnounceInLobby = 0;
 		}
+		// Victory announcer (Single Nightmare)
+		if(isAnnounceInLobbySN)
+		{
+			mapannounce $town$,strcharinfo(0) + " สามารถเข้าสู่ชั้นความฝัน (ร้ายเรื่องเดียว) ที่ " + singleNightmareIndex + " ได้แล้ว!",0,0xa981ff;
+			isAnnounceInLobbySN = 0;
+		}
+		// Victory announcer (Nightmare)
+		if(isAnnounceInLobbyN)
+		{
+			mapannounce $town$,strcharinfo(0) + " สามารถเข้าสู่ชั้นความฝัน (ร้ายหลายเรื่อง) ที่ " + nightmareIndex + " ได้แล้ว!",0,0xa981ff;
+			isAnnounceInLobbyN = 0;
+		}
 		// Player leader die penalty hint
 		if(isPartyLeaderDie)
 		{

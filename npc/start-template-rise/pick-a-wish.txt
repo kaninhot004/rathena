@@ -35,21 +35,29 @@
 	getitem 12887,1;
 	getitem 23023,1;
 	
+	// Single Nightmare Multiplier
+	.@multiplier = 1;
+	if(singleNightmareIndex > 0)
+	{
+		.@multiplier = $bodyMultiplier[singleNightmareIndex - 1];
+		dispbottom "พลังแห่งฝันร้ายเรื่องเดียวส่งผลให้ได้รับ Status และ Trait x" + .@multiplier,0xf652c2;
+	}
+	
 	// Status
-	statusup2 bStr,statusStr[.@index];
-	statusup2 bAgi,statusAgi[.@index];
-	statusup2 bVit,statusVit[.@index];
-	statusup2 bInt,statusInt[.@index];
-	statusup2 bDex,statusDex[.@index];
-	statusup2 bLuk,statusLuk[.@index];
+	statusup2 bStr,statusStr[.@index] * .@multiplier;
+	statusup2 bAgi,statusAgi[.@index] * .@multiplier;
+	statusup2 bVit,statusVit[.@index] * .@multiplier;
+	statusup2 bInt,statusInt[.@index] * .@multiplier;
+	statusup2 bDex,statusDex[.@index] * .@multiplier;
+	statusup2 bLuk,statusLuk[.@index] * .@multiplier;
 	
 	// Trait
-	traitstatusup2 bPow,traitPow[.@index];
-	traitstatusup2 bSta,traitSta[.@index];
-	traitstatusup2 bWis,traitWis[.@index];
-	traitstatusup2 bSpl,traitSpl[.@index];
-	traitstatusup2 bCon,traitCon[.@index];
-	traitstatusup2 bCrt,traitCrt[.@index];
+	traitstatusup2 bPow,traitPow[.@index] * .@multiplier;
+	traitstatusup2 bSta,traitSta[.@index] * .@multiplier;
+	traitstatusup2 bWis,traitWis[.@index] * .@multiplier;
+	traitstatusup2 bSpl,traitSpl[.@index] * .@multiplier;
+	traitstatusup2 bCon,traitCon[.@index] * .@multiplier;
+	traitstatusup2 bCrt,traitCrt[.@index] * .@multiplier;
 	
 	// Skill
 	for(.@s = 0; .@s < skillAmount[.@index]; .@s++)
@@ -163,11 +171,31 @@ OnSaveSet:
 	
 OnGenerateWish:
 	maximumWishSet = $maximumWishSet[.@dreamLevelIndex] + GetDonateMaxWishSetBonus();
+	// Nightmare Use Maximum Value Rate
+	.@useMaxValueRate = 0;
+	if(nightmareIndex > 0)
+	{
+		.@useMaxValueRate = $useMaximumRate[nightmareIndex - 1];
+	}
 	freeloop(1);
 	for(.@i = 0; .@i < maximumWishSet; .@i++)
 	{
+		// Max Value
+		.@isUseMaxValue = 0;
+		if(.@useMaxValueRate > 0)
+		{
+			if(rand(100) < .@useMaxValueRate)
+			{
+				.@isUseMaxValue = 1;
+				dispbottom "พลังแห่งฝันร้ายหลายเรื่องทำให้ Set " + (.@i + 1) + " ใช้ค่ามากสุดสุ่มและเพิ่มโอกาสได้ Card & Enchantment!",0xf652c2;
+			}
+		}
 		// Sleeping Pill
 		sleepingPill[.@i] = rand($minimumPill[.@dreamLevelIndex],$maximumPill[.@dreamLevelIndex]);
+		if(.@isUseMaxValue)
+		{
+			sleepingPill[.@i] = $maximumPill[.@dreamLevelIndex];
+		}
 		
 		// Status
 		.@minimumStatus = $minimumStatus[.@dreamLevelIndex];
@@ -177,6 +205,15 @@ OnGenerateWish:
 		statusInt[.@i] = rand(.@minimumStatus,$maximumStatus);
 		statusDex[.@i] = rand(.@minimumStatus,$maximumStatus);
 		statusLuk[.@i] = rand(.@minimumStatus,$maximumStatus);
+		if(.@isUseMaxValue)
+		{
+			statusStr[.@i] = $maximumStatus;
+			statusAgi[.@i] = $maximumStatus;
+			statusVit[.@i] = $maximumStatus;
+			statusInt[.@i] = $maximumStatus;
+			statusDex[.@i] = $maximumStatus;
+			statusLuk[.@i] = $maximumStatus;
+		}
 		
 		// Trait
 		.@minimumTrait = $minimumTrait[.@dreamLevelIndex];
@@ -186,6 +223,15 @@ OnGenerateWish:
 		traitSpl[.@i] = rand(.@minimumTrait,$maximumTrait);
 		traitCon[.@i] = rand(.@minimumTrait,$maximumTrait);
 		traitCrt[.@i] = rand(.@minimumTrait,$maximumTrait);
+		if(.@isUseMaxValue)
+		{
+			traitPow[.@i] = $maximumTrait;
+			traitSta[.@i] = $maximumTrait;
+			traitWis[.@i] = $maximumTrait;
+			traitSpl[.@i] = $maximumTrait;
+			traitCon[.@i] = $maximumTrait;
+			traitCrt[.@i] = $maximumTrait;
+		}
 		
 		// Save Set
 		if((saveSet - 1) == .@i)
@@ -195,6 +241,10 @@ OnGenerateWish:
 		// Skill
 		deletearray getd("skillIndex" + .@i + "[0]"),getarraysize(getd("skillIndex" + .@i));
 		skillAmount[.@i] = rand($minimumSkill[.@dreamLevelIndex],$maximumSkill[.@dreamLevelIndex]);
+		if(.@isUseMaxValue)
+		{
+			skillAmount[.@i] = $maximumSkill[.@dreamLevelIndex];
+		}
 		.@maximumSkillId = getarraysize($skillIds);
 		for(.@s = 0; .@s < skillAmount[.@i]; .@s++)
 		{
@@ -414,14 +464,26 @@ OnGenerateWish:
 			.@minimumRefine = $minimumRefine[.@dreamLevelIndex];
 			.@maximumRefine = $maximumRefine[.@dreamLevelIndex];
 			set getd("refine" + .@i + "[" + .@r + "]"),rand(.@minimumRefine,.@maximumRefine);
+			if(.@isUseMaxValue)
+			{
+				set getd("refine" + .@i + "[" + .@r + "]"),.@maximumRefine;
+			}
 			// Grade
 			.@minimumGrade = $minimumGrade[.@dreamLevelIndex];
 			.@maximumGrade = $maximumGrade[.@dreamLevelIndex];
 			set getd("grade" + .@i + "[" + .@r + "]"),rand(.@minimumGrade,.@maximumGrade);
+			if(.@isUseMaxValue)
+			{
+				set getd("grade" + .@i + "[" + .@r + "]"),.@maximumGrade;
+			}
 			// Random Option
 			.@minimumRandomOption = $minimumRandomOption[.@dreamLevelIndex];
 			.@maximumRandomOption = $maximumRandomOption[.@dreamLevelIndex];
 			.@randomOptionAmount = rand(.@minimumRandomOption,.@maximumRandomOption);
+			if(.@isUseMaxValue)
+			{
+				.@randomOptionAmount = .@maximumRandomOption;
+			}
 			set getd("randomOption" + .@i + "_" + .@r + "[0]"),(.@randomOptionAmount >= 1) ? GetRandomOptionId() : 0;
 			set getd("randomOption" + .@i + "_" + .@r + "[1]"),(.@randomOptionAmount >= 2) ? GetRandomOptionId() : 0;
 			set getd("randomOption" + .@i + "_" + .@r + "[2]"),(.@randomOptionAmount >= 3) ? GetRandomOptionId() : 0;
@@ -432,6 +494,10 @@ OnGenerateWish:
 			// Card
 			.@cardAmount = getarraysize($card2Ids);
 			.@cardRate = $cardRate[.@dreamLevelIndex];
+			if(.@isUseMaxValue)
+			{
+				.@cardRate += .@useMaxValueRate;
+			}
 			set getd("card" + .@i + "_" + .@r + "[0]"),((.@itemSlot >= 1) && (rand(100) < .@cardRate)) ? $card2Ids[rand(.@cardAmount)] : 0;
 			set getd("card" + .@i + "_" + .@r + "[1]"),((.@itemSlot >= 2) && (rand(100) < .@cardRate)) ? $card2Ids[rand(.@cardAmount)] : 0;
 			set getd("card" + .@i + "_" + .@r + "[2]"),((.@itemSlot >= 3) && (rand(100) < .@cardRate)) ? $card2Ids[rand(.@cardAmount)] : 0;
@@ -439,6 +505,10 @@ OnGenerateWish:
 			// Enchantment
 			.@enchantmentAmount = getarraysize($enchant2Ids);
 			.@enchantmentRate = $enchantmentRate[.@dreamLevelIndex];
+			if(.@isUseMaxValue)
+			{
+				.@enchantmentRate += .@useMaxValueRate;
+			}
 			set getd("enchantment" + .@i + "_" + .@r + "[0]"),((.@itemSlot < 1) && (rand(100) < .@enchantmentRate)) ? $enchant2Ids[rand(.@enchantmentAmount)] : 0;
 			set getd("enchantment" + .@i + "_" + .@r + "[1]"),((.@itemSlot < 2) && (rand(100) < .@enchantmentRate)) ? $enchant2Ids[rand(.@enchantmentAmount)] : 0;
 			set getd("enchantment" + .@i + "_" + .@r + "[2]"),((.@itemSlot < 3) && (rand(100) < .@enchantmentRate)) ? $enchant2Ids[rand(.@enchantmentAmount)] : 0;
