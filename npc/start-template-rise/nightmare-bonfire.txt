@@ -224,8 +224,8 @@ OnSpawn:
 		monster .@mapName$,.@spawnX,.@spawnY,"--ja--",.@monsterId,1,strnpcinfo(0) + "::OnMonsterDead";
 		setunitdata $@mobid[0],UMOB_RANK,mvpRank;
 		set(getd("$" + .@mapName$ + "Spawned"),getd("$" + .@mapName$ + "Spawned") + 1);
-		// Limit to 300 per spawn
-		if(.@i >= 299)
+		// Limit to 100 per spawn
+		if(.@i >= 99)
 		{
 			break;
 		}
