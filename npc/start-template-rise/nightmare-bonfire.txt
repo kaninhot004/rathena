@@ -18,8 +18,15 @@ moc_akhet,199,248,5	script	กองไฟฝันร้าย	10252,{
 		mes "โปรดรอ " + (dreamCd - gettimetick(2)) + " วินาที..";
 		close;
 	}
-	isSingleNightmare = (select("เข้าสู่ฝันร้ายเรื่องเดียว:เข้าสู่ฝันร้ายหลายเรื่อง") == 1);
-	if(isSingleNightmare)
+	.@selectedMode = select("ฝันร้ายเรื่องเดียว:ฝันร้ายหลายเรื่อง:ฝันร้ายในฝันร้าย");
+	isSingleNightmare = (.@selectedMode == 1);
+	isNINightmare = (.@selectedMode == 3);
+	if(isNINightmare)
+	{
+		.@nightmareIndexVar$ = "NINightmareIndex";
+		.@hint$ = "ในฝันร้าย";
+	}
+	else if(isSingleNightmare)
 	{
 		.@nightmareIndexVar$ = "singleNightmareIndex";
 		.@hint$ = "เรื่องเดียว";
@@ -75,10 +82,15 @@ moc_akhet,199,248,5	script	กองไฟฝันร้าย	10252,{
 			nightmareBy$ = strcharinfo(0,$@partymembercid[.@i]);
 		}
 	}
+	playNightmareIndex = cap_value(.@nightmareIndex,0,4);
 	if(.@online <= 0)
 	{
 		mes "ไม่พบสมาชิกใน Party ที่ Online อยู่เลย..";
 		close;
+	}
+	if(!isNINightmare)
+	{
+		bonusPenalty = 0;
 	}
 	// One time setup
 	if(!isNightmareSetup)
@@ -86,6 +98,10 @@ moc_akhet,199,248,5	script	กองไฟฝันร้าย	10252,{
 		// MvP Setup
 		mvpRank = $mvpRank[playNightmareIndex];
 		mvpType = $mvpIds[rand(getarraysize($mvpIds))];
+		if(isNINightmare)
+		{
+			bonusPenalty = $bonusPenaltyPercent[playNightmareIndex];
+		}
 		isNightmareSetup = 1;
 	}
 	mAmount = ($mvpAmount[playNightmareIndex] * .@online);
@@ -93,6 +109,11 @@ moc_akhet,199,248,5	script	กองไฟฝันร้าย	10252,{
 	mes "MvP จะ";
 	mes "• ^ff2929มี Rank " + mvpRank + "^000000";
 	mes "• ^ff2929Spawn " + mAmount + " ตัว^000000";
+	if(isNINightmare)
+	{
+		mes "ผู้เล่น จะ";
+		mes "• ^ff2929โดนลด Bonus จากอุปกรณ์สวมใส่ " + bonusPenalty + "%^000000";
+	}
 	freeloop(0);
 	next;
 	menu "เข้าสู่ความฝัน (ร้าย" + .@hint$ + ")",-;
@@ -129,6 +150,7 @@ moc_akhet,199,248,5	script	กองไฟฝันร้าย	10252,{
 	set(getd("$" + map$ + "RemainingMonster"),mAmount);
 	set(getd("$" + map$ + "Killed"),0);
 	set(getd("$" + map$ + "Spawned"),0);
+	set(getd("$" + map$ + "NIN"),isNINightmare);
 	setarray $busyMap$[getarraysize($busyMap$)],map$;
 	// Set variables to everyone
 	.@partyId = getcharid(1);
@@ -148,6 +170,7 @@ moc_akhet,199,248,5	script	กองไฟฝันร้าย	10252,{
 		set(mvpRank,mvpRank,$@partymembercid[.@i]);
 		set(mvpType,mvpType,$@partymembercid[.@i]);
 		set(isNightmareSetup,1,$@partymembercid[.@i]);
+		set(bonusPenalty,bonusPenalty,$@partymembercid[.@i]);
 	}
 	isPartyLeader = 1;
 	isWarping = 1;
@@ -155,6 +178,9 @@ moc_akhet,199,248,5	script	กองไฟฝันร้าย	10252,{
 	addtimer 1,strnpcinfo(0) + "::OnWarpToNightmare";
 	// Wait 5s to spawn
 	addtimer 5000,strnpcinfo(0) + "::OnSpawn";
+	// Set penalty to everyone
+	addrid(2,0,.@partyId);
+	atcommand "@debuff 0 " + bonusPenalty;
 	end;
 	
 OnWarpToNightmare:
@@ -304,7 +330,12 @@ OnMonsterDead:
 	}
 	else
 	{
-		if(mvpType != 0)
+		if(getd("$" + .@mapName$ + "NIN"))
+		{
+			.@nightmareIndexVar$ = "NINightmareIndex";
+			.@nightmareAnnounceVar$ = "isAnnounceInLobbyNIN";
+		}
+		else if(mvpType != 0)
 		{
 			.@nightmareIndexVar$ = "singleNightmareIndex";
 			.@nightmareAnnounceVar$ = "isAnnounceInLobbySN";

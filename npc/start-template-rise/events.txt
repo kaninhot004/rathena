@@ -33,6 +33,8 @@ OnPCLogoutEvent:
 OnPCLoadMapEvent:
 	if(IsSafeMap())
 	{
+		bonusPenalty = 0;
+		atcommand "@debuff 0 0";
 		// Full heal
 		FullHeal();
 		// Fill up Sleeping Pill
@@ -54,6 +56,12 @@ OnPCLoadMapEvent:
 		{
 			mapannounce $town$,strcharinfo(0) + " สามารถเข้าสู่ชั้นความฝัน (ร้ายหลายเรื่อง) ที่ " + nightmareIndex + " ได้แล้ว!",0,0xf652c2;
 			isAnnounceInLobbyN = 0;
+		}	
+		// Victory announcer (Nightmare in Nightmare)
+		if(isAnnounceInLobbyNIN)
+		{
+			mapannounce $town$,strcharinfo(0) + " สามารถเข้าสู่ชั้นความฝัน (ร้ายในฝันร้าย) ที่ " + NINightmareIndex + " ได้แล้ว!",0,0xf652c2;
+			isAnnounceInLobbyNIN = 0;
 		}
 		// Player leader die penalty hint
 		if(isPartyLeaderDie)

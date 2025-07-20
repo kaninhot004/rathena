@@ -166,6 +166,7 @@ OnStartTalk:
 	set(getd("$" + map$ + "RemainingMonster"),mAmount);
 	set(getd("$" + map$ + "Killed"),0);
 	set(getd("$" + map$ + "Spawned"),0);
+	set(getd("$" + map$ + "NIN"),0);
 	// Additional settings
 	set(getd("$" + map$ + "LargeSpawn"),isLargeSpawn);
 	set(getd("$" + map$ + "ContinuePlaying"),isContinuePlaying);

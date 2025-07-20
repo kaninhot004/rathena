@@ -64,11 +64,15 @@
 	{
 		.@skillIndex = getd("skillIndex" + .@index + "[" + .@s + "]");
 		skill $skillIds[.@skillIndex],$skillMaxLvs[.@skillIndex],3;
-		//bonus_script "skill " + $skillIds[.@skillIndex] + "," + $skillMaxLvs[.@skillIndex] + ";",86400,512;
 	}
 	
 	// SP Regeneration
 	bonus_script "bonus2 bRegenPercentSP," + $spPercentRegen[.@index] + ",10000;",86400,512;
+	if(NINightmareIndex > 0)
+	{
+		bonus_script "bonus bSpeedAddRate," + $moveSpeedPercent[NINightmareIndex - 1] + ";",86400,512;
+		dispbottom "พลังแห่งฝันร้ายในฝันร้ายส่งผลให้ได้รับ เคลื่อนที่เร็วขึ้น +" + $moveSpeedPercent[NINightmareIndex - 1] + "%",0xf652c2;
+	}
 	
 	// Equipment
 	for(.@r = 0; .@r <= 20; .@r++)

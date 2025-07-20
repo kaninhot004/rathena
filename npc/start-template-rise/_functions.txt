@@ -585,6 +585,8 @@ function	script	FullHeal	{
 }
 
 function	script	ClearAll	{
+	bonusPenalty = 0;
+	atcommand "@debuff 0 0";
 	bonus_script_clear 1;
 	nude;
 	atcommand "@resetcooltime";
