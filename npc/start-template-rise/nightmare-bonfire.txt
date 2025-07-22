@@ -104,7 +104,7 @@ moc_akhet,199,248,5	script	กองไฟฝันร้าย	10252,{
 		}
 		isNightmareSetup = 1;
 	}
-	mAmount = ($mvpAmount[playNightmareIndex] * .@online);
+	mAmount = $mvpAmount[playNightmareIndex];
 	mes "จะทำการเข้าสู่ชั้นความฝัน (ร้าย" + .@hint$ + ") ที่ ^292fff" + playNightmareIndex + "^000000 ของ ^292fff" + nightmareBy$ + "^000000";
 	mes "MvP จะ";
 	mes "• ^ff2929มี Rank " + mvpRank + "^000000";
