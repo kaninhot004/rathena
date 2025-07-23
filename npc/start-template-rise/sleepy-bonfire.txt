@@ -118,10 +118,15 @@ moc_akhet,190,248,5	script	กองไฟนิทรา	10252,{
 	,"เข้าสู่ความฝัน แบบ Monster ^ff2929Spawn เยอะมาก ๆ^000000",OnHugeSpawn
 	,"เข้าสู่ความฝัน แบบ Monster ^17b217Spawn เท่าที่แจ้ง^000000",OnNormalSpawn
 	,"ตั้งค่า เล่นชั้นต่อไปเรื่อย ๆ หากชนะ [" + (isContinuePlaying ? "ON" : "OFF")+ "]",OnContinuePlaying
+	,"ตั้งค่า Monster Spawn รอบตัว (Spawn รอบนึงจะไม่เกิน 30 ตัว ภายในระยะ 7x7 ช่อง) [" + (isSpawnAround ? "ON" : "OFF")+ "]",OnSpawnAround
 	;
 OnContinuePlaying:
 	isContinuePlaying = !isContinuePlaying;
 	mes "ตั้งค่า เล่นชั้นต่อไปเรื่อย ๆ หากชนะ [" + (isContinuePlaying ? "ON" : "OFF")+ "]";
+	close;
+OnSpawnAround:
+	isSpawnAround = !isSpawnAround;
+	mes "ตั้งค่า Monster Spawn รอบตัว (Spawn รอบนึงจะไม่เกิน 30 ตัว ภายในระยะ 7x7 ช่อง) [" + (isSpawnAround ? "ON" : "OFF")+ "]";
 	close;
 OnHugeSpawn:
 	isLargeSpawn = 2;
@@ -169,6 +174,7 @@ OnStartTalk:
 	set(getd("$" + map$ + "NIN"),0);
 	// Additional settings
 	set(getd("$" + map$ + "LargeSpawn"),isLargeSpawn);
+	set(getd("$" + map$ + "SpawnAround"),isSpawnAround);
 	set(getd("$" + map$ + "ContinuePlaying"),isContinuePlaying);
 	setarray $busyMap$[getarraysize($busyMap$)],map$;
 	// Set variables to everyone
@@ -261,8 +267,19 @@ OnSpawn:
 	{
 		.@remainingMonster = 300;
 	}
-	// Get Freecell
-	getfreecell(.@mapName$,.@baseX,.@baseY);
+	if(getd("$" + .@mapName$ + "SpawnAround") == 1)
+	{
+		.@remainingMonster = cap_value(.@remainingMonster,0,30);
+		// Get Player Cell
+		getmapxy(.@mapName$,.@baseX,.@baseY);
+		.@cellSize = 7;
+	}
+	else
+	{
+		// Get Free Cell
+		getfreecell(.@mapName$,.@baseX,.@baseY);
+		.@cellSize = 4;
+	}
 	for(.@i = 0; .@i < .@remainingMonster; .@i++)
 	{
 		.@maximumMonsterType = getarraysize(getd("$" + .@mapName$ + "MonsterType[" + .@i + "]"));
@@ -274,7 +291,7 @@ OnSpawn:
 		{
 			.@monsterId = getd("$" + .@mapName$ + "MonsterType[" + rand(.@maximumMonsterType) + "]");
 		}
-		getfreecell(.@mapName$,.@spawnX,.@spawnY,.@baseX,.@baseY,4,4);
+		getfreecell(.@mapName$,.@spawnX,.@spawnY,.@baseX,.@baseY,.@cellSize,.@cellSize);
 		monster .@mapName$,.@spawnX,.@spawnY,"--ja--",.@monsterId,1,strnpcinfo(0) + "::OnMonsterDead";
 		setunitdata $@mobid[0],UMOB_RANK,rand(mRankMin,mRankMax);
 		set(getd("$" + .@mapName$ + "Spawned"),getd("$" + .@mapName$ + "Spawned") + 1);
@@ -283,10 +300,13 @@ OnSpawn:
 		{
 			break;
 		}
-		// 40% Chance to get new spawn point 
-		if(rand(100) < 40)
+		if(getd("$" + .@mapName$ + "SpawnAround") <= 0)
 		{
-			getfreecell(.@mapName$,.@baseX,.@baseY);
+			// 40% Chance to get new spawn point 
+			if(rand(100) < 40)
+			{
+				getfreecell(.@mapName$,.@baseX,.@baseY);
+			}
 		}
 	}
 	freeloop(0);
@@ -332,8 +352,18 @@ OnMonsterDead:
 		}
 		if(.@remainingMonsterToSpawn > 0)
 		{
-			// Get Freecell
-			getfreecell(.@mapName$,.@baseX,.@baseY);
+			if(getd("$" + .@mapName$ + "SpawnAround") == 1)
+			{
+				// Get Player Cell
+				getmapxy(.@unusedMapName$,.@baseX,.@baseY);
+				.@cellSize = 7;
+			}
+			else
+			{
+				// Get Free Cell
+				getfreecell(.@mapName$,.@baseX,.@baseY);
+				.@cellSize = 4;
+			}
 			for(.@i = 0; .@i < .@remainingMonsterToSpawn; .@i++)
 			{
 				.@maximumMonsterType = getarraysize(getd("$" + .@mapName$ + "MonsterType[" + .@i + "]"));
@@ -345,7 +375,7 @@ OnMonsterDead:
 				{
 					.@monsterId = getd("$" + .@mapName$ + "MonsterType[" + rand(.@maximumMonsterType) + "]");
 				}
-				getfreecell(.@mapName$,.@spawnX,.@spawnY,.@baseX,.@baseY,4,4);
+				getfreecell(.@mapName$,.@spawnX,.@spawnY,.@baseX,.@baseY,.@cellSize,.@cellSize);
 				monster .@mapName$,.@spawnX,.@spawnY,"--ja--",.@monsterId,1,strnpcinfo(0) + "::OnMonsterDead";
 				setunitdata $@mobid[0],UMOB_RANK,rand(getd("$" + .@mapName$ + "MonsterRankMin"),getd("$" + .@mapName$ + "MonsterRankMax"));
 				set(getd("$" + .@mapName$ + "Spawned"),getd("$" + .@mapName$ + "Spawned") + 1);
@@ -354,10 +384,13 @@ OnMonsterDead:
 				{
 					break;
 				}
-				// 40% Chance to get new spawn point 
-				if(rand(100) < 40)
+				if(getd("$" + .@mapName$ + "SpawnAround") <= 0)
 				{
-					getfreecell(.@mapName$,.@baseX,.@baseY);
+					// 40% Chance to get new spawn point 
+					if(rand(100) < 40)
+					{
+						getfreecell(.@mapName$,.@baseX,.@baseY);
+					}
 				}
 			}
 		}
