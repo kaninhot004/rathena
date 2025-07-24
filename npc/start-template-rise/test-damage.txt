@@ -41,4 +41,6 @@ OnInit:
 
 bat_c01	mapflag	pvp
 
+moc_akhet,189,190	monster	Test Skill	2408,1
 moc_akhet,190,190	monster	Test Skill	2408,1
+moc_akhet,191,190	monster	Test Skill	2408,1
