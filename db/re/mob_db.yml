@@ -112571,7 +112571,7 @@ Body:
     AegisName: EP18_MD_SCHULANG_R
     Name: Schulang
     Level: 185
-    Hp: 2000000000
+    Hp: 200000000
     Sp: 0
     Attack: 4394
     Attack2: 2220
@@ -112613,7 +112613,7 @@ Body:
     AegisName: EP18_MD_DEMI_FREYJA_R
     Name: Twisted God Freyja
     Level: 185
-    Hp: 2000000000
+    Hp: 200000000
     Sp: 0
     Attack: 4673
     Attack2: 1897
@@ -112946,7 +112946,7 @@ Body:
     AegisName: EP18_MD_SCHULANG_L
     Name: Schulang
     Level: 224
-    Hp: 2000000000
+    Hp: 200000000
     Sp: 0
     Attack: 8244
     Attack2: 1053
@@ -112990,7 +112990,7 @@ Body:
     AegisName: EP18_MD_DEMI_FREYJA_L
     Name: Twisted God Freyja
     Level: 224
-    Hp: 2000000000
+    Hp: 200000000
     Sp: 0
     Attack: 8244
     Attack2: 1053
