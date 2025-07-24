@@ -117,8 +117,9 @@ moc_akhet,190,248,5	script	กองไฟนิทรา	10252,{
 	"เข้าสู่ความฝัน แบบ Monster ^17b217ตายแล้ว Spawn เรื่อย ๆ^000000",OnLargeSpawn
 	,"เข้าสู่ความฝัน แบบ Monster ^ff2929Spawn เยอะมาก ๆ^000000",OnHugeSpawn
 	,"เข้าสู่ความฝัน แบบ Monster ^17b217Spawn เท่าที่แจ้ง^000000",OnNormalSpawn
-	,"ตั้งค่า เล่นชั้นต่อไปเรื่อย ๆ หากชนะ [" + (isContinuePlaying ? "ON" : "OFF")+ "]",OnContinuePlaying
-	,"ตั้งค่า Monster Spawn รอบตัว (Spawn รอบนึงจะไม่เกิน 30 ตัว ภายในระยะ 7x7 ช่อง) [" + (isSpawnAround ? "ON" : "OFF")+ "]",OnSpawnAround
+	,"ตั้งค่า เล่นชั้นต่อไปเรื่อย ๆ หากชนะ [" + (isContinuePlaying ? "ON" : "OFF") + "]",OnContinuePlaying
+	,"ตั้งค่า Monster Spawn รอบตัว (Spawn รอบนึงจะไม่เกิน 30 ตัว ภายในระยะ 7x7 ช่อง) [" + (isSpawnAround ? "ON" : "OFF") + "]",OnSpawnAround
+	,"ตั้งค่า ความเร็วในการเริ่มรอบ [" + (!roundSpeed ? "5" : roundSpeed) + " วินาที]",OnRoundSpeed
 	;
 OnContinuePlaying:
 	isContinuePlaying = !isContinuePlaying;
@@ -127,6 +128,11 @@ OnContinuePlaying:
 OnSpawnAround:
 	isSpawnAround = !isSpawnAround;
 	mes "ตั้งค่า Monster Spawn รอบตัว (Spawn รอบนึงจะไม่เกิน 30 ตัว ภายในระยะ 7x7 ช่อง) [" + (isSpawnAround ? "ON" : "OFF")+ "]";
+	close;
+OnRoundSpeed:
+	input(roundSpeed);
+	roundSpeed = cap_value(roundSpeed,1,5);
+	mes "ตั้งค่า ความเร็วในการเริ่มรอบ [" + roundSpeed+ " วินาที]";
 	close;
 OnHugeSpawn:
 	isLargeSpawn = 2;
@@ -201,7 +207,8 @@ OnStartTalk:
 	// Wait 0.001s to warp
 	addtimer 1,strnpcinfo(0) + "::OnWarpToDream";
 	// Wait 5s to spawn
-	addtimer 5000,strnpcinfo(0) + "::OnSpawn";
+	.@roundSpeed = (roundSpeed > 0) ? (roundSpeed * 1000) : 5000;
+	addtimer .@roundSpeed,strnpcinfo(0) + "::OnSpawn";
 	// Set monster type to everyone
 	.monsterType = getarraysize(monsterType);
 	copyarray .monsterId[0],monsterType[0],.monsterType;
@@ -550,8 +557,9 @@ OnMonsterDead:
 				set(isDreamSetup,1,$@partymembercid[.@i]);
 			}
 			// Wait 5s to spawn
-			mapannounce .@mapName$,"ชั้นความฝันที่ " + playDreamIndex + " กำลังจะเริ่มภายใน 5 วินาที (หัวหน้า Party สามารถพิมพ์ @stop เพื่อหยุดเล่นชั้นต่อไปหากชนะได้)",0;
-			addtimer 5000,strnpcinfo(0) + "::OnSpawn";
+			mapannounce .@mapName$,"ชั้นความฝันที่ " + playDreamIndex + " กำลังจะเริ่ม (หัวหน้า Party สามารถพิมพ์ @stop เพื่อหยุดเล่นชั้นต่อไปหากชนะได้)",0;
+			.@roundSpeed = (roundSpeed > 0) ? (roundSpeed * 1000) : 5000;
+			addtimer .@roundSpeed,strnpcinfo(0) + "::OnSpawn";
 			// Set monster type to everyone
 			.monsterType = getarraysize(monsterType);
 			copyarray .monsterId[0],monsterType[0],.monsterType;
