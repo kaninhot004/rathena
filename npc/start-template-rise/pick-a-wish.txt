@@ -146,6 +146,10 @@ moc_akhet,201,212,4	duplicate(PickAWish)	พร Set ที่ 11#10	10172
 moc_akhet,201,218,4	duplicate(PickAWish)	พร Set ที่ 12#11	10172
 
 moc_akhet,190,195,4	script	ขอพร	10545,{
+	if(dreamIndex >= 1000)
+	{
+		isWishGenerated = 0;
+	}
 	if(isWishGenerated){
 		mes "ไม่สามารถขอพร Set ใหม่ได้ จนกว่าจะเกิดเหตุการณ์ดังนี้";
 		mes "^17b217• ชั้นความฝันเพิ่มขึ้น^000000";
