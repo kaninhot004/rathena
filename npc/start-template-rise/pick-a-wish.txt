@@ -39,7 +39,7 @@
 	setarray .@elementConverters[0],12020,12114,12115,12116,12117,12118,12119,12120,12121,12406,14539,14540;
 	for(.@e = 0; .@e < getarraysize(.@elementConverters); .@e++)
 	{
-		getitem .@elementConverters[.@i],10;
+		getitem .@elementConverters[.@e],10;
 	}
 	
 	// Single Nightmare Multiplier
