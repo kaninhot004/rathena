@@ -28,6 +28,11 @@ function	script	IsSafeMap	{
 	return ((.@value$ == $town$) || .@isTrainingGround);
 }
 
+function	script	IsSpecialMap	{
+	.@value$ = getarg(0,strcharinfo(3));
+	return (.@value$ == "uknw_ruin");
+}
+
 function	script	StringBase10000	{
 	.@value = getarg(0,0);
 	if(.@value < 10)
@@ -628,7 +633,7 @@ function	script	PaWButterflyWing	{
 		specialeffect2 35;
 		progressbar "",2;
 	}
-	if(!IsSafeMap() && isPartyLeader)
+	if(!IsSafeMap() && isPartyLeader && !IsSpecialMap())
 	{
 		isWishGenerated = 0;
 		dreamIndex = cap_value(dreamIndex - 1,0,1000);

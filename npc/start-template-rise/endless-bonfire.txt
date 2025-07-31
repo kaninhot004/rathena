@@ -1,0 +1,74 @@
+moc_akhet,181,248,5	script	กองไฟไม่ดับมอด	10252,{
+OnTalk:
+	// Filling up Sleeping Pill
+	FillUpSleepyPill();
+	mes "จะทำการเข้าสู่ชั้นความฝันไม่สิ้นสุด";
+	mes "• คะแนนของคุณขณะนี้: " + elScore;
+	mes "• คุณจะได้ 1+" + elD +"+" + elBP + " คะแนน ต่อการกำจัด Monster 1 ตัว";
+	next;
+	menu
+	"เข้าสู่ความฝันไม่สิ้นสุด",-
+	,"ตั้งค่า ล้า (ขณะนี้ " + elD + "%)",OnDebuffSetup
+	,"ตั้งค่า ของเสื่อม (ขณะนี้ " + elBP + "%)",OnBonusPenaltySetup
+	;
+	atcommand "@debuff " + elD + " " + elBP;
+	warp .mapName$,0,0;
+	end;
+	
+OnDebuffSetup:
+	mes "โปรดระบุ 0~99";
+	next;
+	input elD;
+	elD = cap_value(elD,0,99);
+	goto OnTalk;
+	
+OnBonusPenaltySetup:
+	mes "โปรดระบุ 0~99";
+	next;
+	input elBP;
+	elBP = cap_value(elBP,0,99);
+	goto OnTalk;
+	
+OnSpawn:
+	freeloop(1);
+	// Get Freecell
+	getfreecell(.mapName$,.@baseX,.@baseY);
+	for(.@i = 0; .@i < 300; .@i++)
+	{
+		getfreecell(.mapName$,.@spawnX,.@spawnY,.@baseX,.@baseY,4,4);
+		monster .mapName$,.@spawnX,.@spawnY,"--ja--",$attackableMonsterIds[rand(getarraysize($attackableMonsterIds))],1,strnpcinfo(0) + "::OnMonsterDead";
+		.@GID = $@mobid[0];
+		setunitdata .@GID,UMOB_RANK,rand(0,15);
+		getunitdata .@GID,.@md;
+		setunitdata .@GID,UMOB_MODE,.@md[UMOB_MODE] | MD_CANMOVE | MD_AGGRESSIVE | MD_CANATTACK;
+		// 40% Chance to get new spawn point 
+		if(rand(100) < 40)
+		{
+			getfreecell(.mapName$,.@baseX,.@baseY);
+		}
+	}
+	freeloop(0);
+	end;
+	
+OnMonsterDead:
+	// Get Freecell
+	getfreecell(.mapName$,.@baseX,.@baseY);
+	getfreecell(.@mapName$,.@spawnX,.@spawnY,.@baseX,.@baseY,4,4);
+	monster .mapName$,.@spawnX,.@spawnY,"--ja--",$attackableMonsterIds[rand(getarraysize($attackableMonsterIds))],1,strnpcinfo(0) + "::OnMonsterDead";
+	.@GID = $@mobid[0];
+	setunitdata .@GID,UMOB_RANK,rand(0,15);
+	getunitdata .@GID,.@md;
+	setunitdata .@GID,UMOB_MODE,.@md[UMOB_MODE] | MD_CANMOVE | MD_AGGRESSIVE | MD_CANATTACK;
+	if(playerattached())
+	{
+		elScore = cap_value(elScore + 1 + elD + elBP,0,INT_MAX);
+		dispbottom "คะแนนของคุณขณะนี้: " + elScore;
+	}
+	end;
+
+OnInit:
+	.mapName$ = "uknw_ruin";
+	waitingroom strnpcinfo(1),0;
+	callsub(OnSpawn);
+	end;
+}
