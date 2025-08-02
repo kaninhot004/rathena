@@ -11,7 +11,7 @@ OnPCLogoutEvent:
 	deltimer "กองไฟนิทรา::OnWarpToDream";
 	deltimer "กองไฟนิทรา::OnSpawn";
 	.@mapName$ = strcharinfo(3);
-	if(!IsSafeMap() && isPartyLeader)
+	if(!IsSafeMap() && isPartyLeader && !IsSpecialMap())
 	{
 		isWishGenerated = 0;
 		dreamIndex = cap_value(dreamIndex - 1,0,1000);
@@ -103,7 +103,7 @@ OnPCLoadMapEvent:
 	
 OnPCDieEvent:
 	.@mapName$ = strcharinfo(3);
-	if(!IsSafeMap() && isPartyLeader)
+	if(!IsSafeMap() && isPartyLeader && !IsSpecialMap())
 	{
 		isWishGenerated = 0;
 		dreamIndex = cap_value(dreamIndex - 1,0,1000);
