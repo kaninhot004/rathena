@@ -23,7 +23,7 @@
 /// before attacking and monsters will just drop target once they get in attack range and can't attack.
 /// If disabled, the server automatically makes sure units find a position to attack from by moving closer.
 /// Disabling this also stops skills from failing when the target has walked behind an obstacle during cast.
-#define OFFICIAL_WALKPATH
+//#define OFFICIAL_WALKPATH
 
 /// Uncomment to enable the Cell Stack Limit mod.
 /// It's only config is the battle_config custom_cell_stack_limit.
@@ -40,7 +40,7 @@
 
 /// Comment to disable Guild/Party Bound item system
 /// By default, we recover/remove Guild/Party Bound items automatically
-#define BOUND_ITEMS
+//#define BOUND_ITEMS
 
 /// Uncomment to enable real-time server stats (in and out data and ram usage).
 //#define SHOW_SERVER_STATS
@@ -97,7 +97,7 @@
 //#define DEPRECATED_COMPILER_SUPPORT
 
 /// Uncomment for use with Nemo patch ExtendCashShopPreview
-//#define ENABLE_CASHSHOP_PREVIEW_PATCH
+#define ENABLE_CASHSHOP_PREVIEW_PATCH
 
 /// Uncomment for use with Nemo patch ExtendOldCashShopPreview
 //#define ENABLE_OLD_CASHSHOP_PREVIEW_PATCH
