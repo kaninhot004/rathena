@@ -64,7 +64,7 @@ Thumbs.db
 /3rdparty/httplib/obj
 
 # /db/
-/db/import
+#/db/import
 
 # /conf/
 /conf/import
