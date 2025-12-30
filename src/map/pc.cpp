@@ -9506,10 +9506,10 @@ int32 pc_resetskill(map_session_data* sd, int32 flag)
 		/*if (sd->status.skill[idx].flag == SKILL_FLAG_PERM_GRANTED)
 			continue;*/
 
-		if( flag&4 && !skill_ischangesex(skill_id) )
-			continue;
+		/*if( flag&4 && !skill_ischangesex(skill_id) )
+			continue;*/
 
-		if( skill.second->inf2[INF2_ISQUEST] && !battle_config.quest_skill_learn )
+		/*if (skill.second->inf2[INF2_ISQUEST] && !battle_config.quest_skill_learn)
 		{ //Only handle quest skills in a special way when you can't learn them manually
 			if( battle_config.quest_skill_reset && !(flag&2) )
 			{	//Wipe them
@@ -9517,7 +9517,7 @@ int32 pc_resetskill(map_session_data* sd, int32 flag)
 				sd->status.skill[idx].flag = SKILL_FLAG_PERMANENT;
 			}
 			continue;
-		}
+		}*/
 		if( sd->status.skill[idx].flag == SKILL_FLAG_PERMANENT )
 			skill_point += lv;
 		else
