@@ -42,6 +42,22 @@ OnSurvive:
 				addtimer 60000, strnpcinfo(3) + "::OnSurvive";
 				sc_start SC_ITEMBOOST,60000,1;
 				$bonusSpawnAmount[.@mapIndex] = cap_value($bonusSpawnAmount[.@mapIndex] + 1,0,INT_MAX); // increase bonus spawn amount
+				
+				// 10% Able to spawn 2x2 cell near player
+				if(rand(100) < 10){
+					.@variableName$ = "$attackableMonsterTier" + (.@mapIndex + 1) + "Ids";
+					.@monsterId = getd(.@variableName$ + "[" + rand(getarraysize(getd(.@variableName$))) + "]");
+					
+					// Get Player Cell
+					getmapxy(.@mapName$,.@baseX,.@baseY);
+					.@cellSize = 2;
+					getfreecell(.@mapName$,.@spawnX,.@spawnY,.@baseX,.@baseY,.@cellSize,.@cellSize);
+
+					monster $maps$[.@mapIndex],.@spawnX,.@spawnY,"--ja--",.@monsterId,1,strnpcinfo(0) + "::OnMonsterDead";
+					.@GID = $@mobid[0];
+					getunitdata .@GID,.@md;
+					setunitdata .@GID,UMOB_MODE,.@md[UMOB_MODE] | MD_CANMOVE | MD_AGGRESSIVE | MD_CANATTACK;
+				}
 			}
 		}
 	}

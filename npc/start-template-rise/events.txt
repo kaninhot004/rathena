@@ -26,12 +26,12 @@ OnPCLoadMapEvent:
 	
 OnInit:
 	bindatcmd "load",strnpcinfo(3) + "::OnLoad";
-	addrid(0);
+	/*addrid(0);
 	if(!IsSafeMap())
 	{
 		warp "Save",0,0;
 		ClearAddTimer();
-	}
+	}*/
 	end;
 
 OnLoad:
