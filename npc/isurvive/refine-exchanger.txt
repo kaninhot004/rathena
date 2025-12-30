@@ -1,4 +1,4 @@
-vr_pop3,165,96,4	script	เพิ่ม Refine ทั้งตัว	1165,{
+vr_pop3,156,94,1	script	เพิ่ม Refine ทั้งตัว	564,{
 	mes "ใช้ ^B427F5Free Cash Point^000000 ในการเพิ่มต่อระดับ";
 	mes "คุณมี ^B427F5" + F_InsertComma(#KAFRAPOINTS) + "^000000 FCP";
 	next;

@@ -1,4 +1,4 @@
-vr_pop3,155,105,4	script	ของใช้ตาม Skill	10249,{
+vr_pop3,156,111,5	script	ของใช้ตาม Skill	10249,{
 	menu
 	"^f1820cFalcon^000000",OnFalcon
 	,"^f1820cMado Gear^000000",OnMadoGear

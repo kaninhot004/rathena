@@ -1,9 +1,11 @@
 -	script	TownWarper	-1,{
+	percentheal 100,100;
 	menu
 	"^4f33ffเสริมแกร่งตัวละคร^000000",OnPickAWish
 	,"^ff7d33เล่นเกม^000000",OnSleepyBonfire
 	,"^be33ffแต่งตัวละคร^000000",OnStylist
 	,"ทดสอบ Damage",OnTestDamage
+	,"Save จุดเกิด",OnSavePoint
 	;
 
 OnPickAWish:
@@ -22,6 +24,10 @@ OnTestDamage:
 	.@selectIndex = (select("ห้องที่ 1:ห้องที่ 2:ห้องที่ 3:ห้องที่ 4:PvP") - 1);
 	warp $testDamageMapName$[.@selectIndex],0,0;
 	end;
+	
+OnSavePoint:
+	atcommand "@save";
+	end;	
 	
 OnInit:
 	waitingroom strnpcinfo(1),0;

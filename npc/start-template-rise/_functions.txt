@@ -636,8 +636,6 @@ function	script	ClearAll	{
 	}
 	resetstatus;
 	resetskill;
-	StatusPoint = 0;
-	TraitPoint = 0;
 	SkillPoint = 0;
 	sc_end SC_ALL;
 	FullHeal();

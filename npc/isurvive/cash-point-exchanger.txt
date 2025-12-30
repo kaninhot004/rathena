@@ -1,4 +1,4 @@
-vr_pop3,135,91,4	script	แลก Cash Point	1165,{
+vr_pop3,135,91,5	script	แลก Cash Point	10350,{
 	mes "คุณมี ^16BABA" + F_InsertComma(#CASHPOINTS) + "^000000 CP";
 	mes "คุณมี ^B427F5" + F_InsertComma(#KAFRAPOINTS) + "^000000 FCP";
 	mes "---\n*^FF0000โปรดระวัง ไม่สามารถแลกคืนได้^000000";

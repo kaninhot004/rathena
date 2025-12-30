@@ -1,4 +1,4 @@
-vr_pop3,160,110,7	script	ตั้งค่า	10372,{
+vr_pop3,130,68,3	script	ตั้งค่า	10372,{
 	L_Menu:
 	menu
 	"ดูคำสั่งที่ใช้ได้",L_Commands,

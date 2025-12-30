@@ -7,7 +7,7 @@ OnInit:
 	$town$ = "vr_pop3"; // Town
 	setarray $cpRewards[0],1,5,25,45,85,125,175,250,300,1000; // Cash point reward
 	setarray $fcpRewards[0],1,2,4,7,11,16,22,29,37,46; // Free cash point reward
-	setarray $pointCosts[0],3,2,50; // Point cost
+	setarray $pointCosts[0],3,2,50,2; // Point cost
 	setarray $itemCosts[0],5,500,3000,7500,20000; // Item cost
 	setarray $enchantmentCosts[0],25,900,4500,12500,30000; // Enchantment cost
 	$gradeCosts = 300; // Grade cost

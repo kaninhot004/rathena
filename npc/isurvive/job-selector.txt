@@ -13,10 +13,15 @@ vr_pop3,202,7,3	script	เลือกชุด	21321,{
 	.@select = select(.@menu$) - 1;
 	.@jobId = .jobId[.@select];
 	jobchange ((.@jobId == 4263) && (Sex == 1)) ? 4264 : ((.@jobId == 4304) && (Sex == 1)) ? 4305 : .@jobId;
-	BaseLevel = INT_MAX;
 	JobLevel = INT_MAX;
 	isJobSelected = 1;
 	ClearAll();
+	if(Class != 4308){
+		skill 1,9,3;
+	}
+	else{
+		skill 5018,1,3;
+	}
 	close;
 	
 OnInit:

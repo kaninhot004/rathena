@@ -1,21 +1,22 @@
 // Monster spawn at [10,15,20,25,30,35,40,45,50,55] -> Player pass their day in map -> +1 amount to spawn (Maximum at 200) (Respawn every 60s)
 // In case someone lose -> Reduce bonus spawn amount by half
-vr_pop3,145,100,5	script	เริ่มเกม#0	10252,{
+vr_pop3,174,163,3	script	เริ่มเกม#0	10007,{
+	percentheal 100,100;
 	.@mapIndex = atoi(strnpcinfo(2)); // Map index
-	.@minimumSpawnAmount = (10 + (5 * .@mapIndex)); // Minimum spawn amount
+	.@minimumSpawnAmount = (30 + (5 * .@mapIndex)); // Minimum spawn amount
 	mes "วิธีเล่น";
 	mes "1.) ^1EBA38มีชีวิตรอด^000000 รับ ^B427F5" + F_InsertComma($fcpRewards[.@mapIndex]) + "^000000 FCP";
 	mes "2.) ^E6870Eกำจัด Monster^000000 รับ ^16BABA" + F_InsertComma($cpRewards[.@mapIndex]) + "^000000 CP";
-	mes "3.) ตาย ^FF0000All Status -" + $deadStatusPenalty[.@mapIndex] + "^000000, ^FF0000All Trait -" + $deadTraitPenalty[.@mapIndex] + "^000000";
+	mes "3.) ตาย ^FF0000Stats -" + $deadStatusPenalty[.@mapIndex] + "^000000, ^FF0000Traits -" + $deadTraitPenalty[.@mapIndex] + ", Grade & Refine เหลือ 0^000000";
 	mes "4.) Reset Map ทุก ๆ 1 นาที";
 	mes "5.) Reset จำนวน Monster ทุกต้นชั่วโมง";
 	next;
 	menu "เข้า (จำนวน Monster ขณะนี้ ^FF0000" + (.@minimumSpawnAmount + $bonusSpawnAmount[.@mapIndex]) + "^000000 ตัว)",-;
 	warp $maps$[.@mapIndex],0,0;
 	ClearAddTimer();
-	addtimer 60000, strnpcinfo(3) + "::OnSurvive";
+	addtimer 60000,strnpcinfo(3) + "::OnSurvive";
 	sc_start SC_ITEMBOOST,60000,1;
-	addtimer 5000, strnpcinfo(3) + "::OnHint";
+	addtimer 5000,strnpcinfo(3) + "::OnHint";
 	end;
 	
 OnHint:
@@ -52,7 +53,7 @@ OnTimer60000:
 OnSpawn:
 	initnpctimer;
 	.@mapIndex = atoi(strnpcinfo(2)); // Map index
-	.@minimumSpawnAmount = (10 + (5 * .@mapIndex)); // Minimum spawn amount
+	.@minimumSpawnAmount = (30 + (5 * .@mapIndex)); // Minimum spawn amount
 	// Target amount to spawn
 	.@targetAmountToSpawn = cap_value(.@minimumSpawnAmount + $bonusSpawnAmount[.@mapIndex],.@minimumSpawnAmount,$maximumSpawnAmount);
 	mapannounce $maps$[.@mapIndex],"จำนวน Monster ขณะนี้ " + .@targetAmountToSpawn + " ตัว",bc_map,0xE6870E;
@@ -126,4 +127,12 @@ OnInit:
 	end;
 }
 
-vr_pop3,150,100,5	duplicate(เริ่มเกม#0)	เริ่มเกม#1	10252
+vr_pop3,172,168,3	duplicate(เริ่มเกม#0)	เริ่มเกม#1	10007
+vr_pop3,168,173,3	duplicate(เริ่มเกม#0)	เริ่มเกม#2	10007
+vr_pop3,162,174,3	duplicate(เริ่มเกม#0)	เริ่มเกม#3	10007
+vr_pop3,155,173,3	duplicate(เริ่มเกม#0)	เริ่มเกม#4	10007
+vr_pop3,148,171,3	duplicate(เริ่มเกม#0)	เริ่มเกม#5	10007
+vr_pop3,141,169,3	duplicate(เริ่มเกม#0)	เริ่มเกม#6	10007
+vr_pop3,140,160,3	duplicate(เริ่มเกม#0)	เริ่มเกม#7	10007
+vr_pop3,149,156,3	duplicate(เริ่มเกม#0)	เริ่มเกม#8	10007
+vr_pop3,158,155,3	duplicate(เริ่มเกม#0)	เริ่มเกม#9	10007

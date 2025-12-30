@@ -1,4 +1,4 @@
-vr_pop3,150,96,4	script	สุ่มรับ Armor	1165,{
+vr_pop3,146,103,5	script	สุ่มรับ Armor	10375,{
 	mes "ใช้ ^B427F5Free Cash Point^000000 ในการสุ่ม";
 	mes "คุณมี ^B427F5" + F_InsertComma(#KAFRAPOINTS) + "^000000 FCP";
 	next;

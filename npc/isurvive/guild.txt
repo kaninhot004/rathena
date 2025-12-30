@@ -10,4 +10,4 @@ OnInit:
 	end;
 }
 
-vr_pop3,121,71,5	duplicate(CreateGuild)	สร้าง Guild#1	723
+vr_pop3,121,71,5	duplicate(CreateGuild)	สร้าง Guild#1	837

@@ -1,11 +1,21 @@
-vr_pop3,138,96,4	script	เสริมแกร่งตัวละคร	1165,{
+vr_pop3,138,96,5	script	เสริมแกร่งตัวละคร	10368,{
 	mes "ใช้ ^B427F5Free Cash Point^000000 ในการซื้อ";
 	mes "คุณมี ^B427F5" + F_InsertComma(#KAFRAPOINTS) + "^000000 FCP";
 	next;
-	.@buyType = (select("ซื้อ " + .rewards$[0] + " (^B427F5" + $pointCosts[0] + "^000000 FCP):ซื้อ " + .rewards$[1] + " (^B427F5" + $pointCosts[1] + "^000000 FCP):ซื้อ " + .rewards$[2] + " (^B427F5" + $pointCosts[2] + "^000000 FCP)") - 1);
+	.@skillPointCost = $pointCosts[1] * (skillPointBuyCount + 1);
+	.@levelCost = $pointCosts[3] * (levelBuyCount + 1) * (levelBuyCount + 1);
+	.@buyType = (select("ซื้อ " + .rewards$[0] + " (^B427F5" + $pointCosts[0] + "^000000 FCP):ซื้อ " + .rewards$[1] + " (^B427F5" + .@skillPointCost + "^000000 FCP) (^FF0000โปรดระวัง ราคาจะคูณไปเรื่อย ๆ^000000):ซื้อ " + .rewards$[2] + " (^B427F5" + $pointCosts[2] + "^000000 FCP):ซื้อ " + .rewards$[3] + " (^B427F5" + .@levelCost + "^000000 FCP) (^FF0000โปรดระวัง ราคาจะคูณไปเรื่อย ๆ^000000)") - 1);
 	.@price = $pointCosts[.@buyType];
+	if(.@buyType == 1){
+		.@price = .@skillPointCost;
+		.@hint$ = "^FF0000(โปรดระวัง ราคาจะคูณไปเรื่อย ๆ)^000000";
+	}
+	else if(.@buyType == 3){
+		.@price = .@levelCost;
+		.@hint$ = "^FF0000(โปรดระวัง ราคาจะคูณไปเรื่อย ๆ)^000000";
+	}
 	mes "ต้องการซื้อ " + .rewards$[.@buyType] + " เท่าไหร่?";
-	mes "ราคา ^B427F5" + .@price + "^000000 FCP ต่อครั้ง";
+	mes "ราคา ^B427F5" + .@price + "^000000 FCP ต่อครั้ง " + .@hint$;
 	mes "คุณมี ^B427F5" + F_InsertComma(#KAFRAPOINTS) + "^000000 FCP";
 	next;
 	input .@amount;
@@ -13,9 +23,11 @@ vr_pop3,138,96,4	script	เสริมแกร่งตัวละคร	1165,{
 		mes "ยกเลิกเรียบร้อยแล้ว";
 		close;
 	}
-	.@price *= .@amount;
+	if((.@buyType == 0) || (.@buyType == 2)){
+		.@price *= .@amount;
+	}
 	mes "ต้องการซื้อ " + F_InsertComma(.@amount) + " " + .rewards$[.@buyType] + "?";
-	mes "ราคา ^B427F5" + F_InsertComma(.@price) + "^000000 FCP";
+	mes "ราคา ^B427F5" + F_InsertComma(.@price) + "^000000 FCP " + .@hint$;
 	mes "คุณมี ^B427F5" + F_InsertComma(#KAFRAPOINTS) + "^000000 FCP";
 	next;
 	menu "ยืนยัน",-;
@@ -26,25 +38,67 @@ vr_pop3,138,96,4	script	เสริมแกร่งตัวละคร	1165,{
 	}
 	else
 	{
-		#KAFRAPOINTS = cap_value(#KAFRAPOINTS - .@price,0,INT_MAX);
-		dispbottom "คงเหลือ " + F_InsertComma(#KAFRAPOINTS) + " FCP",0xB427F5;
+		if((.@buyType == 0) || (.@buyType == 2)){
+			#KAFRAPOINTS = cap_value(#KAFRAPOINTS - .@price,0,INT_MAX);
+			dispbottom "คงเหลือ " + F_InsertComma(#KAFRAPOINTS) + " FCP",0xB427F5;
+		}
 		if(.@buyType == 0)
 		{
 			StatusPoint += .@amount;
 		}
 		else if(.@buyType == 1)
 		{
-			SkillPoint += .@amount;
+			freeloop(1);
+			for(.@i = 0; .@i < .@amount; .@i++){
+				.@skillPointCost = $pointCosts[1] * (skillPointBuyCount + 1);
+				.@price = .@skillPointCost;
+				if(#KAFRAPOINTS < .@price)
+				{
+					freeloop(0);
+					mes "^B427F5Free Cash Point^000000 ไม่เพียงพอ";
+					close;
+				}
+				#KAFRAPOINTS = cap_value(#KAFRAPOINTS - .@price,0,INT_MAX);
+				dispbottom "คงเหลือ " + F_InsertComma(#KAFRAPOINTS) + " FCP",0xB427F5;
+				SkillPoint++;
+				skillPointBuyCount++;
+			}
+			freeloop(0);
 		}
 		else if(.@buyType == 2)
 		{
 			TraitPoint += .@amount;
 		}
+		else if(.@buyType == 3)
+		{
+			freeloop(1);
+			for(.@i = 0; .@i < .@amount; .@i++){
+				.@levelCost = $pointCosts[3] * (levelBuyCount + 1) * (levelBuyCount + 1);
+				.@price = .@levelCost;
+				if(BaseLevel >= 275)
+				{
+					freeloop(0);
+					mes "Level เต็มแล้ว";
+					close;
+				}
+				if(#KAFRAPOINTS < .@price)
+				{
+					freeloop(0);
+					mes "^B427F5Free Cash Point^000000 ไม่เพียงพอ";
+					close;
+				}
+				#KAFRAPOINTS = cap_value(#KAFRAPOINTS - .@price,0,INT_MAX);
+				dispbottom "คงเหลือ " + F_InsertComma(#KAFRAPOINTS) + " FCP",0xB427F5;
+				atcommand "@lvup 1";
+				levelBuyCount++;
+			}
+			freeloop(0);
+		}
 	}
 	end;
 	
 OnInit:
-	setarray .rewards$[0],"^3DA638Status Point^000000","^3DA638Skill Point^000000","^3DA638Trait Point^000000";
+	setarray .rewards$[0],"^3DA638Status Point^000000","^3DA638Skill Point^000000","^3DA638Trait Point^000000","^3DA638Level^000000";
 	waitingroom "เสริมแกร่งตัวละคร",0;
 	end;
 }

@@ -1,4 +1,4 @@
-vr_pop3,170,96,4	script	เพิ่ม Random Option	1165,{
+vr_pop3,167,105,1	script	เพิ่ม Random Option	564,{
 	RandomOption();
 	end;
 
