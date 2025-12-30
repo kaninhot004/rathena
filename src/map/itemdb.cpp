@@ -198,43 +198,9 @@ uint64 ItemDatabase::parseBodyNode(const ryml::NodeRef& node) {
 
 	bool has_buy = false, has_sell = false;
 
-	if (this->nodeExists(node, "Buy")) {
-		uint32 buy;
+	item->value_buy = 0;
 
-		if (!this->asUInt32(node, "Buy", buy))
-			return 0;
-
-		if( buy > MAX_ZENY ){
-			this->invalidWarning( node["Buy"], "Buying price exceeds MAX_ZENY. Capping...\n" );
-			buy = MAX_ZENY;
-		}
-
-		has_buy = true;
-		item->value_buy = buy;
-	} else {
-		if (!exists) {
-			item->value_buy = 0;
-		}
-	}
-
-	if (this->nodeExists(node, "Sell")) {
-		uint32 sell;
-
-		if (!this->asUInt32(node, "Sell", sell))
-			return 0;
-
-		if( sell > MAX_ZENY ){
-			this->invalidWarning( node["Sell"], "Sell price exceeds MAX_ZENY. Capping...\n" );
-			sell = MAX_ZENY;
-		}
-
-		has_sell = true;
-		item->value_sell = sell;
-	} else {
-		if (!exists) {
-			item->value_sell = 0;
-		}
-	}
+	item->value_sell = 0;
 
 	hasPriceValue[item->nameid] = { has_buy, has_sell };
 

@@ -1,0 +1,30 @@
+-	script	Events	-1,{
+	end;
+	
+OnPCLoginEvent:
+	end;
+	
+OnPCLogoutEvent:
+	ClearAddTimer();
+	end;
+	
+OnPCLoadMapEvent:
+	ClearAddTimer();
+	end;
+	
+OnInit:
+	bindatcmd "load",strnpcinfo(3) + "::OnLoad";
+	addrid(0);
+	if(!IsSafeMap())
+	{
+		warp "Save",0,0;
+		ClearAddTimer();
+	}
+	end;
+
+OnLoad:
+	PaWButterflyWing();
+	end;
+}
+
+vr_pop3	mapflag	loadevent

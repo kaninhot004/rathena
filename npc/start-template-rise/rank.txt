@@ -1,0 +1,107 @@
+moc_akhet,190,253,5	script	ป้าย#Rank	10252,{
+	query_sql("SELECT `char_id`, `value` FROM char_reg_num WHERE `key` = 'dreamIndex' ORDER BY `value` DESC LIMIT 100",.@rankCID,.@v);
+	mes "จัดอันดับ";
+	.@masterSN$ = "^1bad59•^000000";
+	.@masterN$ = "^ba48ef•^000000";
+	.@masterNIN$ = "^e12929•^000000";
+	for(.@i = 0; .@i < getarraysize(.@rankCID); .@i++){
+		.@sn = 0;
+		.@n = 0;
+		.@nin = 0;
+		.@CID = .@rankCID[.@i];
+		query_sql("SELECT `name` FROM `char` WHERE `char_id` = '" + .@CID + "'",.@name$);
+		query_sql("SELECT `value` FROM `char_reg_num` WHERE `key` = 'singleNightmareIndex' AND `char_id` = '" + .@CID + "'",.@sn);
+		query_sql("SELECT `value` FROM `char_reg_num` WHERE `key` = 'nightmareIndex' AND `char_id` = '" + .@CID + "'",.@n);
+		query_sql("SELECT `value` FROM `char_reg_num` WHERE `key` = 'NINightmareIndex' AND `char_id` = '" + .@CID + "'",.@nin);
+		if(.@sn == 5) 
+		{
+			.@msn$ = .@masterSN$;
+		}
+		else
+		{
+			.@msn$ = "";
+		}
+		if(.@n == 5) 
+		{
+			.@mn$ = .@masterN$;
+		}
+		else
+		{
+			.@mn$ = "";
+		}
+		if(.@nin == 5) 
+		{
+			.@mnin$ = .@masterNIN$;
+		}
+		else
+		{
+			.@mnin$ = "";
+		}
+		if((.@sn == 5) || (.@n == 5) || (.@nin == 5))
+		{
+			.@mastered$ = " [" + .@msn$ + .@mn$ + .@mnin$ + "]";
+		}
+		else
+		{
+			.@mastered$ = "";
+		}
+		mes (.@i + 1) + ".) " + .@name$ + " (" + .@v[.@i] + ")" + .@mastered$;
+	}
+	
+	next;
+	
+	query_sql("SELECT `char_id`, `value` FROM char_reg_num WHERE `key` = 'elScore' ORDER BY `value` DESC LIMIT 100",.@elRankCID,.@elVar);
+	mes "จัดอันดับ ความฝันไม่สิ้นสุด";
+	.@masterSN$ = "^1bad59•^000000";
+	.@masterN$ = "^ba48ef•^000000";
+	.@masterNIN$ = "^e12929•^000000";
+	for(.@i = 0; .@i < getarraysize(.@elRankCID); .@i++){
+		.@sn = 0;
+		.@n = 0;
+		.@nin = 0;
+		.@CID = .@elRankCID[.@i];
+		query_sql("SELECT `name` FROM `char` WHERE `char_id` = '" + .@CID + "'",.@name$);
+		query_sql("SELECT `value` FROM `char_reg_num` WHERE `key` = 'singleNightmareIndex' AND `char_id` = '" + .@CID + "'",.@sn);
+		query_sql("SELECT `value` FROM `char_reg_num` WHERE `key` = 'nightmareIndex' AND `char_id` = '" + .@CID + "'",.@n);
+		query_sql("SELECT `value` FROM `char_reg_num` WHERE `key` = 'NINightmareIndex' AND `char_id` = '" + .@CID + "'",.@nin);
+		if(.@sn == 5) 
+		{
+			.@msn$ = .@masterSN$;
+		}
+		else
+		{
+			.@msn$ = "";
+		}
+		if(.@n == 5) 
+		{
+			.@mn$ = .@masterN$;
+		}
+		else
+		{
+			.@mn$ = "";
+		}
+		if(.@nin == 5) 
+		{
+			.@mnin$ = .@masterNIN$;
+		}
+		else
+		{
+			.@mnin$ = "";
+		}
+		if((.@sn == 5) || (.@n == 5) || (.@nin == 5))
+		{
+			.@mastered$ = " [" + .@msn$ + .@mn$ + .@mnin$ + "]";
+		}
+		else
+		{
+			.@mastered$ = "";
+		}
+		mes (.@i + 1) + ".) " + .@name$ + " (" + .@elVar[.@i] + ")" + .@mastered$;
+	}
+	
+	close;
+
+OnInit:
+	waitingroom strnpcinfo(2),0;
+	end;
+}

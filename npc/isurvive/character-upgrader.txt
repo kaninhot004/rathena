@@ -1,0 +1,49 @@
+vr_pop3,138,96,4	script	เสริมแกร่งตัวละคร	1165,{
+	mes "ใช้ ^B427F5Free Cash Point^000000 ในการซื้อ";
+	mes "คุณมี ^B427F5" + F_InsertComma(#KAFRAPOINTS) + "^000000 FCP";
+	next;
+	.@buyType = (select("ซื้อ " + .rewards$[0] + " (^B427F5" + $pointCosts[0] + "^000000 FCP):ซื้อ " + .rewards$[1] + " (^B427F5" + $pointCosts[1] + "^000000 FCP):ซื้อ " + .rewards$[2] + " (^B427F5" + $pointCosts[2] + "^000000 FCP)") - 1);
+	.@price = $pointCosts[.@buyType];
+	mes "ต้องการซื้อ " + .rewards$[.@buyType] + " เท่าไหร่?";
+	mes "ราคา ^B427F5" + .@price + "^000000 FCP ต่อครั้ง";
+	mes "คุณมี ^B427F5" + F_InsertComma(#KAFRAPOINTS) + "^000000 FCP";
+	next;
+	input .@amount;
+	if(.@amount <= 0){
+		mes "ยกเลิกเรียบร้อยแล้ว";
+		close;
+	}
+	.@price *= .@amount;
+	mes "ต้องการซื้อ " + F_InsertComma(.@amount) + " " + .rewards$[.@buyType] + "?";
+	mes "ราคา ^B427F5" + F_InsertComma(.@price) + "^000000 FCP";
+	mes "คุณมี ^B427F5" + F_InsertComma(#KAFRAPOINTS) + "^000000 FCP";
+	menu "ยืนยัน",-;
+	if(#KAFRAPOINTS < .@price)
+	{
+		mes "^B427F5Free Cash Point^000000 ไม่เพียงพอ";
+		close;
+	}
+	else
+	{
+		#KAFRAPOINTS = cap_value(#KAFRAPOINTS - .@price,0,INT_MAX);
+		dispbottom "คงเหลือ " + F_InsertComma(#KAFRAPOINTS) + " FCP",0xB427F5;
+		if(.@buyType == 0)
+		{
+			StatusPoint += .@amount;
+		}
+		else if(.@buyType == 1)
+		{
+			SkillPoint += .@amount;
+		}
+		else if(.@buyType == 2)
+		{
+			TraitPoint += .@amount;
+		}
+	}
+	end;
+	
+OnInit:
+	setarray .rewards$[0],"^3DA638Status Point^000000","^3DA638Skill Point^000000","^3DA638Trait Point^000000";
+	waitingroom "เสริมแกร่งตัวละคร",0;
+	end;
+}

@@ -1,0 +1,34 @@
+vr_pop3,135,91,4	script	แลก Cash Point	1165,{
+	mes "คุณมี ^16BABA" + F_InsertComma(#CASHPOINTS) + "^000000 CP";
+	mes "คุณมี ^B427F5" + F_InsertComma(#KAFRAPOINTS) + "^000000 FCP";
+	mes "---\n*^FF0000โปรดระวัง ไม่สามารถแลกคืนได้^000000";
+	next;
+	input .@amount;
+	if(.@amount <= 0){
+		mes "ยกเลิกเรียบร้อยแล้ว";
+		close;
+	}
+	mes "คุณมี ^16BABA" + F_InsertComma(#CASHPOINTS) + "^000000 CP";
+	mes "คุณมี ^B427F5" + F_InsertComma(#KAFRAPOINTS) + "^000000 FCP";
+	mes "---\nต้องการแลก\n^16BABA" + F_InsertComma(.@amount) + "^000000 CP เป็น ^B427F5" + F_InsertComma(.@amount) + "^000000 FCP?";
+	mes "*^FF0000โปรดระวัง ไม่สามารถแลกคืนได้^000000";
+	next;
+	menu "ยืนยัน",-;
+	if(#CASHPOINTS < .@amount)
+	{
+		mes "^16BABACash Point^000000 ไม่เพียงพอ";
+		close;
+	}
+	else
+	{
+		#CASHPOINTS = cap_value(#CASHPOINTS - .@amount,0,INT_MAX);
+		#KAFRAPOINTS = cap_value(#KAFRAPOINTS + .@amount,0,INT_MAX);
+		dispbottom "คงเหลือ " + F_InsertComma(#CASHPOINTS) + " CP",0x16BABA;
+		dispbottom "คงเหลือ " + F_InsertComma(#KAFRAPOINTS) + " FCP",0xB427F5;
+	}
+	end;
+	
+OnInit:
+	waitingroom "แลก Cash Point เป็น Free Cash Point",0;
+	end;
+}

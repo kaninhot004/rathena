@@ -1,0 +1,115 @@
+// Monster spawn at [10,15,20,25,30,35,40,45,50,55] -> Player pass their day in map -> +1 amount to spawn (Maximum at 200) (Respawn every 60s)
+// In case someone lose -> Reduce bonus spawn amount by half
+vr_pop3,145,100,5	script	เริ่มเกม#0	10252,{
+	.@mapIndex = atoi(strnpcinfo(2)); // Map index
+	.@minimumSpawnAmount = (10 + (5 * .@mapIndex)); // Minimum spawn amount
+	mes "วิธีเล่น";
+	mes "1.) ^1EBA38มีชีวิตรอด^000000 รับ ^B427F5" + F_InsertComma($fcpRewards[.@mapIndex]) + "^000000 FCP";
+	mes "2.) ^E6870Eกำจัด Monster^000000 รับ ^16BABA" + F_InsertComma($cpRewards[.@mapIndex]) + "^000000 CP";
+	mes "3.) ตาย ^FF0000All Status -" + $deadStatusPenalty[.@mapIndex] + "^000000, ^FF0000All Trait -" + $deadTraitPenalty[.@mapIndex] + "^000000";
+	mes "4.) Reset Map ทุก ๆ 1 นาที";
+	mes "5.) Reset จำนวน Monster ทุกต้นชั่วโมง";
+	next;
+	menu "เข้า (จำนวน Monster ขณะนี้ ^FF0000" + (.@minimumSpawnAmount + $bonusSpawnAmount[.@mapIndex]) + "^000000 ตัว)",-;
+	warp $maps$[.@mapIndex],0,0;
+	ClearAddTimer();
+	addtimer 60000, strnpcinfo(3) + "::OnSurvive";
+	sc_start SC_ITEMBOOST,60000,1;
+	addtimer 5000, strnpcinfo(3) + "::OnHint";
+	end;
+	
+OnHint:
+	dispbottom "มีชีวิตรอดเพื่อรับ " + F_InsertComma($fcpRewards[.@mapIndex]) + "^000000 FCP (ดูเวลาทางขวาจอได้โดยเอา Mouse ชี้ Icon ชื่อ Item เหลือง ๆ)",0x1EBA38;
+	end;
+	
+OnMinute00:
+	.@mapIndex = atoi(strnpcinfo(2)); // Map index
+	$bonusSpawnAmount[.@mapIndex] = 0; // Reset bonus spawn amount
+	end;
+	
+OnSurvive:
+	// Check player
+	if(playerattached()){
+		// Check player alive
+		if(!isdead()){
+			.@mapIndex = atoi(strnpcinfo(2)); // Map index
+			// Check map
+			if(strcharinfo(3) == $maps$[.@mapIndex]){
+				// Give free cash point
+				#KAFRAPOINTS = cap_value(#KAFRAPOINTS + $fcpRewards[.@mapIndex],0,INT_MAX);
+				dispbottom "คงเหลือ " + F_InsertComma(#KAFRAPOINTS) + " FCP",0xB427F5;
+				addtimer 60000, strnpcinfo(3) + "::OnSurvive";
+				sc_start SC_ITEMBOOST,60000,1;
+				$bonusSpawnAmount[.@mapIndex] = cap_value($bonusSpawnAmount[.@mapIndex] + 1,0,INT_MAX); // increase bonus spawn amount
+			}
+		}
+	}
+	
+	end;
+	
+	// Check to respawn every 60s
+OnTimer60000:
+OnSpawn:
+	initnpctimer;
+	.@mapIndex = atoi(strnpcinfo(2)); // Map index
+	.@minimumSpawnAmount = (10 + (5 * .@mapIndex)); // Minimum spawn amount
+	// Target amount to spawn
+	.@targetAmountToSpawn = cap_value(.@minimumSpawnAmount + $bonusSpawnAmount[.@mapIndex],.@minimumSpawnAmount,$maximumSpawnAmount);
+	mapannounce $maps$[.@mapIndex],"จำนวน Monster ขณะนี้ " + .@targetAmountToSpawn + " ตัว",bc_map,0xE6870E;
+	// Clear monster
+	killmonsterall $maps$[.@mapIndex];
+	// Spawn new monster
+	freeloop(1);
+	.@variableName$ = "$attackableMonsterTier" + (.@mapIndex + 1) + "Ids";
+	for(.@i = 0; .@i < .@targetAmountToSpawn; .@i++)
+	{
+		.@monsterId = getd(.@variableName$ + "[" + rand(getarraysize(getd(.@variableName$))) + "]");
+		monster $maps$[.@mapIndex],0,0,"--ja--",.@monsterId,1,strnpcinfo(0) + "::OnMonsterDead";
+		.@GID = $@mobid[0];
+		getunitdata .@GID,.@md;
+		setunitdata .@GID,UMOB_MODE,.@md[UMOB_MODE] | MD_CANMOVE | MD_AGGRESSIVE | MD_CANATTACK;
+	}
+	freeloop(0);
+	
+	end;
+	
+OnMonsterDead:
+	// Check player
+	if(playerattached())
+	{
+		.@mapIndex = atoi(strnpcinfo(2)); // Map index
+		// Check map
+		if(strcharinfo(3) == $maps$[.@mapIndex]){
+			// Give cash point
+			#CASHPOINTS = cap_value(#CASHPOINTS + $cpRewards[.@mapIndex],0,INT_MAX);
+			dispbottom "คงเหลือ " + F_InsertComma(#CASHPOINTS) + " CP",0x16BABA;
+		}
+	}
+	end;
+
+OnPCDieEvent:
+	// Check player
+	if(playerattached())
+	{
+		ClearAddTimer();
+		.@mapIndex = atoi(strnpcinfo(2)); // Map index
+		.@mapName$ = strcharinfo(3);
+		// Check map
+		if(strcharinfo(3) == $maps$[.@mapIndex]){
+			// Dead penalty
+			if($bonusSpawnAmount[.@mapIndex] > 0){
+				$bonusSpawnAmount[.@mapIndex] /= 2;
+			}
+			atcommand "@statsall -" + $deadStatusPenalty[.@mapIndex];
+			atcommand "@traitall -" + $deadTraitPenalty[.@mapIndex];
+		}
+	}
+	end;
+	
+OnInit:
+	waitingroom "เล่นระดับ " + (atoi(strnpcinfo(2)) + 1),0;
+	callsub(OnSpawn);
+	end;
+}
+
+vr_pop3,150,100,5	duplicate(เริ่มเกม#0)	เริ่มเกม#1	10252

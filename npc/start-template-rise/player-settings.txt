@@ -1,0 +1,68 @@
+moc_akhet,194,308,7	script	ตั้งค่า	10372,{
+	L_Menu:
+	menu
+	"ดูคำสั่งที่ใช้ได้",L_Commands,
+	//"ใช้ @autoloot เมื่อเข้าเกม [" + (isAutoLootOff ? "^d32323OFF^000000" : "^1c9311ON^000000") + "]",L_AutoLoot,
+	//"ทำลาย Item ที่สุ่มได้แล้วไม่ตรงกับที่จะได้ ด้วยระบบสุ่มจนกว่าจะเจอ [" + (#IS_LOCK_TRADE_DESTROY ? "^1c9311ON^000000" : "^d32323OFF^000000") + "]",L_LockTradeDestroy,
+	"รวม Item ที่แยกกันอยู่",L_ItemMerge,
+	"เปลี่ยน Password",L_ChangePassword,
+	"ลบ Buff ทั้งตัว",L_RemoveBuff
+	;
+	end;
+	
+	L_Commands:
+	mes "• [@load] กลับไปสู่ Save Point";		
+	//mes "• [@whereis 1002] ตรวจสอบว่า Monster Poring อยู่ Map ไหน";
+	//mes "• [@whodrops 501 ตรวจสอบ Monster ตัวไหน Drop Red Potion";
+	mes "• [@mi 1002] ตรวจสอบ Monster Poring";
+	mes "• [@mi poring] ตรวจสอบ Monster Poring";
+	mes "• [@ii 501] ตรวจสอบ Item Red Potion";
+	mes "• [@who] ดูว่ามีใครเล่นเกมอยู่บ้าง";
+	mes "• [@time] บอกเวลา Server";
+	//mes "• [@autoloot] เก็บ Item ทันทีหลัง Monster Drop Item";
+	//mes "• [@alootid +501] เก็บ Item Red Potion ทันทีหลัง Monster Drop Item";
+	//mes "• [@autoloottype +5] เก็บ Item ประเภท Weapon ทันทีหลัง Monster Drop Item";
+	//mes "• [@at] สามารถใช้ได้เมื่อตั้งร้านค้าแผงลอย เกมจะปิดตัวแต่ตัวละครจะยังตั้งร้านค้าแผงลอยอยู่";
+	next;
+	goto L_Menu;
+	
+	L_AutoLoot:
+	isAutoLootOff = !isAutoLootOff;
+	message strcharinfo(0),"ใช้ @autoloot เมื่อเข้าเกม [" + (isAutoLootOff ? "OFF" : "ON") + "]";
+	goto L_Menu;
+	
+	L_LockTradeDestroy:
+	#IS_LOCK_TRADE_DESTROY = !#IS_LOCK_TRADE_DESTROY;
+	message strcharinfo(0),"ทำลาย Item ที่สุ่มได้แล้วไม่ตรงกับที่จะได้ ด้วยระบบสุ่มจนกว่าจะเจอ [" + (#IS_LOCK_TRADE_DESTROY ? "ON" : "OFF") + "]";
+	goto L_Menu;
+	
+	L_ItemMerge:
+	mergeitem;
+	goto L_Menu;
+	
+	L_ChangePassword:
+	.@accountId = getcharid(3);
+	query_sql("SELECT login.account_id FROM login WHERE login.account_id = " + .@accountId,.@id);
+	if(!.@id){
+		mes "ไม่พบ ID ของคุณ";
+		close;
+	}
+	input .@newPassword$;
+	if((.@newPassword$ == "") || (.@newPassword$ == " ") || (charat(.@newPassword$,0) == " ") || (getstrlen(.@newPassword$) < 6))
+	{
+		mes "โปรดระบุ Password และต้องระบุอย่างน้อย 6 ตัวอักษร";
+		close;
+	}
+	query_sql("UPDATE login SET user_pass = " + .@newPassword$ + " WHERE login.account_id = " + .@accountId);
+	mes "เปลี่ยน Password เรียบร้อยแล้ว";
+	next;
+	goto L_Menu;
+	
+	L_RemoveBuff:
+	sc_end SC_ALL;
+	end;
+	
+OnInit:
+	waitingroom "ตั้งค่า",0;
+	end;
+}

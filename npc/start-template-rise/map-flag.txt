@@ -1,0 +1,3722 @@
+alb_ship	mapflag	notomb
+alb2trea	mapflag	notomb
+alberta	mapflag	notomb
+alberta_in	mapflag	notomb
+alde_dun01	mapflag	notomb
+alde_dun02	mapflag	notomb
+alde_dun03	mapflag	notomb
+alde_dun04	mapflag	notomb
+aldeba_in	mapflag	notomb
+aldebaran	mapflag	notomb
+anthell01	mapflag	notomb
+anthell02	mapflag	notomb
+arena_room	mapflag	notomb
+c_tower1	mapflag	notomb
+c_tower2	mapflag	notomb
+c_tower3	mapflag	notomb
+c_tower4	mapflag	notomb
+force_1-1	mapflag	notomb
+force_2-1	mapflag	notomb
+force_3-1	mapflag	notomb
+force_4-1	mapflag	notomb
+force_5-1	mapflag	notomb
+force_1-2	mapflag	notomb
+force_2-2	mapflag	notomb
+force_3-2	mapflag	notomb
+force_1-3	mapflag	notomb
+force_2-3	mapflag	notomb
+force_3-3	mapflag	notomb
+gef_dun00	mapflag	notomb
+gef_dun01	mapflag	notomb
+gef_dun02	mapflag	notomb
+gef_dun03	mapflag	notomb
+gef_fild00	mapflag	notomb
+gef_fild01	mapflag	notomb
+gef_fild02	mapflag	notomb
+gef_fild03	mapflag	notomb
+gef_fild04	mapflag	notomb
+gef_fild05	mapflag	notomb
+gef_fild06	mapflag	notomb
+gef_fild07	mapflag	notomb
+gef_fild08	mapflag	notomb
+gef_fild09	mapflag	notomb
+gef_fild10	mapflag	notomb
+gef_fild11	mapflag	notomb
+gef_fild12	mapflag	notomb
+gef_fild13	mapflag	notomb
+gef_fild14	mapflag	notomb
+gef_tower	mapflag	notomb
+geffen	mapflag	notomb
+geffen_in	mapflag	notomb
+gl_cas01	mapflag	notomb
+gl_cas02	mapflag	notomb
+gl_church	mapflag	notomb
+gl_chyard	mapflag	notomb
+gl_dun01	mapflag	notomb
+gl_dun02	mapflag	notomb
+gl_in01	mapflag	notomb
+gl_knt01	mapflag	notomb
+gl_knt02	mapflag	notomb
+gl_prison	mapflag	notomb
+gl_prison1	mapflag	notomb
+gl_sew01	mapflag	notomb
+gl_sew02	mapflag	notomb
+gl_sew03	mapflag	notomb
+gl_sew04	mapflag	notomb
+gl_step	mapflag	notomb
+glast_01	mapflag	notomb
+in_hunter	mapflag	notomb
+in_moc_16	mapflag	notomb
+in_orcs01	mapflag	notomb
+in_sphinx1	mapflag	notomb
+in_sphinx2	mapflag	notomb
+in_sphinx3	mapflag	notomb
+in_sphinx4	mapflag	notomb
+in_sphinx5	mapflag	notomb
+iz_dun00	mapflag	notomb
+iz_dun01	mapflag	notomb
+iz_dun02	mapflag	notomb
+iz_dun03	mapflag	notomb
+iz_dun04	mapflag	notomb
+izlu2dun	mapflag	notomb
+izlude	mapflag	notomb
+izlude_in	mapflag	notomb
+job_thief1	mapflag	notomb
+mjo_dun01	mapflag	notomb
+mjo_dun02	mapflag	notomb
+mjo_dun03	mapflag	notomb
+mjolnir_01	mapflag	notomb
+mjolnir_02	mapflag	notomb
+mjolnir_03	mapflag	notomb
+mjolnir_04	mapflag	notomb
+mjolnir_05	mapflag	notomb
+mjolnir_06	mapflag	notomb
+mjolnir_07	mapflag	notomb
+mjolnir_08	mapflag	notomb
+mjolnir_09	mapflag	notomb
+mjolnir_10	mapflag	notomb
+mjolnir_11	mapflag	notomb
+mjolnir_12	mapflag	notomb
+moc_castle	mapflag	notomb
+moc_fild01	mapflag	notomb
+moc_fild02	mapflag	notomb
+moc_fild03	mapflag	notomb
+moc_fild07	mapflag	notomb
+moc_fild11	mapflag	notomb
+moc_fild12	mapflag	notomb
+moc_fild13	mapflag	notomb
+moc_fild16	mapflag	notomb
+moc_fild17	mapflag	notomb
+moc_fild18	mapflag	notomb
+moc_fild19	mapflag	notomb
+moc_pryd01	mapflag	notomb
+moc_pryd02	mapflag	notomb
+moc_pryd03	mapflag	notomb
+moc_pryd04	mapflag	notomb
+moc_pryd05	mapflag	notomb
+moc_pryd06	mapflag	notomb
+moc_prydb1	mapflag	notomb
+moc_ruins	mapflag	notomb
+monk_in	mapflag	notomb
+morocc	mapflag	notomb
+morocc_in	mapflag	notomb
+new_zone01	mapflag	notomb
+new_zone02	mapflag	notomb
+new_zone03	mapflag	notomb
+new_zone04	mapflag	notomb
+new_1-1	mapflag	notomb
+new_1-2	mapflag	notomb
+new_1-3	mapflag	notomb
+new_1-4	mapflag	notomb
+new_2-1	mapflag	notomb
+new_2-2	mapflag	notomb
+new_2-3	mapflag	notomb
+new_2-4	mapflag	notomb
+new_3-1	mapflag	notomb
+new_3-2	mapflag	notomb
+new_3-3	mapflag	notomb
+new_3-4	mapflag	notomb
+new_4-1	mapflag	notomb
+new_4-2	mapflag	notomb
+new_4-3	mapflag	notomb
+new_4-4	mapflag	notomb
+new_5-1	mapflag	notomb
+new_5-2	mapflag	notomb
+new_5-3	mapflag	notomb
+new_5-4	mapflag	notomb
+orcsdun01	mapflag	notomb
+orcsdun02	mapflag	notomb
+ordeal_1-1	mapflag	notomb
+ordeal_1-2	mapflag	notomb
+ordeal_2-1	mapflag	notomb
+ordeal_2-2	mapflag	notomb
+ordeal_3-1	mapflag	notomb
+ordeal_3-2	mapflag	notomb
+pay_arche	mapflag	notomb
+pay_dun00	mapflag	notomb
+pay_dun01	mapflag	notomb
+pay_dun02	mapflag	notomb
+pay_dun03	mapflag	notomb
+pay_dun04	mapflag	notomb
+pay_fild01	mapflag	notomb
+pay_fild02	mapflag	notomb
+pay_fild03	mapflag	notomb
+pay_fild04	mapflag	notomb
+pay_fild05	mapflag	notomb
+pay_fild06	mapflag	notomb
+pay_fild07	mapflag	notomb
+pay_fild08	mapflag	notomb
+pay_fild09	mapflag	notomb
+pay_fild10	mapflag	notomb
+pay_fild11	mapflag	notomb
+prontera	mapflag	notomb
+prt_are_in	mapflag	notomb
+prt_are01	mapflag	notomb
+prt_castle	mapflag	notomb
+prt_church	mapflag	notomb
+prt_fild00	mapflag	notomb
+prt_fild01	mapflag	notomb
+prt_fild02	mapflag	notomb
+prt_fild03	mapflag	notomb
+prt_fild04	mapflag	notomb
+prt_fild05	mapflag	notomb
+prt_fild06	mapflag	notomb
+prt_fild07	mapflag	notomb
+prt_fild08	mapflag	notomb
+prt_fild09	mapflag	notomb
+prt_fild10	mapflag	notomb
+prt_fild11	mapflag	notomb
+prt_in	mapflag	notomb
+prt_maze01	mapflag	notomb
+prt_maze02	mapflag	notomb
+prt_maze03	mapflag	notomb
+prt_monk	mapflag	notomb
+prt_sewb1	mapflag	notomb
+prt_sewb2	mapflag	notomb
+prt_sewb3	mapflag	notomb
+prt_sewb4	mapflag	notomb
+pvp_room	mapflag	notomb
+pvp_2vs2	mapflag	notomb
+pvp_c_room	mapflag	notomb
+pvp_n_1-1	mapflag	notomb
+pvp_n_1-2	mapflag	notomb
+pvp_n_1-3	mapflag	notomb
+pvp_n_1-4	mapflag	notomb
+pvp_n_1-5	mapflag	notomb
+pvp_n_2-1	mapflag	notomb
+pvp_n_2-2	mapflag	notomb
+pvp_n_2-3	mapflag	notomb
+pvp_n_2-4	mapflag	notomb
+pvp_n_2-5	mapflag	notomb
+pvp_n_3-1	mapflag	notomb
+pvp_n_3-2	mapflag	notomb
+pvp_n_3-3	mapflag	notomb
+pvp_n_3-4	mapflag	notomb
+pvp_n_3-5	mapflag	notomb
+pvp_n_4-1	mapflag	notomb
+pvp_n_4-2	mapflag	notomb
+pvp_n_4-3	mapflag	notomb
+pvp_n_4-4	mapflag	notomb
+pvp_n_4-5	mapflag	notomb
+pvp_n_5-1	mapflag	notomb
+pvp_n_5-2	mapflag	notomb
+pvp_n_5-3	mapflag	notomb
+pvp_n_5-4	mapflag	notomb
+pvp_n_5-5	mapflag	notomb
+pvp_n_6-1	mapflag	notomb
+pvp_n_6-2	mapflag	notomb
+pvp_n_6-3	mapflag	notomb
+pvp_n_6-4	mapflag	notomb
+pvp_n_6-5	mapflag	notomb
+pvp_n_7-1	mapflag	notomb
+pvp_n_7-2	mapflag	notomb
+pvp_n_7-3	mapflag	notomb
+pvp_n_7-4	mapflag	notomb
+pvp_n_7-5	mapflag	notomb
+pvp_n_8-1	mapflag	notomb
+pvp_n_8-2	mapflag	notomb
+pvp_n_8-3	mapflag	notomb
+pvp_n_8-4	mapflag	notomb
+pvp_n_8-5	mapflag	notomb
+pvp_n_room	mapflag	notomb
+pvp_y_1-1	mapflag	notomb
+pvp_y_1-2	mapflag	notomb
+pvp_y_1-3	mapflag	notomb
+pvp_y_1-4	mapflag	notomb
+pvp_y_1-5	mapflag	notomb
+pvp_y_2-1	mapflag	notomb
+pvp_y_2-2	mapflag	notomb
+pvp_y_2-3	mapflag	notomb
+pvp_y_2-4	mapflag	notomb
+pvp_y_2-5	mapflag	notomb
+pvp_y_3-1	mapflag	notomb
+pvp_y_3-2	mapflag	notomb
+pvp_y_3-3	mapflag	notomb
+pvp_y_3-4	mapflag	notomb
+pvp_y_3-5	mapflag	notomb
+pvp_y_4-1	mapflag	notomb
+pvp_y_4-2	mapflag	notomb
+pvp_y_4-3	mapflag	notomb
+pvp_y_4-4	mapflag	notomb
+pvp_y_4-5	mapflag	notomb
+pvp_y_5-1	mapflag	notomb
+pvp_y_5-2	mapflag	notomb
+pvp_y_5-3	mapflag	notomb
+pvp_y_5-4	mapflag	notomb
+pvp_y_5-5	mapflag	notomb
+pvp_y_6-1	mapflag	notomb
+pvp_y_6-2	mapflag	notomb
+pvp_y_6-3	mapflag	notomb
+pvp_y_6-4	mapflag	notomb
+pvp_y_6-5	mapflag	notomb
+pvp_y_7-1	mapflag	notomb
+pvp_y_7-2	mapflag	notomb
+pvp_y_7-3	mapflag	notomb
+pvp_y_7-4	mapflag	notomb
+pvp_y_7-5	mapflag	notomb
+pvp_y_8-1	mapflag	notomb
+pvp_y_8-2	mapflag	notomb
+pvp_y_8-3	mapflag	notomb
+pvp_y_8-4	mapflag	notomb
+pvp_y_8-5	mapflag	notomb
+pvp_y_room	mapflag	notomb
+sword_1-1	mapflag	notomb
+sword_2-1	mapflag	notomb
+sword_3-1	mapflag	notomb
+treasure01	mapflag	notomb
+treasure02	mapflag	notomb
+xmas	mapflag	notomb
+xmas_dun01	mapflag	notomb
+xmas_dun02	mapflag	notomb
+xmas_fild01	mapflag	notomb
+xmas_in	mapflag	notomb
+beach_dun	mapflag	notomb
+beach_dun2	mapflag	notomb
+beach_dun3	mapflag	notomb
+cmd_fild01	mapflag	notomb
+cmd_fild02	mapflag	notomb
+cmd_fild03	mapflag	notomb
+cmd_fild04	mapflag	notomb
+cmd_fild05	mapflag	notomb
+cmd_fild06	mapflag	notomb
+cmd_fild07	mapflag	notomb
+cmd_fild08	mapflag	notomb
+cmd_fild09	mapflag	notomb
+cmd_in01	mapflag	notomb
+cmd_in02	mapflag	notomb
+comodo	mapflag	notomb
+quiz_00	mapflag	notomb
+quiz_01	mapflag	notomb
+g_room1-1	mapflag	notomb
+g_room1-2	mapflag	notomb
+g_room1-3	mapflag	notomb
+g_room2	mapflag	notomb
+tur_dun01	mapflag	notomb
+tur_dun02	mapflag	notomb
+tur_dun03	mapflag	notomb
+tur_dun04	mapflag	notomb
+tur_dun05	mapflag	notomb
+tur_dun06	mapflag	notomb
+alde_gld	mapflag	notomb
+aldeg_cas01	mapflag	notomb
+aldeg_cas02	mapflag	notomb
+aldeg_cas03	mapflag	notomb
+aldeg_cas04	mapflag	notomb
+aldeg_cas05	mapflag	notomb
+gefg_cas01	mapflag	notomb
+gefg_cas02	mapflag	notomb
+gefg_cas03	mapflag	notomb
+gefg_cas04	mapflag	notomb
+gefg_cas05	mapflag	notomb
+gld_dun01	mapflag	notomb
+gld_dun02	mapflag	notomb
+gld_dun03	mapflag	notomb
+gld_dun04	mapflag	notomb
+guild_room	mapflag	notomb
+guild_vs1	mapflag	notomb
+guild_vs2	mapflag	notomb
+guild_vs3	mapflag	notomb
+guild_vs4	mapflag	notomb
+guild_vs5	mapflag	notomb
+guild_vs1-1	mapflag	notomb
+guild_vs1-2	mapflag	notomb
+guild_vs1-3	mapflag	notomb
+guild_vs1-4	mapflag	notomb
+guild_vs2-1	mapflag	notomb
+guild_vs2-2	mapflag	notomb
+job_hunte	mapflag	notomb
+job_knt	mapflag	notomb
+job_prist	mapflag	notomb
+job_sword1	mapflag	notomb
+job_wiz	mapflag	notomb
+pay_gld	mapflag	notomb
+payg_cas01	mapflag	notomb
+payg_cas02	mapflag	notomb
+payg_cas03	mapflag	notomb
+payg_cas04	mapflag	notomb
+payg_cas05	mapflag	notomb
+prt_gld	mapflag	notomb
+prtg_cas01	mapflag	notomb
+prtg_cas02	mapflag	notomb
+prtg_cas03	mapflag	notomb
+prtg_cas04	mapflag	notomb
+prtg_cas05	mapflag	notomb
+alde_alche	mapflag	notomb
+in_rogue	mapflag	notomb
+job_cru	mapflag	notomb
+job_duncer	mapflag	notomb
+job_monk	mapflag	notomb
+job_sage	mapflag	notomb
+mag_dun01	mapflag	notomb
+mag_dun02	mapflag	notomb
+monk_test	mapflag	notomb
+quiz_test	mapflag	notomb
+yuno	mapflag	notomb
+yuno_fild01	mapflag	notomb
+yuno_fild02	mapflag	notomb
+yuno_fild03	mapflag	notomb
+yuno_fild04	mapflag	notomb
+yuno_in01	mapflag	notomb
+yuno_in02	mapflag	notomb
+yuno_in03	mapflag	notomb
+yuno_in04	mapflag	notomb
+yuno_in05	mapflag	notomb
+ama_dun01	mapflag	notomb
+ama_dun02	mapflag	notomb
+ama_dun03	mapflag	notomb
+ama_fild01	mapflag	notomb
+ama_in01	mapflag	notomb
+ama_in02	mapflag	notomb
+ama_test	mapflag	notomb
+amatsu	mapflag	notomb
+gon_dun01	mapflag	notomb
+gon_dun02	mapflag	notomb
+gon_dun03	mapflag	notomb
+gon_fild01	mapflag	notomb
+gon_in	mapflag	notomb
+gon_test	mapflag	notomb
+gonryun	mapflag	notomb
+sec_in01	mapflag	notomb
+sec_in02	mapflag	notomb
+sec_pri	mapflag	notomb
+umbala	mapflag	notomb
+um_dun01	mapflag	notomb
+um_dun02	mapflag	notomb
+um_fild01	mapflag	notomb
+um_fild02	mapflag	notomb
+um_fild03	mapflag	notomb
+um_fild04	mapflag	notomb
+um_in	mapflag	notomb
+niflheim	mapflag	notomb
+nif_fild01	mapflag	notomb
+nif_fild02	mapflag	notomb
+nif_in	mapflag	notomb
+yggdrasil01	mapflag	notomb
+valkyrie	mapflag	notomb
+himinn	mapflag	notomb
+lou_in01	mapflag	notomb
+lou_in02	mapflag	notomb
+lou_dun03	mapflag	notomb
+lou_dun02	mapflag	notomb
+lou_dun01	mapflag	notomb
+lou_fild01	mapflag	notomb
+louyang	mapflag	notomb
+n_castle	mapflag	notomb
+nguild_gef	mapflag	notomb
+nguild_prt	mapflag	notomb
+nguild_pay	mapflag	notomb
+nguild_alde	mapflag	notomb
+jawaii	mapflag	notomb
+jawaii_in	mapflag	notomb
+gefenia01	mapflag	notomb
+gefenia02	mapflag	notomb
+gefenia03	mapflag	notomb
+gefenia04	mapflag	notomb
+payon	mapflag	notomb
+payon_in01	mapflag	notomb
+payon_in02	mapflag	notomb
+payon_in03	mapflag	notomb
+ayothaya	mapflag	notomb
+ayo_in01	mapflag	notomb
+ayo_in02	mapflag	notomb
+ayo_fild01	mapflag	notomb
+ayo_fild02	mapflag	notomb
+ayo_dun01	mapflag	notomb
+ayo_dun02	mapflag	notomb
+que_god01	mapflag	notomb
+que_god02	mapflag	notomb
+yuno_fild05	mapflag	notomb
+yuno_fild07	mapflag	notomb
+yuno_fild08	mapflag	notomb
+yuno_fild09	mapflag	notomb
+yuno_fild11	mapflag	notomb
+yuno_fild12	mapflag	notomb
+alde_tt02	mapflag	notomb
+turbo_n_1	mapflag	notomb
+turbo_n_4	mapflag	notomb
+turbo_n_8	mapflag	notomb
+turbo_n_16	mapflag	notomb
+turbo_e_4	mapflag	notomb
+turbo_e_8	mapflag	notomb
+turbo_e_16	mapflag	notomb
+turbo_room	mapflag	notomb
+airplane	mapflag	notomb
+airport	mapflag	notomb
+einbech	mapflag	notomb
+einbroch	mapflag	notomb
+ein_dun01	mapflag	notomb
+ein_dun02	mapflag	notomb
+ein_fild06	mapflag	notomb
+ein_fild07	mapflag	notomb
+ein_fild08	mapflag	notomb
+ein_fild09	mapflag	notomb
+ein_fild10	mapflag	notomb
+ein_in01	mapflag	notomb
+que_sign01	mapflag	notomb
+que_sign02	mapflag	notomb
+ein_fild03	mapflag	notomb
+ein_fild04	mapflag	notomb
+lhz_fild02	mapflag	notomb
+lhz_fild03	mapflag	notomb
+yuno_pre	mapflag	notomb
+lhz_fild01	mapflag	notomb
+lighthalzen	mapflag	notomb
+lhz_in01	mapflag	notomb
+lhz_in02	mapflag	notomb
+lhz_in03	mapflag	notomb
+lhz_que01	mapflag	notomb
+lhz_dun01	mapflag	notomb
+lhz_dun02	mapflag	notomb
+lhz_dun03	mapflag	notomb
+lhz_cube	mapflag	notomb
+juperos_01	mapflag	notomb
+juperos_02	mapflag	notomb
+jupe_area1	mapflag	notomb
+jupe_area2	mapflag	notomb
+jupe_core	mapflag	notomb
+jupe_ele	mapflag	notomb
+jupe_ele_r	mapflag	notomb
+jupe_gate	mapflag	notomb
+y_airport	mapflag	notomb
+lhz_airport	mapflag	notomb
+airplane_01	mapflag	notomb
+jupe_cave	mapflag	notomb
+quiz_02	mapflag	notomb
+hu_fild07	mapflag	notomb
+hu_fild05	mapflag	notomb
+hu_fild04	mapflag	notomb
+hu_fild01	mapflag	notomb
+yuno_fild06	mapflag	notomb
+job_soul	mapflag	notomb
+job_star	mapflag	notomb
+que_job01	mapflag	notomb
+que_job02	mapflag	notomb
+que_job03	mapflag	notomb
+abyss_01	mapflag	notomb
+abyss_02	mapflag	notomb
+abyss_03	mapflag	notomb
+thana_step	mapflag	notomb
+thana_boss	mapflag	notomb
+tha_scene01	mapflag	notomb
+tha_t01	mapflag	notomb
+tha_t02	mapflag	notomb
+tha_t03	mapflag	notomb
+tha_t04	mapflag	notomb
+tha_t07	mapflag	notomb
+tha_t05	mapflag	notomb
+tha_t06	mapflag	notomb
+tha_t08	mapflag	notomb
+tha_t09	mapflag	notomb
+tha_t10	mapflag	notomb
+tha_t11	mapflag	notomb
+tha_t12	mapflag	notomb
+auction_01	mapflag	notomb
+auction_02	mapflag	notomb
+alde_tt03	mapflag	notomb
+hugel	mapflag	notomb
+hu_in01	mapflag	notomb
+que_bingo	mapflag	notomb
+que_hugel	mapflag	notomb
+p_track01	mapflag	notomb
+p_track02	mapflag	notomb
+odin_tem01	mapflag	notomb
+odin_tem02	mapflag	notomb
+odin_tem03	mapflag	notomb
+hu_fild02	mapflag	notomb
+hu_fild03	mapflag	notomb
+hu_fild06	mapflag	notomb
+ein_fild01	mapflag	notomb
+ein_fild02	mapflag	notomb
+ein_fild05	mapflag	notomb
+yuno_fild10	mapflag	notomb
+kh_kiehl02	mapflag	notomb
+kh_kiehl01	mapflag	notomb
+kh_dun02	mapflag	notomb
+kh_dun01	mapflag	notomb
+kh_mansion	mapflag	notomb
+kh_rossi	mapflag	notomb
+kh_school	mapflag	notomb
+kh_vila	mapflag	notomb
+que_ng	mapflag	notomb
+rachel	mapflag	notomb
+ra_in01	mapflag	notomb
+ra_fild01	mapflag	notomb
+ra_fild02	mapflag	notomb
+ra_fild03	mapflag	notomb
+ra_fild04	mapflag	notomb
+ra_fild05	mapflag	notomb
+ra_fild06	mapflag	notomb
+ra_fild07	mapflag	notomb
+ra_fild08	mapflag	notomb
+ra_fild09	mapflag	notomb
+ra_fild10	mapflag	notomb
+ra_fild11	mapflag	notomb
+ra_fild12	mapflag	notomb
+ra_fild13	mapflag	notomb
+ra_san01	mapflag	notomb
+ra_san02	mapflag	notomb
+ra_san03	mapflag	notomb
+ra_san04	mapflag	notomb
+ra_san05	mapflag	notomb
+ra_temin	mapflag	notomb
+ra_temple	mapflag	notomb
+ra_temsky	mapflag	notomb
+que_rachel	mapflag	notomb
+que_san04	mapflag	notomb
+ice_dun01	mapflag	notomb
+ice_dun02	mapflag	notomb
+ice_dun03	mapflag	notomb
+ice_dun04	mapflag	notomb
+que_thor	mapflag	notomb
+thor_camp	mapflag	notomb
+thor_v01	mapflag	notomb
+thor_v02	mapflag	notomb
+thor_v03	mapflag	notomb
+veins	mapflag	notomb
+ve_in	mapflag	notomb
+ve_in02	mapflag	notomb
+ve_fild01	mapflag	notomb
+ve_fild02	mapflag	notomb
+ve_fild03	mapflag	notomb
+ve_fild04	mapflag	notomb
+ve_fild05	mapflag	notomb
+ve_fild06	mapflag	notomb
+ve_fild07	mapflag	notomb
+nameless_i	mapflag	notomb
+nameless_n	mapflag	notomb
+nameless_in	mapflag	notomb
+abbey01	mapflag	notomb
+abbey02	mapflag	notomb
+abbey03	mapflag	notomb
+poring_w01	mapflag	notomb
+poring_w02	mapflag	notomb
+06guild_r	mapflag	notomb
+06guild_01	mapflag	notomb
+06guild_02	mapflag	notomb
+06guild_03	mapflag	notomb
+06guild_04	mapflag	notomb
+06guild_05	mapflag	notomb
+06guild_06	mapflag	notomb
+06guild_07	mapflag	notomb
+06guild_08	mapflag	notomb
+z_agit	mapflag	notomb
+que_temsky	mapflag	notomb
+itemmall	mapflag	notomb
+bossnia_01	mapflag	notomb
+bossnia_02	mapflag	notomb
+bossnia_03	mapflag	notomb
+bossnia_04	mapflag	notomb
+moscovia	mapflag	notomb
+mosk_in	mapflag	notomb
+mosk_ship	mapflag	notomb
+mosk_fild01	mapflag	notomb
+mosk_fild02	mapflag	notomb
+mosk_dun01	mapflag	notomb
+mosk_dun02	mapflag	notomb
+mosk_dun03	mapflag	notomb
+mosk_que	mapflag	notomb
+schg_cas01	mapflag	notomb
+schg_cas02	mapflag	notomb
+schg_cas03	mapflag	notomb
+schg_cas04	mapflag	notomb
+schg_cas05	mapflag	notomb
+sch_gld	mapflag	notomb
+cave	mapflag	notomb
+moc_fild20	mapflag	notomb
+moc_fild21	mapflag	notomb
+moc_fild22	mapflag	notomb
+que_ba	mapflag	notomb
+que_moc_16	mapflag	notomb
+que_moon	mapflag	notomb
+arug_cas01	mapflag	notomb
+arug_cas02	mapflag	notomb
+arug_cas03	mapflag	notomb
+arug_cas04	mapflag	notomb
+arug_cas05	mapflag	notomb
+aru_gld	mapflag	notomb
+bat_room	mapflag	notomb
+bat_a01	mapflag	notomb
+bat_a02	mapflag	notomb
+bat_b01	mapflag	notomb
+bat_b02	mapflag	notomb
+que_qsch01	mapflag	notomb
+que_qsch02	mapflag	notomb
+que_qsch03	mapflag	notomb
+que_qsch04	mapflag	notomb
+que_qsch05	mapflag	notomb
+que_qaru01	mapflag	notomb
+que_qaru02	mapflag	notomb
+que_qaru03	mapflag	notomb
+que_qaru04	mapflag	notomb
+que_qaru05	mapflag	notomb
+1@cata	mapflag	notomb
+2@cata	mapflag	notomb
+e_tower	mapflag	notomb
+1@tower	mapflag	notomb
+2@tower	mapflag	notomb
+3@tower	mapflag	notomb
+4@tower	mapflag	notomb
+5@tower	mapflag	notomb
+6@tower	mapflag	notomb
+mid_camp	mapflag	notomb
+mid_campin	mapflag	notomb
+man_fild01	mapflag	notomb
+man_fild03	mapflag	notomb
+spl_fild02	mapflag	notomb
+spl_fild03	mapflag	notomb
+moc_fild22b	mapflag	notomb
+que_dan01	mapflag	notomb
+que_dan02	mapflag	notomb
+schg_que01	mapflag	notomb
+schg_dun01	mapflag	notomb
+arug_que01	mapflag	notomb
+arug_dun01	mapflag	notomb
+1@orcs	mapflag	notomb
+2@orcs	mapflag	notomb
+bat_c01	mapflag	notomb
+bat_c02	mapflag	notomb
+bat_c03	mapflag	notomb
+1@nyd	mapflag	notomb
+2@nyd	mapflag	notomb
+nyd_dun01	mapflag	notomb
+nyd_dun02	mapflag	notomb
+manuk	mapflag	notomb
+man_fild02	mapflag	notomb
+man_in01	mapflag	notomb
+splendide	mapflag	notomb
+spl_fild01	mapflag	notomb
+spl_in01	mapflag	notomb
+spl_in02	mapflag	notomb
+job3_arch01	mapflag	notomb
+job3_arch02	mapflag	notomb
+job3_arch03	mapflag	notomb
+job3_guil01	mapflag	notomb
+job3_guil02	mapflag	notomb
+job3_guil03	mapflag	notomb
+job3_rang01	mapflag	notomb
+job3_rang02	mapflag	notomb
+job3_rune01	mapflag	notomb
+job3_rune02	mapflag	notomb
+job3_rune03	mapflag	notomb
+job3_war01	mapflag	notomb
+job3_war02	mapflag	notomb
+jupe_core2	mapflag	notomb
+moc_para01	mapflag	notomb
+brasilis	mapflag	notomb
+bra_in01	mapflag	notomb
+bra_fild01	mapflag	notomb
+bra_dun01	mapflag	notomb
+bra_dun02	mapflag	notomb
+s_atelier	mapflag	notomb
+dicastes01	mapflag	notomb
+dicastes02	mapflag	notomb
+dic_in01	mapflag	notomb
+dic_fild01	mapflag	notomb
+dic_fild02	mapflag	notomb
+dic_dun01	mapflag	notomb
+dic_dun02	mapflag	notomb
+job3_gen01	mapflag	notomb
+job3_sha01	mapflag	notomb
+mora	mapflag	notomb
+bif_fild01	mapflag	notomb
+bif_fild02	mapflag	notomb
+1@mist	mapflag	notomb
+dewata	mapflag	notomb
+dew_in01	mapflag	notomb
+dew_fild01	mapflag	notomb
+dew_dun01	mapflag	notomb
+dew_dun02	mapflag	notomb
+que_house_s	mapflag	notomb
+malangdo	mapflag	notomb
+mal_in01	mapflag	notomb
+mal_in02	mapflag	notomb
+mal_dun01	mapflag	notomb
+1@pump	mapflag	notomb
+2@pump	mapflag	notomb
+1@cash	mapflag	notomb
+iz_dun05	mapflag	notomb
+evt_mobroom	mapflag	notomb
+dic_dun03	mapflag	notomb
+evt_swar_b	mapflag	notomb
+evt_swar_r	mapflag	notomb
+evt_swar_s	mapflag	notomb
+evt_swar_t	mapflag	notomb
+1@lhz	mapflag	notomb
+lhz_dun04	mapflag	notomb
+que_lhz	mapflag	notomb
+gld2_ald	mapflag	notomb
+gld2_gef	mapflag	notomb
+gld2_pay	mapflag	notomb
+gld2_prt	mapflag	notomb
+gld_dun01_2	mapflag	notomb
+gld_dun02_2	mapflag	notomb
+gld_dun03_2	mapflag	notomb
+gld_dun04_2	mapflag	notomb
+malaya	mapflag	notomb
+job_ko	mapflag	notomb
+ma_scene01	mapflag	notomb
+1@ma_b	mapflag	notomb
+1@ma_c	mapflag	notomb
+1@ma_h	mapflag	notomb
+ma_in01	mapflag	notomb
+ma_dun01	mapflag	notomb
+ma_fild01	mapflag	notomb
+ma_fild02	mapflag	notomb
+ma_zif01	mapflag	notomb
+ma_zif02	mapflag	notomb
+ma_zif03	mapflag	notomb
+ma_zif04	mapflag	notomb
+ma_zif05	mapflag	notomb
+ma_zif06	mapflag	notomb
+ma_zif07	mapflag	notomb
+ma_zif08	mapflag	notomb
+ma_zif09	mapflag	notomb
+new_event	mapflag	notomb
+eclage	mapflag	notomb
+ecl_fild01	mapflag	notomb
+ecl_tdun01	mapflag	notomb
+ecl_tdun02	mapflag	notomb
+ecl_tdun03	mapflag	notomb
+ecl_tdun04	mapflag	notomb
+que_avan01	mapflag	notomb
+1@ecl	mapflag	notomb
+ecl_in01	mapflag	notomb
+ecl_in02	mapflag	notomb
+ecl_in03	mapflag	notomb
+ecl_in04	mapflag	notomb
+ecl_hub01	mapflag	notomb
+moc_prydn1	mapflag	notomb
+moc_prydn2	mapflag	notomb
+iz_ac01	mapflag	notomb
+iz_ac02	mapflag	notomb
+treasure_n1	mapflag	notomb
+treasure_n2	mapflag	notomb
+iz_int	mapflag	notomb
+iz_ng01	mapflag	notomb
+iz_int01	mapflag	notomb
+iz_int02	mapflag	notomb
+iz_int03	mapflag	notomb
+iz_int04	mapflag	notomb
+iz_ac01_a	mapflag	notomb
+iz_ac02_a	mapflag	notomb
+iz_ac01_b	mapflag	notomb
+iz_ac02_b	mapflag	notomb
+iz_ac01_c	mapflag	notomb
+iz_ac02_c	mapflag	notomb
+iz_ac01_d	mapflag	notomb
+iz_ac02_d	mapflag	notomb
+te_prtcas01	mapflag	notomb
+te_prtcas02	mapflag	notomb
+te_prtcas03	mapflag	notomb
+te_prtcas04	mapflag	notomb
+te_prtcas05	mapflag	notomb
+te_aldecas1	mapflag	notomb
+te_aldecas2	mapflag	notomb
+te_aldecas3	mapflag	notomb
+te_aldecas4	mapflag	notomb
+te_aldecas5	mapflag	notomb
+prt_fild08a	mapflag	notomb
+prt_fild08b	mapflag	notomb
+prt_fild08c	mapflag	notomb
+prt_fild08d	mapflag	notomb
+izlude_a	mapflag	notomb
+izlude_b	mapflag	notomb
+izlude_c	mapflag	notomb
+izlude_d	mapflag	notomb
+te_prt_gld	mapflag	notomb
+te_alde_gld	mapflag	notomb
+teg_dun01	mapflag	notomb
+teg_dun02	mapflag	notomb
+1@gl_k	mapflag	notomb
+2@gl_k	mapflag	notomb
+gl_chyard_	mapflag	notomb
+gl_cas02_	mapflag	notomb
+evt_bomb	mapflag	notomb
+1@def01	mapflag	notomb
+1@def02	mapflag	notomb
+1@def03	mapflag	notomb
+1@gef	mapflag	notomb
+1@face	mapflag	notomb
+1@sara	mapflag	notomb
+1@gef_in	mapflag	notomb
+dali	mapflag	notomb
+dali02	mapflag	notomb
+1@ge_st	mapflag	notomb
+1@spa	mapflag	notomb
+1@tnm1	mapflag	notomb
+1@tnm2	mapflag	notomb
+1@tnm3	mapflag	notomb
+1@dth1	mapflag	notomb
+1@dth2	mapflag	notomb
+1@dth3	mapflag	notomb
+1@eom	mapflag	notomb
+1@jtb	mapflag	notomb
+1@rev	mapflag	notomb
+1@xm_d	mapflag	notomb
+moro_cav	mapflag	notomb
+moro_vol	mapflag	notomb
+silk_lair	mapflag	notomb
+c_tower2_	mapflag	notomb
+c_tower3_	mapflag	notomb
+1@mcd	mapflag	notomb
+ver_eju	mapflag	notomb
+ver_tunn	mapflag	notomb
+verus03	mapflag	notomb
+verus04	mapflag	notomb
+job_gun	mapflag	notomb
+1@air1	mapflag	notomb
+1@air2	mapflag	notomb
+1@glast	mapflag	notomb
+lhz_dun_n	mapflag	notomb
+lhz_d_n2	mapflag	notomb
+1@gl_kh	mapflag	notomb
+2@gl_kh	mapflag	notomb
+1@lab	mapflag	notomb
+1@uns	mapflag	notomb
+un_bk_q	mapflag	notomb
+un_bunker	mapflag	notomb
+un_myst	mapflag	notomb
+verus01	mapflag	notomb
+verus02	mapflag	notomb
+paramk	mapflag	notomb
+1@ffp	mapflag	notomb
+1@infi	mapflag	notomb
+1@mir	mapflag	notomb
+2@mir	mapflag	notomb
+1@sthb	mapflag	notomb
+1@sthc	mapflag	notomb
+1@sthd	mapflag	notomb
+prt_cas	mapflag	notomb
+prt_cas_q	mapflag	notomb
+prt_prison	mapflag	notomb
+prt_lib	mapflag	notomb
+prt_lib_q	mapflag	notomb
+prt_q	mapflag	notomb
+prt_pri00	mapflag	notomb
+int_land	mapflag	notomb
+int_land01	mapflag	notomb
+int_land02	mapflag	notomb
+int_land03	mapflag	notomb
+int_land04	mapflag	notomb
+lasagna	mapflag	notomb
+lasa_fild01	mapflag	notomb
+lasa_fild02	mapflag	notomb
+lasa_dun01	mapflag	notomb
+lasa_dun02	mapflag	notomb
+lasa_dun03	mapflag	notomb
+conch_in	mapflag	notomb
+lasa_in01	mapflag	notomb
+lasa_dun_q	mapflag	notomb
+1@pop1	mapflag	notomb
+1@pop2	mapflag	notomb
+1@pop3	mapflag	notomb
+1@slw	mapflag	notomb
+1@swat	mapflag	notomb
+que_swat	mapflag	notomb
+slabw01	mapflag	notomb
+rebel_in	mapflag	notomb
+1@md_gef	mapflag	notomb
+1@md_pay	mapflag	notomb
+har_in01	mapflag	notomb
+harboro1	mapflag	notomb
+harboro2	mapflag	notomb
+rockmi1	mapflag	notomb
+rockmi2	mapflag	notomb
+rockrdg1	mapflag	notomb
+rockrdg2	mapflag	notomb
+1@gl_k2	mapflag	notomb
+2@gl_k2	mapflag	notomb
+1@xm_d2	mapflag	notomb
+pay_d03_i	mapflag	notomb
+gef_d01_i	mapflag	notomb
+ice_d03_i	mapflag	notomb
+1@tre	mapflag	notomb
+1@begi	mapflag	notomb
+tur_d03_i	mapflag	notomb
+tur_d04_i	mapflag	notomb
+1@crd	mapflag	notomb
+ordeal_a00	mapflag	notomb
+ordeal_a02	mapflag	notomb
+pprontera	mapflag	notomb
+niflxmas	mapflag	notomb
+sch_lab	mapflag	notomb
+nakhyang	mapflag	notomb
+lasa_sea	mapflag	notomb
+1@drdo	mapflag	notomb
+x_lhz	mapflag	notomb
+x_prt	mapflag	notomb
+x_ra	mapflag	notomb
+prt_evt_in	mapflag	notomb
+vis_h01	mapflag	notomb
+vis_h02	mapflag	notomb
+vis_h03	mapflag	notomb
+vis_h04	mapflag	notomb
+ein_d02_i	mapflag	notomb
+com_d02_i	mapflag	notomb
+1@soul	mapflag	notomb
+star_frst	mapflag	notomb
+star_in	mapflag	notomb
+2009rwc_01	mapflag	notomb
+2009rwc_02	mapflag	notomb
+2009rwc_03	mapflag	notomb
+2009rwc_04	mapflag	notomb
+2009rwc_05	mapflag	notomb
+2009rwc_06	mapflag	notomb
+2009rwc_07	mapflag	notomb
+2009rwc_08	mapflag	notomb
+2009rwc_f01	mapflag	notomb
+2012rwc_01	mapflag	notomb
+2012rwc_02	mapflag	notomb
+2012rwc_03	mapflag	notomb
+2012rwc_04	mapflag	notomb
+2012rwc_05	mapflag	notomb
+2012rwc_06	mapflag	notomb
+2012rwc_07	mapflag	notomb
+2012rwc_08	mapflag	notomb
+1@cor	mapflag	notomb
+1@os_a	mapflag	notomb
+1@os_b	mapflag	notomb
+1@rgsr	mapflag	notomb
+gl_cas01_	mapflag	notomb
+mag_dun03	mapflag	notomb
+pub_cat	mapflag	notomb
+rgsr_in	mapflag	notomb
+sp_cor	mapflag	notomb
+sp_os	mapflag	notomb
+sp_rudus	mapflag	notomb
+sp_rudus2	mapflag	notomb
+sp_rudus3	mapflag	notomb
+1@bamn	mapflag	notomb
+1@bamq	mapflag	notomb
+1@ghg	mapflag	notomb
+1@herbs	mapflag	notomb
+1@lost	mapflag	notomb
+ba_2whs01	mapflag	notomb
+ba_2whs02	mapflag	notomb
+ba_bath	mapflag	notomb
+ba_in01	mapflag	notomb
+ba_lib	mapflag	notomb
+ba_maison	mapflag	notomb
+ba_pw01	mapflag	notomb
+ba_pw02	mapflag	notomb
+ba_pw03	mapflag	notomb
+1@odin	mapflag	notomb
+ba_chess	mapflag	notomb
+ba_go	mapflag	notomb
+ba_lost	mapflag	notomb
+prt_mz03_i	mapflag	notomb
+iz_d04_i	mapflag	notomb
+iz_d05_i	mapflag	notomb
+1@4win	mapflag	notomb
+1@4mag	mapflag	notomb
+1@4mst	mapflag	notomb
+1@4sac	mapflag	notomb
+1@4tro	mapflag	notomb
+1@4inq	mapflag	notomb
+1@4cdn	mapflag	notomb
+1@4igd	mapflag	notomb
+1@4drk	mapflag	notomb
+job4_bio	mapflag	notomb
+job4_mag	mapflag	notomb
+job4_tro	mapflag	notomb
+1@ge_sn	mapflag	notomb
+1@mjo1	mapflag	notomb
+1@mjo2	mapflag	notomb
+1@spa2	mapflag	notomb
+1@thts	mapflag	notomb
+2@thts	mapflag	notomb
+3@thts	mapflag	notomb
+4@thts	mapflag	notomb
+5@thts	mapflag	notomb
+6@thts	mapflag	notomb
+7@thts	mapflag	notomb
+8@thts	mapflag	notomb
+1@gl_he	mapflag	notomb
+1@gl_he2	mapflag	notomb
+1@gl_prq	mapflag	notomb
+1@gol1	mapflag	notomb
+1@gol2	mapflag	notomb
+1@halo	mapflag	notomb
+1@ch_t	mapflag	notomb
+2@ch_t	mapflag	notomb
+3@ch_t	mapflag	notomb
+abyss_04	mapflag	notomb
+ein_dun03	mapflag	notomb
+odin_past	mapflag	notomb
+grademk	mapflag	notomb
+sp_rudus4	mapflag	notomb
+amicitia1	mapflag	notomb
+amicitia2	mapflag	notomb
+nif_dun01	mapflag	notomb
+nif_dun02	mapflag	notomb
+e_hugel	mapflag	notomb
+tra_fild	mapflag	notomb
+1@adv	mapflag	notomb
+1@advs	mapflag	notomb
+1@nyr	mapflag	notomb
+1@oz	mapflag	notomb
+1@tcamp	mapflag	notomb
+2@nyr	mapflag	notomb
+gw_fild01	mapflag	notomb
+gw_fild02	mapflag	notomb
+oz_dun01	mapflag	notomb
+oz_dun02	mapflag	notomb
+que_thr	mapflag	notomb
+wolfvill	mapflag	notomb
+1@ch_u	mapflag	notomb
+ant_d02_i	mapflag	notomb
+verus02_a	mapflag	notomb
+verus02_b	mapflag	notomb
+tur_d04ia	mapflag	notomb
+tur_d04ib	mapflag	notomb
+icecastle	mapflag	notomb
+icas_in	mapflag	notomb
+jor_tail	mapflag	notomb
+jor_back1	mapflag	notomb
+jor_back2	mapflag	notomb
+jor_back3	mapflag	notomb
+jor_nest	mapflag	notomb
+jor_dun01	mapflag	notomb
+jor_dun02	mapflag	notomb
+jor_dun03	mapflag	notomb
+jor_ab01	mapflag	notomb
+jor_ab02	mapflag	notomb
+jor_que	mapflag	notomb
+air_if	mapflag	notomb
+1@iwp	mapflag	notomb
+1@jorchs	mapflag	notomb
+1@jorlab	mapflag	notomb
+1@whl	mapflag	notomb
+1@exhn	mapflag	notomb
+1@exds	mapflag	notomb
+2@exds	mapflag	notomb
+1@exse	mapflag	notomb
+1@exnw	mapflag	notomb
+1@exsr	mapflag	notomb
+1@exsh	mapflag	notomb
+bl_grass	mapflag	notomb
+bl_lava	mapflag	notomb
+bl_ice	mapflag	notomb
+bl_death	mapflag	notomb
+bl_soul	mapflag	notomb
+bl_temple	mapflag	notomb
+bl_venom	mapflag	notomb
+clock_01	mapflag	notomb
+rag_fes	mapflag	notomb
+rag_fes_a	mapflag	notomb
+memohall	mapflag	notomb
+1@dime	mapflag	notomb
+prt_elib	mapflag	notomb
+1@vrcas	mapflag	notomb
+1@vrev	mapflag	notomb
+1@vrgen	mapflag	notomb
+1@vrpo	mapflag	notomb
+1@vrac1	mapflag	notomb
+1@vrac2	mapflag	notomb
+1@vrclo	mapflag	notomb
+1@vrhha	mapflag	notomb
+2@vrclo	mapflag	notomb
+1@pdb	mapflag	notomb
+airplane2	mapflag	notomb
+vr_bob	mapflag	notomb
+hero_dun1	mapflag	notomb
+hero_ent1	mapflag	notomb
+hero_ent2	mapflag	notomb
+hero_ent3	mapflag	notomb
+hero_in1	mapflag	notomb
+hero_in2	mapflag	notomb
+hero_in3	mapflag	notomb
+hero_in4	mapflag	notomb
+hero_lb	mapflag	notomb
+hero_out1	mapflag	notomb
+hero_out2	mapflag	notomb
+hero_out3	mapflag	notomb
+hero_out4	mapflag	notomb
+hero_tra	mapflag	notomb
+herosria	mapflag	notomb
+mjo_wst01	mapflag	notomb
+ra_pol01	mapflag	notomb
+1@20cn1	mapflag	notomb
+1@20cn2	mapflag	notomb
+1@slug	mapflag	notomb
+1@twas	mapflag	notomb
+1@twbs	mapflag	notomb
+1@twig	mapflag	notomb
+1@twsd	mapflag	notomb
+icas_in2	mapflag	notomb
+jor_back4	mapflag	notomb
+jor_back5	mapflag	notomb
+jor_back6	mapflag	notomb
+jor_maze	mapflag	notomb
+jor_root1	mapflag	notomb
+jor_root2	mapflag	notomb
+jor_root3	mapflag	notomb
+jor_safty1	mapflag	notomb
+jor_safty2	mapflag	notomb
+jor_sanct	mapflag	notomb
+jor_twice	mapflag	notomb
+jor_twig	mapflag	notomb
+bl_depth1	mapflag	notomb
+1@ba_go	mapflag	notomb
+1@f_lake	mapflag	notomb
+for_dun01	mapflag	notomb
+for_dun02	mapflag	notomb
+t_garden	mapflag	notomb
+1@vrpop	mapflag	notomb
+2@vrpop	mapflag	notomb
+3@vrpop	mapflag	notomb
+bl_depth2	mapflag	notomb
+1@vrsn	mapflag	notomb
+1@ep21a	mapflag	notomb
+1@ep21b	mapflag	notomb
+1@ep21c	mapflag	notomb
+1@mdtem	mapflag	notomb
+1@twbs2	mapflag	notomb
+1@wtgs	mapflag	notomb
+2@mdtem	mapflag	notomb
+jalbe_in	mapflag	notomb
+jor_albe	mapflag	notomb
+jor_base	mapflag	notomb
+jor_crk	mapflag	notomb
+jor_crk_p	mapflag	notomb
+jor_mbase	mapflag	notomb
+jor_raise1	mapflag	notomb
+jor_raise2	mapflag	notomb
+jor_tmple1	mapflag	notomb
+jor_tmple2	mapflag	notomb
+luna_sf1	mapflag	notomb
+luna_sf2	mapflag	notomb
+mbase_in	mapflag	notomb
+prt_mk	mapflag	notomb
+nif_fild03	mapflag	notomb
+iz_in_a	mapflag	notomb
+iz_in_b	mapflag	notomb
+iz_in_c	mapflag	notomb
+iz_in_d	mapflag	notomb
+jor_sklf1	mapflag	notomb
+jor_sklf2	mapflag	notomb
+cmd_bhole	mapflag	notomb
+1@ch1a	mapflag	notomb
+1@ch1b	mapflag	notomb
+ch1_dw	mapflag	notomb
+ch1_gef_in	mapflag	notomb
+ch1_geffen	mapflag	notomb
+ch1_gfn01	mapflag	notomb
+ch1_gfn03	mapflag	notomb
+ch1_que01	mapflag	notomb
+ch1_sf01	mapflag	notomb
+ch1_sf02	mapflag	notomb
+ch1_sf03	mapflag	notomb
+ch1_vrgef1	mapflag	notomb
+ch1_vrgef2	mapflag	notomb
+hem_dun01	mapflag	notomb
+hem_dun02	mapflag	notomb
+hem_fild	mapflag	notomb
+mu_fild01	mapflag	notomb
+uknw_ruin	mapflag	notomb
+uknw_ruin2	mapflag	notomb
+ygg_edge	mapflag	notomb
+ygg_fruit	mapflag	notomb
+ygg_roots	mapflag	notomb
+
+alb_ship	mapflag	nosave	moc_akhet
+alb2trea	mapflag	nosave	moc_akhet
+alberta	mapflag	nosave	moc_akhet
+alberta_in	mapflag	nosave	moc_akhet
+alde_dun01	mapflag	nosave	moc_akhet
+alde_dun02	mapflag	nosave	moc_akhet
+alde_dun03	mapflag	nosave	moc_akhet
+alde_dun04	mapflag	nosave	moc_akhet
+aldeba_in	mapflag	nosave	moc_akhet
+aldebaran	mapflag	nosave	moc_akhet
+anthell01	mapflag	nosave	moc_akhet
+anthell02	mapflag	nosave	moc_akhet
+arena_room	mapflag	nosave	moc_akhet
+c_tower1	mapflag	nosave	moc_akhet
+c_tower2	mapflag	nosave	moc_akhet
+c_tower3	mapflag	nosave	moc_akhet
+c_tower4	mapflag	nosave	moc_akhet
+force_1-1	mapflag	nosave	moc_akhet
+force_2-1	mapflag	nosave	moc_akhet
+force_3-1	mapflag	nosave	moc_akhet
+force_4-1	mapflag	nosave	moc_akhet
+force_5-1	mapflag	nosave	moc_akhet
+force_1-2	mapflag	nosave	moc_akhet
+force_2-2	mapflag	nosave	moc_akhet
+force_3-2	mapflag	nosave	moc_akhet
+force_1-3	mapflag	nosave	moc_akhet
+force_2-3	mapflag	nosave	moc_akhet
+force_3-3	mapflag	nosave	moc_akhet
+gef_dun00	mapflag	nosave	moc_akhet
+gef_dun01	mapflag	nosave	moc_akhet
+gef_dun02	mapflag	nosave	moc_akhet
+gef_dun03	mapflag	nosave	moc_akhet
+gef_fild00	mapflag	nosave	moc_akhet
+gef_fild01	mapflag	nosave	moc_akhet
+gef_fild02	mapflag	nosave	moc_akhet
+gef_fild03	mapflag	nosave	moc_akhet
+gef_fild04	mapflag	nosave	moc_akhet
+gef_fild05	mapflag	nosave	moc_akhet
+gef_fild06	mapflag	nosave	moc_akhet
+gef_fild07	mapflag	nosave	moc_akhet
+gef_fild08	mapflag	nosave	moc_akhet
+gef_fild09	mapflag	nosave	moc_akhet
+gef_fild10	mapflag	nosave	moc_akhet
+gef_fild11	mapflag	nosave	moc_akhet
+gef_fild12	mapflag	nosave	moc_akhet
+gef_fild13	mapflag	nosave	moc_akhet
+gef_fild14	mapflag	nosave	moc_akhet
+gef_tower	mapflag	nosave	moc_akhet
+geffen	mapflag	nosave	moc_akhet
+geffen_in	mapflag	nosave	moc_akhet
+gl_cas01	mapflag	nosave	moc_akhet
+gl_cas02	mapflag	nosave	moc_akhet
+gl_church	mapflag	nosave	moc_akhet
+gl_chyard	mapflag	nosave	moc_akhet
+gl_dun01	mapflag	nosave	moc_akhet
+gl_dun02	mapflag	nosave	moc_akhet
+gl_in01	mapflag	nosave	moc_akhet
+gl_knt01	mapflag	nosave	moc_akhet
+gl_knt02	mapflag	nosave	moc_akhet
+gl_prison	mapflag	nosave	moc_akhet
+gl_prison1	mapflag	nosave	moc_akhet
+gl_sew01	mapflag	nosave	moc_akhet
+gl_sew02	mapflag	nosave	moc_akhet
+gl_sew03	mapflag	nosave	moc_akhet
+gl_sew04	mapflag	nosave	moc_akhet
+gl_step	mapflag	nosave	moc_akhet
+glast_01	mapflag	nosave	moc_akhet
+in_hunter	mapflag	nosave	moc_akhet
+in_moc_16	mapflag	nosave	moc_akhet
+in_orcs01	mapflag	nosave	moc_akhet
+in_sphinx1	mapflag	nosave	moc_akhet
+in_sphinx2	mapflag	nosave	moc_akhet
+in_sphinx3	mapflag	nosave	moc_akhet
+in_sphinx4	mapflag	nosave	moc_akhet
+in_sphinx5	mapflag	nosave	moc_akhet
+iz_dun00	mapflag	nosave	moc_akhet
+iz_dun01	mapflag	nosave	moc_akhet
+iz_dun02	mapflag	nosave	moc_akhet
+iz_dun03	mapflag	nosave	moc_akhet
+iz_dun04	mapflag	nosave	moc_akhet
+izlu2dun	mapflag	nosave	moc_akhet
+izlude	mapflag	nosave	moc_akhet
+izlude_in	mapflag	nosave	moc_akhet
+job_thief1	mapflag	nosave	moc_akhet
+mjo_dun01	mapflag	nosave	moc_akhet
+mjo_dun02	mapflag	nosave	moc_akhet
+mjo_dun03	mapflag	nosave	moc_akhet
+mjolnir_01	mapflag	nosave	moc_akhet
+mjolnir_02	mapflag	nosave	moc_akhet
+mjolnir_03	mapflag	nosave	moc_akhet
+mjolnir_04	mapflag	nosave	moc_akhet
+mjolnir_05	mapflag	nosave	moc_akhet
+mjolnir_06	mapflag	nosave	moc_akhet
+mjolnir_07	mapflag	nosave	moc_akhet
+mjolnir_08	mapflag	nosave	moc_akhet
+mjolnir_09	mapflag	nosave	moc_akhet
+mjolnir_10	mapflag	nosave	moc_akhet
+mjolnir_11	mapflag	nosave	moc_akhet
+mjolnir_12	mapflag	nosave	moc_akhet
+moc_castle	mapflag	nosave	moc_akhet
+moc_fild01	mapflag	nosave	moc_akhet
+moc_fild02	mapflag	nosave	moc_akhet
+moc_fild03	mapflag	nosave	moc_akhet
+moc_fild07	mapflag	nosave	moc_akhet
+moc_fild11	mapflag	nosave	moc_akhet
+moc_fild12	mapflag	nosave	moc_akhet
+moc_fild13	mapflag	nosave	moc_akhet
+moc_fild16	mapflag	nosave	moc_akhet
+moc_fild17	mapflag	nosave	moc_akhet
+moc_fild18	mapflag	nosave	moc_akhet
+moc_fild19	mapflag	nosave	moc_akhet
+moc_pryd01	mapflag	nosave	moc_akhet
+moc_pryd02	mapflag	nosave	moc_akhet
+moc_pryd03	mapflag	nosave	moc_akhet
+moc_pryd04	mapflag	nosave	moc_akhet
+moc_pryd05	mapflag	nosave	moc_akhet
+moc_pryd06	mapflag	nosave	moc_akhet
+moc_prydb1	mapflag	nosave	moc_akhet
+moc_ruins	mapflag	nosave	moc_akhet
+monk_in	mapflag	nosave	moc_akhet
+morocc	mapflag	nosave	moc_akhet
+morocc_in	mapflag	nosave	moc_akhet
+new_zone01	mapflag	nosave	moc_akhet
+new_zone02	mapflag	nosave	moc_akhet
+new_zone03	mapflag	nosave	moc_akhet
+new_zone04	mapflag	nosave	moc_akhet
+new_1-1	mapflag	nosave	moc_akhet
+new_1-2	mapflag	nosave	moc_akhet
+new_1-3	mapflag	nosave	moc_akhet
+new_1-4	mapflag	nosave	moc_akhet
+new_2-1	mapflag	nosave	moc_akhet
+new_2-2	mapflag	nosave	moc_akhet
+new_2-3	mapflag	nosave	moc_akhet
+new_2-4	mapflag	nosave	moc_akhet
+new_3-1	mapflag	nosave	moc_akhet
+new_3-2	mapflag	nosave	moc_akhet
+new_3-3	mapflag	nosave	moc_akhet
+new_3-4	mapflag	nosave	moc_akhet
+new_4-1	mapflag	nosave	moc_akhet
+new_4-2	mapflag	nosave	moc_akhet
+new_4-3	mapflag	nosave	moc_akhet
+new_4-4	mapflag	nosave	moc_akhet
+new_5-1	mapflag	nosave	moc_akhet
+new_5-2	mapflag	nosave	moc_akhet
+new_5-3	mapflag	nosave	moc_akhet
+new_5-4	mapflag	nosave	moc_akhet
+orcsdun01	mapflag	nosave	moc_akhet
+orcsdun02	mapflag	nosave	moc_akhet
+ordeal_1-1	mapflag	nosave	moc_akhet
+ordeal_1-2	mapflag	nosave	moc_akhet
+ordeal_2-1	mapflag	nosave	moc_akhet
+ordeal_2-2	mapflag	nosave	moc_akhet
+ordeal_3-1	mapflag	nosave	moc_akhet
+ordeal_3-2	mapflag	nosave	moc_akhet
+pay_arche	mapflag	nosave	moc_akhet
+pay_dun00	mapflag	nosave	moc_akhet
+pay_dun01	mapflag	nosave	moc_akhet
+pay_dun02	mapflag	nosave	moc_akhet
+pay_dun03	mapflag	nosave	moc_akhet
+pay_dun04	mapflag	nosave	moc_akhet
+pay_fild01	mapflag	nosave	moc_akhet
+pay_fild02	mapflag	nosave	moc_akhet
+pay_fild03	mapflag	nosave	moc_akhet
+pay_fild04	mapflag	nosave	moc_akhet
+pay_fild05	mapflag	nosave	moc_akhet
+pay_fild06	mapflag	nosave	moc_akhet
+pay_fild07	mapflag	nosave	moc_akhet
+pay_fild08	mapflag	nosave	moc_akhet
+pay_fild09	mapflag	nosave	moc_akhet
+pay_fild10	mapflag	nosave	moc_akhet
+pay_fild11	mapflag	nosave	moc_akhet
+prontera	mapflag	nosave	moc_akhet
+prt_are_in	mapflag	nosave	moc_akhet
+prt_are01	mapflag	nosave	moc_akhet
+prt_castle	mapflag	nosave	moc_akhet
+prt_church	mapflag	nosave	moc_akhet
+prt_fild00	mapflag	nosave	moc_akhet
+prt_fild01	mapflag	nosave	moc_akhet
+prt_fild02	mapflag	nosave	moc_akhet
+prt_fild03	mapflag	nosave	moc_akhet
+prt_fild04	mapflag	nosave	moc_akhet
+prt_fild05	mapflag	nosave	moc_akhet
+prt_fild06	mapflag	nosave	moc_akhet
+prt_fild07	mapflag	nosave	moc_akhet
+prt_fild08	mapflag	nosave	moc_akhet
+prt_fild09	mapflag	nosave	moc_akhet
+prt_fild10	mapflag	nosave	moc_akhet
+prt_fild11	mapflag	nosave	moc_akhet
+prt_in	mapflag	nosave	moc_akhet
+prt_maze01	mapflag	nosave	moc_akhet
+prt_maze02	mapflag	nosave	moc_akhet
+prt_maze03	mapflag	nosave	moc_akhet
+prt_monk	mapflag	nosave	moc_akhet
+prt_sewb1	mapflag	nosave	moc_akhet
+prt_sewb2	mapflag	nosave	moc_akhet
+prt_sewb3	mapflag	nosave	moc_akhet
+prt_sewb4	mapflag	nosave	moc_akhet
+pvp_room	mapflag	nosave	moc_akhet
+pvp_2vs2	mapflag	nosave	moc_akhet
+pvp_c_room	mapflag	nosave	moc_akhet
+pvp_n_1-1	mapflag	nosave	moc_akhet
+pvp_n_1-2	mapflag	nosave	moc_akhet
+pvp_n_1-3	mapflag	nosave	moc_akhet
+pvp_n_1-4	mapflag	nosave	moc_akhet
+pvp_n_1-5	mapflag	nosave	moc_akhet
+pvp_n_2-1	mapflag	nosave	moc_akhet
+pvp_n_2-2	mapflag	nosave	moc_akhet
+pvp_n_2-3	mapflag	nosave	moc_akhet
+pvp_n_2-4	mapflag	nosave	moc_akhet
+pvp_n_2-5	mapflag	nosave	moc_akhet
+pvp_n_3-1	mapflag	nosave	moc_akhet
+pvp_n_3-2	mapflag	nosave	moc_akhet
+pvp_n_3-3	mapflag	nosave	moc_akhet
+pvp_n_3-4	mapflag	nosave	moc_akhet
+pvp_n_3-5	mapflag	nosave	moc_akhet
+pvp_n_4-1	mapflag	nosave	moc_akhet
+pvp_n_4-2	mapflag	nosave	moc_akhet
+pvp_n_4-3	mapflag	nosave	moc_akhet
+pvp_n_4-4	mapflag	nosave	moc_akhet
+pvp_n_4-5	mapflag	nosave	moc_akhet
+pvp_n_5-1	mapflag	nosave	moc_akhet
+pvp_n_5-2	mapflag	nosave	moc_akhet
+pvp_n_5-3	mapflag	nosave	moc_akhet
+pvp_n_5-4	mapflag	nosave	moc_akhet
+pvp_n_5-5	mapflag	nosave	moc_akhet
+pvp_n_6-1	mapflag	nosave	moc_akhet
+pvp_n_6-2	mapflag	nosave	moc_akhet
+pvp_n_6-3	mapflag	nosave	moc_akhet
+pvp_n_6-4	mapflag	nosave	moc_akhet
+pvp_n_6-5	mapflag	nosave	moc_akhet
+pvp_n_7-1	mapflag	nosave	moc_akhet
+pvp_n_7-2	mapflag	nosave	moc_akhet
+pvp_n_7-3	mapflag	nosave	moc_akhet
+pvp_n_7-4	mapflag	nosave	moc_akhet
+pvp_n_7-5	mapflag	nosave	moc_akhet
+pvp_n_8-1	mapflag	nosave	moc_akhet
+pvp_n_8-2	mapflag	nosave	moc_akhet
+pvp_n_8-3	mapflag	nosave	moc_akhet
+pvp_n_8-4	mapflag	nosave	moc_akhet
+pvp_n_8-5	mapflag	nosave	moc_akhet
+pvp_n_room	mapflag	nosave	moc_akhet
+pvp_y_1-1	mapflag	nosave	moc_akhet
+pvp_y_1-2	mapflag	nosave	moc_akhet
+pvp_y_1-3	mapflag	nosave	moc_akhet
+pvp_y_1-4	mapflag	nosave	moc_akhet
+pvp_y_1-5	mapflag	nosave	moc_akhet
+pvp_y_2-1	mapflag	nosave	moc_akhet
+pvp_y_2-2	mapflag	nosave	moc_akhet
+pvp_y_2-3	mapflag	nosave	moc_akhet
+pvp_y_2-4	mapflag	nosave	moc_akhet
+pvp_y_2-5	mapflag	nosave	moc_akhet
+pvp_y_3-1	mapflag	nosave	moc_akhet
+pvp_y_3-2	mapflag	nosave	moc_akhet
+pvp_y_3-3	mapflag	nosave	moc_akhet
+pvp_y_3-4	mapflag	nosave	moc_akhet
+pvp_y_3-5	mapflag	nosave	moc_akhet
+pvp_y_4-1	mapflag	nosave	moc_akhet
+pvp_y_4-2	mapflag	nosave	moc_akhet
+pvp_y_4-3	mapflag	nosave	moc_akhet
+pvp_y_4-4	mapflag	nosave	moc_akhet
+pvp_y_4-5	mapflag	nosave	moc_akhet
+pvp_y_5-1	mapflag	nosave	moc_akhet
+pvp_y_5-2	mapflag	nosave	moc_akhet
+pvp_y_5-3	mapflag	nosave	moc_akhet
+pvp_y_5-4	mapflag	nosave	moc_akhet
+pvp_y_5-5	mapflag	nosave	moc_akhet
+pvp_y_6-1	mapflag	nosave	moc_akhet
+pvp_y_6-2	mapflag	nosave	moc_akhet
+pvp_y_6-3	mapflag	nosave	moc_akhet
+pvp_y_6-4	mapflag	nosave	moc_akhet
+pvp_y_6-5	mapflag	nosave	moc_akhet
+pvp_y_7-1	mapflag	nosave	moc_akhet
+pvp_y_7-2	mapflag	nosave	moc_akhet
+pvp_y_7-3	mapflag	nosave	moc_akhet
+pvp_y_7-4	mapflag	nosave	moc_akhet
+pvp_y_7-5	mapflag	nosave	moc_akhet
+pvp_y_8-1	mapflag	nosave	moc_akhet
+pvp_y_8-2	mapflag	nosave	moc_akhet
+pvp_y_8-3	mapflag	nosave	moc_akhet
+pvp_y_8-4	mapflag	nosave	moc_akhet
+pvp_y_8-5	mapflag	nosave	moc_akhet
+pvp_y_room	mapflag	nosave	moc_akhet
+sword_1-1	mapflag	nosave	moc_akhet
+sword_2-1	mapflag	nosave	moc_akhet
+sword_3-1	mapflag	nosave	moc_akhet
+treasure01	mapflag	nosave	moc_akhet
+treasure02	mapflag	nosave	moc_akhet
+xmas	mapflag	nosave	moc_akhet
+xmas_dun01	mapflag	nosave	moc_akhet
+xmas_dun02	mapflag	nosave	moc_akhet
+xmas_fild01	mapflag	nosave	moc_akhet
+xmas_in	mapflag	nosave	moc_akhet
+beach_dun	mapflag	nosave	moc_akhet
+beach_dun2	mapflag	nosave	moc_akhet
+beach_dun3	mapflag	nosave	moc_akhet
+cmd_fild01	mapflag	nosave	moc_akhet
+cmd_fild02	mapflag	nosave	moc_akhet
+cmd_fild03	mapflag	nosave	moc_akhet
+cmd_fild04	mapflag	nosave	moc_akhet
+cmd_fild05	mapflag	nosave	moc_akhet
+cmd_fild06	mapflag	nosave	moc_akhet
+cmd_fild07	mapflag	nosave	moc_akhet
+cmd_fild08	mapflag	nosave	moc_akhet
+cmd_fild09	mapflag	nosave	moc_akhet
+cmd_in01	mapflag	nosave	moc_akhet
+cmd_in02	mapflag	nosave	moc_akhet
+comodo	mapflag	nosave	moc_akhet
+quiz_00	mapflag	nosave	moc_akhet
+quiz_01	mapflag	nosave	moc_akhet
+g_room1-1	mapflag	nosave	moc_akhet
+g_room1-2	mapflag	nosave	moc_akhet
+g_room1-3	mapflag	nosave	moc_akhet
+g_room2	mapflag	nosave	moc_akhet
+tur_dun01	mapflag	nosave	moc_akhet
+tur_dun02	mapflag	nosave	moc_akhet
+tur_dun03	mapflag	nosave	moc_akhet
+tur_dun04	mapflag	nosave	moc_akhet
+tur_dun05	mapflag	nosave	moc_akhet
+tur_dun06	mapflag	nosave	moc_akhet
+alde_gld	mapflag	nosave	moc_akhet
+aldeg_cas01	mapflag	nosave	moc_akhet
+aldeg_cas02	mapflag	nosave	moc_akhet
+aldeg_cas03	mapflag	nosave	moc_akhet
+aldeg_cas04	mapflag	nosave	moc_akhet
+aldeg_cas05	mapflag	nosave	moc_akhet
+gefg_cas01	mapflag	nosave	moc_akhet
+gefg_cas02	mapflag	nosave	moc_akhet
+gefg_cas03	mapflag	nosave	moc_akhet
+gefg_cas04	mapflag	nosave	moc_akhet
+gefg_cas05	mapflag	nosave	moc_akhet
+gld_dun01	mapflag	nosave	moc_akhet
+gld_dun02	mapflag	nosave	moc_akhet
+gld_dun03	mapflag	nosave	moc_akhet
+gld_dun04	mapflag	nosave	moc_akhet
+guild_room	mapflag	nosave	moc_akhet
+guild_vs1	mapflag	nosave	moc_akhet
+guild_vs2	mapflag	nosave	moc_akhet
+guild_vs3	mapflag	nosave	moc_akhet
+guild_vs4	mapflag	nosave	moc_akhet
+guild_vs5	mapflag	nosave	moc_akhet
+guild_vs1-1	mapflag	nosave	moc_akhet
+guild_vs1-2	mapflag	nosave	moc_akhet
+guild_vs1-3	mapflag	nosave	moc_akhet
+guild_vs1-4	mapflag	nosave	moc_akhet
+guild_vs2-1	mapflag	nosave	moc_akhet
+guild_vs2-2	mapflag	nosave	moc_akhet
+job_hunte	mapflag	nosave	moc_akhet
+job_knt	mapflag	nosave	moc_akhet
+job_prist	mapflag	nosave	moc_akhet
+job_sword1	mapflag	nosave	moc_akhet
+job_wiz	mapflag	nosave	moc_akhet
+pay_gld	mapflag	nosave	moc_akhet
+payg_cas01	mapflag	nosave	moc_akhet
+payg_cas02	mapflag	nosave	moc_akhet
+payg_cas03	mapflag	nosave	moc_akhet
+payg_cas04	mapflag	nosave	moc_akhet
+payg_cas05	mapflag	nosave	moc_akhet
+prt_gld	mapflag	nosave	moc_akhet
+prtg_cas01	mapflag	nosave	moc_akhet
+prtg_cas02	mapflag	nosave	moc_akhet
+prtg_cas03	mapflag	nosave	moc_akhet
+prtg_cas04	mapflag	nosave	moc_akhet
+prtg_cas05	mapflag	nosave	moc_akhet
+alde_alche	mapflag	nosave	moc_akhet
+in_rogue	mapflag	nosave	moc_akhet
+job_cru	mapflag	nosave	moc_akhet
+job_duncer	mapflag	nosave	moc_akhet
+job_monk	mapflag	nosave	moc_akhet
+job_sage	mapflag	nosave	moc_akhet
+mag_dun01	mapflag	nosave	moc_akhet
+mag_dun02	mapflag	nosave	moc_akhet
+monk_test	mapflag	nosave	moc_akhet
+quiz_test	mapflag	nosave	moc_akhet
+yuno	mapflag	nosave	moc_akhet
+yuno_fild01	mapflag	nosave	moc_akhet
+yuno_fild02	mapflag	nosave	moc_akhet
+yuno_fild03	mapflag	nosave	moc_akhet
+yuno_fild04	mapflag	nosave	moc_akhet
+yuno_in01	mapflag	nosave	moc_akhet
+yuno_in02	mapflag	nosave	moc_akhet
+yuno_in03	mapflag	nosave	moc_akhet
+yuno_in04	mapflag	nosave	moc_akhet
+yuno_in05	mapflag	nosave	moc_akhet
+ama_dun01	mapflag	nosave	moc_akhet
+ama_dun02	mapflag	nosave	moc_akhet
+ama_dun03	mapflag	nosave	moc_akhet
+ama_fild01	mapflag	nosave	moc_akhet
+ama_in01	mapflag	nosave	moc_akhet
+ama_in02	mapflag	nosave	moc_akhet
+ama_test	mapflag	nosave	moc_akhet
+amatsu	mapflag	nosave	moc_akhet
+gon_dun01	mapflag	nosave	moc_akhet
+gon_dun02	mapflag	nosave	moc_akhet
+gon_dun03	mapflag	nosave	moc_akhet
+gon_fild01	mapflag	nosave	moc_akhet
+gon_in	mapflag	nosave	moc_akhet
+gon_test	mapflag	nosave	moc_akhet
+gonryun	mapflag	nosave	moc_akhet
+sec_in01	mapflag	nosave	moc_akhet
+sec_in02	mapflag	nosave	moc_akhet
+sec_pri	mapflag	nosave	moc_akhet
+umbala	mapflag	nosave	moc_akhet
+um_dun01	mapflag	nosave	moc_akhet
+um_dun02	mapflag	nosave	moc_akhet
+um_fild01	mapflag	nosave	moc_akhet
+um_fild02	mapflag	nosave	moc_akhet
+um_fild03	mapflag	nosave	moc_akhet
+um_fild04	mapflag	nosave	moc_akhet
+um_in	mapflag	nosave	moc_akhet
+niflheim	mapflag	nosave	moc_akhet
+nif_fild01	mapflag	nosave	moc_akhet
+nif_fild02	mapflag	nosave	moc_akhet
+nif_in	mapflag	nosave	moc_akhet
+yggdrasil01	mapflag	nosave	moc_akhet
+valkyrie	mapflag	nosave	moc_akhet
+himinn	mapflag	nosave	moc_akhet
+lou_in01	mapflag	nosave	moc_akhet
+lou_in02	mapflag	nosave	moc_akhet
+lou_dun03	mapflag	nosave	moc_akhet
+lou_dun02	mapflag	nosave	moc_akhet
+lou_dun01	mapflag	nosave	moc_akhet
+lou_fild01	mapflag	nosave	moc_akhet
+louyang	mapflag	nosave	moc_akhet
+n_castle	mapflag	nosave	moc_akhet
+nguild_gef	mapflag	nosave	moc_akhet
+nguild_prt	mapflag	nosave	moc_akhet
+nguild_pay	mapflag	nosave	moc_akhet
+nguild_alde	mapflag	nosave	moc_akhet
+jawaii	mapflag	nosave	moc_akhet
+jawaii_in	mapflag	nosave	moc_akhet
+gefenia01	mapflag	nosave	moc_akhet
+gefenia02	mapflag	nosave	moc_akhet
+gefenia03	mapflag	nosave	moc_akhet
+gefenia04	mapflag	nosave	moc_akhet
+payon	mapflag	nosave	moc_akhet
+payon_in01	mapflag	nosave	moc_akhet
+payon_in02	mapflag	nosave	moc_akhet
+payon_in03	mapflag	nosave	moc_akhet
+ayothaya	mapflag	nosave	moc_akhet
+ayo_in01	mapflag	nosave	moc_akhet
+ayo_in02	mapflag	nosave	moc_akhet
+ayo_fild01	mapflag	nosave	moc_akhet
+ayo_fild02	mapflag	nosave	moc_akhet
+ayo_dun01	mapflag	nosave	moc_akhet
+ayo_dun02	mapflag	nosave	moc_akhet
+que_god01	mapflag	nosave	moc_akhet
+que_god02	mapflag	nosave	moc_akhet
+yuno_fild05	mapflag	nosave	moc_akhet
+yuno_fild07	mapflag	nosave	moc_akhet
+yuno_fild08	mapflag	nosave	moc_akhet
+yuno_fild09	mapflag	nosave	moc_akhet
+yuno_fild11	mapflag	nosave	moc_akhet
+yuno_fild12	mapflag	nosave	moc_akhet
+alde_tt02	mapflag	nosave	moc_akhet
+turbo_n_1	mapflag	nosave	moc_akhet
+turbo_n_4	mapflag	nosave	moc_akhet
+turbo_n_8	mapflag	nosave	moc_akhet
+turbo_n_16	mapflag	nosave	moc_akhet
+turbo_e_4	mapflag	nosave	moc_akhet
+turbo_e_8	mapflag	nosave	moc_akhet
+turbo_e_16	mapflag	nosave	moc_akhet
+turbo_room	mapflag	nosave	moc_akhet
+airplane	mapflag	nosave	moc_akhet
+airport	mapflag	nosave	moc_akhet
+einbech	mapflag	nosave	moc_akhet
+einbroch	mapflag	nosave	moc_akhet
+ein_dun01	mapflag	nosave	moc_akhet
+ein_dun02	mapflag	nosave	moc_akhet
+ein_fild06	mapflag	nosave	moc_akhet
+ein_fild07	mapflag	nosave	moc_akhet
+ein_fild08	mapflag	nosave	moc_akhet
+ein_fild09	mapflag	nosave	moc_akhet
+ein_fild10	mapflag	nosave	moc_akhet
+ein_in01	mapflag	nosave	moc_akhet
+que_sign01	mapflag	nosave	moc_akhet
+que_sign02	mapflag	nosave	moc_akhet
+ein_fild03	mapflag	nosave	moc_akhet
+ein_fild04	mapflag	nosave	moc_akhet
+lhz_fild02	mapflag	nosave	moc_akhet
+lhz_fild03	mapflag	nosave	moc_akhet
+yuno_pre	mapflag	nosave	moc_akhet
+lhz_fild01	mapflag	nosave	moc_akhet
+lighthalzen	mapflag	nosave	moc_akhet
+lhz_in01	mapflag	nosave	moc_akhet
+lhz_in02	mapflag	nosave	moc_akhet
+lhz_in03	mapflag	nosave	moc_akhet
+lhz_que01	mapflag	nosave	moc_akhet
+lhz_dun01	mapflag	nosave	moc_akhet
+lhz_dun02	mapflag	nosave	moc_akhet
+lhz_dun03	mapflag	nosave	moc_akhet
+lhz_cube	mapflag	nosave	moc_akhet
+juperos_01	mapflag	nosave	moc_akhet
+juperos_02	mapflag	nosave	moc_akhet
+jupe_area1	mapflag	nosave	moc_akhet
+jupe_area2	mapflag	nosave	moc_akhet
+jupe_core	mapflag	nosave	moc_akhet
+jupe_ele	mapflag	nosave	moc_akhet
+jupe_ele_r	mapflag	nosave	moc_akhet
+jupe_gate	mapflag	nosave	moc_akhet
+y_airport	mapflag	nosave	moc_akhet
+lhz_airport	mapflag	nosave	moc_akhet
+airplane_01	mapflag	nosave	moc_akhet
+jupe_cave	mapflag	nosave	moc_akhet
+quiz_02	mapflag	nosave	moc_akhet
+hu_fild07	mapflag	nosave	moc_akhet
+hu_fild05	mapflag	nosave	moc_akhet
+hu_fild04	mapflag	nosave	moc_akhet
+hu_fild01	mapflag	nosave	moc_akhet
+yuno_fild06	mapflag	nosave	moc_akhet
+job_soul	mapflag	nosave	moc_akhet
+job_star	mapflag	nosave	moc_akhet
+que_job01	mapflag	nosave	moc_akhet
+que_job02	mapflag	nosave	moc_akhet
+que_job03	mapflag	nosave	moc_akhet
+abyss_01	mapflag	nosave	moc_akhet
+abyss_02	mapflag	nosave	moc_akhet
+abyss_03	mapflag	nosave	moc_akhet
+thana_step	mapflag	nosave	moc_akhet
+thana_boss	mapflag	nosave	moc_akhet
+tha_scene01	mapflag	nosave	moc_akhet
+tha_t01	mapflag	nosave	moc_akhet
+tha_t02	mapflag	nosave	moc_akhet
+tha_t03	mapflag	nosave	moc_akhet
+tha_t04	mapflag	nosave	moc_akhet
+tha_t07	mapflag	nosave	moc_akhet
+tha_t05	mapflag	nosave	moc_akhet
+tha_t06	mapflag	nosave	moc_akhet
+tha_t08	mapflag	nosave	moc_akhet
+tha_t09	mapflag	nosave	moc_akhet
+tha_t10	mapflag	nosave	moc_akhet
+tha_t11	mapflag	nosave	moc_akhet
+tha_t12	mapflag	nosave	moc_akhet
+auction_01	mapflag	nosave	moc_akhet
+auction_02	mapflag	nosave	moc_akhet
+alde_tt03	mapflag	nosave	moc_akhet
+hugel	mapflag	nosave	moc_akhet
+hu_in01	mapflag	nosave	moc_akhet
+que_bingo	mapflag	nosave	moc_akhet
+que_hugel	mapflag	nosave	moc_akhet
+p_track01	mapflag	nosave	moc_akhet
+p_track02	mapflag	nosave	moc_akhet
+odin_tem01	mapflag	nosave	moc_akhet
+odin_tem02	mapflag	nosave	moc_akhet
+odin_tem03	mapflag	nosave	moc_akhet
+hu_fild02	mapflag	nosave	moc_akhet
+hu_fild03	mapflag	nosave	moc_akhet
+hu_fild06	mapflag	nosave	moc_akhet
+ein_fild01	mapflag	nosave	moc_akhet
+ein_fild02	mapflag	nosave	moc_akhet
+ein_fild05	mapflag	nosave	moc_akhet
+yuno_fild10	mapflag	nosave	moc_akhet
+kh_kiehl02	mapflag	nosave	moc_akhet
+kh_kiehl01	mapflag	nosave	moc_akhet
+kh_dun02	mapflag	nosave	moc_akhet
+kh_dun01	mapflag	nosave	moc_akhet
+kh_mansion	mapflag	nosave	moc_akhet
+kh_rossi	mapflag	nosave	moc_akhet
+kh_school	mapflag	nosave	moc_akhet
+kh_vila	mapflag	nosave	moc_akhet
+que_ng	mapflag	nosave	moc_akhet
+rachel	mapflag	nosave	moc_akhet
+ra_in01	mapflag	nosave	moc_akhet
+ra_fild01	mapflag	nosave	moc_akhet
+ra_fild02	mapflag	nosave	moc_akhet
+ra_fild03	mapflag	nosave	moc_akhet
+ra_fild04	mapflag	nosave	moc_akhet
+ra_fild05	mapflag	nosave	moc_akhet
+ra_fild06	mapflag	nosave	moc_akhet
+ra_fild07	mapflag	nosave	moc_akhet
+ra_fild08	mapflag	nosave	moc_akhet
+ra_fild09	mapflag	nosave	moc_akhet
+ra_fild10	mapflag	nosave	moc_akhet
+ra_fild11	mapflag	nosave	moc_akhet
+ra_fild12	mapflag	nosave	moc_akhet
+ra_fild13	mapflag	nosave	moc_akhet
+ra_san01	mapflag	nosave	moc_akhet
+ra_san02	mapflag	nosave	moc_akhet
+ra_san03	mapflag	nosave	moc_akhet
+ra_san04	mapflag	nosave	moc_akhet
+ra_san05	mapflag	nosave	moc_akhet
+ra_temin	mapflag	nosave	moc_akhet
+ra_temple	mapflag	nosave	moc_akhet
+ra_temsky	mapflag	nosave	moc_akhet
+que_rachel	mapflag	nosave	moc_akhet
+que_san04	mapflag	nosave	moc_akhet
+ice_dun01	mapflag	nosave	moc_akhet
+ice_dun02	mapflag	nosave	moc_akhet
+ice_dun03	mapflag	nosave	moc_akhet
+ice_dun04	mapflag	nosave	moc_akhet
+que_thor	mapflag	nosave	moc_akhet
+thor_camp	mapflag	nosave	moc_akhet
+thor_v01	mapflag	nosave	moc_akhet
+thor_v02	mapflag	nosave	moc_akhet
+thor_v03	mapflag	nosave	moc_akhet
+veins	mapflag	nosave	moc_akhet
+ve_in	mapflag	nosave	moc_akhet
+ve_in02	mapflag	nosave	moc_akhet
+ve_fild01	mapflag	nosave	moc_akhet
+ve_fild02	mapflag	nosave	moc_akhet
+ve_fild03	mapflag	nosave	moc_akhet
+ve_fild04	mapflag	nosave	moc_akhet
+ve_fild05	mapflag	nosave	moc_akhet
+ve_fild06	mapflag	nosave	moc_akhet
+ve_fild07	mapflag	nosave	moc_akhet
+nameless_i	mapflag	nosave	moc_akhet
+nameless_n	mapflag	nosave	moc_akhet
+nameless_in	mapflag	nosave	moc_akhet
+abbey01	mapflag	nosave	moc_akhet
+abbey02	mapflag	nosave	moc_akhet
+abbey03	mapflag	nosave	moc_akhet
+poring_w01	mapflag	nosave	moc_akhet
+poring_w02	mapflag	nosave	moc_akhet
+06guild_r	mapflag	nosave	moc_akhet
+06guild_01	mapflag	nosave	moc_akhet
+06guild_02	mapflag	nosave	moc_akhet
+06guild_03	mapflag	nosave	moc_akhet
+06guild_04	mapflag	nosave	moc_akhet
+06guild_05	mapflag	nosave	moc_akhet
+06guild_06	mapflag	nosave	moc_akhet
+06guild_07	mapflag	nosave	moc_akhet
+06guild_08	mapflag	nosave	moc_akhet
+z_agit	mapflag	nosave	moc_akhet
+que_temsky	mapflag	nosave	moc_akhet
+itemmall	mapflag	nosave	moc_akhet
+bossnia_01	mapflag	nosave	moc_akhet
+bossnia_02	mapflag	nosave	moc_akhet
+bossnia_03	mapflag	nosave	moc_akhet
+bossnia_04	mapflag	nosave	moc_akhet
+moscovia	mapflag	nosave	moc_akhet
+mosk_in	mapflag	nosave	moc_akhet
+mosk_ship	mapflag	nosave	moc_akhet
+mosk_fild01	mapflag	nosave	moc_akhet
+mosk_fild02	mapflag	nosave	moc_akhet
+mosk_dun01	mapflag	nosave	moc_akhet
+mosk_dun02	mapflag	nosave	moc_akhet
+mosk_dun03	mapflag	nosave	moc_akhet
+mosk_que	mapflag	nosave	moc_akhet
+schg_cas01	mapflag	nosave	moc_akhet
+schg_cas02	mapflag	nosave	moc_akhet
+schg_cas03	mapflag	nosave	moc_akhet
+schg_cas04	mapflag	nosave	moc_akhet
+schg_cas05	mapflag	nosave	moc_akhet
+sch_gld	mapflag	nosave	moc_akhet
+cave	mapflag	nosave	moc_akhet
+moc_fild20	mapflag	nosave	moc_akhet
+moc_fild21	mapflag	nosave	moc_akhet
+moc_fild22	mapflag	nosave	moc_akhet
+que_ba	mapflag	nosave	moc_akhet
+que_moc_16	mapflag	nosave	moc_akhet
+que_moon	mapflag	nosave	moc_akhet
+arug_cas01	mapflag	nosave	moc_akhet
+arug_cas02	mapflag	nosave	moc_akhet
+arug_cas03	mapflag	nosave	moc_akhet
+arug_cas04	mapflag	nosave	moc_akhet
+arug_cas05	mapflag	nosave	moc_akhet
+aru_gld	mapflag	nosave	moc_akhet
+bat_room	mapflag	nosave	moc_akhet
+bat_a01	mapflag	nosave	moc_akhet
+bat_a02	mapflag	nosave	moc_akhet
+bat_b01	mapflag	nosave	moc_akhet
+bat_b02	mapflag	nosave	moc_akhet
+que_qsch01	mapflag	nosave	moc_akhet
+que_qsch02	mapflag	nosave	moc_akhet
+que_qsch03	mapflag	nosave	moc_akhet
+que_qsch04	mapflag	nosave	moc_akhet
+que_qsch05	mapflag	nosave	moc_akhet
+que_qaru01	mapflag	nosave	moc_akhet
+que_qaru02	mapflag	nosave	moc_akhet
+que_qaru03	mapflag	nosave	moc_akhet
+que_qaru04	mapflag	nosave	moc_akhet
+que_qaru05	mapflag	nosave	moc_akhet
+1@cata	mapflag	nosave	moc_akhet
+2@cata	mapflag	nosave	moc_akhet
+e_tower	mapflag	nosave	moc_akhet
+1@tower	mapflag	nosave	moc_akhet
+2@tower	mapflag	nosave	moc_akhet
+3@tower	mapflag	nosave	moc_akhet
+4@tower	mapflag	nosave	moc_akhet
+5@tower	mapflag	nosave	moc_akhet
+6@tower	mapflag	nosave	moc_akhet
+mid_camp	mapflag	nosave	moc_akhet
+mid_campin	mapflag	nosave	moc_akhet
+man_fild01	mapflag	nosave	moc_akhet
+man_fild03	mapflag	nosave	moc_akhet
+spl_fild02	mapflag	nosave	moc_akhet
+spl_fild03	mapflag	nosave	moc_akhet
+moc_fild22b	mapflag	nosave	moc_akhet
+que_dan01	mapflag	nosave	moc_akhet
+que_dan02	mapflag	nosave	moc_akhet
+schg_que01	mapflag	nosave	moc_akhet
+schg_dun01	mapflag	nosave	moc_akhet
+arug_que01	mapflag	nosave	moc_akhet
+arug_dun01	mapflag	nosave	moc_akhet
+1@orcs	mapflag	nosave	moc_akhet
+2@orcs	mapflag	nosave	moc_akhet
+bat_c01	mapflag	nosave	moc_akhet
+bat_c02	mapflag	nosave	moc_akhet
+bat_c03	mapflag	nosave	moc_akhet
+1@nyd	mapflag	nosave	moc_akhet
+2@nyd	mapflag	nosave	moc_akhet
+nyd_dun01	mapflag	nosave	moc_akhet
+nyd_dun02	mapflag	nosave	moc_akhet
+manuk	mapflag	nosave	moc_akhet
+man_fild02	mapflag	nosave	moc_akhet
+man_in01	mapflag	nosave	moc_akhet
+splendide	mapflag	nosave	moc_akhet
+spl_fild01	mapflag	nosave	moc_akhet
+spl_in01	mapflag	nosave	moc_akhet
+spl_in02	mapflag	nosave	moc_akhet
+job3_arch01	mapflag	nosave	moc_akhet
+job3_arch02	mapflag	nosave	moc_akhet
+job3_arch03	mapflag	nosave	moc_akhet
+job3_guil01	mapflag	nosave	moc_akhet
+job3_guil02	mapflag	nosave	moc_akhet
+job3_guil03	mapflag	nosave	moc_akhet
+job3_rang01	mapflag	nosave	moc_akhet
+job3_rang02	mapflag	nosave	moc_akhet
+job3_rune01	mapflag	nosave	moc_akhet
+job3_rune02	mapflag	nosave	moc_akhet
+job3_rune03	mapflag	nosave	moc_akhet
+job3_war01	mapflag	nosave	moc_akhet
+job3_war02	mapflag	nosave	moc_akhet
+jupe_core2	mapflag	nosave	moc_akhet
+moc_para01	mapflag	nosave	moc_akhet
+brasilis	mapflag	nosave	moc_akhet
+bra_in01	mapflag	nosave	moc_akhet
+bra_fild01	mapflag	nosave	moc_akhet
+bra_dun01	mapflag	nosave	moc_akhet
+bra_dun02	mapflag	nosave	moc_akhet
+s_atelier	mapflag	nosave	moc_akhet
+dicastes01	mapflag	nosave	moc_akhet
+dicastes02	mapflag	nosave	moc_akhet
+dic_in01	mapflag	nosave	moc_akhet
+dic_fild01	mapflag	nosave	moc_akhet
+dic_fild02	mapflag	nosave	moc_akhet
+dic_dun01	mapflag	nosave	moc_akhet
+dic_dun02	mapflag	nosave	moc_akhet
+job3_gen01	mapflag	nosave	moc_akhet
+job3_sha01	mapflag	nosave	moc_akhet
+mora	mapflag	nosave	moc_akhet
+bif_fild01	mapflag	nosave	moc_akhet
+bif_fild02	mapflag	nosave	moc_akhet
+1@mist	mapflag	nosave	moc_akhet
+dewata	mapflag	nosave	moc_akhet
+dew_in01	mapflag	nosave	moc_akhet
+dew_fild01	mapflag	nosave	moc_akhet
+dew_dun01	mapflag	nosave	moc_akhet
+dew_dun02	mapflag	nosave	moc_akhet
+que_house_s	mapflag	nosave	moc_akhet
+malangdo	mapflag	nosave	moc_akhet
+mal_in01	mapflag	nosave	moc_akhet
+mal_in02	mapflag	nosave	moc_akhet
+mal_dun01	mapflag	nosave	moc_akhet
+1@pump	mapflag	nosave	moc_akhet
+2@pump	mapflag	nosave	moc_akhet
+1@cash	mapflag	nosave	moc_akhet
+iz_dun05	mapflag	nosave	moc_akhet
+evt_mobroom	mapflag	nosave	moc_akhet
+dic_dun03	mapflag	nosave	moc_akhet
+evt_swar_b	mapflag	nosave	moc_akhet
+evt_swar_r	mapflag	nosave	moc_akhet
+evt_swar_s	mapflag	nosave	moc_akhet
+evt_swar_t	mapflag	nosave	moc_akhet
+1@lhz	mapflag	nosave	moc_akhet
+lhz_dun04	mapflag	nosave	moc_akhet
+que_lhz	mapflag	nosave	moc_akhet
+gld2_ald	mapflag	nosave	moc_akhet
+gld2_gef	mapflag	nosave	moc_akhet
+gld2_pay	mapflag	nosave	moc_akhet
+gld2_prt	mapflag	nosave	moc_akhet
+gld_dun01_2	mapflag	nosave	moc_akhet
+gld_dun02_2	mapflag	nosave	moc_akhet
+gld_dun03_2	mapflag	nosave	moc_akhet
+gld_dun04_2	mapflag	nosave	moc_akhet
+malaya	mapflag	nosave	moc_akhet
+job_ko	mapflag	nosave	moc_akhet
+ma_scene01	mapflag	nosave	moc_akhet
+1@ma_b	mapflag	nosave	moc_akhet
+1@ma_c	mapflag	nosave	moc_akhet
+1@ma_h	mapflag	nosave	moc_akhet
+ma_in01	mapflag	nosave	moc_akhet
+ma_dun01	mapflag	nosave	moc_akhet
+ma_fild01	mapflag	nosave	moc_akhet
+ma_fild02	mapflag	nosave	moc_akhet
+ma_zif01	mapflag	nosave	moc_akhet
+ma_zif02	mapflag	nosave	moc_akhet
+ma_zif03	mapflag	nosave	moc_akhet
+ma_zif04	mapflag	nosave	moc_akhet
+ma_zif05	mapflag	nosave	moc_akhet
+ma_zif06	mapflag	nosave	moc_akhet
+ma_zif07	mapflag	nosave	moc_akhet
+ma_zif08	mapflag	nosave	moc_akhet
+ma_zif09	mapflag	nosave	moc_akhet
+new_event	mapflag	nosave	moc_akhet
+eclage	mapflag	nosave	moc_akhet
+ecl_fild01	mapflag	nosave	moc_akhet
+ecl_tdun01	mapflag	nosave	moc_akhet
+ecl_tdun02	mapflag	nosave	moc_akhet
+ecl_tdun03	mapflag	nosave	moc_akhet
+ecl_tdun04	mapflag	nosave	moc_akhet
+que_avan01	mapflag	nosave	moc_akhet
+1@ecl	mapflag	nosave	moc_akhet
+ecl_in01	mapflag	nosave	moc_akhet
+ecl_in02	mapflag	nosave	moc_akhet
+ecl_in03	mapflag	nosave	moc_akhet
+ecl_in04	mapflag	nosave	moc_akhet
+ecl_hub01	mapflag	nosave	moc_akhet
+moc_prydn1	mapflag	nosave	moc_akhet
+moc_prydn2	mapflag	nosave	moc_akhet
+iz_ac01	mapflag	nosave	moc_akhet
+iz_ac02	mapflag	nosave	moc_akhet
+treasure_n1	mapflag	nosave	moc_akhet
+treasure_n2	mapflag	nosave	moc_akhet
+iz_int	mapflag	nosave	moc_akhet
+iz_ng01	mapflag	nosave	moc_akhet
+iz_int01	mapflag	nosave	moc_akhet
+iz_int02	mapflag	nosave	moc_akhet
+iz_int03	mapflag	nosave	moc_akhet
+iz_int04	mapflag	nosave	moc_akhet
+iz_ac01_a	mapflag	nosave	moc_akhet
+iz_ac02_a	mapflag	nosave	moc_akhet
+iz_ac01_b	mapflag	nosave	moc_akhet
+iz_ac02_b	mapflag	nosave	moc_akhet
+iz_ac01_c	mapflag	nosave	moc_akhet
+iz_ac02_c	mapflag	nosave	moc_akhet
+iz_ac01_d	mapflag	nosave	moc_akhet
+iz_ac02_d	mapflag	nosave	moc_akhet
+te_prtcas01	mapflag	nosave	moc_akhet
+te_prtcas02	mapflag	nosave	moc_akhet
+te_prtcas03	mapflag	nosave	moc_akhet
+te_prtcas04	mapflag	nosave	moc_akhet
+te_prtcas05	mapflag	nosave	moc_akhet
+te_aldecas1	mapflag	nosave	moc_akhet
+te_aldecas2	mapflag	nosave	moc_akhet
+te_aldecas3	mapflag	nosave	moc_akhet
+te_aldecas4	mapflag	nosave	moc_akhet
+te_aldecas5	mapflag	nosave	moc_akhet
+prt_fild08a	mapflag	nosave	moc_akhet
+prt_fild08b	mapflag	nosave	moc_akhet
+prt_fild08c	mapflag	nosave	moc_akhet
+prt_fild08d	mapflag	nosave	moc_akhet
+izlude_a	mapflag	nosave	moc_akhet
+izlude_b	mapflag	nosave	moc_akhet
+izlude_c	mapflag	nosave	moc_akhet
+izlude_d	mapflag	nosave	moc_akhet
+te_prt_gld	mapflag	nosave	moc_akhet
+te_alde_gld	mapflag	nosave	moc_akhet
+teg_dun01	mapflag	nosave	moc_akhet
+teg_dun02	mapflag	nosave	moc_akhet
+1@gl_k	mapflag	nosave	moc_akhet
+2@gl_k	mapflag	nosave	moc_akhet
+gl_chyard_	mapflag	nosave	moc_akhet
+gl_cas02_	mapflag	nosave	moc_akhet
+evt_bomb	mapflag	nosave	moc_akhet
+1@def01	mapflag	nosave	moc_akhet
+1@def02	mapflag	nosave	moc_akhet
+1@def03	mapflag	nosave	moc_akhet
+1@gef	mapflag	nosave	moc_akhet
+1@face	mapflag	nosave	moc_akhet
+1@sara	mapflag	nosave	moc_akhet
+1@gef_in	mapflag	nosave	moc_akhet
+dali	mapflag	nosave	moc_akhet
+dali02	mapflag	nosave	moc_akhet
+1@ge_st	mapflag	nosave	moc_akhet
+1@spa	mapflag	nosave	moc_akhet
+1@tnm1	mapflag	nosave	moc_akhet
+1@tnm2	mapflag	nosave	moc_akhet
+1@tnm3	mapflag	nosave	moc_akhet
+1@dth1	mapflag	nosave	moc_akhet
+1@dth2	mapflag	nosave	moc_akhet
+1@dth3	mapflag	nosave	moc_akhet
+1@eom	mapflag	nosave	moc_akhet
+1@jtb	mapflag	nosave	moc_akhet
+1@rev	mapflag	nosave	moc_akhet
+1@xm_d	mapflag	nosave	moc_akhet
+moro_cav	mapflag	nosave	moc_akhet
+moro_vol	mapflag	nosave	moc_akhet
+silk_lair	mapflag	nosave	moc_akhet
+c_tower2_	mapflag	nosave	moc_akhet
+c_tower3_	mapflag	nosave	moc_akhet
+1@mcd	mapflag	nosave	moc_akhet
+ver_eju	mapflag	nosave	moc_akhet
+ver_tunn	mapflag	nosave	moc_akhet
+verus03	mapflag	nosave	moc_akhet
+verus04	mapflag	nosave	moc_akhet
+job_gun	mapflag	nosave	moc_akhet
+1@air1	mapflag	nosave	moc_akhet
+1@air2	mapflag	nosave	moc_akhet
+1@glast	mapflag	nosave	moc_akhet
+lhz_dun_n	mapflag	nosave	moc_akhet
+lhz_d_n2	mapflag	nosave	moc_akhet
+1@gl_kh	mapflag	nosave	moc_akhet
+2@gl_kh	mapflag	nosave	moc_akhet
+1@lab	mapflag	nosave	moc_akhet
+1@uns	mapflag	nosave	moc_akhet
+un_bk_q	mapflag	nosave	moc_akhet
+un_bunker	mapflag	nosave	moc_akhet
+un_myst	mapflag	nosave	moc_akhet
+verus01	mapflag	nosave	moc_akhet
+verus02	mapflag	nosave	moc_akhet
+paramk	mapflag	nosave	moc_akhet
+1@ffp	mapflag	nosave	moc_akhet
+1@infi	mapflag	nosave	moc_akhet
+1@mir	mapflag	nosave	moc_akhet
+2@mir	mapflag	nosave	moc_akhet
+1@sthb	mapflag	nosave	moc_akhet
+1@sthc	mapflag	nosave	moc_akhet
+1@sthd	mapflag	nosave	moc_akhet
+prt_cas	mapflag	nosave	moc_akhet
+prt_cas_q	mapflag	nosave	moc_akhet
+prt_prison	mapflag	nosave	moc_akhet
+prt_lib	mapflag	nosave	moc_akhet
+prt_lib_q	mapflag	nosave	moc_akhet
+prt_q	mapflag	nosave	moc_akhet
+prt_pri00	mapflag	nosave	moc_akhet
+int_land	mapflag	nosave	moc_akhet
+int_land01	mapflag	nosave	moc_akhet
+int_land02	mapflag	nosave	moc_akhet
+int_land03	mapflag	nosave	moc_akhet
+int_land04	mapflag	nosave	moc_akhet
+lasagna	mapflag	nosave	moc_akhet
+lasa_fild01	mapflag	nosave	moc_akhet
+lasa_fild02	mapflag	nosave	moc_akhet
+lasa_dun01	mapflag	nosave	moc_akhet
+lasa_dun02	mapflag	nosave	moc_akhet
+lasa_dun03	mapflag	nosave	moc_akhet
+conch_in	mapflag	nosave	moc_akhet
+lasa_in01	mapflag	nosave	moc_akhet
+lasa_dun_q	mapflag	nosave	moc_akhet
+1@pop1	mapflag	nosave	moc_akhet
+1@pop2	mapflag	nosave	moc_akhet
+1@pop3	mapflag	nosave	moc_akhet
+1@slw	mapflag	nosave	moc_akhet
+1@swat	mapflag	nosave	moc_akhet
+que_swat	mapflag	nosave	moc_akhet
+slabw01	mapflag	nosave	moc_akhet
+rebel_in	mapflag	nosave	moc_akhet
+1@md_gef	mapflag	nosave	moc_akhet
+1@md_pay	mapflag	nosave	moc_akhet
+har_in01	mapflag	nosave	moc_akhet
+harboro1	mapflag	nosave	moc_akhet
+harboro2	mapflag	nosave	moc_akhet
+rockmi1	mapflag	nosave	moc_akhet
+rockmi2	mapflag	nosave	moc_akhet
+rockrdg1	mapflag	nosave	moc_akhet
+rockrdg2	mapflag	nosave	moc_akhet
+1@gl_k2	mapflag	nosave	moc_akhet
+2@gl_k2	mapflag	nosave	moc_akhet
+1@xm_d2	mapflag	nosave	moc_akhet
+pay_d03_i	mapflag	nosave	moc_akhet
+gef_d01_i	mapflag	nosave	moc_akhet
+ice_d03_i	mapflag	nosave	moc_akhet
+1@tre	mapflag	nosave	moc_akhet
+1@begi	mapflag	nosave	moc_akhet
+tur_d03_i	mapflag	nosave	moc_akhet
+tur_d04_i	mapflag	nosave	moc_akhet
+1@crd	mapflag	nosave	moc_akhet
+ordeal_a00	mapflag	nosave	moc_akhet
+ordeal_a02	mapflag	nosave	moc_akhet
+pprontera	mapflag	nosave	moc_akhet
+niflxmas	mapflag	nosave	moc_akhet
+sch_lab	mapflag	nosave	moc_akhet
+nakhyang	mapflag	nosave	moc_akhet
+lasa_sea	mapflag	nosave	moc_akhet
+1@drdo	mapflag	nosave	moc_akhet
+x_lhz	mapflag	nosave	moc_akhet
+x_prt	mapflag	nosave	moc_akhet
+x_ra	mapflag	nosave	moc_akhet
+prt_evt_in	mapflag	nosave	moc_akhet
+vis_h01	mapflag	nosave	moc_akhet
+vis_h02	mapflag	nosave	moc_akhet
+vis_h03	mapflag	nosave	moc_akhet
+vis_h04	mapflag	nosave	moc_akhet
+ein_d02_i	mapflag	nosave	moc_akhet
+com_d02_i	mapflag	nosave	moc_akhet
+1@soul	mapflag	nosave	moc_akhet
+star_frst	mapflag	nosave	moc_akhet
+star_in	mapflag	nosave	moc_akhet
+2009rwc_01	mapflag	nosave	moc_akhet
+2009rwc_02	mapflag	nosave	moc_akhet
+2009rwc_03	mapflag	nosave	moc_akhet
+2009rwc_04	mapflag	nosave	moc_akhet
+2009rwc_05	mapflag	nosave	moc_akhet
+2009rwc_06	mapflag	nosave	moc_akhet
+2009rwc_07	mapflag	nosave	moc_akhet
+2009rwc_08	mapflag	nosave	moc_akhet
+2009rwc_f01	mapflag	nosave	moc_akhet
+2012rwc_01	mapflag	nosave	moc_akhet
+2012rwc_02	mapflag	nosave	moc_akhet
+2012rwc_03	mapflag	nosave	moc_akhet
+2012rwc_04	mapflag	nosave	moc_akhet
+2012rwc_05	mapflag	nosave	moc_akhet
+2012rwc_06	mapflag	nosave	moc_akhet
+2012rwc_07	mapflag	nosave	moc_akhet
+2012rwc_08	mapflag	nosave	moc_akhet
+1@cor	mapflag	nosave	moc_akhet
+1@os_a	mapflag	nosave	moc_akhet
+1@os_b	mapflag	nosave	moc_akhet
+1@rgsr	mapflag	nosave	moc_akhet
+gl_cas01_	mapflag	nosave	moc_akhet
+mag_dun03	mapflag	nosave	moc_akhet
+pub_cat	mapflag	nosave	moc_akhet
+rgsr_in	mapflag	nosave	moc_akhet
+sp_cor	mapflag	nosave	moc_akhet
+sp_os	mapflag	nosave	moc_akhet
+sp_rudus	mapflag	nosave	moc_akhet
+sp_rudus2	mapflag	nosave	moc_akhet
+sp_rudus3	mapflag	nosave	moc_akhet
+1@bamn	mapflag	nosave	moc_akhet
+1@bamq	mapflag	nosave	moc_akhet
+1@ghg	mapflag	nosave	moc_akhet
+1@herbs	mapflag	nosave	moc_akhet
+1@lost	mapflag	nosave	moc_akhet
+ba_2whs01	mapflag	nosave	moc_akhet
+ba_2whs02	mapflag	nosave	moc_akhet
+ba_bath	mapflag	nosave	moc_akhet
+ba_in01	mapflag	nosave	moc_akhet
+ba_lib	mapflag	nosave	moc_akhet
+ba_maison	mapflag	nosave	moc_akhet
+ba_pw01	mapflag	nosave	moc_akhet
+ba_pw02	mapflag	nosave	moc_akhet
+ba_pw03	mapflag	nosave	moc_akhet
+1@odin	mapflag	nosave	moc_akhet
+ba_chess	mapflag	nosave	moc_akhet
+ba_go	mapflag	nosave	moc_akhet
+ba_lost	mapflag	nosave	moc_akhet
+prt_mz03_i	mapflag	nosave	moc_akhet
+iz_d04_i	mapflag	nosave	moc_akhet
+iz_d05_i	mapflag	nosave	moc_akhet
+1@4win	mapflag	nosave	moc_akhet
+1@4mag	mapflag	nosave	moc_akhet
+1@4mst	mapflag	nosave	moc_akhet
+1@4sac	mapflag	nosave	moc_akhet
+1@4tro	mapflag	nosave	moc_akhet
+1@4inq	mapflag	nosave	moc_akhet
+1@4cdn	mapflag	nosave	moc_akhet
+1@4igd	mapflag	nosave	moc_akhet
+1@4drk	mapflag	nosave	moc_akhet
+job4_bio	mapflag	nosave	moc_akhet
+job4_mag	mapflag	nosave	moc_akhet
+job4_tro	mapflag	nosave	moc_akhet
+1@ge_sn	mapflag	nosave	moc_akhet
+1@mjo1	mapflag	nosave	moc_akhet
+1@mjo2	mapflag	nosave	moc_akhet
+1@spa2	mapflag	nosave	moc_akhet
+1@thts	mapflag	nosave	moc_akhet
+2@thts	mapflag	nosave	moc_akhet
+3@thts	mapflag	nosave	moc_akhet
+4@thts	mapflag	nosave	moc_akhet
+5@thts	mapflag	nosave	moc_akhet
+6@thts	mapflag	nosave	moc_akhet
+7@thts	mapflag	nosave	moc_akhet
+8@thts	mapflag	nosave	moc_akhet
+1@gl_he	mapflag	nosave	moc_akhet
+1@gl_he2	mapflag	nosave	moc_akhet
+1@gl_prq	mapflag	nosave	moc_akhet
+1@gol1	mapflag	nosave	moc_akhet
+1@gol2	mapflag	nosave	moc_akhet
+1@halo	mapflag	nosave	moc_akhet
+1@ch_t	mapflag	nosave	moc_akhet
+2@ch_t	mapflag	nosave	moc_akhet
+3@ch_t	mapflag	nosave	moc_akhet
+abyss_04	mapflag	nosave	moc_akhet
+ein_dun03	mapflag	nosave	moc_akhet
+odin_past	mapflag	nosave	moc_akhet
+grademk	mapflag	nosave	moc_akhet
+sp_rudus4	mapflag	nosave	moc_akhet
+amicitia1	mapflag	nosave	moc_akhet
+amicitia2	mapflag	nosave	moc_akhet
+nif_dun01	mapflag	nosave	moc_akhet
+nif_dun02	mapflag	nosave	moc_akhet
+e_hugel	mapflag	nosave	moc_akhet
+tra_fild	mapflag	nosave	moc_akhet
+1@adv	mapflag	nosave	moc_akhet
+1@advs	mapflag	nosave	moc_akhet
+1@nyr	mapflag	nosave	moc_akhet
+1@oz	mapflag	nosave	moc_akhet
+1@tcamp	mapflag	nosave	moc_akhet
+2@nyr	mapflag	nosave	moc_akhet
+gw_fild01	mapflag	nosave	moc_akhet
+gw_fild02	mapflag	nosave	moc_akhet
+oz_dun01	mapflag	nosave	moc_akhet
+oz_dun02	mapflag	nosave	moc_akhet
+que_thr	mapflag	nosave	moc_akhet
+wolfvill	mapflag	nosave	moc_akhet
+1@ch_u	mapflag	nosave	moc_akhet
+ant_d02_i	mapflag	nosave	moc_akhet
+verus02_a	mapflag	nosave	moc_akhet
+verus02_b	mapflag	nosave	moc_akhet
+tur_d04ia	mapflag	nosave	moc_akhet
+tur_d04ib	mapflag	nosave	moc_akhet
+icecastle	mapflag	nosave	moc_akhet
+icas_in	mapflag	nosave	moc_akhet
+jor_tail	mapflag	nosave	moc_akhet
+jor_back1	mapflag	nosave	moc_akhet
+jor_back2	mapflag	nosave	moc_akhet
+jor_back3	mapflag	nosave	moc_akhet
+jor_nest	mapflag	nosave	moc_akhet
+jor_dun01	mapflag	nosave	moc_akhet
+jor_dun02	mapflag	nosave	moc_akhet
+jor_dun03	mapflag	nosave	moc_akhet
+jor_ab01	mapflag	nosave	moc_akhet
+jor_ab02	mapflag	nosave	moc_akhet
+jor_que	mapflag	nosave	moc_akhet
+air_if	mapflag	nosave	moc_akhet
+1@iwp	mapflag	nosave	moc_akhet
+1@jorchs	mapflag	nosave	moc_akhet
+1@jorlab	mapflag	nosave	moc_akhet
+1@whl	mapflag	nosave	moc_akhet
+1@exhn	mapflag	nosave	moc_akhet
+1@exds	mapflag	nosave	moc_akhet
+2@exds	mapflag	nosave	moc_akhet
+1@exse	mapflag	nosave	moc_akhet
+1@exnw	mapflag	nosave	moc_akhet
+1@exsr	mapflag	nosave	moc_akhet
+1@exsh	mapflag	nosave	moc_akhet
+bl_grass	mapflag	nosave	moc_akhet
+bl_lava	mapflag	nosave	moc_akhet
+bl_ice	mapflag	nosave	moc_akhet
+bl_death	mapflag	nosave	moc_akhet
+bl_soul	mapflag	nosave	moc_akhet
+bl_temple	mapflag	nosave	moc_akhet
+bl_venom	mapflag	nosave	moc_akhet
+clock_01	mapflag	nosave	moc_akhet
+rag_fes	mapflag	nosave	moc_akhet
+rag_fes_a	mapflag	nosave	moc_akhet
+memohall	mapflag	nosave	moc_akhet
+1@dime	mapflag	nosave	moc_akhet
+prt_elib	mapflag	nosave	moc_akhet
+1@vrcas	mapflag	nosave	moc_akhet
+1@vrev	mapflag	nosave	moc_akhet
+1@vrgen	mapflag	nosave	moc_akhet
+1@vrpo	mapflag	nosave	moc_akhet
+1@vrac1	mapflag	nosave	moc_akhet
+1@vrac2	mapflag	nosave	moc_akhet
+1@vrclo	mapflag	nosave	moc_akhet
+1@vrhha	mapflag	nosave	moc_akhet
+2@vrclo	mapflag	nosave	moc_akhet
+1@pdb	mapflag	nosave	moc_akhet
+airplane2	mapflag	nosave	moc_akhet
+vr_bob	mapflag	nosave	moc_akhet
+hero_dun1	mapflag	nosave	moc_akhet
+hero_ent1	mapflag	nosave	moc_akhet
+hero_ent2	mapflag	nosave	moc_akhet
+hero_ent3	mapflag	nosave	moc_akhet
+hero_in1	mapflag	nosave	moc_akhet
+hero_in2	mapflag	nosave	moc_akhet
+hero_in3	mapflag	nosave	moc_akhet
+hero_in4	mapflag	nosave	moc_akhet
+hero_lb	mapflag	nosave	moc_akhet
+hero_out1	mapflag	nosave	moc_akhet
+hero_out2	mapflag	nosave	moc_akhet
+hero_out3	mapflag	nosave	moc_akhet
+hero_out4	mapflag	nosave	moc_akhet
+hero_tra	mapflag	nosave	moc_akhet
+herosria	mapflag	nosave	moc_akhet
+mjo_wst01	mapflag	nosave	moc_akhet
+ra_pol01	mapflag	nosave	moc_akhet
+1@20cn1	mapflag	nosave	moc_akhet
+1@20cn2	mapflag	nosave	moc_akhet
+1@slug	mapflag	nosave	moc_akhet
+1@twas	mapflag	nosave	moc_akhet
+1@twbs	mapflag	nosave	moc_akhet
+1@twig	mapflag	nosave	moc_akhet
+1@twsd	mapflag	nosave	moc_akhet
+icas_in2	mapflag	nosave	moc_akhet
+jor_back4	mapflag	nosave	moc_akhet
+jor_back5	mapflag	nosave	moc_akhet
+jor_back6	mapflag	nosave	moc_akhet
+jor_maze	mapflag	nosave	moc_akhet
+jor_root1	mapflag	nosave	moc_akhet
+jor_root2	mapflag	nosave	moc_akhet
+jor_root3	mapflag	nosave	moc_akhet
+jor_safty1	mapflag	nosave	moc_akhet
+jor_safty2	mapflag	nosave	moc_akhet
+jor_sanct	mapflag	nosave	moc_akhet
+jor_twice	mapflag	nosave	moc_akhet
+jor_twig	mapflag	nosave	moc_akhet
+bl_depth1	mapflag	nosave	moc_akhet
+1@ba_go	mapflag	nosave	moc_akhet
+1@f_lake	mapflag	nosave	moc_akhet
+for_dun01	mapflag	nosave	moc_akhet
+for_dun02	mapflag	nosave	moc_akhet
+t_garden	mapflag	nosave	moc_akhet
+1@vrpop	mapflag	nosave	moc_akhet
+2@vrpop	mapflag	nosave	moc_akhet
+3@vrpop	mapflag	nosave	moc_akhet
+bl_depth2	mapflag	nosave	moc_akhet
+1@vrsn	mapflag	nosave	moc_akhet
+1@ep21a	mapflag	nosave	moc_akhet
+1@ep21b	mapflag	nosave	moc_akhet
+1@ep21c	mapflag	nosave	moc_akhet
+1@mdtem	mapflag	nosave	moc_akhet
+1@twbs2	mapflag	nosave	moc_akhet
+1@wtgs	mapflag	nosave	moc_akhet
+2@mdtem	mapflag	nosave	moc_akhet
+jalbe_in	mapflag	nosave	moc_akhet
+jor_albe	mapflag	nosave	moc_akhet
+jor_base	mapflag	nosave	moc_akhet
+jor_crk	mapflag	nosave	moc_akhet
+jor_crk_p	mapflag	nosave	moc_akhet
+jor_mbase	mapflag	nosave	moc_akhet
+jor_raise1	mapflag	nosave	moc_akhet
+jor_raise2	mapflag	nosave	moc_akhet
+jor_tmple1	mapflag	nosave	moc_akhet
+jor_tmple2	mapflag	nosave	moc_akhet
+luna_sf1	mapflag	nosave	moc_akhet
+luna_sf2	mapflag	nosave	moc_akhet
+mbase_in	mapflag	nosave	moc_akhet
+prt_mk	mapflag	nosave	moc_akhet
+nif_fild03	mapflag	nosave	moc_akhet
+iz_in_a	mapflag	nosave	moc_akhet
+iz_in_b	mapflag	nosave	moc_akhet
+iz_in_c	mapflag	nosave	moc_akhet
+iz_in_d	mapflag	nosave	moc_akhet
+jor_sklf1	mapflag	nosave	moc_akhet
+jor_sklf2	mapflag	nosave	moc_akhet
+cmd_bhole	mapflag	nosave	moc_akhet
+1@ch1a	mapflag	nosave	moc_akhet
+1@ch1b	mapflag	nosave	moc_akhet
+ch1_dw	mapflag	nosave	moc_akhet
+ch1_gef_in	mapflag	nosave	moc_akhet
+ch1_geffen	mapflag	nosave	moc_akhet
+ch1_gfn01	mapflag	nosave	moc_akhet
+ch1_gfn03	mapflag	nosave	moc_akhet
+ch1_que01	mapflag	nosave	moc_akhet
+ch1_sf01	mapflag	nosave	moc_akhet
+ch1_sf02	mapflag	nosave	moc_akhet
+ch1_sf03	mapflag	nosave	moc_akhet
+ch1_vrgef1	mapflag	nosave	moc_akhet
+ch1_vrgef2	mapflag	nosave	moc_akhet
+hem_dun01	mapflag	nosave	moc_akhet
+hem_dun02	mapflag	nosave	moc_akhet
+hem_fild	mapflag	nosave	moc_akhet
+mu_fild01	mapflag	nosave	moc_akhet
+uknw_ruin	mapflag	nosave	moc_akhet
+uknw_ruin2	mapflag	nosave	moc_akhet
+ygg_edge	mapflag	nosave	moc_akhet
+ygg_fruit	mapflag	nosave	moc_akhet
+ygg_roots	mapflag	nosave	moc_akhet
+
+alb_ship	mapflag	partylock
+alb2trea	mapflag	partylock
+alberta	mapflag	partylock
+alberta_in	mapflag	partylock
+alde_dun01	mapflag	partylock
+alde_dun02	mapflag	partylock
+alde_dun03	mapflag	partylock
+alde_dun04	mapflag	partylock
+aldeba_in	mapflag	partylock
+aldebaran	mapflag	partylock
+anthell01	mapflag	partylock
+anthell02	mapflag	partylock
+arena_room	mapflag	partylock
+c_tower1	mapflag	partylock
+c_tower2	mapflag	partylock
+c_tower3	mapflag	partylock
+c_tower4	mapflag	partylock
+force_1-1	mapflag	partylock
+force_2-1	mapflag	partylock
+force_3-1	mapflag	partylock
+force_4-1	mapflag	partylock
+force_5-1	mapflag	partylock
+force_1-2	mapflag	partylock
+force_2-2	mapflag	partylock
+force_3-2	mapflag	partylock
+force_1-3	mapflag	partylock
+force_2-3	mapflag	partylock
+force_3-3	mapflag	partylock
+gef_dun00	mapflag	partylock
+gef_dun01	mapflag	partylock
+gef_dun02	mapflag	partylock
+gef_dun03	mapflag	partylock
+gef_fild00	mapflag	partylock
+gef_fild01	mapflag	partylock
+gef_fild02	mapflag	partylock
+gef_fild03	mapflag	partylock
+gef_fild04	mapflag	partylock
+gef_fild05	mapflag	partylock
+gef_fild06	mapflag	partylock
+gef_fild07	mapflag	partylock
+gef_fild08	mapflag	partylock
+gef_fild09	mapflag	partylock
+gef_fild10	mapflag	partylock
+gef_fild11	mapflag	partylock
+gef_fild12	mapflag	partylock
+gef_fild13	mapflag	partylock
+gef_fild14	mapflag	partylock
+gef_tower	mapflag	partylock
+geffen	mapflag	partylock
+geffen_in	mapflag	partylock
+gl_cas01	mapflag	partylock
+gl_cas02	mapflag	partylock
+gl_church	mapflag	partylock
+gl_chyard	mapflag	partylock
+gl_dun01	mapflag	partylock
+gl_dun02	mapflag	partylock
+gl_in01	mapflag	partylock
+gl_knt01	mapflag	partylock
+gl_knt02	mapflag	partylock
+gl_prison	mapflag	partylock
+gl_prison1	mapflag	partylock
+gl_sew01	mapflag	partylock
+gl_sew02	mapflag	partylock
+gl_sew03	mapflag	partylock
+gl_sew04	mapflag	partylock
+gl_step	mapflag	partylock
+glast_01	mapflag	partylock
+in_hunter	mapflag	partylock
+in_moc_16	mapflag	partylock
+in_orcs01	mapflag	partylock
+in_sphinx1	mapflag	partylock
+in_sphinx2	mapflag	partylock
+in_sphinx3	mapflag	partylock
+in_sphinx4	mapflag	partylock
+in_sphinx5	mapflag	partylock
+iz_dun00	mapflag	partylock
+iz_dun01	mapflag	partylock
+iz_dun02	mapflag	partylock
+iz_dun03	mapflag	partylock
+iz_dun04	mapflag	partylock
+izlu2dun	mapflag	partylock
+izlude	mapflag	partylock
+izlude_in	mapflag	partylock
+job_thief1	mapflag	partylock
+mjo_dun01	mapflag	partylock
+mjo_dun02	mapflag	partylock
+mjo_dun03	mapflag	partylock
+mjolnir_01	mapflag	partylock
+mjolnir_02	mapflag	partylock
+mjolnir_03	mapflag	partylock
+mjolnir_04	mapflag	partylock
+mjolnir_05	mapflag	partylock
+mjolnir_06	mapflag	partylock
+mjolnir_07	mapflag	partylock
+mjolnir_08	mapflag	partylock
+mjolnir_09	mapflag	partylock
+mjolnir_10	mapflag	partylock
+mjolnir_11	mapflag	partylock
+mjolnir_12	mapflag	partylock
+moc_castle	mapflag	partylock
+moc_fild01	mapflag	partylock
+moc_fild02	mapflag	partylock
+moc_fild03	mapflag	partylock
+moc_fild07	mapflag	partylock
+moc_fild11	mapflag	partylock
+moc_fild12	mapflag	partylock
+moc_fild13	mapflag	partylock
+moc_fild16	mapflag	partylock
+moc_fild17	mapflag	partylock
+moc_fild18	mapflag	partylock
+moc_fild19	mapflag	partylock
+moc_pryd01	mapflag	partylock
+moc_pryd02	mapflag	partylock
+moc_pryd03	mapflag	partylock
+moc_pryd04	mapflag	partylock
+moc_pryd05	mapflag	partylock
+moc_pryd06	mapflag	partylock
+moc_prydb1	mapflag	partylock
+moc_ruins	mapflag	partylock
+monk_in	mapflag	partylock
+morocc	mapflag	partylock
+morocc_in	mapflag	partylock
+new_zone01	mapflag	partylock
+new_zone02	mapflag	partylock
+new_zone03	mapflag	partylock
+new_zone04	mapflag	partylock
+new_1-1	mapflag	partylock
+new_1-2	mapflag	partylock
+new_1-3	mapflag	partylock
+new_1-4	mapflag	partylock
+new_2-1	mapflag	partylock
+new_2-2	mapflag	partylock
+new_2-3	mapflag	partylock
+new_2-4	mapflag	partylock
+new_3-1	mapflag	partylock
+new_3-2	mapflag	partylock
+new_3-3	mapflag	partylock
+new_3-4	mapflag	partylock
+new_4-1	mapflag	partylock
+new_4-2	mapflag	partylock
+new_4-3	mapflag	partylock
+new_4-4	mapflag	partylock
+new_5-1	mapflag	partylock
+new_5-2	mapflag	partylock
+new_5-3	mapflag	partylock
+new_5-4	mapflag	partylock
+orcsdun01	mapflag	partylock
+orcsdun02	mapflag	partylock
+ordeal_1-1	mapflag	partylock
+ordeal_1-2	mapflag	partylock
+ordeal_2-1	mapflag	partylock
+ordeal_2-2	mapflag	partylock
+ordeal_3-1	mapflag	partylock
+ordeal_3-2	mapflag	partylock
+pay_arche	mapflag	partylock
+pay_dun00	mapflag	partylock
+pay_dun01	mapflag	partylock
+pay_dun02	mapflag	partylock
+pay_dun03	mapflag	partylock
+pay_dun04	mapflag	partylock
+pay_fild01	mapflag	partylock
+pay_fild02	mapflag	partylock
+pay_fild03	mapflag	partylock
+pay_fild04	mapflag	partylock
+pay_fild05	mapflag	partylock
+pay_fild06	mapflag	partylock
+pay_fild07	mapflag	partylock
+pay_fild08	mapflag	partylock
+pay_fild09	mapflag	partylock
+pay_fild10	mapflag	partylock
+pay_fild11	mapflag	partylock
+prontera	mapflag	partylock
+prt_are_in	mapflag	partylock
+prt_are01	mapflag	partylock
+prt_castle	mapflag	partylock
+prt_church	mapflag	partylock
+prt_fild00	mapflag	partylock
+prt_fild01	mapflag	partylock
+prt_fild02	mapflag	partylock
+prt_fild03	mapflag	partylock
+prt_fild04	mapflag	partylock
+prt_fild05	mapflag	partylock
+prt_fild06	mapflag	partylock
+prt_fild07	mapflag	partylock
+prt_fild08	mapflag	partylock
+prt_fild09	mapflag	partylock
+prt_fild10	mapflag	partylock
+prt_fild11	mapflag	partylock
+prt_in	mapflag	partylock
+prt_maze01	mapflag	partylock
+prt_maze02	mapflag	partylock
+prt_maze03	mapflag	partylock
+prt_monk	mapflag	partylock
+prt_sewb1	mapflag	partylock
+prt_sewb2	mapflag	partylock
+prt_sewb3	mapflag	partylock
+prt_sewb4	mapflag	partylock
+pvp_room	mapflag	partylock
+pvp_2vs2	mapflag	partylock
+pvp_c_room	mapflag	partylock
+pvp_n_1-1	mapflag	partylock
+pvp_n_1-2	mapflag	partylock
+pvp_n_1-3	mapflag	partylock
+pvp_n_1-4	mapflag	partylock
+pvp_n_1-5	mapflag	partylock
+pvp_n_2-1	mapflag	partylock
+pvp_n_2-2	mapflag	partylock
+pvp_n_2-3	mapflag	partylock
+pvp_n_2-4	mapflag	partylock
+pvp_n_2-5	mapflag	partylock
+pvp_n_3-1	mapflag	partylock
+pvp_n_3-2	mapflag	partylock
+pvp_n_3-3	mapflag	partylock
+pvp_n_3-4	mapflag	partylock
+pvp_n_3-5	mapflag	partylock
+pvp_n_4-1	mapflag	partylock
+pvp_n_4-2	mapflag	partylock
+pvp_n_4-3	mapflag	partylock
+pvp_n_4-4	mapflag	partylock
+pvp_n_4-5	mapflag	partylock
+pvp_n_5-1	mapflag	partylock
+pvp_n_5-2	mapflag	partylock
+pvp_n_5-3	mapflag	partylock
+pvp_n_5-4	mapflag	partylock
+pvp_n_5-5	mapflag	partylock
+pvp_n_6-1	mapflag	partylock
+pvp_n_6-2	mapflag	partylock
+pvp_n_6-3	mapflag	partylock
+pvp_n_6-4	mapflag	partylock
+pvp_n_6-5	mapflag	partylock
+pvp_n_7-1	mapflag	partylock
+pvp_n_7-2	mapflag	partylock
+pvp_n_7-3	mapflag	partylock
+pvp_n_7-4	mapflag	partylock
+pvp_n_7-5	mapflag	partylock
+pvp_n_8-1	mapflag	partylock
+pvp_n_8-2	mapflag	partylock
+pvp_n_8-3	mapflag	partylock
+pvp_n_8-4	mapflag	partylock
+pvp_n_8-5	mapflag	partylock
+pvp_n_room	mapflag	partylock
+pvp_y_1-1	mapflag	partylock
+pvp_y_1-2	mapflag	partylock
+pvp_y_1-3	mapflag	partylock
+pvp_y_1-4	mapflag	partylock
+pvp_y_1-5	mapflag	partylock
+pvp_y_2-1	mapflag	partylock
+pvp_y_2-2	mapflag	partylock
+pvp_y_2-3	mapflag	partylock
+pvp_y_2-4	mapflag	partylock
+pvp_y_2-5	mapflag	partylock
+pvp_y_3-1	mapflag	partylock
+pvp_y_3-2	mapflag	partylock
+pvp_y_3-3	mapflag	partylock
+pvp_y_3-4	mapflag	partylock
+pvp_y_3-5	mapflag	partylock
+pvp_y_4-1	mapflag	partylock
+pvp_y_4-2	mapflag	partylock
+pvp_y_4-3	mapflag	partylock
+pvp_y_4-4	mapflag	partylock
+pvp_y_4-5	mapflag	partylock
+pvp_y_5-1	mapflag	partylock
+pvp_y_5-2	mapflag	partylock
+pvp_y_5-3	mapflag	partylock
+pvp_y_5-4	mapflag	partylock
+pvp_y_5-5	mapflag	partylock
+pvp_y_6-1	mapflag	partylock
+pvp_y_6-2	mapflag	partylock
+pvp_y_6-3	mapflag	partylock
+pvp_y_6-4	mapflag	partylock
+pvp_y_6-5	mapflag	partylock
+pvp_y_7-1	mapflag	partylock
+pvp_y_7-2	mapflag	partylock
+pvp_y_7-3	mapflag	partylock
+pvp_y_7-4	mapflag	partylock
+pvp_y_7-5	mapflag	partylock
+pvp_y_8-1	mapflag	partylock
+pvp_y_8-2	mapflag	partylock
+pvp_y_8-3	mapflag	partylock
+pvp_y_8-4	mapflag	partylock
+pvp_y_8-5	mapflag	partylock
+pvp_y_room	mapflag	partylock
+sword_1-1	mapflag	partylock
+sword_2-1	mapflag	partylock
+sword_3-1	mapflag	partylock
+treasure01	mapflag	partylock
+treasure02	mapflag	partylock
+xmas	mapflag	partylock
+xmas_dun01	mapflag	partylock
+xmas_dun02	mapflag	partylock
+xmas_fild01	mapflag	partylock
+xmas_in	mapflag	partylock
+beach_dun	mapflag	partylock
+beach_dun2	mapflag	partylock
+beach_dun3	mapflag	partylock
+cmd_fild01	mapflag	partylock
+cmd_fild02	mapflag	partylock
+cmd_fild03	mapflag	partylock
+cmd_fild04	mapflag	partylock
+cmd_fild05	mapflag	partylock
+cmd_fild06	mapflag	partylock
+cmd_fild07	mapflag	partylock
+cmd_fild08	mapflag	partylock
+cmd_fild09	mapflag	partylock
+cmd_in01	mapflag	partylock
+cmd_in02	mapflag	partylock
+comodo	mapflag	partylock
+quiz_00	mapflag	partylock
+quiz_01	mapflag	partylock
+g_room1-1	mapflag	partylock
+g_room1-2	mapflag	partylock
+g_room1-3	mapflag	partylock
+g_room2	mapflag	partylock
+tur_dun01	mapflag	partylock
+tur_dun02	mapflag	partylock
+tur_dun03	mapflag	partylock
+tur_dun04	mapflag	partylock
+tur_dun05	mapflag	partylock
+tur_dun06	mapflag	partylock
+alde_gld	mapflag	partylock
+aldeg_cas01	mapflag	partylock
+aldeg_cas02	mapflag	partylock
+aldeg_cas03	mapflag	partylock
+aldeg_cas04	mapflag	partylock
+aldeg_cas05	mapflag	partylock
+gefg_cas01	mapflag	partylock
+gefg_cas02	mapflag	partylock
+gefg_cas03	mapflag	partylock
+gefg_cas04	mapflag	partylock
+gefg_cas05	mapflag	partylock
+gld_dun01	mapflag	partylock
+gld_dun02	mapflag	partylock
+gld_dun03	mapflag	partylock
+gld_dun04	mapflag	partylock
+guild_room	mapflag	partylock
+guild_vs1	mapflag	partylock
+guild_vs2	mapflag	partylock
+guild_vs3	mapflag	partylock
+guild_vs4	mapflag	partylock
+guild_vs5	mapflag	partylock
+guild_vs1-1	mapflag	partylock
+guild_vs1-2	mapflag	partylock
+guild_vs1-3	mapflag	partylock
+guild_vs1-4	mapflag	partylock
+guild_vs2-1	mapflag	partylock
+guild_vs2-2	mapflag	partylock
+job_hunte	mapflag	partylock
+job_knt	mapflag	partylock
+job_prist	mapflag	partylock
+job_sword1	mapflag	partylock
+job_wiz	mapflag	partylock
+pay_gld	mapflag	partylock
+payg_cas01	mapflag	partylock
+payg_cas02	mapflag	partylock
+payg_cas03	mapflag	partylock
+payg_cas04	mapflag	partylock
+payg_cas05	mapflag	partylock
+prt_gld	mapflag	partylock
+prtg_cas01	mapflag	partylock
+prtg_cas02	mapflag	partylock
+prtg_cas03	mapflag	partylock
+prtg_cas04	mapflag	partylock
+prtg_cas05	mapflag	partylock
+alde_alche	mapflag	partylock
+in_rogue	mapflag	partylock
+job_cru	mapflag	partylock
+job_duncer	mapflag	partylock
+job_monk	mapflag	partylock
+job_sage	mapflag	partylock
+mag_dun01	mapflag	partylock
+mag_dun02	mapflag	partylock
+monk_test	mapflag	partylock
+quiz_test	mapflag	partylock
+yuno	mapflag	partylock
+yuno_fild01	mapflag	partylock
+yuno_fild02	mapflag	partylock
+yuno_fild03	mapflag	partylock
+yuno_fild04	mapflag	partylock
+yuno_in01	mapflag	partylock
+yuno_in02	mapflag	partylock
+yuno_in03	mapflag	partylock
+yuno_in04	mapflag	partylock
+yuno_in05	mapflag	partylock
+ama_dun01	mapflag	partylock
+ama_dun02	mapflag	partylock
+ama_dun03	mapflag	partylock
+ama_fild01	mapflag	partylock
+ama_in01	mapflag	partylock
+ama_in02	mapflag	partylock
+ama_test	mapflag	partylock
+amatsu	mapflag	partylock
+gon_dun01	mapflag	partylock
+gon_dun02	mapflag	partylock
+gon_dun03	mapflag	partylock
+gon_fild01	mapflag	partylock
+gon_in	mapflag	partylock
+gon_test	mapflag	partylock
+gonryun	mapflag	partylock
+sec_in01	mapflag	partylock
+sec_in02	mapflag	partylock
+sec_pri	mapflag	partylock
+umbala	mapflag	partylock
+um_dun01	mapflag	partylock
+um_dun02	mapflag	partylock
+um_fild01	mapflag	partylock
+um_fild02	mapflag	partylock
+um_fild03	mapflag	partylock
+um_fild04	mapflag	partylock
+um_in	mapflag	partylock
+niflheim	mapflag	partylock
+nif_fild01	mapflag	partylock
+nif_fild02	mapflag	partylock
+nif_in	mapflag	partylock
+yggdrasil01	mapflag	partylock
+valkyrie	mapflag	partylock
+himinn	mapflag	partylock
+lou_in01	mapflag	partylock
+lou_in02	mapflag	partylock
+lou_dun03	mapflag	partylock
+lou_dun02	mapflag	partylock
+lou_dun01	mapflag	partylock
+lou_fild01	mapflag	partylock
+louyang	mapflag	partylock
+n_castle	mapflag	partylock
+nguild_gef	mapflag	partylock
+nguild_prt	mapflag	partylock
+nguild_pay	mapflag	partylock
+nguild_alde	mapflag	partylock
+jawaii	mapflag	partylock
+jawaii_in	mapflag	partylock
+gefenia01	mapflag	partylock
+gefenia02	mapflag	partylock
+gefenia03	mapflag	partylock
+gefenia04	mapflag	partylock
+payon	mapflag	partylock
+payon_in01	mapflag	partylock
+payon_in02	mapflag	partylock
+payon_in03	mapflag	partylock
+ayothaya	mapflag	partylock
+ayo_in01	mapflag	partylock
+ayo_in02	mapflag	partylock
+ayo_fild01	mapflag	partylock
+ayo_fild02	mapflag	partylock
+ayo_dun01	mapflag	partylock
+ayo_dun02	mapflag	partylock
+que_god01	mapflag	partylock
+que_god02	mapflag	partylock
+yuno_fild05	mapflag	partylock
+yuno_fild07	mapflag	partylock
+yuno_fild08	mapflag	partylock
+yuno_fild09	mapflag	partylock
+yuno_fild11	mapflag	partylock
+yuno_fild12	mapflag	partylock
+alde_tt02	mapflag	partylock
+turbo_n_1	mapflag	partylock
+turbo_n_4	mapflag	partylock
+turbo_n_8	mapflag	partylock
+turbo_n_16	mapflag	partylock
+turbo_e_4	mapflag	partylock
+turbo_e_8	mapflag	partylock
+turbo_e_16	mapflag	partylock
+turbo_room	mapflag	partylock
+airplane	mapflag	partylock
+airport	mapflag	partylock
+einbech	mapflag	partylock
+einbroch	mapflag	partylock
+ein_dun01	mapflag	partylock
+ein_dun02	mapflag	partylock
+ein_fild06	mapflag	partylock
+ein_fild07	mapflag	partylock
+ein_fild08	mapflag	partylock
+ein_fild09	mapflag	partylock
+ein_fild10	mapflag	partylock
+ein_in01	mapflag	partylock
+que_sign01	mapflag	partylock
+que_sign02	mapflag	partylock
+ein_fild03	mapflag	partylock
+ein_fild04	mapflag	partylock
+lhz_fild02	mapflag	partylock
+lhz_fild03	mapflag	partylock
+yuno_pre	mapflag	partylock
+lhz_fild01	mapflag	partylock
+lighthalzen	mapflag	partylock
+lhz_in01	mapflag	partylock
+lhz_in02	mapflag	partylock
+lhz_in03	mapflag	partylock
+lhz_que01	mapflag	partylock
+lhz_dun01	mapflag	partylock
+lhz_dun02	mapflag	partylock
+lhz_dun03	mapflag	partylock
+lhz_cube	mapflag	partylock
+juperos_01	mapflag	partylock
+juperos_02	mapflag	partylock
+jupe_area1	mapflag	partylock
+jupe_area2	mapflag	partylock
+jupe_core	mapflag	partylock
+jupe_ele	mapflag	partylock
+jupe_ele_r	mapflag	partylock
+jupe_gate	mapflag	partylock
+y_airport	mapflag	partylock
+lhz_airport	mapflag	partylock
+airplane_01	mapflag	partylock
+jupe_cave	mapflag	partylock
+quiz_02	mapflag	partylock
+hu_fild07	mapflag	partylock
+hu_fild05	mapflag	partylock
+hu_fild04	mapflag	partylock
+hu_fild01	mapflag	partylock
+yuno_fild06	mapflag	partylock
+job_soul	mapflag	partylock
+job_star	mapflag	partylock
+que_job01	mapflag	partylock
+que_job02	mapflag	partylock
+que_job03	mapflag	partylock
+abyss_01	mapflag	partylock
+abyss_02	mapflag	partylock
+abyss_03	mapflag	partylock
+thana_step	mapflag	partylock
+thana_boss	mapflag	partylock
+tha_scene01	mapflag	partylock
+tha_t01	mapflag	partylock
+tha_t02	mapflag	partylock
+tha_t03	mapflag	partylock
+tha_t04	mapflag	partylock
+tha_t07	mapflag	partylock
+tha_t05	mapflag	partylock
+tha_t06	mapflag	partylock
+tha_t08	mapflag	partylock
+tha_t09	mapflag	partylock
+tha_t10	mapflag	partylock
+tha_t11	mapflag	partylock
+tha_t12	mapflag	partylock
+auction_01	mapflag	partylock
+auction_02	mapflag	partylock
+alde_tt03	mapflag	partylock
+hugel	mapflag	partylock
+hu_in01	mapflag	partylock
+que_bingo	mapflag	partylock
+que_hugel	mapflag	partylock
+p_track01	mapflag	partylock
+p_track02	mapflag	partylock
+odin_tem01	mapflag	partylock
+odin_tem02	mapflag	partylock
+odin_tem03	mapflag	partylock
+hu_fild02	mapflag	partylock
+hu_fild03	mapflag	partylock
+hu_fild06	mapflag	partylock
+ein_fild01	mapflag	partylock
+ein_fild02	mapflag	partylock
+ein_fild05	mapflag	partylock
+yuno_fild10	mapflag	partylock
+kh_kiehl02	mapflag	partylock
+kh_kiehl01	mapflag	partylock
+kh_dun02	mapflag	partylock
+kh_dun01	mapflag	partylock
+kh_mansion	mapflag	partylock
+kh_rossi	mapflag	partylock
+kh_school	mapflag	partylock
+kh_vila	mapflag	partylock
+que_ng	mapflag	partylock
+rachel	mapflag	partylock
+ra_in01	mapflag	partylock
+ra_fild01	mapflag	partylock
+ra_fild02	mapflag	partylock
+ra_fild03	mapflag	partylock
+ra_fild04	mapflag	partylock
+ra_fild05	mapflag	partylock
+ra_fild06	mapflag	partylock
+ra_fild07	mapflag	partylock
+ra_fild08	mapflag	partylock
+ra_fild09	mapflag	partylock
+ra_fild10	mapflag	partylock
+ra_fild11	mapflag	partylock
+ra_fild12	mapflag	partylock
+ra_fild13	mapflag	partylock
+ra_san01	mapflag	partylock
+ra_san02	mapflag	partylock
+ra_san03	mapflag	partylock
+ra_san04	mapflag	partylock
+ra_san05	mapflag	partylock
+ra_temin	mapflag	partylock
+ra_temple	mapflag	partylock
+ra_temsky	mapflag	partylock
+que_rachel	mapflag	partylock
+que_san04	mapflag	partylock
+ice_dun01	mapflag	partylock
+ice_dun02	mapflag	partylock
+ice_dun03	mapflag	partylock
+ice_dun04	mapflag	partylock
+que_thor	mapflag	partylock
+thor_camp	mapflag	partylock
+thor_v01	mapflag	partylock
+thor_v02	mapflag	partylock
+thor_v03	mapflag	partylock
+veins	mapflag	partylock
+ve_in	mapflag	partylock
+ve_in02	mapflag	partylock
+ve_fild01	mapflag	partylock
+ve_fild02	mapflag	partylock
+ve_fild03	mapflag	partylock
+ve_fild04	mapflag	partylock
+ve_fild05	mapflag	partylock
+ve_fild06	mapflag	partylock
+ve_fild07	mapflag	partylock
+nameless_i	mapflag	partylock
+nameless_n	mapflag	partylock
+nameless_in	mapflag	partylock
+abbey01	mapflag	partylock
+abbey02	mapflag	partylock
+abbey03	mapflag	partylock
+poring_w01	mapflag	partylock
+poring_w02	mapflag	partylock
+06guild_r	mapflag	partylock
+06guild_01	mapflag	partylock
+06guild_02	mapflag	partylock
+06guild_03	mapflag	partylock
+06guild_04	mapflag	partylock
+06guild_05	mapflag	partylock
+06guild_06	mapflag	partylock
+06guild_07	mapflag	partylock
+06guild_08	mapflag	partylock
+z_agit	mapflag	partylock
+que_temsky	mapflag	partylock
+itemmall	mapflag	partylock
+bossnia_01	mapflag	partylock
+bossnia_02	mapflag	partylock
+bossnia_03	mapflag	partylock
+bossnia_04	mapflag	partylock
+moscovia	mapflag	partylock
+mosk_in	mapflag	partylock
+mosk_ship	mapflag	partylock
+mosk_fild01	mapflag	partylock
+mosk_fild02	mapflag	partylock
+mosk_dun01	mapflag	partylock
+mosk_dun02	mapflag	partylock
+mosk_dun03	mapflag	partylock
+mosk_que	mapflag	partylock
+schg_cas01	mapflag	partylock
+schg_cas02	mapflag	partylock
+schg_cas03	mapflag	partylock
+schg_cas04	mapflag	partylock
+schg_cas05	mapflag	partylock
+sch_gld	mapflag	partylock
+cave	mapflag	partylock
+moc_fild20	mapflag	partylock
+moc_fild21	mapflag	partylock
+moc_fild22	mapflag	partylock
+que_ba	mapflag	partylock
+que_moc_16	mapflag	partylock
+que_moon	mapflag	partylock
+arug_cas01	mapflag	partylock
+arug_cas02	mapflag	partylock
+arug_cas03	mapflag	partylock
+arug_cas04	mapflag	partylock
+arug_cas05	mapflag	partylock
+aru_gld	mapflag	partylock
+bat_room	mapflag	partylock
+bat_a01	mapflag	partylock
+bat_a02	mapflag	partylock
+bat_b01	mapflag	partylock
+bat_b02	mapflag	partylock
+que_qsch01	mapflag	partylock
+que_qsch02	mapflag	partylock
+que_qsch03	mapflag	partylock
+que_qsch04	mapflag	partylock
+que_qsch05	mapflag	partylock
+que_qaru01	mapflag	partylock
+que_qaru02	mapflag	partylock
+que_qaru03	mapflag	partylock
+que_qaru04	mapflag	partylock
+que_qaru05	mapflag	partylock
+1@cata	mapflag	partylock
+2@cata	mapflag	partylock
+e_tower	mapflag	partylock
+1@tower	mapflag	partylock
+2@tower	mapflag	partylock
+3@tower	mapflag	partylock
+4@tower	mapflag	partylock
+5@tower	mapflag	partylock
+6@tower	mapflag	partylock
+mid_camp	mapflag	partylock
+mid_campin	mapflag	partylock
+man_fild01	mapflag	partylock
+man_fild03	mapflag	partylock
+spl_fild02	mapflag	partylock
+spl_fild03	mapflag	partylock
+moc_fild22b	mapflag	partylock
+que_dan01	mapflag	partylock
+que_dan02	mapflag	partylock
+schg_que01	mapflag	partylock
+schg_dun01	mapflag	partylock
+arug_que01	mapflag	partylock
+arug_dun01	mapflag	partylock
+1@orcs	mapflag	partylock
+2@orcs	mapflag	partylock
+bat_c01	mapflag	partylock
+bat_c02	mapflag	partylock
+bat_c03	mapflag	partylock
+1@nyd	mapflag	partylock
+2@nyd	mapflag	partylock
+nyd_dun01	mapflag	partylock
+nyd_dun02	mapflag	partylock
+manuk	mapflag	partylock
+man_fild02	mapflag	partylock
+man_in01	mapflag	partylock
+splendide	mapflag	partylock
+spl_fild01	mapflag	partylock
+spl_in01	mapflag	partylock
+spl_in02	mapflag	partylock
+job3_arch01	mapflag	partylock
+job3_arch02	mapflag	partylock
+job3_arch03	mapflag	partylock
+job3_guil01	mapflag	partylock
+job3_guil02	mapflag	partylock
+job3_guil03	mapflag	partylock
+job3_rang01	mapflag	partylock
+job3_rang02	mapflag	partylock
+job3_rune01	mapflag	partylock
+job3_rune02	mapflag	partylock
+job3_rune03	mapflag	partylock
+job3_war01	mapflag	partylock
+job3_war02	mapflag	partylock
+jupe_core2	mapflag	partylock
+moc_para01	mapflag	partylock
+brasilis	mapflag	partylock
+bra_in01	mapflag	partylock
+bra_fild01	mapflag	partylock
+bra_dun01	mapflag	partylock
+bra_dun02	mapflag	partylock
+s_atelier	mapflag	partylock
+dicastes01	mapflag	partylock
+dicastes02	mapflag	partylock
+dic_in01	mapflag	partylock
+dic_fild01	mapflag	partylock
+dic_fild02	mapflag	partylock
+dic_dun01	mapflag	partylock
+dic_dun02	mapflag	partylock
+job3_gen01	mapflag	partylock
+job3_sha01	mapflag	partylock
+mora	mapflag	partylock
+bif_fild01	mapflag	partylock
+bif_fild02	mapflag	partylock
+1@mist	mapflag	partylock
+dewata	mapflag	partylock
+dew_in01	mapflag	partylock
+dew_fild01	mapflag	partylock
+dew_dun01	mapflag	partylock
+dew_dun02	mapflag	partylock
+que_house_s	mapflag	partylock
+malangdo	mapflag	partylock
+mal_in01	mapflag	partylock
+mal_in02	mapflag	partylock
+mal_dun01	mapflag	partylock
+1@pump	mapflag	partylock
+2@pump	mapflag	partylock
+1@cash	mapflag	partylock
+iz_dun05	mapflag	partylock
+evt_mobroom	mapflag	partylock
+dic_dun03	mapflag	partylock
+evt_swar_b	mapflag	partylock
+evt_swar_r	mapflag	partylock
+evt_swar_s	mapflag	partylock
+evt_swar_t	mapflag	partylock
+1@lhz	mapflag	partylock
+lhz_dun04	mapflag	partylock
+que_lhz	mapflag	partylock
+gld2_ald	mapflag	partylock
+gld2_gef	mapflag	partylock
+gld2_pay	mapflag	partylock
+gld2_prt	mapflag	partylock
+gld_dun01_2	mapflag	partylock
+gld_dun02_2	mapflag	partylock
+gld_dun03_2	mapflag	partylock
+gld_dun04_2	mapflag	partylock
+malaya	mapflag	partylock
+job_ko	mapflag	partylock
+ma_scene01	mapflag	partylock
+1@ma_b	mapflag	partylock
+1@ma_c	mapflag	partylock
+1@ma_h	mapflag	partylock
+ma_in01	mapflag	partylock
+ma_dun01	mapflag	partylock
+ma_fild01	mapflag	partylock
+ma_fild02	mapflag	partylock
+ma_zif01	mapflag	partylock
+ma_zif02	mapflag	partylock
+ma_zif03	mapflag	partylock
+ma_zif04	mapflag	partylock
+ma_zif05	mapflag	partylock
+ma_zif06	mapflag	partylock
+ma_zif07	mapflag	partylock
+ma_zif08	mapflag	partylock
+ma_zif09	mapflag	partylock
+new_event	mapflag	partylock
+eclage	mapflag	partylock
+ecl_fild01	mapflag	partylock
+ecl_tdun01	mapflag	partylock
+ecl_tdun02	mapflag	partylock
+ecl_tdun03	mapflag	partylock
+ecl_tdun04	mapflag	partylock
+que_avan01	mapflag	partylock
+1@ecl	mapflag	partylock
+ecl_in01	mapflag	partylock
+ecl_in02	mapflag	partylock
+ecl_in03	mapflag	partylock
+ecl_in04	mapflag	partylock
+ecl_hub01	mapflag	partylock
+moc_prydn1	mapflag	partylock
+moc_prydn2	mapflag	partylock
+iz_ac01	mapflag	partylock
+iz_ac02	mapflag	partylock
+treasure_n1	mapflag	partylock
+treasure_n2	mapflag	partylock
+iz_int	mapflag	partylock
+iz_ng01	mapflag	partylock
+iz_int01	mapflag	partylock
+iz_int02	mapflag	partylock
+iz_int03	mapflag	partylock
+iz_int04	mapflag	partylock
+iz_ac01_a	mapflag	partylock
+iz_ac02_a	mapflag	partylock
+iz_ac01_b	mapflag	partylock
+iz_ac02_b	mapflag	partylock
+iz_ac01_c	mapflag	partylock
+iz_ac02_c	mapflag	partylock
+iz_ac01_d	mapflag	partylock
+iz_ac02_d	mapflag	partylock
+te_prtcas01	mapflag	partylock
+te_prtcas02	mapflag	partylock
+te_prtcas03	mapflag	partylock
+te_prtcas04	mapflag	partylock
+te_prtcas05	mapflag	partylock
+te_aldecas1	mapflag	partylock
+te_aldecas2	mapflag	partylock
+te_aldecas3	mapflag	partylock
+te_aldecas4	mapflag	partylock
+te_aldecas5	mapflag	partylock
+prt_fild08a	mapflag	partylock
+prt_fild08b	mapflag	partylock
+prt_fild08c	mapflag	partylock
+prt_fild08d	mapflag	partylock
+izlude_a	mapflag	partylock
+izlude_b	mapflag	partylock
+izlude_c	mapflag	partylock
+izlude_d	mapflag	partylock
+te_prt_gld	mapflag	partylock
+te_alde_gld	mapflag	partylock
+teg_dun01	mapflag	partylock
+teg_dun02	mapflag	partylock
+1@gl_k	mapflag	partylock
+2@gl_k	mapflag	partylock
+gl_chyard_	mapflag	partylock
+gl_cas02_	mapflag	partylock
+evt_bomb	mapflag	partylock
+1@def01	mapflag	partylock
+1@def02	mapflag	partylock
+1@def03	mapflag	partylock
+1@gef	mapflag	partylock
+1@face	mapflag	partylock
+1@sara	mapflag	partylock
+1@gef_in	mapflag	partylock
+dali	mapflag	partylock
+dali02	mapflag	partylock
+1@ge_st	mapflag	partylock
+1@spa	mapflag	partylock
+1@tnm1	mapflag	partylock
+1@tnm2	mapflag	partylock
+1@tnm3	mapflag	partylock
+1@dth1	mapflag	partylock
+1@dth2	mapflag	partylock
+1@dth3	mapflag	partylock
+1@eom	mapflag	partylock
+1@jtb	mapflag	partylock
+1@rev	mapflag	partylock
+1@xm_d	mapflag	partylock
+moro_cav	mapflag	partylock
+moro_vol	mapflag	partylock
+silk_lair	mapflag	partylock
+c_tower2_	mapflag	partylock
+c_tower3_	mapflag	partylock
+1@mcd	mapflag	partylock
+ver_eju	mapflag	partylock
+ver_tunn	mapflag	partylock
+verus03	mapflag	partylock
+verus04	mapflag	partylock
+job_gun	mapflag	partylock
+1@air1	mapflag	partylock
+1@air2	mapflag	partylock
+1@glast	mapflag	partylock
+lhz_dun_n	mapflag	partylock
+lhz_d_n2	mapflag	partylock
+1@gl_kh	mapflag	partylock
+2@gl_kh	mapflag	partylock
+1@lab	mapflag	partylock
+1@uns	mapflag	partylock
+un_bk_q	mapflag	partylock
+un_bunker	mapflag	partylock
+un_myst	mapflag	partylock
+verus01	mapflag	partylock
+verus02	mapflag	partylock
+paramk	mapflag	partylock
+1@ffp	mapflag	partylock
+1@infi	mapflag	partylock
+1@mir	mapflag	partylock
+2@mir	mapflag	partylock
+1@sthb	mapflag	partylock
+1@sthc	mapflag	partylock
+1@sthd	mapflag	partylock
+prt_cas	mapflag	partylock
+prt_cas_q	mapflag	partylock
+prt_prison	mapflag	partylock
+prt_lib	mapflag	partylock
+prt_lib_q	mapflag	partylock
+prt_q	mapflag	partylock
+prt_pri00	mapflag	partylock
+int_land	mapflag	partylock
+int_land01	mapflag	partylock
+int_land02	mapflag	partylock
+int_land03	mapflag	partylock
+int_land04	mapflag	partylock
+lasagna	mapflag	partylock
+lasa_fild01	mapflag	partylock
+lasa_fild02	mapflag	partylock
+lasa_dun01	mapflag	partylock
+lasa_dun02	mapflag	partylock
+lasa_dun03	mapflag	partylock
+conch_in	mapflag	partylock
+lasa_in01	mapflag	partylock
+lasa_dun_q	mapflag	partylock
+1@pop1	mapflag	partylock
+1@pop2	mapflag	partylock
+1@pop3	mapflag	partylock
+1@slw	mapflag	partylock
+1@swat	mapflag	partylock
+que_swat	mapflag	partylock
+slabw01	mapflag	partylock
+rebel_in	mapflag	partylock
+1@md_gef	mapflag	partylock
+1@md_pay	mapflag	partylock
+har_in01	mapflag	partylock
+harboro1	mapflag	partylock
+harboro2	mapflag	partylock
+rockmi1	mapflag	partylock
+rockmi2	mapflag	partylock
+rockrdg1	mapflag	partylock
+rockrdg2	mapflag	partylock
+1@gl_k2	mapflag	partylock
+2@gl_k2	mapflag	partylock
+1@xm_d2	mapflag	partylock
+pay_d03_i	mapflag	partylock
+gef_d01_i	mapflag	partylock
+ice_d03_i	mapflag	partylock
+1@tre	mapflag	partylock
+1@begi	mapflag	partylock
+tur_d03_i	mapflag	partylock
+tur_d04_i	mapflag	partylock
+1@crd	mapflag	partylock
+ordeal_a00	mapflag	partylock
+ordeal_a02	mapflag	partylock
+pprontera	mapflag	partylock
+niflxmas	mapflag	partylock
+sch_lab	mapflag	partylock
+nakhyang	mapflag	partylock
+lasa_sea	mapflag	partylock
+1@drdo	mapflag	partylock
+x_lhz	mapflag	partylock
+x_prt	mapflag	partylock
+x_ra	mapflag	partylock
+prt_evt_in	mapflag	partylock
+vis_h01	mapflag	partylock
+vis_h02	mapflag	partylock
+vis_h03	mapflag	partylock
+vis_h04	mapflag	partylock
+ein_d02_i	mapflag	partylock
+com_d02_i	mapflag	partylock
+1@soul	mapflag	partylock
+star_frst	mapflag	partylock
+star_in	mapflag	partylock
+2009rwc_01	mapflag	partylock
+2009rwc_02	mapflag	partylock
+2009rwc_03	mapflag	partylock
+2009rwc_04	mapflag	partylock
+2009rwc_05	mapflag	partylock
+2009rwc_06	mapflag	partylock
+2009rwc_07	mapflag	partylock
+2009rwc_08	mapflag	partylock
+2009rwc_f01	mapflag	partylock
+2012rwc_01	mapflag	partylock
+2012rwc_02	mapflag	partylock
+2012rwc_03	mapflag	partylock
+2012rwc_04	mapflag	partylock
+2012rwc_05	mapflag	partylock
+2012rwc_06	mapflag	partylock
+2012rwc_07	mapflag	partylock
+2012rwc_08	mapflag	partylock
+1@cor	mapflag	partylock
+1@os_a	mapflag	partylock
+1@os_b	mapflag	partylock
+1@rgsr	mapflag	partylock
+gl_cas01_	mapflag	partylock
+mag_dun03	mapflag	partylock
+pub_cat	mapflag	partylock
+rgsr_in	mapflag	partylock
+sp_cor	mapflag	partylock
+sp_os	mapflag	partylock
+sp_rudus	mapflag	partylock
+sp_rudus2	mapflag	partylock
+sp_rudus3	mapflag	partylock
+1@bamn	mapflag	partylock
+1@bamq	mapflag	partylock
+1@ghg	mapflag	partylock
+1@herbs	mapflag	partylock
+1@lost	mapflag	partylock
+ba_2whs01	mapflag	partylock
+ba_2whs02	mapflag	partylock
+ba_bath	mapflag	partylock
+ba_in01	mapflag	partylock
+ba_lib	mapflag	partylock
+ba_maison	mapflag	partylock
+ba_pw01	mapflag	partylock
+ba_pw02	mapflag	partylock
+ba_pw03	mapflag	partylock
+1@odin	mapflag	partylock
+ba_chess	mapflag	partylock
+ba_go	mapflag	partylock
+ba_lost	mapflag	partylock
+prt_mz03_i	mapflag	partylock
+iz_d04_i	mapflag	partylock
+iz_d05_i	mapflag	partylock
+1@4win	mapflag	partylock
+1@4mag	mapflag	partylock
+1@4mst	mapflag	partylock
+1@4sac	mapflag	partylock
+1@4tro	mapflag	partylock
+1@4inq	mapflag	partylock
+1@4cdn	mapflag	partylock
+1@4igd	mapflag	partylock
+1@4drk	mapflag	partylock
+job4_bio	mapflag	partylock
+job4_mag	mapflag	partylock
+job4_tro	mapflag	partylock
+1@ge_sn	mapflag	partylock
+1@mjo1	mapflag	partylock
+1@mjo2	mapflag	partylock
+1@spa2	mapflag	partylock
+1@thts	mapflag	partylock
+2@thts	mapflag	partylock
+3@thts	mapflag	partylock
+4@thts	mapflag	partylock
+5@thts	mapflag	partylock
+6@thts	mapflag	partylock
+7@thts	mapflag	partylock
+8@thts	mapflag	partylock
+1@gl_he	mapflag	partylock
+1@gl_he2	mapflag	partylock
+1@gl_prq	mapflag	partylock
+1@gol1	mapflag	partylock
+1@gol2	mapflag	partylock
+1@halo	mapflag	partylock
+1@ch_t	mapflag	partylock
+2@ch_t	mapflag	partylock
+3@ch_t	mapflag	partylock
+abyss_04	mapflag	partylock
+ein_dun03	mapflag	partylock
+odin_past	mapflag	partylock
+grademk	mapflag	partylock
+sp_rudus4	mapflag	partylock
+amicitia1	mapflag	partylock
+amicitia2	mapflag	partylock
+nif_dun01	mapflag	partylock
+nif_dun02	mapflag	partylock
+e_hugel	mapflag	partylock
+tra_fild	mapflag	partylock
+1@adv	mapflag	partylock
+1@advs	mapflag	partylock
+1@nyr	mapflag	partylock
+1@oz	mapflag	partylock
+1@tcamp	mapflag	partylock
+2@nyr	mapflag	partylock
+gw_fild01	mapflag	partylock
+gw_fild02	mapflag	partylock
+oz_dun01	mapflag	partylock
+oz_dun02	mapflag	partylock
+que_thr	mapflag	partylock
+wolfvill	mapflag	partylock
+1@ch_u	mapflag	partylock
+ant_d02_i	mapflag	partylock
+verus02_a	mapflag	partylock
+verus02_b	mapflag	partylock
+tur_d04ia	mapflag	partylock
+tur_d04ib	mapflag	partylock
+icecastle	mapflag	partylock
+icas_in	mapflag	partylock
+jor_tail	mapflag	partylock
+jor_back1	mapflag	partylock
+jor_back2	mapflag	partylock
+jor_back3	mapflag	partylock
+jor_nest	mapflag	partylock
+jor_dun01	mapflag	partylock
+jor_dun02	mapflag	partylock
+jor_dun03	mapflag	partylock
+jor_ab01	mapflag	partylock
+jor_ab02	mapflag	partylock
+jor_que	mapflag	partylock
+air_if	mapflag	partylock
+1@iwp	mapflag	partylock
+1@jorchs	mapflag	partylock
+1@jorlab	mapflag	partylock
+1@whl	mapflag	partylock
+1@exhn	mapflag	partylock
+1@exds	mapflag	partylock
+2@exds	mapflag	partylock
+1@exse	mapflag	partylock
+1@exnw	mapflag	partylock
+1@exsr	mapflag	partylock
+1@exsh	mapflag	partylock
+bl_grass	mapflag	partylock
+bl_lava	mapflag	partylock
+bl_ice	mapflag	partylock
+bl_death	mapflag	partylock
+bl_soul	mapflag	partylock
+bl_temple	mapflag	partylock
+bl_venom	mapflag	partylock
+clock_01	mapflag	partylock
+rag_fes	mapflag	partylock
+rag_fes_a	mapflag	partylock
+memohall	mapflag	partylock
+1@dime	mapflag	partylock
+prt_elib	mapflag	partylock
+1@vrcas	mapflag	partylock
+1@vrev	mapflag	partylock
+1@vrgen	mapflag	partylock
+1@vrpo	mapflag	partylock
+1@vrac1	mapflag	partylock
+1@vrac2	mapflag	partylock
+1@vrclo	mapflag	partylock
+1@vrhha	mapflag	partylock
+2@vrclo	mapflag	partylock
+1@pdb	mapflag	partylock
+airplane2	mapflag	partylock
+vr_bob	mapflag	partylock
+hero_dun1	mapflag	partylock
+hero_ent1	mapflag	partylock
+hero_ent2	mapflag	partylock
+hero_ent3	mapflag	partylock
+hero_in1	mapflag	partylock
+hero_in2	mapflag	partylock
+hero_in3	mapflag	partylock
+hero_in4	mapflag	partylock
+hero_lb	mapflag	partylock
+hero_out1	mapflag	partylock
+hero_out2	mapflag	partylock
+hero_out3	mapflag	partylock
+hero_out4	mapflag	partylock
+hero_tra	mapflag	partylock
+herosria	mapflag	partylock
+mjo_wst01	mapflag	partylock
+ra_pol01	mapflag	partylock
+1@20cn1	mapflag	partylock
+1@20cn2	mapflag	partylock
+1@slug	mapflag	partylock
+1@twas	mapflag	partylock
+1@twbs	mapflag	partylock
+1@twig	mapflag	partylock
+1@twsd	mapflag	partylock
+icas_in2	mapflag	partylock
+jor_back4	mapflag	partylock
+jor_back5	mapflag	partylock
+jor_back6	mapflag	partylock
+jor_maze	mapflag	partylock
+jor_root1	mapflag	partylock
+jor_root2	mapflag	partylock
+jor_root3	mapflag	partylock
+jor_safty1	mapflag	partylock
+jor_safty2	mapflag	partylock
+jor_sanct	mapflag	partylock
+jor_twice	mapflag	partylock
+jor_twig	mapflag	partylock
+bl_depth1	mapflag	partylock
+1@ba_go	mapflag	partylock
+1@f_lake	mapflag	partylock
+for_dun01	mapflag	partylock
+for_dun02	mapflag	partylock
+t_garden	mapflag	partylock
+1@vrpop	mapflag	partylock
+2@vrpop	mapflag	partylock
+3@vrpop	mapflag	partylock
+bl_depth2	mapflag	partylock
+1@vrsn	mapflag	partylock
+1@ep21a	mapflag	partylock
+1@ep21b	mapflag	partylock
+1@ep21c	mapflag	partylock
+1@mdtem	mapflag	partylock
+1@twbs2	mapflag	partylock
+1@wtgs	mapflag	partylock
+2@mdtem	mapflag	partylock
+jalbe_in	mapflag	partylock
+jor_albe	mapflag	partylock
+jor_base	mapflag	partylock
+jor_crk	mapflag	partylock
+jor_crk_p	mapflag	partylock
+jor_mbase	mapflag	partylock
+jor_raise1	mapflag	partylock
+jor_raise2	mapflag	partylock
+jor_tmple1	mapflag	partylock
+jor_tmple2	mapflag	partylock
+luna_sf1	mapflag	partylock
+luna_sf2	mapflag	partylock
+mbase_in	mapflag	partylock
+prt_mk	mapflag	partylock
+nif_fild03	mapflag	partylock
+iz_in_a	mapflag	partylock
+iz_in_b	mapflag	partylock
+iz_in_c	mapflag	partylock
+iz_in_d	mapflag	partylock
+jor_sklf1	mapflag	partylock
+jor_sklf2	mapflag	partylock
+cmd_bhole	mapflag	partylock
+1@ch1a	mapflag	partylock
+1@ch1b	mapflag	partylock
+ch1_dw	mapflag	partylock
+ch1_gef_in	mapflag	partylock
+ch1_geffen	mapflag	partylock
+ch1_gfn01	mapflag	partylock
+ch1_gfn03	mapflag	partylock
+ch1_que01	mapflag	partylock
+ch1_sf01	mapflag	partylock
+ch1_sf02	mapflag	partylock
+ch1_sf03	mapflag	partylock
+ch1_vrgef1	mapflag	partylock
+ch1_vrgef2	mapflag	partylock
+hem_dun01	mapflag	partylock
+hem_dun02	mapflag	partylock
+hem_fild	mapflag	partylock
+mu_fild01	mapflag	partylock
+uknw_ruin	mapflag	partylock
+uknw_ruin2	mapflag	partylock
+ygg_edge	mapflag	partylock
+ygg_fruit	mapflag	partylock
+ygg_roots	mapflag	partylock
