@@ -1,0 +1,59 @@
+vr_pop3,145,96,4	script	สุ่มรับ Weapon	1165,{
+	mes "ใช้ ^B427F5Free Cash Point^000000 ในการสุ่ม";
+	mes "คุณมี ^B427F5" + F_InsertComma(#KAFRAPOINTS) + "^000000 FCP";
+	next;
+	.@buyType = (select("สุ่ม " + .rewards$[0] + " (^B427F5" + $itemCosts[0] + "^000000 FCP):สุ่ม " + .rewards$[1] + " (^B427F5" + $itemCosts[1] + "^000000 FCP):สุ่ม " + .rewards$[2] + " (^B427F5" + $itemCosts[2] + "^000000 FCP):สุ่ม " + .rewards$[3] + " (^B427F5" + $itemCosts[3] + "^000000 FCP):สุ่ม " + .rewards$[4] + " (^B427F5" + $itemCosts[4] + "^000000 FCP)") - 1);
+	.@price = $itemCosts[.@buyType];
+	.@priceBackup = .@price;
+	mes "ต้องการสุ่ม " + .rewards$[.@buyType] + " เท่าไหร่?";
+	mes "ราคา ^B427F5" + .@price + "^000000 FCP ต่อครั้ง";
+	mes "คุณมี ^B427F5" + F_InsertComma(#KAFRAPOINTS) + "^000000 FCP";
+	next;
+	input .@amount;
+	if(.@amount <= 0){
+		mes "ยกเลิกเรียบร้อยแล้ว";
+		close;
+	}
+	.@price *= .@amount;
+	mes "ต้องการสุ่ม " + F_InsertComma(.@amount) + " " + .rewards$[.@buyType] + "?";
+	mes "ราคา ^B427F5" + F_InsertComma(.@price) + "^000000 FCP";
+	mes "คุณมี ^B427F5" + F_InsertComma(#KAFRAPOINTS) + "^000000 FCP";
+	next;
+	menu "ยืนยัน",-;
+	if(#KAFRAPOINTS < .@price)
+	{
+		mes "^B427F5Free Cash Point^000000 ไม่เพียงพอ";
+		close;
+	}
+	else
+	{
+		.@tier = .@buyType;
+		freeloop(1);
+		while(.@amount > 0){
+			.@amount--;
+			// Get random type
+			.@rewardItemType$ = .weaponRewards$[rand(getarraysize(.weaponRewards$))];
+			// Get type list
+			.@rewardItemTypeList$ = "$list_" + .@rewardItemType$ + "_tier_" + .@tier;
+			// Get random item from list
+			.@rewardItemId = getd(.@rewardItemTypeList$ + "[" + rand(getarraysize(getd(.@rewardItemTypeList$))) + "]");
+			// Check inventory
+			if(!checkweight(.@rewardItemId,1)){
+				freeloop(0);
+				mes "แบกของไม่ไหวแล้ว หรือช่องเก็บของเต็มแล้ว";
+				close;
+			}
+			// Trading
+			#KAFRAPOINTS = cap_value(#KAFRAPOINTS - .@priceBackup,0,INT_MAX);
+			dispbottom "คงเหลือ " + F_InsertComma(#KAFRAPOINTS) + " FCP",0xB427F5;
+			getitem .@rewardItemId,1;
+		}
+	}
+	end;
+
+OnInit:
+	setarray .rewards$[0],"^B0B0B0Normal^000000","^E3A520Advanced^000000","^20E344Rare^000000","^9C20E3Mystical^000000","^E32020Legendary^000000";
+	setarray .weaponRewards$[0],"dagger","1hsword","2hsword","1hspear","2hspear","1haxe","2haxe","mace","staff","bow","knuckle","musical","whip","book","katar","revolver","rifle","gatling","shotgun","grenade","huuma","2hstaff";
+	waitingroom "สุ่มรับ Weapon",0;
+	end;
+}

@@ -1,0 +1,41 @@
+vr_pop3,165,96,4	script	เพิ่ม Refine ทั้งตัว	1165,{
+	mes "ใช้ ^B427F5Free Cash Point^000000 ในการเพิ่มต่อระดับ";
+	mes "คุณมี ^B427F5" + F_InsertComma(#KAFRAPOINTS) + "^000000 FCP";
+	next;
+	menu "เพิ่ม " + .reward$ + " ทั้งตัว +1 ระดับ (^B427F5" + $refineCost + "^000000 FCP)",-;
+	.@price = $refineCost;
+	mes "ต้องการเพิ่ม " + .reward$ + " กี่รอบ?";
+	mes "ราคา ^B427F5" + .@price + "^000000 FCP ต่อครั้ง";
+	mes "คุณมี ^B427F5" + F_InsertComma(#KAFRAPOINTS) + "^000000 FCP";
+	next;
+	input .@amount;
+	.@amount = cap_value(.@amount,0,20);
+	if(.@amount <= 0){
+		mes "ยกเลิกเรียบร้อยแล้ว";
+		close;
+	}
+	.@price *= .@amount;
+	mes "ต้องการเพิ่ม " + .reward$ + " " + F_InsertComma(.@amount) + " รอบ?";
+	mes "ราคา ^B427F5" + F_InsertComma(.@price) + "^000000 FCP";
+	mes "คุณมี ^B427F5" + F_InsertComma(#KAFRAPOINTS) + "^000000 FCP";
+	next;
+	menu "ยืนยัน",-;
+	if(#KAFRAPOINTS < .@price)
+	{
+		mes "^B427F5Free Cash Point^000000 ไม่เพียงพอ";
+		close;
+	}
+	else
+	{
+		// Trading
+		#KAFRAPOINTS = cap_value(#KAFRAPOINTS - .@price,0,INT_MAX);
+		dispbottom "คงเหลือ " + F_InsertComma(#KAFRAPOINTS) + " FCP",0xB427F5;
+		atcommand "@refine 0 " + .@amount;
+	}
+	end;
+
+OnInit:
+	.reward$ = "Refine";
+	waitingroom "เพิ่ม Refine ทั้งตัว",0;
+	end;
+}

@@ -1,0 +1,8 @@
+vr_pop3,170,96,4	script	เพิ่ม Random Option	1165,{
+	RandomOption();
+	end;
+
+OnInit:
+	waitingroom "เพิ่ม Random Option",0;
+	end;
+}

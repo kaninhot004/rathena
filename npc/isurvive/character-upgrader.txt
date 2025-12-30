@@ -17,6 +17,7 @@ vr_pop3,138,96,4	script	เสริมแกร่งตัวละคร	1165,{
 	mes "ต้องการซื้อ " + F_InsertComma(.@amount) + " " + .rewards$[.@buyType] + "?";
 	mes "ราคา ^B427F5" + F_InsertComma(.@price) + "^000000 FCP";
 	mes "คุณมี ^B427F5" + F_InsertComma(#KAFRAPOINTS) + "^000000 FCP";
+	next;
 	menu "ยืนยัน",-;
 	if(#KAFRAPOINTS < .@price)
 	{

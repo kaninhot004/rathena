@@ -105,20 +105,20 @@ function	script	GetRandomOptionId	{
 
 function	script	RandomOption	{
 	disable_items;
-	.@normalPrice = 500000;
-	.@selectedIndexPrice = 2500000;
+	.@normalPrice = $optionCost;
+	.@selectedIndexPrice = $optionCost;
 	.@minValue = 1;
-	.@maxValue = 5;
+	.@maxValue = 1;
 	setarray .@randomOptionLists$[0],"MaxHP","MaxSP","STR","AGI","VIT","INT","DEX","LUK","MaxHP (%)","MaxSP (%)","ฟื้นฟู HP ปกติ (%)","ฟื้นฟู SP ปกติ (%)","ATK (%)","MATK (%)","ASPD","ASPD (%)","ATK","HIT","MATK","DEF","MDEF","FLEE","Perfect Dodge","CRIT","กันธาตุ Neutral (%)","กันธาตุ Water (%)","กันธาตุ Earth (%)","กันธาตุ Fire (%)","กันธาตุ Wind (%)","กันธาตุ Poison (%)","กันธาตุ Holy (%)","กันธาตุ Shadow (%)","กันธาตุ Ghost (%)","กันธาตุ Undead (%)","กันทุกธาตุ (ยกเว้น Neutral) (%)","กันกายภาพ Monster ธาตุ Neutral (%)","ตีกายภาพ Monster ธาตุ Neutral (%)","กันกายภาพ Monster ธาตุ Water (%)","ตีกายภาพ Monster ธาตุ Water (%)","กันกายภาพ Monster ธาตุ Earth (%)","ตีกายภาพ Monster ธาตุ Earth (%)","กันกายภาพ Monster ธาตุ Fire (%)","ตีกายภาพ Monster ธาตุ Fire (%)","กันกายภาพ Monster ธาตุ Wind (%)","ตีกายภาพ Monster ธาตุ Wind (%)","กันกายภาพ Monster ธาตุ Poison (%)","ตีกายภาพ Monster ธาตุ Poison (%)","กันกายภาพ Monster ธาตุ Holy (%)","ตีกายภาพ Monster ธาตุ Holy (%)","กันกายภาพ Monster ธาตุ Shadow (%)","ตีกายภาพ Monster ธาตุ Shadow (%)","กันกายภาพ Monster ธาตุ Ghost (%)","ตีกายภาพ Monster ธาตุ Ghost (%)","กันกายภาพ Monster ธาตุ Undead (%)","ตีกายภาพ Monster ธาตุ Undead (%)","กันเวทย์ Monster ธาตุ Neutral (%)","ตีเวทย์ Monster ธาตุ Neutral (%)","กันเวทย์ Monster ธาตุ Water (%)","ตีเวทย์ Monster ธาตุ Water (%)","กันเวทย์ Monster ธาตุ Earth (%)","ตีเวทย์ Monster ธาตุ Earth (%)","กันเวทย์ Monster ธาตุ Fire (%)","ตีเวทย์ Monster ธาตุ Fire (%)","กันเวทย์ Monster ธาตุ Wind (%)","ตีเวทย์ Monster ธาตุ Wind (%)","กันเวทย์ Monster ธาตุ Poison (%)","ตีเวทย์ Monster ธาตุ Poison (%)","กันเวทย์ Monster ธาตุ Holy (%)","ตีเวทย์ Monster ธาตุ Holy (%)","กันเวทย์ Monster ธาตุ Shadow (%)","ตีเวทย์ Monster ธาตุ Shadow (%)","กันเวทย์ Monster ธาตุ Ghost (%)","ตีเวทย์ Monster ธาตุ Ghost (%)","กันเวทย์ Monster ธาตุ Undead (%)","ตีเวทย์ Monster ธาตุ Undead (%)","Armor ธาตุ: Neutral","Armor ธาตุ: Water","Armor ธาตุ: Earth","Armor ธาตุ: Fire","Armor ธาตุ: Wind","Armor ธาตุ: Poison","Armor ธาตุ: Holy","Armor ธาตุ: Shadow","Armor ธาตุ: Ghost","Armor ธาตุ: Undead","กัน Monster Formless (%)","กัน Monster Undead (%)","กัน Monster Brute (%)","กัน Monster Plant (%)","กัน Monster Insect (%)","กัน Monster Fish (%)","กัน Monster Demon (%)","กัน Monster Demihuman (%)","กัน Monster Angel (%)","กัน Monster Dragon (%)","ตีกายภาพ Monster Formless (%)","ตีกายภาพ Monster Undead (%)","ตีกายภาพ Monster Brute (%)","ตีกายภาพ Monster Plant (%)","ตีกายภาพ Monster Insect (%)","ตีกายภาพ Monster Fish (%)","ตีกายภาพ Monster Demon (%)","ตีกายภาพ Monster Demihuman (%)","ตีกายภาพ Monster Angel (%)","ตีกายภาพ Monster Dragon (%)","ตีเวทย์ Monster Formless (%)","ตีเวทย์ Monster Undead (%)","ตีเวทย์ Monster Brute (%)","ตีเวทย์ Monster Plant (%)","ตีเวทย์ Monster Insect (%)","ตีเวทย์ Monster Fish (%)","ตีเวทย์ Monster Devil (%)","ตีเวทย์ Monster Demihuman (%)","ตีเวทย์ Monster Angel (%)","ตีเวทย์ Monster Dragon (%)","CRIT กับ Monster Formless","CRIT กับ Monster Undead","CRIT กับ Monster Brute","CRIT กับ Monster Plant","CRIT กับ Monster Insect","CRIT กับ Monster Fish","CRIT กับ Monster Demon","CRIT กับ Monster Demihuman","CRIT กับ Monster Angel","CRIT กับ Monster Dragon","เจาะ DEF Monster Formless (%)","เจาะ DEF Monster Undead (%)","เจาะ DEF Monster Brute (%)","เจาะ DEF Monster Plant (%)","เจาะ DEF Monster Insect (%)","เจาะ DEF Monster Fish (%)","เจาะ DEF Monster Demon (%)","เจาะ DEF Monster Demihuman (%)","เจาะ DEF Monster Angel (%)","เจาะ DEF Monster Dragon (%)","เจาะ MDEF Monster Formless (%)","เจาะ MDEF Monster Undead (%)","เจาะ MDEF Monster Brute (%)","เจาะ MDEF Monster Plant (%)","เจาะ MDEF Monster Insect (%)","เจาะ MDEF Monster Fish (%)","เจาะ MDEF Monster Demon (%)","เจาะ MDEF Monster Demihuman (%)","เจาะ MDEF Monster Angel (%)","เจาะ MDEF Monster Dragon (%)","ตีกายภาพ Monster Normal (%)","ตีกายภาพ Monster Boss (%)","กันกายภาพ Monster Normal (%)","กันกายภาพ Monster Boss (%)","ตีเวทย์ Monster Normal (%)","ตีเวทย์ Monster Boss (%)","เจาะ DEF Monster Normal (%)","เจาะ DEF Monster Boss (%)","เจาะ MDEF Monster Normal (%)","เจาะ MDEF Monster Boss (%)","ตีกายภาพ Monster Small (%)","ตีกายภาพ Monster Medium (%)","ตีกายภาพ Monster Large (%)","กันกายภาพ Monster Small (%)","กันกายภาพ Monster Medium (%)","กันกายภาพ Monster Large (%)","ข้ามการคำนวณขนาด","Critical แรงขึ้น (%)","โดน Critical เบาลง (%)","ตีกายภาพไกล (%)","กันกายภาพไกล (%)","Skill Heal แรงขึ้น (%)","รับ Skill Heal แรงขึ้น (%)","ร่าย V. เร็วขึ้น (%)","ลด Delay หลังร่าย (%)","ใช้ SP น้อยลง (%)","Weapon ธาตุ: Neutral","Weapon ธาตุ: Water","Weapon ธาตุ: Earth","Weapon ธาตุ: Fire","Weapon ธาตุ: Wind","Weapon ธาตุ: Poison","Weapon ธาตุ: Holy","Weapon ธาตุ: Shadow","Weapon ธาตุ: Ghost","Weapon ธาตุ: Undead","ไม่พัง","ไม่พัง","ตีเวทย์ Monster Small (%)","ตีเวทย์ Monster Medium (%)","ตีเวทย์ Monster Large (%)","กันเวทย์ Monster Small (%)","กันเวทย์ Monster Medium (%)","กันเวทย์ Monster Large (%)","กันทุกธาตุ (%)","กัน Monster Formless (%)","กัน Monster Undead (%)","กัน Monster Brute (%)","กัน Monster Plant (%)","กัน Monster Insect (%)","กัน Monster Fish (%)","กัน Monster Demon (%)","กัน Monster Demihuman (%)","กัน Monster Angel (%)","กัน Monster Dragon (%)","กัน Player Demi-Human (%)","กัน Player Doram (%)","ตีกายภาพ Player Demi-Human (%)","ตีกายภาพ Player Doram (%)","ตีเวทย์ Player Demi-Human (%)","ตีเวทย์ Player Doram (%)","Critical กับ Player Demi-Human","Critical กับ Player Doram","เจาะ DEF กับ Player Demi-Human (%)","เจาะ DEF กับ Player Doram (%)","เจาะ MDEF กับ Player Demi-Human (%)","เจาะ MDEF กับ Player Doram (%)","กันสะท้อน Damage (%)","ตีกายภาพใกล้ (%)","กันกายภาพใกล้ (%)","Skill ธาตุ Neutral แรงขึ้น (%)","Skill ธาตุ Water แรงขึ้น (%)","Skill ธาตุ Earth แรงขึ้น (%)","Skill ธาตุ Fire แรงขึ้น (%)","Skill ธาตุ Wind แรงขึ้น (%)","Skill ธาตุ Poison แรงขึ้น (%)","Skill ธาตุ Holy แรงขึ้น (%)","Skill ธาตุ Shadow แรงขึ้น (%)","Skill ธาตุ Ghost แรงขึ้น (%)","Skill ธาตุ Undead แรงขึ้น (%)","Skill ทุกธาตุแรงขึ้น (%)","EXP จาก Monster Formless (%)","EXP จาก Monster Undead (%)","EXP จาก Monster Brute (%)","EXP จาก Monster Plant (%)","EXP จาก Monster Insect (%)","EXP จาก Monster Fish (%)","EXP จาก Monster Demon (%)","EXP จาก Monster Demi-Human (%)","EXP จาก Monster Angel (%)","EXP จาก Monster Dragon (%)","EXP จาก Monster (%)","POW","SPL","STA","WIS","CON","CRT","P.ATK","S.MATK","RES","MRES","H.PLUS","C.RATE";
 	if(findRandomOptionId)
 	.@findRandomOptionDesc$ = " จนกว่าจะเจอ " + .@randomOptionLists$[RandomOptionIdCorrectionForDesc(findRandomOptionId)] + " +" + .@minValue + "~" + .@maxValue;
 	menu
-	"สุ่ม 5 แถว แต่ละแถว +" + .@minValue + "~" + .@maxValue + " (ไม่สามารถใช้ระบบสุ่มจนกว่าจะเจอได้) [^af1ada" + F_InsertComma(.@normalPrice) + "z^000000]",L_Normal
-	,"สุ่มแถวที่ 1" + .@findRandomOptionDesc$ + " [^af1ada" + F_InsertComma(.@selectedIndexPrice) + "z^000000]",L_Index0
-	,"สุ่มแถวที่ 2" + .@findRandomOptionDesc$ + " [^af1ada" + F_InsertComma(.@selectedIndexPrice) + "z^000000]",L_Index1
-	,"สุ่มแถวที่ 3" + .@findRandomOptionDesc$ + " [^af1ada" + F_InsertComma(.@selectedIndexPrice) + "z^000000]",L_Index2
-	,"สุ่มแถวที่ 4" + .@findRandomOptionDesc$ + " [^af1ada" + F_InsertComma(.@selectedIndexPrice) + "z^000000]",L_Index3
-	,"สุ่มแถวที่ 5" + .@findRandomOptionDesc$ + " [^af1ada" + F_InsertComma(.@selectedIndexPrice) + "z^000000]",L_Index4
+	"สุ่ม 5 แถว แต่ละแถว +" + .@minValue + "~" + .@maxValue + " (ไม่สามารถใช้ระบบสุ่มจนกว่าจะเจอได้) [^af1ada" + F_InsertComma(.@normalPrice) + " FCP^000000]",L_Normal
+	,"สุ่มแถวที่ 1" + .@findRandomOptionDesc$ + " [^af1ada" + F_InsertComma(.@selectedIndexPrice) + " FCP^000000]",L_Index0
+	,"สุ่มแถวที่ 2" + .@findRandomOptionDesc$ + " [^af1ada" + F_InsertComma(.@selectedIndexPrice) + " FCP^000000]",L_Index1
+	,"สุ่มแถวที่ 3" + .@findRandomOptionDesc$ + " [^af1ada" + F_InsertComma(.@selectedIndexPrice) + " FCP^000000]",L_Index2
+	,"สุ่มแถวที่ 4" + .@findRandomOptionDesc$ + " [^af1ada" + F_InsertComma(.@selectedIndexPrice) + " FCP^000000]",L_Index3
+	,"สุ่มแถวที่ 5" + .@findRandomOptionDesc$ + " [^af1ada" + F_InsertComma(.@selectedIndexPrice) + " FCP^000000]",L_Index4
 	,"ตั้งค่าสุ่มจนกว่าจะเจอ",L_FindRandomOptionId
 	;
 	
@@ -211,23 +211,28 @@ function	script	RandomOption	{
 	}
 
 	if(.@isNormal){
-		if(Zeny < .@normalPrice){
-			mes "Zeny ไม่เพียงพอ";
+		if(#KAFRAPOINTS < .@normalPrice){
+			mes "^B427F5Free Cash Point^000000 ไม่เพียงพอ";
 			close;
 		}
 		
 		for(.@i = 0; .@i < 5; .@i++){
 			.@randomOptionId = GetRandomOptionId();
+			if(.@maxValue <= 1)
+			.@value = .@maxValue;
+			else
 			.@value = rand(.@minValue,.@maxValue);
 			setrandomoption(.@location,.@i,.@randomOptionId,.@value,0);
 			mes "• " + .@randomOptionLists$[RandomOptionIdCorrectionForDesc(.@randomOptionId)] + " +" + .@value;
 		}
 		
-		ChangeZeny(-.@normalPrice);
+		// Trading
+		#KAFRAPOINTS = cap_value(#KAFRAPOINTS - .@normalPrice,0,INT_MAX);
+		dispbottom "คงเหลือ " + F_InsertComma(#KAFRAPOINTS) + " FCP",0xB427F5;
 	}
 	else{
-		if(Zeny < .@selectedIndexPrice){
-			mes "Zeny ไม่เพียงพอ";
+		if(#KAFRAPOINTS < .@selectedIndexPrice){
+			mes "^B427F5Free Cash Point^000000 ไม่เพียงพอ";
 			close;
 		}
 		
@@ -239,7 +244,7 @@ function	script	RandomOption	{
 		}
 		.@randomOptionId = GetRandomOptionId();
 		if(findRandomOptionId){
-			.@loopCount = (Zeny / .@selectedIndexPrice);
+			.@loopCount = (#KAFRAPOINTS / .@selectedIndexPrice);
 			.@saveLoopCount = .@loopCount;
 			.@loopCount--;
 			freeloop(1);
@@ -249,14 +254,24 @@ function	script	RandomOption	{
 			}
 			freeloop(0);
 		}
+		if(.@maxValue <= 1)
+		.@value = .@maxValue;
+		else
 		.@value = rand(.@minValue,.@maxValue);
 		setrandomoption(.@location,.@targetRandomOptionIndex,.@randomOptionId,.@value,0);
 		mes "แถว " + (.@targetRandomOptionIndex + 1) + ": " + .@randomOptionLists$[RandomOptionIdCorrectionForDesc(.@randomOptionId)] + " +" + .@value;
 		
-		if(findRandomOptionId)
-		ChangeZeny(-.@selectedIndexPrice * (.@saveLoopCount - .@loopCount));
+		if(findRandomOptionId){
+			// Trading
+			#KAFRAPOINTS = cap_value(#KAFRAPOINTS - (.@selectedIndexPrice * (.@saveLoopCount - .@loopCount)),0,INT_MAX);
+			dispbottom "คงเหลือ " + F_InsertComma(#KAFRAPOINTS) + " FCP",0xB427F5;
+		}
 		else
-		ChangeZeny(-.@selectedIndexPrice);
+		{
+			// Trading
+			#KAFRAPOINTS = cap_value(#KAFRAPOINTS - .@selectedIndexPrice,0,INT_MAX);
+			dispbottom "คงเหลือ " + F_InsertComma(#KAFRAPOINTS) + " FCP",0xB427F5;
+		}
 	}
 	close;
 }

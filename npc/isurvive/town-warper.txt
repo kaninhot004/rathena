@@ -1,0 +1,33 @@
+-	script	TownWarper	-1,{
+	menu
+	"^4f33ffเสริมแกร่งตัวละคร^000000",OnPickAWish
+	,"^ff7d33เล่นเกม^000000",OnSleepyBonfire
+	,"^be33ffแต่งตัวละคร^000000",OnStylist
+	,"ทดสอบ Damage",OnTestDamage
+	;
+
+OnPickAWish:
+	warp strcharinfo(3),145,93;
+	end;
+
+OnSleepyBonfire:
+	warp strcharinfo(3),160,166;
+	end;
+	
+OnStylist:
+	warp strcharinfo(3),202,22;
+	end;
+	
+OnTestDamage:
+	.@selectIndex = (select("ห้องที่ 1:ห้องที่ 2:ห้องที่ 3:ห้องที่ 4:PvP") - 1);
+	warp $testDamageMapName$[.@selectIndex],0,0;
+	end;
+	
+OnInit:
+	waitingroom strnpcinfo(1),0;
+	end;
+}
+
+vr_pop3,132,83,5	duplicate(TownWarper)	ไปที่ต่าง ๆ#1	723
+vr_pop3,202,31,5	duplicate(TownWarper)	ไปที่ต่าง ๆ#2	723
+vr_pop3,167,158,5	duplicate(TownWarper)	ไปที่ต่าง ๆ#3	723

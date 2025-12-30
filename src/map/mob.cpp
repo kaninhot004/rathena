@@ -5074,7 +5074,7 @@ uint64 MobDatabase::parseBodyNode(const ryml::NodeRef& node) {
 		if (!this->asUInt64(node, "BaseExp", exp))
 			return 0;
 
-		mob->base_exp = static_cast<t_exp>(cap_value((double)exp * (double)battle_config.base_exp_rate / 100., 0, MAX_EXP));
+		mob->base_exp = 0;
 	}
 	
 	if (this->nodeExists(node, "JobExp")) {
@@ -5083,7 +5083,7 @@ uint64 MobDatabase::parseBodyNode(const ryml::NodeRef& node) {
 		if (!this->asUInt64(node, "JobExp", exp))
 			return 0;
 
-		mob->job_exp = static_cast<t_exp>(cap_value((double)exp * (double)battle_config.job_exp_rate / 100., 0, MAX_EXP));
+		mob->job_exp = 0;
 	}
 	
 	if (this->nodeExists(node, "MvpExp")) {
@@ -5516,16 +5516,6 @@ uint64 MobDatabase::parseBodyNode(const ryml::NodeRef& node) {
 			else
 				mob->status.mode = static_cast<e_mode>(mob->status.mode & ~constant);
 		}
-	}
-
-	if (this->nodeExists(node, "MvpDrops")) {
-		if (!this->parseDropNode("MvpDrops", node, MAX_MVP_DROP, mob->mvpitem))
-			return 0;
-	}
-
-	if (this->nodeExists(node, "Drops")) {
-		if (!this->parseDropNode("Drops", node, MAX_MOB_DROP, mob->dropitem))
-			return 0;
 	}
 
 	if (!exists)
