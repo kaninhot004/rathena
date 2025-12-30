@@ -9524,11 +9524,8 @@ int32 pc_resetskill(map_session_data* sd, int32 flag)
 		if( sd->status.skill[idx].flag >= SKILL_FLAG_REPLACED_LV_0 )
 			skill_point += (sd->status.skill[idx].flag - SKILL_FLAG_REPLACED_LV_0);
 
-		if( !(flag&2) )
-		{// reset
-			sd->status.skill[idx].lv = 0;
-			sd->status.skill[idx].flag = SKILL_FLAG_PERMANENT;
-		}
+		sd->status.skill[idx].lv = 0;
+		sd->status.skill[idx].flag = SKILL_FLAG_PERMANENT;
 	}
 
 	if( flag&2 || !skill_point ) return skill_point;
