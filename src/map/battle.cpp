@@ -931,6 +931,8 @@ int32 battle_calc_cardfix(int32 attack_type, block_list *src, block_list *target
 
 				if( tsc->getSCE(SC_MDEF_RATE) )
 					cardfix = cardfix * (100 - tsc->getSCE(SC_MDEF_RATE)->val1) / 100;
+				if (cardfix < 100) // [Start's] Capped rate at 90% if exceeded
+					cardfix = 100;
 				APPLY_CARDFIX(damage, cardfix);
 			}
 			break;
@@ -1080,8 +1082,12 @@ int32 battle_calc_cardfix(int32 attack_type, block_list *src, block_list *target
 					cardfix = cardfix * (100 + sd->bonus.long_attack_atk_rate) / 100;
 #endif
 				if (left&1) {
+					if (cardfix_ < 100) // [Start's] Capped rate at 90% if exceeded
+						cardfix_ = 100;
 					APPLY_CARDFIX(damage, cardfix_);
 				} else {
+					if (cardfix < 100) // [Start's] Capped rate at 90% if exceeded
+						cardfix = 100;
 					APPLY_CARDFIX(damage, cardfix);
 				}
 			}
@@ -1150,12 +1156,16 @@ int32 battle_calc_cardfix(int32 attack_type, block_list *src, block_list *target
 					cardfix = cardfix * (100 - tsd->bonus.long_attack_def_rate) / 100;
 				if( tsc->getSCE(SC_DEF_RATE) )
 					cardfix = cardfix * (100 - tsc->getSCE(SC_DEF_RATE)->val1) / 100;
+				if (cardfix < 100) // [Start's] Capped rate at 90% if exceeded
+					cardfix = 100;
 				APPLY_CARDFIX(damage, cardfix);
 			}
 			// Custom on BF_WEAPON to follow SC_ debuff BF_MAGIC renewal behavior
 			if (tsc != nullptr && !nk[NK_IGNOREDEFCARD] && !nk[NK_IGNOREELEMENT]) {
 				cardfix = 1000;
 				cardfix = cardfix * (100 + battle_calc_cardfix_debuff( *tsc, rh_ele )) / 100;
+				if (cardfix < 100) // [Start's] Capped rate at 90% if exceeded
+					cardfix = 100;
 				APPLY_CARDFIX(damage, cardfix);
 			}
 			break;
@@ -1201,12 +1211,16 @@ int32 battle_calc_cardfix(int32 attack_type, block_list *src, block_list *target
 					cardfix = cardfix * (100 - tsd->bonus.near_attack_def_rate) / 100;
 				else if (!nk[NK_IGNORELONGCARD])	// BF_LONG (there's no other choice)
 					cardfix = cardfix * (100 - tsd->bonus.long_attack_def_rate) / 100;
+				if (cardfix < 100) // [Start's] Capped rate at 90% if exceeded
+					cardfix = 100;
 				APPLY_CARDFIX(damage, cardfix);
 			}
 			// Custom on BF_MISC to follow SC_ debuff BF_MAGIC renewal behavior
 			if (tsc != nullptr && !nk[NK_IGNOREDEFCARD] && !nk[NK_IGNOREELEMENT]) {
 				cardfix = 1000;
 				cardfix = cardfix * (100 + battle_calc_cardfix_debuff( *tsc, rh_ele )) / 100;
+				if (cardfix < 100) // [Start's] Capped rate at 90% if exceeded
+					cardfix = 100;
 				APPLY_CARDFIX(damage, cardfix);
 			}
 			break;
@@ -2886,14 +2900,15 @@ bool is_infinite_defense(block_list *target, int32 flag)
 			return true;
 	}
 
-	if(status_has_mode(tstatus,MD_IGNOREMELEE) && (flag&(BF_WEAPON|BF_SHORT)) == (BF_WEAPON|BF_SHORT) )
+	// [Start's]
+	/*if (status_has_mode(tstatus, MD_IGNOREMELEE) && (flag & (BF_WEAPON | BF_SHORT)) == (BF_WEAPON | BF_SHORT))
 		return true;
 	if(status_has_mode(tstatus,MD_IGNOREMAGIC) && flag&(BF_MAGIC) )
 		return true;
 	if(status_has_mode(tstatus,MD_IGNORERANGED) && (flag&(BF_WEAPON|BF_LONG)) == (BF_WEAPON|BF_LONG) )
 		return true;
 	if(status_has_mode(tstatus,MD_IGNOREMISC) && flag&(BF_MISC) )
-		return true;
+		return true;*/
 
 	status_change* tsc = status_get_sc(target);
 	if (tsc && tsc->getSCE(SC_INVINCIBLE))
@@ -7828,8 +7843,11 @@ static struct Damage battle_calc_weapon_attack(block_list *src, block_list *targ
 	sd = BL_CAST(BL_PC, src);
 	tsd = BL_CAST(BL_PC, target);
 
-	//Check for Lucky Dodge
-	if ((!skill_id || skill_id == PA_SACRIFICE) && tstatus->flee2 && rnd()%1000 < tstatus->flee2) {
+	//Check for Lucky Dodge [Start's] Capped at 90%
+	short perfectDodge = tstatus->flee2;
+	if (perfectDodge >= 900)
+		perfectDodge = 900;
+	if ((!skill_id || skill_id == PA_SACRIFICE) && perfectDodge && rnd()%1000 < perfectDodge) {
 		wd.type = DMG_LUCY_DODGE;
 		wd.dmg_lv = ATK_LUCKY;
 		if(wd.div_ < 0)
