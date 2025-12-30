@@ -9490,19 +9490,21 @@ int32 pc_resetskill(map_session_data* sd, int32 flag)
 			continue;
 
 		// Don't reset trick dead if not a novice/baby
-		if( skill_id == NV_TRICKDEAD && (sd->class_&MAPID_UPPERMASK) != MAPID_NOVICE )
+		// [Start's]
+		/*if (skill_id == NV_TRICKDEAD && (sd->class_ & MAPID_UPPERMASK) != MAPID_NOVICE)
 		{
 			sd->status.skill[idx].lv = 0;
 			sd->status.skill[idx].flag = SKILL_FLAG_PERMANENT;
 			continue;
-		}
+		}*/
 
 		// do not reset basic skill
-		if (skill_id == NV_BASIC && (sd->class_&MAPID_UPPERMASK) != MAPID_NOVICE )
-			continue;
-
-		if( sd->status.skill[idx].flag == SKILL_FLAG_PERM_GRANTED )
-			continue;
+		// [Start's]
+		/*if (skill_id == NV_BASIC && (sd->class_ & MAPID_UPPERMASK) != MAPID_NOVICE)
+			continue;*/
+		// [Start's]
+		/*if (sd->status.skill[idx].flag == SKILL_FLAG_PERM_GRANTED)
+			continue;*/
 
 		if( flag&4 && !skill_ischangesex(skill_id) )
 			continue;

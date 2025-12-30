@@ -2,6 +2,10 @@
 	end;
 	
 OnPCLoginEvent:
+	if(!isResetSkill){
+		isResetSkill = 1;
+		atcommand "@resetskill";
+	}
 	Zeny = 1000000;
 	if(!isJobSelected){
 		atcommand "@clearinventory";
