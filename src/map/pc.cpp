@@ -13982,7 +13982,7 @@ uint64 JobDatabase::parseBodyNode(const ryml::NodeRef& node) {
 			} else {
 				if (!exists) {
 					uint8 max = MAX_WEAPON_TYPE;
-					int32 def_aspd = AMOTION_ZERO_ASPD;
+					int32 def_aspd = 1000; // [Start's]
 
 #ifdef RENEWAL
 					// Renewal adds an extra column for shields

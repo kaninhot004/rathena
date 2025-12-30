@@ -62,6 +62,7 @@ Body:
       can_party: true
       attendance: false
       view_equipment: true
+      all_equipment: true
   - Id: 1
     Name: Super Player
     # Can do everything Players can and more
