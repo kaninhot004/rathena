@@ -614,14 +614,6 @@ function	script	ClearAll	{
 	bonus_script_clear 1;
 	nude;
 	atcommand "@resetcooltime";
-	atcommand "@itemreset";
-	atcommand "@clearstorage";
-	if(getcharid(2)){
-		atcommand "@cleargstorage";
-	}
-	if(checkcart()){
-		atcommand "@clearcart";
-	}
 	if(checkfalcon())
 	{
 		setfalcon 0;
