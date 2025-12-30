@@ -17,10 +17,10 @@ vr_pop3,202,7,3	script	เลือกอาชีพ	21321,{
 	isJobSelected = 1;
 	ClearAll();
 	if(Class != 4308){
-		skill 1,9,3;
+		atcommand "@skpoint 9";
 	}
 	else{
-		skill 5018,1,3;
+		atcommand "@skpoint 1";
 	}
 	close;
 	
