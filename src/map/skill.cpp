@@ -25626,8 +25626,8 @@ uint64 SkillDatabase::parseBodyNode(const ryml::NodeRef& node) {
 			if (!exists)
 				memset(skill->require.spiritball, 0, sizeof(skill->require.spiritball));
 		}
-
-		if (this->nodeExists(requireNode, "ItemCost")) {
+		// [Start's]
+		/*if (this->nodeExists(requireNode, "ItemCost")) {
 			const auto itemNode = requireNode["ItemCost"];
 			int32 count = 0;
 
@@ -25670,9 +25670,9 @@ uint64 SkillDatabase::parseBodyNode(const ryml::NodeRef& node) {
 				skill->require.amount[count] = amount;
 				count++;
 			}
-		}
-
-		if (this->nodeExists(requireNode, "Equipment")) {
+		}*/
+		// [Start's]
+		/*if (this->nodeExists(requireNode, "Equipment")) {
 			const auto& equipNode = requireNode["Equipment"];
 
 			for (const auto& it : equipNode) {
@@ -25698,7 +25698,7 @@ uint64 SkillDatabase::parseBodyNode(const ryml::NodeRef& node) {
 				else if (!active && equip_exists != skill->require.eqItem.end())
 					skill->require.eqItem.erase(equip_exists);
 			}
-		}
+		}*/
 	}
 
 	if (this->nodeExists(node, "GiveAp")) {
