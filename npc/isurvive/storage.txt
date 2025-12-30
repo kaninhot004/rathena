@@ -1,0 +1,10 @@
+-	script	CallStorage	-1,{
+	Storage();
+	end;
+	
+OnInit:
+	waitingroom strnpcinfo(1),0;
+	end;
+}
+
+vr_pop3,128,77,5	duplicate(CallStorage)	คลังเก็บของ#1	723

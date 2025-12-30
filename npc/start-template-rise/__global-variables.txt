@@ -15,6 +15,12 @@ OnInit:
 	$refineCost = 150; // Refine cost
 	setarray $deadStatusPenalty[0],2,4,6,8,10,12,14,16,18,20; // Dead status penalty
 	setarray $deadTraitPenalty[0],1,2,3,4,5,6,7,8,9,10; // Dead trait penalty
+	setarray $potionDrops[0],501,502,503,504,1100003,1100005,1100032,1100011,11632,608; // Potion drop
+	$potionDropRate = 10; // Potion drop rate
+	$bluePotionItemId = 505; // Blue Potion drop rate
+	$bluePotionDropRate = 20; // Blue Potion drop rate
+	$greenPotionItemId = 506; // Green Potion drop rate
+	$greenPotionDropRate = 5; // Green Potion drop rate
 	
 	// Map
 	if($mapVersion != 2){

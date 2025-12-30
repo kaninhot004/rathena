@@ -83,6 +83,18 @@ OnMonsterDead:
 			// Give cash point
 			#CASHPOINTS = cap_value(#CASHPOINTS + $cpRewards[.@mapIndex],0,INT_MAX);
 			dispbottom "คงเหลือ " + F_InsertComma(#CASHPOINTS) + " CP",0x16BABA;
+			// Potion
+			if(rand(100) < $potionDropRate){
+				getitem $potionDrops[.@mapIndex],1;
+			}
+			// Blue Potion
+			if(rand(100) < $bluePotionDropRate){
+				getitem $bluePotionItemId,1;
+			}
+			// Green Potion
+			if(rand(100) < $greenPotionDropRate){
+				getitem $greenPotionItemId,1;
+			}
 		}
 	}
 	end;
@@ -102,6 +114,8 @@ OnPCDieEvent:
 			}
 			atcommand "@statsall -" + $deadStatusPenalty[.@mapIndex];
 			atcommand "@traitall -" + $deadTraitPenalty[.@mapIndex];
+			atcommand "@grade 0 -4";
+			atcommand "@refine 0 -20";
 		}
 	}
 	end;

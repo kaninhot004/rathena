@@ -481,9 +481,9 @@ function	script	SlotRemover	{
 }
 
 function	script	Storage	{
-	.@menu$ = "คลังเก็บของปกติ:คลังเก็บของ Guild:";
-	for(.@s = 0; .@s < 9; .@s++)
-	.@menu$ += "คลังเก็บของพิเศษ " + (.@s + 1) + ":";
+	.@menu$ = "คลังเก็บของปกติ:คลังเก็บของ Guild";
+	/*for(.@s = 0; .@s < 9; .@s++)
+	.@menu$ += "คลังเก็บของพิเศษ " + (.@s + 1) + ":";*/
 	.@selectedStorage = select(.@menu$);
 	if(.@selectedStorage == 1)
 	openstorage;
@@ -736,5 +736,15 @@ function	script	FillUpSleepyPill	{
 	{
 		getitem SLEEPING_PILL,sleepingPill[pickWishIndex] - .@sleepingPillAmount;
 	}
+	return;
+}
+
+function	script	CashCoin	{
+	.@rate = getarg(0,0);
+	.@itemId = getarg(1,0);
+	.@reward = countitem(.@itemId);
+	delitem .@itemId,.@reward;
+	#CASHPOINTS = cap_value(#CASHPOINTS + (.@reward * .@rate),0,INT_MAX);
+	dispbottom "คงเหลือ " + F_InsertComma(#CASHPOINTS) + " CP",0x16BABA;
 	return;
 }

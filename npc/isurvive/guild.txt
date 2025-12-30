@@ -1,0 +1,13 @@
+-	script	CreateGuild	-1,{
+	input .@guildName$;
+	atcommand "@guild " + .@guildName$;
+	sleep2 1000;
+	atcommand "@guildlvup 99";
+	end;
+	
+OnInit:
+	waitingroom strnpcinfo(1),0;
+	end;
+}
+
+vr_pop3,121,71,5	duplicate(CreateGuild)	สร้าง Guild#1	723

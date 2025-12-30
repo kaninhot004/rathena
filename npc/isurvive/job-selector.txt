@@ -1,0 +1,27 @@
+vr_pop3,202,7,3	script	เลือกชุด	21321,{
+	if(isJobSelected){
+		mes "หากต้องการเล่นอาชีพอื่น ให้สร้างตัวละครใหม่";
+		close;
+	}
+	mes "โปรดเลือกอาชีพ";
+	next;
+	.@menu$ = "";
+	for(.@i = 0; .@i < getarraysize(.jobName$); .@i++)
+	{
+		.@menu$ += .jobName$[.@i] + ":";
+	}
+	.@select = select(.@menu$) - 1;
+	.@jobId = .jobId[.@select];
+	jobchange ((.@jobId == 4263) && (Sex == 1)) ? 4264 : ((.@jobId == 4304) && (Sex == 1)) ? 4305 : .@jobId;
+	BaseLevel = INT_MAX;
+	JobLevel = INT_MAX;
+	isJobSelected = 1;
+	ClearAll();
+	close;
+	
+OnInit:
+	waitingroom strnpcinfo(0),0;
+	setarray .jobName$[0],"Dragon Knight","Meister","Shadow Cross","Arch Mage","Cardinal","Windhawk","Imperial Guard","Biolo","Abyss Chaser","Elemental Master","Inquistor","Troubadour & Trouvere","Sky Emperor","Soul Ascetic","Shinkiro & Shiranui","Night Watch","Hyper Novice","Spirit Handler";
+	setarray .jobId[0],4252,4253,4254,4255,4256,4257,4258,4259,4260,4261,4262,4263,4302,4303,4304,4306,4307,4308;
+	end;
+}
