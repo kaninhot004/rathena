@@ -7087,6 +7087,8 @@ void clif_use_card(map_session_data *sd,int32 idx)
 	WFIFOHEAD(fd,MAX_INVENTORY * 2 + 4);
 	WFIFOW(fd,0)=0x17b;
 
+	bool isEnchantment = ((sd->inventory_data[idx]->subtype == CARD_ENCHANT)); // [Start's] Check it was Enchantment
+
 	for(i=c=0;i<MAX_INVENTORY;i++){
 		int32 j;
 
@@ -7100,17 +7102,20 @@ void clif_use_card(map_session_data *sd,int32 idx)
 		if(sd->inventory.u.items_inventory[i].identify==0 )	//Not identified
 			continue;
 
-		if((sd->inventory_data[i]->equip&ep)==0)	//Not equippable on this part.
-			continue;
+		if (!isEnchantment) { // [Start's] Skip location checking for Enchantment
+			if ((sd->inventory_data[i]->equip & ep) == 0)	//Not equippable on this part.
+				continue;
 
-		if(sd->inventory_data[i]->type==IT_WEAPON && ep==EQP_SHIELD) //Shield card won't go on left weapon.
-			continue;
+			if (sd->inventory_data[i]->type == IT_WEAPON && ep == EQP_SHIELD) //Shield card won't go on left weapon.
+				continue;
 
-		if(sd->inventory_data[i]->type == IT_ARMOR && (ep & EQP_ACC) && ((ep & EQP_ACC) != EQP_ACC) && ((sd->inventory_data[i]->equip & EQP_ACC) != (ep & EQP_ACC)) ) // specific accessory-card can only be inserted to specific accessory.
-			continue;
+			if (sd->inventory_data[i]->type == IT_ARMOR && (ep & EQP_ACC) && ((ep & EQP_ACC) != EQP_ACC) && ((sd->inventory_data[i]->equip & EQP_ACC) != (ep & EQP_ACC))) // specific accessory-card can only be inserted to specific accessory.
+				continue;
+		}
 
-		ARR_FIND( 0, sd->inventory_data[i]->slots, j, sd->inventory.u.items_inventory[i].card[j] == 0 );
-		if( j == sd->inventory_data[i]->slots )	// No room
+		j = isEnchantment ? sd->inventory_data[i]->slots : j; // [Start's] Enchantment will start at max card slot index
+		ARR_FIND(isEnchantment ? (sd->inventory_data[i]->slots) : 0, isEnchantment ? cap_value(sd->inventory_data[i]->slots + 4, 0, 4) : sd->inventory_data[i]->slots, j, sd->inventory.u.items_inventory[i].card[j] == 0); // [Start's] Modify a bit for Enchantment
+		if (j == (isEnchantment ? cap_value(sd->inventory_data[i]->slots + 4, 0, 4) : sd->inventory_data[i]->slots)) // No room + [Start's] Modify a bit for Enchantment
 			continue;
 
 		if( sd->inventory.u.items_inventory[i].equip > 0 )	// Do not check items that are already equipped
