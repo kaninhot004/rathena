@@ -41,7 +41,7 @@ OnSurvive:
 				dispbottom "คงเหลือ " + F_InsertComma(#KAFRAPOINTS) + " FCP",0xB427F5;
 				addtimer 60000, strnpcinfo(3) + "::OnSurvive";
 				sc_start SC_ITEMBOOST,60000,1;
-				$bonusSpawnAmount[.@mapIndex] = cap_value($bonusSpawnAmount[.@mapIndex] + 1,0,INT_MAX); // increase bonus spawn amount
+				$bonusSpawnAmount[.@mapIndex] = cap_value($bonusSpawnAmount[.@mapIndex] + 5,0,INT_MAX); // increase bonus spawn amount
 				
 				// 10% Able to spawn 2x2 cell near player
 				if(rand(100) < 10){
