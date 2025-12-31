@@ -7321,6 +7321,14 @@ int32 pc_get_skillcooldown(map_session_data *sd, uint16 skill_id, uint16 skill_l
 		}
 	}
 
+	// [Start's]
+	if (cooldown > 100) {
+		cooldown = max(cooldown * (100 - sd->bonus.varcastrate) / 100, 100);
+		cooldown = max(cooldown * (100 + sd->bonus.fixcastrate) / 100, 100);
+		cooldown = max(cooldown + sd->bonus.add_varcast, 100);
+		cooldown = max(cooldown + sd->bonus.add_fixcast, 100);
+	}
+
 	return max(0, cooldown);
 }
 
