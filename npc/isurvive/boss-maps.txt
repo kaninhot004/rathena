@@ -1,0 +1,99 @@
+// Monster spawn at [10,15,20,25,30,35,40,45,50,55] -> Player pass their day in map -> +1 amount to spawn (Maximum at 200) (Respawn every 60s)
+// In case someone lose -> Reduce bonus spawn amount by half
+vr_pop3,155,181,3	script	เริ่มเกมบอส#10	10007,{
+	percentheal 100,100;
+	.@mapIndex = atoi(strnpcinfo(2)); // Map index
+	mes "วิธีเล่น";
+	mes "1.) ^E6870Eกำจัด Monster^000000 รับ ^16BABA" + F_InsertComma($cpRewards[.@mapIndex]) + "^000000 CP";
+	mes "2.) ตาย ^FF0000Stats -" + $deadStatusPenalty[.@mapIndex] + "^000000, ^FF0000Traits -" + $deadTraitPenalty[.@mapIndex] + ", Grade & Refine เหลือ 0^000000";
+	mes "3.) Monster กัน Damage 99%";
+	mes "4.) Monster HP: " + F_InsertComma($monsterHealths[.@mapIndex]);
+	mes "5.) Reset Monster ทุกต้นชั่วโมง";
+	next;
+	menu "เข้า",-;
+	warp $maps$[.@mapIndex],0,0;
+	ClearAddTimer();
+	end;
+	
+	// Respawn
+OnMinute00:
+OnSpawn:
+	.@mapIndex = atoi(strnpcinfo(2)); // Map index
+	// Target amount to spawn
+	.@targetAmountToSpawn = 150;
+	// Clear monster
+	killmonsterall $maps$[.@mapIndex];
+	// Spawn new monster
+	freeloop(1);
+	for(.@i = 0; .@i < .@targetAmountToSpawn; .@i++)
+	{
+		callsub(OnSpawnOne,.@mapIndex);
+	}
+	freeloop(0);
+	end;
+	
+OnSpawnOne:
+	.@mapIndex = getarg(0,0);
+	.@monsterId = $mvpIds[rand(getarraysize($mvpIds))];
+	monster $maps$[.@mapIndex],0,0,"--ja--",.@monsterId,1,strnpcinfo(0) + "::OnMonsterDead";
+	.@GID = $@mobid[0];
+	getunitdata .@GID,.@md;
+	setunitdata .@GID,UMOB_MODE,.@md[UMOB_MODE] | MD_CANMOVE | MD_AGGRESSIVE | MD_CANATTACK;
+	setunitdata .@GID,UMOB_DAMAGETAKEN,1;
+	setunitdata .@GID,UMOB_MAXHP,$monsterHealths[.@mapIndex];
+	setunitdata .@GID,UMOB_HP,$monsterHealths[.@mapIndex];
+	return;
+	
+OnMonsterDead:
+	// Check player
+	if(playerattached())
+	{
+		.@mapIndex = atoi(strnpcinfo(2)); // Map index
+		// Check map
+		if(strcharinfo(3) == $maps$[.@mapIndex]){
+			// Give cash point
+			#CASHPOINTS = cap_value(#CASHPOINTS + $cpRewards[.@mapIndex],0,INT_MAX);
+			dispbottom "คงเหลือ " + F_InsertComma(#CASHPOINTS) + " CP",0x16BABA;
+			// Potion
+			if(rand(100) < $potionDropRate){
+				getitem $potionDrops[.@mapIndex],1;
+			}
+			// Blue Potion
+			if(rand(100) < $bluePotionDropRate){
+				getitem $bluePotionItemId,1;
+			}
+			// Green Potion
+			if(rand(100) < $greenPotionDropRate){
+				getitem $greenPotionItemId,1;
+			}
+			
+			callsub(OnSpawnOne,.@mapIndex);
+		}
+	}
+	end;
+
+OnPCDieEvent:
+	// Check player
+	if(playerattached())
+	{
+		.@mapIndex = atoi(strnpcinfo(2)); // Map index
+		.@mapName$ = strcharinfo(3);
+		// Check map
+		if(strcharinfo(3) == $maps$[.@mapIndex]){
+			// Dead penalty
+			atcommand "@statsall -" + $deadStatusPenalty[.@mapIndex];
+			atcommand "@traitall -" + $deadTraitPenalty[.@mapIndex];
+			atcommand "@grade 0 -4";
+			atcommand "@refine 0 -20";
+		}
+	}
+	end;
+	
+OnInit:
+	waitingroom "เล่นห้องบอสระดับ " + ((atoi(strnpcinfo(2)) + 1) - 10),0;
+	callsub(OnSpawn);
+	end;
+}
+
+vr_pop3,149,181,3	duplicate(เริ่มเกมบอส#10)	เริ่มเกมบอส#11	10007
+vr_pop3,141,181,3	duplicate(เริ่มเกมบอส#10)	เริ่มเกมบอส#12	10007
