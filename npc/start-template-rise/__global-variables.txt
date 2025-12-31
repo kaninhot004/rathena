@@ -5,7 +5,7 @@ OnInit:
 	// Settings
 	$maximumSpawnAmount = 200; // Maximum spawn amount
 	$town$ = "vr_pop3"; // Town
-	setarray $cpRewards[0],1,5,25,45,85,125,175,250,300,1000 // 1~10 Cash point reward
+	setarray $cpRewards[0],5,15,40,90,125,150,200,300,500,1000 // 1~10 Cash point reward
 	,1000,5000,15000; // 1~3 Boss Cash point reward
 	setarray $fcpRewards[0],1,2,4,7,11,16,22,29,37,46; // Free cash point reward
 	setarray $pointCosts[0],25,2,3000,2; // Point cost
