@@ -4325,14 +4325,6 @@ Body:
     Name: New Year Dasik
     Type: Healing
     Weight: 20
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoSell: true
-      NoCart: true
-      NoGuildStorage: true
-      NoMail: true
-      NoAuction: true
     Script: |
       percentheal 20,20;
   - Id: 11633
@@ -88180,13 +88172,6 @@ Body:
     Name: Monster Bread
     Type: Healing
     Weight: 3
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoCart: true
-      NoGuildStorage: true
-      NoMail: true
-      NoAuction: true
     Script: |
       itemheal 4500,0; /* average value */
   - Id: 1100012
@@ -88385,13 +88370,6 @@ Body:
     Name: Hanmac Triple Cheese Burger    # !todo check english name
     Type: Healing
     Weight: 1
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoCart: true
-      NoGuildStorage: true
-      NoMail: true
-      NoAuction: true
     Script: |
       itemheal 3250,0; /* average value */
   - Id: 1100033
