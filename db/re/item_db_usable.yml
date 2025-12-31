@@ -88096,7 +88096,6 @@ Body:
     Type: Healing
     Buy: 10
     Weight: 2
-    EquipLevelMin: 120
     Script: |
       itemheal rand(655,675),0;
   - Id: 1100004
@@ -88114,7 +88113,6 @@ Body:
     Type: Healing
     Buy: 10
     Weight: 2
-    EquipLevelMin: 180
     Script: |
       itemheal rand(2730,2750),0;
   - Id: 1100006
@@ -88182,7 +88180,6 @@ Body:
     Name: Monster Bread
     Type: Healing
     Weight: 3
-    EquipLevelMin: 180
     Trade:
       NoDrop: true
       NoTrade: true
@@ -88388,7 +88385,6 @@ Body:
     Name: Hanmac Triple Cheese Burger    # !todo check english name
     Type: Healing
     Weight: 1
-    EquipLevelMin: 200
     Trade:
       NoDrop: true
       NoTrade: true
