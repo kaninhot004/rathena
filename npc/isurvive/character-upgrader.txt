@@ -3,7 +3,7 @@ vr_pop3,138,96,5	script	เสริมแกร่งตัวละคร	10368,{
 	mes "คุณมี ^B427F5" + F_InsertComma(#KAFRAPOINTS) + "^000000 FCP";
 	next;
 	.@skillPointCost = $pointCosts[1] * (skillPointBuyCount + 1);
-	.@levelCost = $pointCosts[3] * (levelBuyCount + 1) * (levelBuyCount + 1);
+	.@levelCost = (($pointCosts[3] * ((levelBuyCount + 1) * (levelBuyCount + 1))) / 2);
 	.@buyType = (select("ซื้อ " + .rewards$[0] + " (^B427F5" + $pointCosts[0] + "^000000 FCP):ซื้อ " + .rewards$[1] + " (^B427F5" + .@skillPointCost + "^000000 FCP) (^FF0000โปรดระวัง ราคาจะคูณไปเรื่อย ๆ^000000):ซื้อ " + .rewards$[2] + " (^B427F5" + $pointCosts[2] + "^000000 FCP):ซื้อ " + .rewards$[3] + " (^B427F5" + .@levelCost + "^000000 FCP) (^FF0000โปรดระวัง ราคาจะคูณไปเรื่อย ๆ^000000)") - 1);
 	.@price = $pointCosts[.@buyType];
 	if(.@buyType == 1){
@@ -73,7 +73,7 @@ vr_pop3,138,96,5	script	เสริมแกร่งตัวละคร	10368,{
 		{
 			freeloop(1);
 			for(.@i = 0; .@i < .@amount; .@i++){
-				.@levelCost = $pointCosts[3] * (levelBuyCount + 1) * (levelBuyCount + 1);
+				.@levelCost = (($pointCosts[3] * ((levelBuyCount + 1) * (levelBuyCount + 1))) / 2);
 				.@price = .@levelCost;
 				if(BaseLevel >= 275)
 				{

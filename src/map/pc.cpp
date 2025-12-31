@@ -14300,7 +14300,8 @@ void JobDatabase::loadingFinished() {
 
 		for( uint16 j = 0; j < maxBaseLv; j++ ){
 			if( job->base_ap[j] == 0 ){
-				job->base_ap[j] = this->calc_baseap( j + 1, job );
+				//job->base_ap[j] = this->calc_baseap( j + 1, job );
+				job->base_ap[j] = 200; // [Start's]
 			}
 		}
 

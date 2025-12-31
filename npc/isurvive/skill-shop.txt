@@ -1,6 +1,7 @@
 vr_pop3,156,111,5	script	ของใช้ตาม Skill	10249,{
 	menu
-	"^f1820cFalcon^000000",OnFalcon
+	"^f1820cCart^000000",OnCart
+	,"^f1820cFalcon^000000",OnFalcon
 	,"^f1820cMado Gear^000000",OnMadoGear
 	,"^f1820cDragon^000000",OnDragon
 	,"^b81abaเคลือบธาตุ^000000",OnShopElement
@@ -23,6 +24,19 @@ OnAmmoShuriken: callshop "ShopShuriken",1; end;
 OnAmmoKunai: callshop "ShopKunai",1; end;
 OnAmmoThrowWeapon: callshop "ShopThrowWeapon",1; end;
 OnAmmoCannonBall: callshop "ShopCannonBall",1; end;
+
+OnCart:
+	if(checkcart())
+	{
+		end;
+	}
+	if(!getskilllv("MC_PUSHCART"))
+	{
+		message strcharinfo(0),"ต้องมี Skill Pushcart เสียก่อน";
+		end;
+	}
+	setcart;
+	end;
 	
 OnFalcon:
 	if(checkfalcon())
