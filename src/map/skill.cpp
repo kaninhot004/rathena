@@ -20364,18 +20364,18 @@ int32 skill_vfcastfix(block_list *bl, double time, uint16 skill_id, uint16 skill
 		if (sd->bonus.fixcastrate != 0)
 			fixcast_r -= sd->bonus.fixcastrate; // bonus bFixedCastrate
 		if (sd->bonus.add_varcast != 0)
-			time += sd->bonus.add_varcast; // bonus bVariableCast
+			time = max(time + sd->bonus.add_varcast,0); // bonus bVariableCast [Start's] Modify a bit
 		if (sd->bonus.add_fixcast != 0)
-			fixed += sd->bonus.add_fixcast; // bonus bFixedCast
+			fixed = max(fixed + sd->bonus.add_fixcast, 0); // bonus bFixedCast [Start's] Modify a bit
 		for (const auto &it : sd->skillfixcast) {
 			if (it.id == skill_id) { // bonus2 bSkillFixedCast
-				fixed += it.val;
+				fixed = max(fixed + it.val, 0); // [Start's] Modify a bit
 				break;
 			}
 		}
 		for (const auto &it : sd->skillvarcast) {
 			if (it.id == skill_id) { // bonus2 bSkillVariableCast
-				time += it.val;
+				time = max(time + it.val, 0); // [Start's] Modify a bit
 				break;
 			}
 		}
