@@ -28,6 +28,8 @@ struct status_change_entry;
 class status_change;
 class SkillImpl;
 
+extern DBMap* bowling_db;
+
 #define MAX_SKILL_PRODUCE_DB	300 /// Max Produce DB
 #define MAX_PRODUCE_RESOURCE	12 /// Max Produce requirements
 #define MAX_SKILL_LEVEL 13 /// Max Skill Level (for skill_db storage)
@@ -515,7 +517,7 @@ int32 skill_get_inf( uint16 skill_id );
 int32 skill_get_ele( uint16 skill_id , uint16 skill_lv );
 int32 skill_get_max( uint16 skill_id );
 int32 skill_get_range( uint16 skill_id , uint16 skill_lv );
-int32 skill_get_range2(block_list *bl, uint16 skill_id, uint16 skill_lv, bool isServer);
+int32 skill_get_range2(const block_list* bl, uint16 skill_id, uint16 skill_lv, bool isServer);
 int32 skill_get_splash( uint16 skill_id , uint16 skill_lv );
 int32 skill_get_num( uint16 skill_id ,uint16 skill_lv );
 int32 skill_get_cast( uint16 skill_id ,uint16 skill_lv );
@@ -557,6 +559,8 @@ int32 skill_get_state(uint16 skill_id);
 size_t skill_get_status_count( uint16 skill_id );
 int32 skill_get_spiritball( uint16 skill_id, uint16 skill_lv );
 uint16 skill_dummy2skill_id(uint16 skill_id);
+
+int32 splash_target(block_list* bl);
 
 uint16 skill_name2id(const char* name);
 
@@ -610,6 +614,7 @@ void skill_consume_requirement(map_session_data *sd, uint16 skill_id, uint16 ski
 struct s_skill_condition skill_get_requirement(map_session_data *sd, uint16 skill_id, uint16 skill_lv);
 bool skill_disable_check(status_change &sc, uint16 skill_id);
 bool skill_pos_maxcount_check(block_list *src, int16 x, int16 y, uint16 skill_id, uint16 skill_lv, enum bl_type type, bool display_failure);
+bool skill_strip_equip(block_list *src, block_list *target, uint16 skill_id, uint16 skill_lv);
 
 int32 skill_check_pc_partner(map_session_data *sd, uint16 skill_id, uint16 *skill_lv, int32 range, int32 cast_flag);
 int32 skill_unit_move(block_list *bl,t_tick tick,int32 flag);
@@ -645,6 +650,7 @@ int32 skill_castend_nodamage_id( block_list *src, block_list *bl,uint16 skill_id
 int32 skill_castend_damage_id( block_list* src, block_list *bl,uint16 skill_id,uint16 skill_lv,t_tick tick,int32 flag );
 int32 skill_castend_pos2( block_list *src, int32 x,int32 y,uint16 skill_id,uint16 skill_lv,t_tick tick,int32 flag);
 int32 skill_area_sub(block_list *bl, va_list ap);
+int32 skill_area_sub_count(block_list* src, block_list* target, uint16 skill_id, uint16 skill_lv, t_tick tick, int32 flag);
 extern int32 skill_area_temp[8];
 
 bool skill_blockpc_start(map_session_data &sd, uint16 skill_id, t_tick tick);
@@ -664,6 +670,7 @@ TIMER_FUNC(skill_blockmerc_end);
 
 // Skill action, (return dmg,heal)
 int64 skill_attack( int32 attack_type, block_list* src, block_list *dsrc,block_list *bl,uint16 skill_id,uint16 skill_lv,t_tick tick,int32 flag );
+int32 skill_attack_area(struct block_list *bl,va_list ap);
 
 void skill_reload(void);
 
@@ -2819,7 +2826,7 @@ extern ReadingSpellbookDatabase reading_spellbook_db;
 
 void skill_spellbook(map_session_data &sd, t_itemid nameid);
 
-int32 skill_block_check(block_list *bl, enum sc_type type, uint16 skill_id);
+int32 skill_block_check(const block_list* bl, enum sc_type type, uint16 skill_id);
 
 struct s_skill_magicmushroom_db {
 	uint16 skill_id;
