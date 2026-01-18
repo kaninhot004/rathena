@@ -30,6 +30,10 @@ class SkillImpl;
 
 extern DBMap* bowling_db;
 
+#ifndef TIMERSKILL_INTERVAL
+	#define TIMERSKILL_INTERVAL	150
+#endif
+
 #define MAX_SKILL_PRODUCE_DB	300 /// Max Produce DB
 #define MAX_PRODUCE_RESOURCE	12 /// Max Produce requirements
 #define MAX_SKILL_LEVEL 13 /// Max Skill Level (for skill_db storage)
@@ -508,6 +512,8 @@ e_cast_type skill_get_casttype(uint16 skill_id); //[Skotlex]
 const char*	skill_get_name( uint16 skill_id ); 	// [Skotlex]
 const char*	skill_get_desc( uint16 skill_id ); 	// [Skotlex]
 int32 skill_tree_get_max( uint16 skill_id, int32 b_class );	// Celest
+int32 skill_greed(block_list* bl, va_list ap);
+int32 skill_cell_overlap(block_list* bl, va_list ap);
 
 // Accessor to the skills database
 #define skill_get_index(skill_id) skill_db.get_index((skill_id), false, __FUNCTION__, __FILE__, __LINE__) /// Get skill index from skill_id (common usage on source)
@@ -530,6 +536,7 @@ int32 skill_get_castdef( uint16 skill_id );
 int32 skill_get_nocast( uint16 skill_id );
 int32 skill_get_unit_id( uint16 skill_id );
 int32 skill_get_unit_id2( uint16 skill_id );
+int32 skill_get_unit_interval( uint16 skill_id );
 int32 skill_get_castcancel( uint16 skill_id );
 int32 skill_get_maxcount( uint16 skill_id ,uint16 skill_lv );
 int32 skill_get_blewcount( uint16 skill_id ,uint16 skill_lv );
@@ -631,6 +638,8 @@ int32 skill_calc_heal(block_list *src, block_list *target, uint16 skill_id, uint
 
 bool skill_check_cloaking(block_list *bl, struct status_change_entry *sce);
 int8 skill_isCopyable(map_session_data *sd, uint16 skill_id);
+
+int32 skill_graffitiremover(block_list *bl, va_list ap); // [Valaris]
 
 // Abnormal status
 bool skill_isNotOk( uint16 skill_id, map_session_data& sd );
